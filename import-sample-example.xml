@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Sample xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Collector>drb</Collector>
+  <Title>title</Title>
+  <Type>Biota:Pattedyr:Spælsau, Søye</Type>
+  <Part>part</Part>
+  <Identity>ident</Identity>
+  <Latitude>63.4567</Latitude>
+  <Longitude>13.6543</Longitude>
+  <Location>loc</Location>
+  <Quantity>3</Quantity>
+  <QuantityError>3</QuantityError>
+  <Unit>g</Unit>
+  <Geometry>geom</Geometry>
+  <RandomError>0</RandomError>
+  <SystematicError>3</SystematicError>
+  <ReferenceDate>2015-09-15T14:42:31</ReferenceDate>
+</Sample>

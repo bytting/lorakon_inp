@@ -1,0 +1,308 @@
+﻿using System;
+using System.IO;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Diagnostics;
+using Microsoft.Win32;
+using System.Xml;
+using System.Xml.Schema;
+using System.Xml.Serialization;
+
+namespace lorakon
+{
+    public partial class FormSampleInput : Form
+    {
+        bool Initialized = false;
+        const string GenieRegistry = @"SOFTWARE\Wow6432Node\Canberra Industries, Inc.\Genie-2000 Environment";        
+        const string InputBase = "input-params.txt";
+        const string SampleCategoryBase = "sample-types.txt";        
+        string GeniePath, LorakonPath, ReportsPath, SamplePath, QAPath, BkgPath, UploadPath, SystemPath, SampleLoadPath;
+        string SampleCategoryFile, InputFile;
+
+        BindingList<LocationType> LocationTypes = new BindingList<LocationType>();
+        BindingList<CoordinateType> CoordinateTypes = new BindingList<CoordinateType>();
+
+        public FormSampleInput()
+        {
+            InitializeComponent();            
+        }
+
+        string GetGeniePath()
+        {
+            RegistryKey rk = Registry.LocalMachine.OpenSubKey(GenieRegistry, false);
+            String value = (String)rk.GetValue("GENIE2K");
+            if (!String.IsNullOrEmpty(value))
+                return value;            
+
+            if(Directory.Exists("C:\\GENIE2K\\"))
+                return "C:\\GENIE2K\\";
+
+            return String.Empty;
+        }
+
+        private void FormSampleInput_Load(object sender, EventArgs e)
+        {
+            // Load      
+            tbSSyserr.KeyPress += CustomEvents.Integer_KeyPress;
+            tbSSysterr.KeyPress += CustomEvents.Integer_KeyPress;
+            tbSQuant.KeyPress += CustomEvents.Numeric_KeyPress;
+            tbSQuantErr.KeyPress += CustomEvents.Numeric_KeyPress;
+            tbLatitude.KeyPress += CustomEvents.InvariantNumeric_KeyPress;
+            tbLongitude.KeyPress += CustomEvents.InvariantNumeric_KeyPress;
+        }
+
+        private void FormSampleInput_Paint(object sender, PaintEventArgs e)
+        {
+            if (!Initialized)
+            {                
+                try
+                {
+                    Initialized = true;                    
+
+                    tbScollName.Focus();
+
+                    // Check and initialize environment
+                    GeniePath = GetGeniePath();
+                    if (String.IsNullOrEmpty(GeniePath))
+                    {
+                        MessageBox.Show("Genie2k directory not found: " + GeniePath);
+                        Close();
+                        return;
+                    }
+
+                    LorakonPath = GeniePath + "Lorakon\\";
+                    if (!Directory.Exists(LorakonPath))                    
+                        Directory.CreateDirectory(LorakonPath);
+
+                    ReportsPath = LorakonPath + "Rapporter\\";
+                    if (!Directory.Exists(ReportsPath))
+                        Directory.CreateDirectory(ReportsPath);
+
+                    SamplePath = ReportsPath + "PR\\";
+                    if (!Directory.Exists(SamplePath))
+                        Directory.CreateDirectory(SamplePath);
+
+                    QAPath = ReportsPath + "QA\\";
+                    if (!Directory.Exists(QAPath))
+                        Directory.CreateDirectory(QAPath);
+
+                    BkgPath = ReportsPath + "BKG\\";
+                    if (!Directory.Exists(BkgPath))
+                        Directory.CreateDirectory(BkgPath);
+
+                    UploadPath = ReportsPath + "PR_SENT\\";
+                    if (!Directory.Exists(UploadPath))
+                        Directory.CreateDirectory(UploadPath);
+
+                    SystemPath = LorakonPath + "System\\";
+                    if (!Directory.Exists(SystemPath))
+                        Directory.CreateDirectory(SystemPath);                    
+
+                    SampleCategoryFile = SystemPath + SampleCategoryBase;
+                    if (!File.Exists(SampleCategoryFile))
+                    {
+                        MessageBox.Show("Sample type file not found: " + SampleCategoryFile);
+                        Close();
+                        return;
+                    }
+
+                    SampleLoadPath = LorakonPath + "Eksterne\\";
+                    if (!Directory.Exists(SampleLoadPath))
+                        Directory.CreateDirectory(SampleLoadPath);
+
+                    // Load sample types
+                    cboxSDesc1.Items.Clear();
+                    string[] types = File.ReadAllLines(SampleCategoryFile);
+                    cboxSDesc1.Items.AddRange(types);
+
+                    // Load Location types
+                    string LocationTypesFile = SystemPath + Path.DirectorySeparatorChar + "location-types.txt";
+                    if(File.Exists(LocationTypesFile))
+                    {
+                        string[] ltypes = File.ReadAllLines(LocationTypesFile);
+                        for (int i = 0; i < ltypes.Length; i++)
+                            LocationTypes.Add(new LocationType(ltypes[i], i.ToString()));                        
+                    }
+                    cboxLocation.DataSource = LocationTypes;
+                    cboxLocation.DisplayMember = "Name";
+                    cboxLocation.ValueMember = "Value";
+
+                    CoordinateTypes.Add(new CoordinateType("Desimalgrader", "0"));
+                    CoordinateTypes.Add(new CoordinateType("Grader/Minutter/Sekunder", "1"));
+                    cboxCoordType.DataSource = CoordinateTypes;
+                    cboxCoordType.DisplayMember = "Name";
+                    cboxCoordType.ValueMember = "Value";
+
+
+                    InputFile = SystemPath + InputBase;
+                    if (!File.Exists(InputFile))                    
+                        return;                                        
+
+                    // Load params
+                    string[] lines = File.ReadAllLines(InputFile, Encoding.Default);
+                    //if (lines.Length < 16)
+                      //  return;                    
+
+                    tbLab.Text = lines[0];
+                    tbScollName.Text = lines[1];
+                    tbSTitle.Text = lines[2];
+                    cboxSDesc1.Text = lines[3];
+                    tbSIdent.Text = lines[4];
+                    cboxCommunity.SelectedIndex = cboxCommunity.FindStringExact(lines[5]);
+                    cboxCoordType.SelectedValue = lines[6];
+                    tbLatitude.Text = lines[7];
+                    tbLongitude.Text = lines[8];
+                    cboxLocation.SelectedValue = lines[9];
+                    tbSLoctn.Text = lines[10];
+                    tbSQuant.Text = lines[11];
+                    tbSQuantErr.Text = lines[12];
+                    cboxSUnits.Text = lines[13];
+                    cboxSGeomtry.Text = lines[14];                    
+                    DateTime dt = new DateTime(Convert.ToInt64(lines[15]));
+                    dtpSDate.Value = dt;
+                    dtpSTime.Value = dt;
+                    tbLivetime.Text = lines[16];
+                    tbIntegral.Text = lines[17];
+                    tbSSyserr.Text = lines[18];
+                    tbSSysterr.Text = lines[19];
+                    //tbSType.Text = lines[14];                          
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }                
+            }
+        }        
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Abort;            
+
+            // Valider felter
+            if(String.IsNullOrEmpty(tbScollName.Text) 
+                || String.IsNullOrEmpty(tbSTitle.Text)
+                || String.IsNullOrEmpty(cboxSDesc1.Text)
+                || String.IsNullOrEmpty(cboxSUnits.Text)
+                || String.IsNullOrEmpty(tbSQuant.Text) 
+                || String.IsNullOrEmpty(tbSQuantErr.Text))
+            {
+                MessageBox.Show("One or more required fields are missing");
+                return;
+            }
+
+            /*if (String.IsNullOrEmpty(tbSLoctn.Text))
+            {
+                if (String.IsNullOrEmpty(tbLat.Text) || String.IsNullOrEmpty(tbLon.Text))
+                {
+                    MessageBox.Show("Coordinates or location is required");
+                    return;
+                }
+            } */           
+
+            // Opprett fil
+            //TextWriter writer = null;
+            try
+            {                
+                DateTime dt = new DateTime(dtpSDate.Value.Year, dtpSDate.Value.Month, dtpSDate.Value.Day, dtpSTime.Value.Hour, dtpSTime.Value.Minute, dtpSTime.Value.Second);
+
+                string c = tbLab.Text + Environment.NewLine +
+                    tbScollName.Text + Environment.NewLine +
+                    tbSTitle.Text + Environment.NewLine +
+                    cboxSDesc1.Text + Environment.NewLine +
+                    tbSIdent.Text + Environment.NewLine +
+                    cboxCommunity.Text + Environment.NewLine +
+                    cboxCoordType.SelectedValue + Environment.NewLine +
+                    tbLatitude.Text + Environment.NewLine +
+                    tbLongitude.Text + Environment.NewLine +
+                    cboxLocation.SelectedValue + Environment.NewLine +
+                    tbSLoctn.Text + Environment.NewLine +
+                    tbSQuant.Text + Environment.NewLine +
+                    tbSQuantErr.Text + Environment.NewLine +
+                    cboxSUnits.Text + Environment.NewLine +
+                    cboxSGeomtry.Text + Environment.NewLine +                    
+                    dt.Ticks + Environment.NewLine +
+                    tbLivetime.Text + Environment.NewLine +
+                    tbIntegral.Text + Environment.NewLine +
+                    tbSSyserr.Text + Environment.NewLine +
+                    tbSSysterr.Text;
+                //tbSType.Text + Environment.NewLine +
+
+                File.WriteAllText(InputFile, c, Encoding.Default);                
+                DialogResult = DialogResult.OK;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);                
+            }            
+
+            Close();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            Close();
+        }
+
+        private void cboxSDesc1_TextUpdate(object sender, EventArgs e)
+        {
+            ComboBox cb = (ComboBox)sender;
+            while (cb.FindString(cb.Text) < 0 && cb.Text.Length > 0)
+            {
+                cb.Text = cb.Text.Substring(0, cb.Text.Length - 1);
+                cb.Select(cb.Text.Length, 0);
+            }
+        }
+
+        private void cboxSDesc1_Leave(object sender, EventArgs e)
+        {
+            ComboBox cb = (ComboBox)sender;
+            if (cb.FindStringExact(cb.Text) < 0 && cb.Text.Length > 0)
+            {
+                cb.Focus();
+                cb.Select(cb.Text.Length, 1);           
+            }
+        }        
+    }
+
+    public class LocationType
+    {
+        public string Name { get; set; }
+        public string Value { get; set; }
+
+        public LocationType(string name, string value)
+        {
+            Name = name;
+            Value = value;
+        }
+
+        public override string ToString()
+        {
+            return Name;
+        }
+    }
+
+    public class CoordinateType
+    {
+        public string Name { get; set; }
+        public string Value { get; set; }
+
+        public CoordinateType(string name, string value)
+        {
+            Name = name;
+            Value = value;
+        }
+
+        public override string ToString()
+        {
+            return Name;
+        }
+    }
+}
