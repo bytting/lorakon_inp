@@ -1,5 +1,5 @@
 ﻿/*	
-	Crash - Controlling application for Burn
+	lorakon_inp - Sample input form for Genie2k
     Copyright (C) 2016  Norwegian Radiation Protection Authority
 
     This program is free software: you can redistribute it and/or modify
@@ -15,7 +15,7 @@
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-// Authors: Dag robole,
+// Authors: Dag Robole,
 
 using System;
 using System.Windows.Forms;
