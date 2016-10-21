@@ -1,192 +1,192 @@
-﻿Biota:Ferskvannsfisk
-Biota:Fugl:Fjellrype
-Biota:Fugl:Lirype
-Biota:Fugl:Orrfugl
-Biota:Fugl:Rugde
-Biota:Fugl:Rype (uspes)
-Biota:Insekter:Europeisk honningbie
-Biota:Pattedyr:Dåhjort
-Biota:Pattedyr:Elg
-Biota:Pattedyr:Fjellrotte
-Biota:Pattedyr:Gaupe
-Biota:Pattedyr:Gråsidemus
-Biota:Pattedyr:Isbjørn
-Biota:Pattedyr:Jerv
-Biota:Pattedyr:Klatremus
-Biota:Pattedyr:Lam
-Biota:Pattedyr:Lemmen
-Biota:Pattedyr:Markmus
-Biota:Pattedyr:Menneske
-Biota:Pattedyr:Polarrev
-Biota:Pattedyr:Reinsdyr
-Biota:Pattedyr:Ringsel
-Biota:Pattedyr:Rødmus
-Biota:Pattedyr:Rødrev
-Biota:Pattedyr:Spissmus (ikke spesifisert)
-Biota:Pattedyr:Spælsau, Lam
-Biota:Pattedyr:Spælsau, Søye
-Biota:Pattedyr:Storfe
-Biota:Pattedyr:Storkobbe
-Biota:Pattedyr:Svalbard rein
-Biota:Pattedyr:ukjent
-Biota:planter:Bergmynte
-Biota:planter:Bjørk
-Biota:planter:Blokkebær
-Biota:planter:Blokkebær
-Biota:planter:Blåbær
-Biota:planter:Bringebær
-Biota:planter:Bukkeblad
-Biota:planter:Dunbjørk
-Biota:planter:Duskull
-Biota:planter:Dvergbjørk
-Biota:planter:Einer
-Biota:planter:Engsyre
-Biota:planter:Etasjemose
-Biota:planter:Fjellmarikåpe
-Biota:planter:Fjellreinlav
-Biota:planter:Fjellsyre
-Biota:planter:Flaskestarr
-Biota:planter:Fnaslav
-Biota:planter:Fugletelg
-Biota:planter:Furu
-Biota:planter:Furu
-Biota:planter:Furumose
-Biota:planter:Furutorvmose
-Biota:planter:Gress
-Biota:planter:Grønnvier
-Biota:planter:Grå reinlav
-Biota:planter:Gråvier
-Biota:planter:Gråvier
-Biota:planter:Gullris
-Biota:planter:Gulskinn
-Biota:planter:Harerug
-Biota:planter:Islandslav
-Biota:planter:Kamskjel
-Biota:planter:Kasjutre
-Biota:planter:Krekling
-Biota:planter:Lappvier
-Biota:planter:Lys reinlav
-Biota:planter:Marimjelle
-Biota:planter:Matsyre/Engsyre
-Biota:planter:Multe
-Biota:planter:Museøre
-Biota:planter:Paranøttre
-Biota:planter:Peanøtt
-Biota:planter:Pistasjtre
-Biota:planter:Rabbesiv
-Biota:planter:Reinlav (Kvitkrull)
-Biota:planter:Reinlav (uspes)
-Biota:planter:Rogn
-Biota:planter:Røsslyng
-Biota:planter:Sitkagran
-Biota:planter:Skogstorknebb
-Biota:planter:Smyle
-Biota:planter:Snøull
-Biota:planter:Starr
-Biota:planter:Stivstarr
-Biota:planter:Syre
-Biota:planter:Torvmose sp.
-Biota:planter:Torvull
-Biota:planter:Tyttebær
-Biota:planter:ukjent
-Biota:planter:Vier
-Biota:Saltvannsfisk:Hyse
-Biota:Saltvannsfisk:Makrell
-Biota:Saltvannsfisk:Sei
-Biota:Saltvannsfisk:Sild
-Biota:Saltvannsfisk:Torsk
-Biota:Sjøpattedyr:Sel
-Biota:Skalldyr:Albusnegl/albuskjell
-Biota:Skalldyr:amfipod
-Biota:Skalldyr:Blåskjel
-Biota:Skalldyr:Europeisk hummer
-Biota:Skalldyr:Hoppekreps
-Biota:Skalldyr:Knivskjel
-Biota:Skalldyr:Leddsnegle
-Biota:Skalldyr:Middelhavsskjell
-Biota:Skalldyr:O-skjel
-Biota:Skalldyr:Reker
-Biota:Skalldyr:sandmusling
-Biota:Skalldyr:Snegler
-Biota:Skalldyr:Taskekrabbe
-Biota:Skalldyr:ukjent
-Biota:Sopp:Blek piggsopp
-Biota:Sopp:Branngul riske 
-Biota:Sopp:Brun ringløs fluesopp
-Biota:Sopp:Brunskrubb
-Biota:Sopp:Fløyelsrørsopp
-Biota:Sopp:Grønnkremle
-Biota:Sopp:Grå kamfluesopp
-Biota:Sopp:Hulriske
-Biota:Sopp:Kantarell
-Biota:Sopp:Matriske
-Biota:Sopp:Mild gulkremle
-Biota:Sopp:Myrskrubb
-Biota:Sopp:Pepperrørsopp
-Biota:Sopp:Pluggsopp
-Biota:Sopp:Rimsopp
-Biota:Sopp:Rosa sleipsopp
-Biota:Sopp:Rød fluesopp
-Biota:Sopp:Rødbelteslørsopp
-Biota:Sopp:Rødbrun flathatt
-Biota:Sopp:Rødbrun pepperriske
-Biota:Sopp:Rødnende fluesopp
-Biota:Sopp:Rødskrubb
-Biota:Sopp:Sandsopp
-Biota:Sopp:Seig kusopp
-Biota:Sopp:Skjeggriske
-Biota:Sopp:Smørsopp
-Biota:Sopp:Steinsopp
-Biota:Sopp:Svartbrun rørsopp
-Biota:Sopp:Svartskrubb
-Biota:Sopp:Svovelsopp 
-Biota:Tang/tare:Blæretang
-Biota:Tang/tare:Fingertare
-Biota:Tang/tare:Grisetang
-Biota:Tang/tare:Kaurtang/Spiraltang
-Biota:Tang/tare:mosdyr 
-Biota:Tang/tare:Sagtang
-Biota:Tang/tare:Sauetang
-Biota:Tang/tare:Stortare
-Biota:Tang/tare:Stritt kjerringhår
-Biota:Tang/tare:Sukkertare
-Biota:Tang/tare:Tare
-Diverse:Bomull
-Diverse:Edelsten
-Diverse:Gulvbelegg
-Diverse:Gulvstøv
-Diverse:Interkalibreringsløsning
-Diverse:Interkalibreringsprøve
-Diverse:Phosphogypsum
-Diverse:Phosphogypsum, IAEA-434
-Diverse:Plast
-Diverse:Stryktest
-Diverse:Treforedling
-Diverse:Trepall
-Diverse:Uranpellets
-Diverse:Utfelling
-Diverse:Wipe test
-Jord/Sediment:jord
-Jord/Sediment:Sand
-Jord/Sediment:Sediment
-Jord/Sediment:Slagg
-Jord/Sediment:Stein
-Jord/Sediment:Vulkanskaske
-Luft:Kull
-Luft:Luftfilter
-Næringsmidler:Honning
-Næringsmidler:Kjøtt
-Næringsmidler:Kraftfor
-Næringsmidler:Melk
-Næringsmidler:Ost
-Næringsmidler:Ris
-Vann:Avfallsvann
-Vann:Avløpsvann (Kolonne)
-Vann:Brakkvann
-Vann:Ferskvann
-Vann:grunnvann
-Vann:Ikke oppgitt
-Vann:Kloakk vann
-Vann:Regnvann
-Vann:Saltvann
-Vann:Sjøvann/saltvann
+﻿Ferskvannsfisk -> Biota
+Fjellrype -> Biota/Fugl
+Lirype -> Biota/Fugl
+Orrfugl -> Biota/Fugl
+Rugde -> Biota/Fugl
+Rype (uspes) -> Biota/Fugl
+Europeisk honningbie -> Biota/Insekter
+Dåhjort -> Biota/Pattedyr
+Elg -> Biota/Pattedyr
+Fjellrotte -> Biota/Pattedyr
+Gaupe -> Biota/Pattedyr
+Gråsidemus -> Biota/Pattedyr
+Isbjørn -> Biota/Pattedyr
+Jerv -> Biota/Pattedyr
+Klatremus -> Biota/Pattedyr
+Lam -> Biota/Pattedyr
+Lemmen -> Biota/Pattedyr
+Markmus -> Biota/Pattedyr
+Menneske -> Biota/Pattedyr
+Polarrev -> Biota/Pattedyr
+Reinsdyr -> Biota/Pattedyr
+Ringsel -> Biota/Pattedyr
+Rødmus -> Biota/Pattedyr
+Rødrev -> Biota/Pattedyr
+Spissmus (ikke spesifisert) -> Biota/Pattedyr
+Spælsau, Lam -> Biota/Pattedyr
+Spælsau, Søye -> Biota/Pattedyr
+Storfe -> Biota/Pattedyr
+Storkobbe -> Biota/Pattedyr
+Svalbard rein -> Biota/Pattedyr
+ukjent -> Biota/Pattedyr
+Bergmynte -> Biota/planter
+Bjørk -> Biota/planter
+Blokkebær -> Biota/planter
+Blokkebær -> Biota/planter
+Blåbær -> Biota/planter
+Bringebær -> Biota/planter
+Bukkeblad -> Biota/planter
+Dunbjørk -> Biota/planter
+Duskull -> Biota/planter
+Dvergbjørk -> Biota/planter
+Einer -> Biota/planter
+Engsyre -> Biota/planter
+Etasjemose -> Biota/planter
+Fjellmarikåpe -> Biota/planter
+Fjellreinlav -> Biota/planter
+Fjellsyre -> Biota/planter
+Flaskestarr -> Biota/planter
+Fnaslav -> Biota/planter
+Fugletelg -> Biota/planter
+Furu -> Biota/planter
+Furu -> Biota/planter
+Furumose -> Biota/planter
+Furutorvmose -> Biota/planter
+Gress -> Biota/planter
+Grønnvier -> Biota/planter
+Grå reinlav -> Biota/planter
+Gråvier -> Biota/planter
+Gråvier -> Biota/planter
+Gullris -> Biota/planter
+Gulskinn -> Biota/planter
+Harerug -> Biota/planter
+Islandslav -> Biota/planter
+Kamskjel -> Biota/planter
+Kasjutre -> Biota/planter
+Krekling -> Biota/planter
+Lappvier -> Biota/planter
+Lys reinlav -> Biota/planter
+Marimjelle -> Biota/planter
+Matsyre/Engsyre -> Biota/planter
+Multe -> Biota/planter
+Museøre -> Biota/planter
+Paranøttre -> Biota/planter
+Peanøtt -> Biota/planter
+Pistasjtre -> Biota/planter
+Rabbesiv -> Biota/planter
+Reinlav (Kvitkrull) -> Biota/planter
+Reinlav (uspes) -> Biota/planter
+Rogn -> Biota/planter
+Røsslyng -> Biota/planter
+Sitkagran -> Biota/planter
+Skogstorknebb -> Biota/planter
+Smyle -> Biota/planter
+Snøull -> Biota/planter
+Starr -> Biota/planter
+Stivstarr -> Biota/planter
+Syre -> Biota/planter
+Torvmose sp. -> Biota/planter
+Torvull -> Biota/planter
+Tyttebær -> Biota/planter
+ukjent -> Biota/planter
+Vier -> Biota/planter
+Hyse -> Biota/Saltvannsfisk
+Makrell -> Biota/Saltvannsfisk
+Sei -> Biota/Saltvannsfisk
+Sild -> Biota/Saltvannsfisk
+Torsk -> Biota/Saltvannsfisk
+Sel -> Biota/Sjøpattedyr
+Albusnegl/albuskjell -> Biota/Skalldyr
+amfipod -> Biota/Skalldyr
+Blåskjel -> Biota/Skalldyr
+Europeisk hummer -> Biota/Skalldyr
+Hoppekreps -> Biota/Skalldyr
+Knivskjel -> Biota/Skalldyr
+Leddsnegle -> Biota/Skalldyr
+Middelhavsskjell -> Biota/Skalldyr
+O-skjel -> Biota/Skalldyr
+Reker -> Biota/Skalldyr
+sandmusling -> Biota/Skalldyr
+Snegler -> Biota/Skalldyr
+Taskekrabbe -> Biota/Skalldyr
+ukjent -> Biota/Skalldyr
+Blek piggsopp -> Biota/Sopp
+Branngul riske  -> Biota/Sopp
+Brun ringløs fluesopp -> Biota/Sopp
+Brunskrubb -> Biota/Sopp
+Fløyelsrørsopp -> Biota/Sopp
+Grønnkremle -> Biota/Sopp
+Grå kamfluesopp -> Biota/Sopp
+Hulriske -> Biota/Sopp
+Kantarell -> Biota/Sopp
+Matriske -> Biota/Sopp
+Mild gulkremle -> Biota/Sopp
+Myrskrubb -> Biota/Sopp
+Pepperrørsopp -> Biota/Sopp
+Pluggsopp -> Biota/Sopp
+Rimsopp -> Biota/Sopp
+Rosa sleipsopp -> Biota/Sopp
+Rød fluesopp -> Biota/Sopp
+Rødbelteslørsopp -> Biota/Sopp
+Rødbrun flathatt -> Biota/Sopp
+Rødbrun pepperriske -> Biota/Sopp
+Rødnende fluesopp -> Biota/Sopp
+Rødskrubb -> Biota/Sopp
+Sandsopp -> Biota/Sopp
+Seig kusopp -> Biota/Sopp
+Skjeggriske -> Biota/Sopp
+Smørsopp -> Biota/Sopp
+Steinsopp -> Biota/Sopp
+Svartbrun rørsopp -> Biota/Sopp
+Svartskrubb -> Biota/Sopp
+Svovelsopp  -> Biota/Sopp
+Blæretang -> Biota/Tang/tare
+Fingertare -> Biota/Tang/tare
+Grisetang -> Biota/Tang/tare
+Kaurtang/Spiraltang -> Biota/Tang/tare
+mosdyr  -> Biota/Tang/tare
+Sagtang -> Biota/Tang/tare
+Sauetang -> Biota/Tang/tare
+Stortare -> Biota/Tang/tare
+Stritt kjerringhår -> Biota/Tang/tare
+Sukkertare -> Biota/Tang/tare
+Tare -> Biota/Tang/tare
+Bomull -> Diverse
+Edelsten -> Diverse
+Gulvbelegg -> Diverse
+Gulvstøv -> Diverse
+Interkalibreringsløsning -> Diverse
+Interkalibreringsprøve -> Diverse
+Phosphogypsum -> Diverse
+Phosphogypsum, IAEA-434 -> Diverse
+Plast -> Diverse
+Stryktest -> Diverse
+Treforedling -> Diverse
+Trepall -> Diverse
+Uranpellets -> Diverse
+Utfelling -> Diverse
+Wipe test -> Diverse
+jord -> Jord/Sediment
+Sand -> Jord/Sediment
+Sediment -> Jord/Sediment
+Slagg -> Jord/Sediment
+Stein -> Jord/Sediment
+Vulkanskaske -> Jord/Sediment
+Kull -> Luft
+Luftfilter -> Luft
+Honning -> Næringsmidler
+Kjøtt -> Næringsmidler
+Kraftfor -> Næringsmidler
+Melk -> Næringsmidler
+Ost -> Næringsmidler
+Ris -> Næringsmidler
+Avfallsvann -> Vann
+Avløpsvann (Kolonne) -> Vann
+Brakkvann -> Vann
+Ferskvann -> Vann
+grunnvann -> Vann
+Ikke oppgitt -> Vann
+Kloakk vann -> Vann
+Regnvann -> Vann
+Saltvann -> Vann
+Sjøvann/saltvann -> Vann

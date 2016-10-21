@@ -67,6 +67,9 @@ namespace lorakon
             tbSQuantErr.KeyPress += CustomEvents.Numeric_KeyPress;
             tbLatitude.KeyPress += CustomEvents.InvariantNumeric_KeyPress;
             tbLongitude.KeyPress += CustomEvents.InvariantNumeric_KeyPress;
+            tbAltitude.KeyPress += CustomEvents.Integer_KeyPress;
+            tbStartChannel.KeyPress += CustomEvents.Integer_KeyPress;
+            tbEndChannel.KeyPress += CustomEvents.Integer_KeyPress;
         }
 
         private void FormSampleInput_Paint(object sender, PaintEventArgs e)
@@ -139,12 +142,12 @@ namespace lorakon
                     // Load communities
                     cboxCommunity.Items.Clear();
                     string[] commTypes = File.ReadAllLines(CommunitiesFile, Encoding.UTF8);
-                    cboxCommunity.Items.AddRange(commTypes);
+                    cboxCommunity.Items.AddRange(commTypes);                    
 
                     // Load geometry types
                     cboxSGeomtry.Items.Clear();                    
                     string[] geomTypes = File.ReadAllLines(GeometryTypeFile, Encoding.UTF8);
-                    cboxSGeomtry.Items.AddRange(geomTypes);
+                    cboxSGeomtry.Items.AddRange(geomTypes);                    
 
                     // Load sample types
                     cboxSDesc1.Items.Clear();
@@ -158,7 +161,7 @@ namespace lorakon
                     cboxLocation.DisplayMember = "Name";
                     cboxLocation.ValueMember = "Value";
 
-                    CoordinateTypes.Add(new CoordinateType("Desimalgrader", "0"));
+                    CoordinateTypes.Add(new CoordinateType("Desimalgrader (Lat,Lon,Alt)", "0"));
                     CoordinateTypes.Add(new CoordinateType("Grader/Minutter/Sekunder", "1"));
                     cboxCoordType.DataSource = CoordinateTypes;
                     cboxCoordType.DisplayMember = "Name";
@@ -166,11 +169,15 @@ namespace lorakon
 
                     InputFile = SystemPath + InputBase;
                     if (!File.Exists(InputFile))                    
-                        return;                                        
+                        return;
+
+                    DateTime now = DateTime.Now;
+                    dtpSDate.Value = now;
+                    dtpSTime.Value = new DateTime(now.Year, now.Month, now.Day, 12, 0, 0);
 
                     // Load params
                     string[] lines = File.ReadAllLines(InputFile, Encoding.UTF8);
-                    if (lines.Length >= 22)
+                    if (lines.Length >= 23)
                     {
                         tbLab.Text = lines[0];
                         tbScollName.Text = lines[1];
@@ -181,27 +188,24 @@ namespace lorakon
                         cboxCoordType.SelectedValue = lines[6];
                         tbLatitude.Text = lines[7];
                         tbLongitude.Text = lines[8];
-                        cboxLocation.SelectedValue = lines[9];
-                        tbSLoctn.Text = lines[10];
-                        tbSQuant.Text = lines[11];
-                        tbSQuantErr.Text = lines[12];
-                        cboxSUnits.Text = lines[13];
-                        cboxSGeomtry.Text = lines[14];
-                        DateTime dt = new DateTime(Convert.ToInt64(lines[15]));
+                        tbAltitude.Text = lines[9];
+                        cboxLocation.SelectedValue = lines[10];
+                        tbSLoctn.Text = lines[11];
+                        tbSQuant.Text = lines[12];
+                        tbSQuantErr.Text = lines[13];
+                        cboxSUnits.Text = lines[14];
+                        cboxSGeomtry.Text = lines[15];
+                        DateTime dt = Convert.ToDateTime(lines[16]);
                         dtpSDate.Value = dt;
                         dtpSTime.Value = dt;
-                        tbLivetime.Text = lines[16];
-                        tbIntegral.Text = lines[17];
-                        tbSSyserr.Text = lines[18];
-                        tbSSysterr.Text = lines[19];
-                        tbStartChannel.Text = lines[20];
-                        tbEndChannel.Text = lines[21];
+                        tbLivetime.Text = lines[17];
+                        tbIntegral.Text = lines[18];
+                        tbSSyserr.Text = lines[19];
+                        tbSSysterr.Text = lines[20];
+                        tbStartChannel.Text = lines[21];
+                        tbEndChannel.Text = lines[22];
                         //tbSType.Text = lines[14];                          
-                    }
-
-                    DateTime now = DateTime.Now;
-                    dtpSDate.Value = now;
-                    dtpSTime.Value = new DateTime(now.Year, now.Month, now.Day, 12, 0, 0);
+                    }                    
 
                     tbScollName.Focus();
                 }
@@ -252,13 +256,14 @@ namespace lorakon
                     cboxCoordType.SelectedValue + Environment.NewLine +
                     tbLatitude.Text + Environment.NewLine +
                     tbLongitude.Text + Environment.NewLine +
+                    tbAltitude.Text + Environment.NewLine +
                     cboxLocation.SelectedValue + Environment.NewLine +
                     tbSLoctn.Text + Environment.NewLine +
                     tbSQuant.Text + Environment.NewLine +
                     tbSQuantErr.Text + Environment.NewLine +
                     cboxSUnits.Text + Environment.NewLine +
                     cboxSGeomtry.Text + Environment.NewLine +
-                    dt.Ticks + Environment.NewLine +
+                    dt.ToString("yyyy-MM-dd hh:mm:ss") + Environment.NewLine +
                     tbLivetime.Text + Environment.NewLine +
                     tbIntegral.Text + Environment.NewLine +
                     tbSSyserr.Text + Environment.NewLine +

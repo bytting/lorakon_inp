@@ -82,6 +82,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="lorakon-run.wsc" />
     <Content Include="template_communities.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
