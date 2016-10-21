@@ -120,20 +120,48 @@ namespace lorakon
                     string InstallDir = Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]) + Path.DirectorySeparatorChar;
 
                     GeometryTypeFile = SystemPath + GeometryTypeBase;
-                    if (!File.Exists(GeometryTypeFile))                    
+                    if (!File.Exists(GeometryTypeFile))
+                    {
+                        if(!File.Exists(InstallDir + "template_geometry-types.txt"))
+                        {
+                            MessageBox.Show("Finner ikke filen " + InstallDir + "template_geometry-types.txt");
+                            Close();
+                        }
                         File.Copy(InstallDir + "template_geometry-types.txt", GeometryTypeFile, true);
+                    }
 
                     SampleCategoryFile = SystemPath + SampleCategoryBase;
                     if (!File.Exists(SampleCategoryFile))
+                    {
+                        if (!File.Exists(InstallDir + "template_sample-types.txt"))
+                        {
+                            MessageBox.Show("Finner ikke filen " + InstallDir + "template_sample-types.txt");
+                            Close();
+                        }
                         File.Copy(InstallDir + "template_sample-types.txt", SampleCategoryFile, true);
+                    }
 
                     CommunitiesFile = SystemPath + CommunitiesBase;
                     if (!File.Exists(CommunitiesFile))
+                    {
+                        if (!File.Exists(InstallDir + "template_communities.txt"))
+                        {
+                            MessageBox.Show("Finner ikke filen " + InstallDir + "template_communities.txt");
+                            Close();
+                        }
                         File.Copy(InstallDir + "template_communities.txt", CommunitiesFile, true);
+                    }
 
                     LocationTypeFile = SystemPath + LocationTypeBase;
                     if (!File.Exists(LocationTypeFile))
+                    {
+                        if (!File.Exists(InstallDir + "template_location-types.txt"))
+                        {
+                            MessageBox.Show("Finner ikke filen " + InstallDir + "template_location-types.txt");
+                            Close();
+                        }
                         File.Copy(InstallDir + "template_location-types.txt", LocationTypeFile, true);
+                    }
 
                     SampleLoadPath = LorakonPath + "Eksterne\\";
                     if (!Directory.Exists(SampleLoadPath))
