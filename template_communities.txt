@@ -1,0 +1,433 @@
+﻿Rømskog, Østfold
+Marker, Østfold
+Aremark, Østfold
+Halden, Østfold
+Trøgstad, Østfold
+Spydeberg, Østfold
+Hobøl, Østfold
+Askim, Østfold
+Skiptvet, Østfold
+Eidsberg, Østfold
+Rakkestad, Østfold
+Våler, Østfold
+Moss, Østfold
+Rygge, Østfold
+Råde, Østfold
+Sarpsborg, Østfold
+Fredrikstad, Østfold
+Hvaler, Østfold
+Hurdal, Akershus
+Eidsvoll, Akershus
+Nes, Akershus
+Aurskog-Høland, Akershus
+Ullensaker, Akershus
+Nannestad, Akershus
+Gjerdrum, Akershus
+Nittedal, Akershus
+Sørum, Akershus
+Skedsmo, Akershus
+Lørenskog, Akershus
+Fet, Akershus
+Rælingen, Akershus
+Enebakk, Akershus
+Ski, Akershus
+Oppegård, Akershus
+Nesodden, Akershus
+Bærum, Akershus
+Asker, Akershus
+Frogn, Akershus
+Ås, Akershus
+Vestby, Akershus
+Oslo, Oslo
+Svelvik, Vestfold
+Sande, Vestfold
+Hof, Vestfold
+Holmestrand, Vestfold
+Lardal, Vestfold
+Larvik, Vestfold
+Andebu, Vestfold
+Ramnes, Vestfold
+Våle, Vestfold
+Borre, Vestfold
+Tønsberg, Vestfold
+Stokke, Vestfold
+Sandefjord, Vestfold
+Nøtterøy, Vestfold
+Tjøme, Vestfold
+Vinje, Telemark
+Tinn, Telemark
+Notodden, Telemark
+Hjartdal, Telemark
+Seljord, Telemark
+Kviteseid, Telemark
+Tokke, Telemark
+Fyresdal, Telemark
+Nissedal, Telemark
+Drangedal, Telemark
+Bø, Telemark
+Nome, Telemark
+Sauherad, Telemark
+Skien, Telemark
+Siljan, Telemark
+Porsgrunn, Telemark
+Bamble, Telemark
+Kragerø, Telemark
+Bykle, Aust-Agder
+Valle, Aust-Agder
+Bygland, Aust-Agder
+Evje og Hornnes, Aust-Agder
+Åmli, Aust-Agder
+Froland, Aust-Agder
+Birkenes, Aust-Agder
+Iveland, Aust-Agder
+Lillesand, Aust-Agder
+Grimstad, Aust-Agder
+Arendal, Aust-Agder
+Tvedestrand, Aust-Agder
+Vegårshei, Aust-Agder
+Gjerstad, Aust-Agder
+Risør, Aust-Agder
+Sirdal, Vest-Agder
+Flekkefjord, Vest-Agder
+Kvinesdal, Vest-Agder
+Åseral, Vest-Agder
+Hægebostad, Vest-Agder
+Farsund, Vest-Agder
+Lyngdal, Vest-Agder
+Lindesnes, Vest-Agder
+Audnedal, Vest-Agder
+Mandal, Vest-Agder
+Marnardal, Vest-Agder
+Søgne, Vest-Agder
+Songdalen, Vest-Agder
+Vennesla, Vest-Agder
+Kristiansand, Vest-Agder
+Lund, Rogaland
+Sokndal, Rogaland
+Eigersund, Rogaland
+Hå, Rogaland
+Bjerkreim, Rogaland
+Gjesdal, Rogaland
+Time, Rogaland
+Klepp, Rogaland
+Sola, Rogaland
+Sandnes, Rogaland
+Stavanger, Rogaland
+Randaberg, Rogaland
+Kvitsøy, Rogaland
+Rennesøy, Rogaland
+Strand, Rogaland
+Forsand, Rogaland
+Hjelmeland, Rogaland
+Finnøy, Rogaland
+Suldal, Rogaland
+Sauda, Rogaland
+Vindafjord, Rogaland
+Tysvær, Rogaland
+Haugesund, Rogaland
+Karmøy, Rogaland
+Bokn, Rogaland
+Utsira, Rogaland
+Ulvik, Hordaland
+Eidfjord, Hordaland
+Ullensvang, Hordaland
+Odda, Hordaland
+Jondal, Hordaland
+Kvinnherad, Hordaland
+Etne, Hordaland
+Sveio, Hordaland
+Bømlo, Hordaland
+Stord, Hordaland
+Fitjar, Hordaland
+Tysnes, Hordaland
+Fusa, Hordaland
+Kvam, Hordaland
+Granvin, Hordaland
+Voss, Hordaland
+Vaksdal, Hordaland
+Semnanger, Hordaland
+Os, Hordaland
+Austevoll, Hordaland
+Bergen, Hordaland
+Osterøy, Hordaland
+Modalen, Hordaland
+Masfjorden, Hordaland
+Lindås, Hordaland
+Sund, Hordaland
+Fjell, Hordaland
+Askøy, Hordaland
+Øygarden, Hordaland
+Meland, Hordaland
+Radøy, Hordaland
+Austrheim, Hordaland
+Fedje, Hordaland
+Hemsedal, Buskerud
+Gol, Buskerud
+Ål, Buskerud
+Hol, Buskerud
+Nes, Buskerud
+Nore og Uvdal, Buskerud
+Flå, Buskerud
+Rollag, Buskerud
+Sigdal, Buskerud
+Krødsherad, Buskerud
+Ringerike, Buskerud
+Hole, Buskerud
+Modum, Buskerud
+Flesberg, Buskerud
+Kongsberg, Buskerud
+Øvre Eiker, Buskerud
+Nedre Eiker, Buskerud
+Lier, Buskerud
+Drammen, Buskerud
+Røyken, Buskerud
+Hurum, Buskerud
+Lærdal, Sogn og Fjordane
+Årdal, Sogn og Fjordane
+Luster, Sogn og Fjordane
+Aurland, Sogn og Fjordane
+Vik, Sogn og Fjordane
+Høyanger, Sogn og Fjordane
+Gulen, Sogn og Fjordane
+Hyllestad, Sogn og Fjordane
+Solund, Sogn og Fjordane
+Sogndal, Sogn og Fjordane
+Leikanger, Sogn og Fjordane
+Balestrand, Sogn og Fjordane
+Stryn, Sogn og Fjordane
+Hornindal, Sogn og Fjordane
+Eid, Sogn og Fjordane
+Gaular, Sogn og Fjordane
+Fjaler, Sogn og Fjordane
+Askvoll, Sogn og Fjordane
+Førde, Sogn og Fjordane
+Jølster, Sogn og Fjordane
+Gloppen, Sogn og Fjordane
+Naustdal, Sogn og Fjordane
+Flora, Sogn og Fjordane
+Bremanger, Sogn og Fjordane
+Vågsøy, Sogn og Fjordane
+Selje, Sogn og Fjordane
+Skjåk, Oppland
+Lesja, Oppland
+Dovre, Oppland
+Lom, Oppland
+Vågå, Oppland
+Sel, Oppland
+Vang, Oppland
+Vestre Slidre, Oppland
+Øystre Slidre, Oppland
+Nord-Aurdal, Oppland
+Etnedal, Oppland
+Nord-Fron, Oppland
+Sør-Fron, Oppland
+Gausdal, Oppland
+Ringebu, Oppland
+Øyer, Oppland
+Lillehammer, Oppland
+Nordre Land, Oppland
+Gjøvik, Oppland
+Sør-Aurdal, Oppland
+Søndre Land, Oppland
+Vestre Toten, Oppland
+Østre Toten, Oppland
+Gran, Oppland
+Jevnaker, Oppland
+Lunner, Oppland
+Folldal, Hedmark
+Tynset, Hedmark
+Tolga, Hedmark
+Os, Hedmark
+Engerdal, Hedmark
+Alvdal, Hedmark
+Rendalen, Hedmark
+Stor-Elvdal, Hedmark
+Trysil, Hedmark
+Åmot, Hedmark
+Ringsaker, Hedmark
+Hamar, Hedmark
+Løten, Hedmark
+Elverum, Hedmark
+Stange, Hedmark
+Våler, Hedmark
+Åsnes, Hedmark
+Nord-Odal, Hedmark
+Sør-Odal, Hedmark
+Grue, Hedmark
+Kongsvinger, Hedmark
+Eidskog, Hedmark
+Sunndal, Møre og Romsdal
+Surnadal, Møre og Romsdal
+Rindal, Møre og Romsdal
+Nesset, Møre og Romsdal
+Rauma, Møre og Romsdal
+Molde, Møre og Romsdal
+Tingvoll, Møre og Romsdal
+Halsa, Møre og Romsdal
+Aure, Møre og Romsdal
+Tustna, Møre og Romsdal
+Smøla, Møre og Romsdal
+Frei, Møre og Romsdal
+Gjemnes, Møre og Romsdal
+Kristiansund, Møre og Romsdal
+Eide, Møre og Romsdal
+Averøy, Møre og Romsdal
+Fræna, Møre og Romsdal
+Aukra, Møre og Romsdal
+Norddal, Møre og Romsdal
+Stranda, Møre og Romsdal
+Stordal, Møre og Romsdal
+Vestnes, Møre og Romsdal
+Ørskog, Møre og Romsdal
+Ørsta, Møre og Romsdal
+Sykkylven, Møre og Romsdal
+Volda, Møre og Romsdal
+Vanylven, Møre og Romsdal
+Sande, Møre og Romsdal
+Skodje, Møre og Romsdal
+Haram, Møre og Romsdal
+Midsund, Møre og Romsdal
+Sandøy, Møre og Romsdal
+Ålesund, Møre og Romsdal
+Sula, Møre og Romsdal
+Giske, Møre og Romsdal
+Hareid, Møre og Romsdal
+Ulstein, Møre og Romsdal
+Herøy, Møre og Romsdal
+Røros, Sør-Trøndelag
+Tydal, Sør-Trøndelag
+Selbu, Sør-Trøndelag
+Holtålen, Sør-Trøndelag
+Midtre Gauldal, Sør-Trøndelag
+Oppdal, Sør-Trøndelag
+Rennebu, Sør-Trøndelag
+Meldal, Sør-Trøndelag
+Malvik, Sør-Trøndelag
+Melhus, Sør-Trøndelag
+Klæbu, Sør-Trøndelag
+Trondheim, Sør-Trøndelag
+Skaun, Sør-Trøndelag
+Orkdal, Sør-Trøndelag
+Hemne, Sør-Trøndelag
+Snillfjord, Sør-Trøndelag
+Agdenes, Sør-Trøndelag
+Rissa, Sør-Trøndelag
+Åfjord, Sør-Trøndelag
+Roan, Sør-Trøndelag
+Osen, Sør-Trøndelag
+Hitra, Sør-Trøndelag
+Frøya, Sør-Trøndelag
+Ørland, Sør-Trøndelag
+Bjugn, Sør-Trøndelag
+Lierne, Nord-Trøndelag
+Røyrvik, Nord-Trøndelag
+Snåsa, Nord-Trøndelag
+Verdal, Nord-Trøndelag
+Meråker, Nord-Trøndelag
+Stjørdal, Nord-Trøndelag
+Frosta, Nord-Trøndelag
+Levanger, Nord-Trøndelag
+Namsskogan, Nord-Trøndelag
+Grong, Nord-Trøndelag
+Høylandet, Nord-Trøndelag
+Overhalla, Nord-Trøndelag
+Steinkjer, Nord-Trøndelag
+Leksvik, Nord-Trøndelag
+Mosvik, Nord-Trøndelag
+Inderøy, Nord-Trøndelag
+Verran, Nord-Trøndelag
+Namdalseid, Nord-Trøndelag
+Namsos, Nord-Trøndelag
+Flatanger, Nord-Trøndelag
+Fosnes, Nord-Trøndelag
+Nærøy, Nord-Trøndelag
+Vikna, Nord-Trøndelag
+Leka, Nord-Trøndelag
+Hattfjelldal, Nordland
+Grane, Nordland
+Bindal, Nordland
+Brønnøy, Nordland
+Sømna, Nordland
+Vefsn, Nordland
+Hemnes, Nordland
+Rana, Nordland
+Leirfjord, Nordland
+Vevelstad, Nordland
+Vega, Nordland
+Alstahaug, Nordland
+Herøy, Nordland
+Dønna, Nordland
+Nesna, Nordland
+Lurøy, Nordland
+Rødøy, Nordland
+Træna, Nordland
+Meløy, Nordland
+Saltdal, Nordland
+Beiarn, Nordland
+Skjerstad, Nordland
+Fauske, Nordland
+Bodø, Nordland
+Gildeskål, Nordland
+Sørfold, Nordland
+Steigen, Nordland
+Hamarøy, Nordland
+Tysfjord, Nordland
+Ballangen, Nordland
+Narvik, Nordland
+Evenes, Nordland
+Tjeldsund, Nordland
+Lødingen, Nordland
+Hadsel, Nordland
+Sortland, Nordland
+Bø, Nordland
+Andøy, Nordland
+Øksnes, Nordland
+Vågan, Nordland
+Vestvågøy, Nordland
+Flakstad, Nordland
+Moskenes, Nordland
+Værøy, Nordland
+Røst, Nordland
+Kvænangen, Troms
+Nordreisa, Troms
+Skjervøy, Troms
+Kåfjord, Troms
+Storfjord, Troms
+Målselv, Troms
+Bardu, Troms
+Lyngen, Troms
+Tromsø, Troms
+Karlsøy, Troms
+Balsfjord, Troms
+Lenvik, Troms
+Berg, Troms
+Torsken, Troms
+Tranøy, Troms
+Bjarkøy, Troms
+Sørreisa, Troms
+Dyrøy, Troms
+Salangen, Troms
+Levangen, Troms
+Gratangen, Troms
+Skånland, Troms
+Kvæfjord, Troms
+Harstad, Troms
+Kautokeino, Finnmark
+Karasjok, Finnmark
+Alta, Finnmark
+Loppa, Finnmark
+Hasvik, Finnmark
+Hammerfest, Finnmark
+Kvalsund, Finnmark
+Porsanger, Finnmark
+Måsøy, Finnmark
+Nordkapp, Finnmark
+Lebesby, Finnmark
+Gamvik, Finnmark
+Tana, Finnmark
+Berlevåg, Finnmark
+Båtsfjord, Finnmark
+Vardø, Finnmark
+Vadsø, Finnmark
+Nesseby, Finnmark
+Sør-Varanger, Finnmark

@@ -32,8 +32,10 @@ namespace lorakon
         const string InputBase = "input-params.txt";
         const string SampleCategoryBase = "sample-types.txt";
         const string GeometryTypeBase = "geometry-types.txt";
+        const string CommunitiesBase = "communities.txt";
+        const string LocationTypeBase = "location-types.txt";
         string GeniePath, LorakonPath, ReportsPath, SamplePath, QAPath, BkgPath, UploadPath, SystemPath, SampleLoadPath;
-        string SampleCategoryFile, GeometryTypeFile, InputFile;        
+        string SampleCategoryFile, GeometryTypeFile, InputFile, CommunitiesFile, LocationTypeFile;
 
         BindingList<LocationType> LocationTypes = new BindingList<LocationType>();
         BindingList<CoordinateType> CoordinateTypes = new BindingList<CoordinateType>();
@@ -73,9 +75,7 @@ namespace lorakon
             {                
                 try
                 {
-                    Initialized = true;                    
-
-                    tbScollName.Focus();
+                    Initialized = true;                                        
 
                     // Check and initialize environment
                     GeniePath = GetGeniePath();
@@ -114,44 +114,46 @@ namespace lorakon
                     if (!Directory.Exists(SystemPath))
                         Directory.CreateDirectory(SystemPath);
 
+                    string InstallDir = Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]) + Path.DirectorySeparatorChar;
+
                     GeometryTypeFile = SystemPath + GeometryTypeBase;
-                    if (!File.Exists(GeometryTypeFile))
-                    {
-                        MessageBox.Show("Geometry type file not found: " + GeometryTypeFile);
-                        Close();
-                        return;
-                    }
+                    if (!File.Exists(GeometryTypeFile))                    
+                        File.Copy(InstallDir + "template_geometry-types.txt", GeometryTypeFile, true);
 
                     SampleCategoryFile = SystemPath + SampleCategoryBase;
                     if (!File.Exists(SampleCategoryFile))
-                    {
-                        MessageBox.Show("Sample type file not found: " + SampleCategoryFile);
-                        Close();
-                        return;
-                    }
+                        File.Copy(InstallDir + "template_sample-types.txt", SampleCategoryFile, true);
+
+                    CommunitiesFile = SystemPath + CommunitiesBase;
+                    if (!File.Exists(CommunitiesFile))
+                        File.Copy(InstallDir + "template_communities.txt", CommunitiesFile, true);
+
+                    LocationTypeFile = SystemPath + LocationTypeBase;
+                    if (!File.Exists(LocationTypeFile))
+                        File.Copy(InstallDir + "template_location-types.txt", LocationTypeFile, true);
 
                     SampleLoadPath = LorakonPath + "Eksterne\\";
                     if (!Directory.Exists(SampleLoadPath))
                         Directory.CreateDirectory(SampleLoadPath);
 
+                    // Load communities
+                    cboxCommunity.Items.Clear();
+                    string[] commTypes = File.ReadAllLines(CommunitiesFile, Encoding.UTF8);
+                    cboxCommunity.Items.AddRange(commTypes);
+
                     // Load geometry types
                     cboxSGeomtry.Items.Clear();                    
-                    string[] geomTypes = File.ReadAllLines(GeometryTypeFile);
+                    string[] geomTypes = File.ReadAllLines(GeometryTypeFile, Encoding.UTF8);
                     cboxSGeomtry.Items.AddRange(geomTypes);
 
                     // Load sample types
                     cboxSDesc1.Items.Clear();
-                    string[] sampTypes = File.ReadAllLines(SampleCategoryFile);
+                    string[] sampTypes = File.ReadAllLines(SampleCategoryFile, Encoding.UTF8);
                     cboxSDesc1.Items.AddRange(sampTypes);
 
-                    // Load Location types
-                    string LocationTypesFile = SystemPath + Path.DirectorySeparatorChar + "location-types.txt";
-                    if(File.Exists(LocationTypesFile))
-                    {
-                        string[] ltypes = File.ReadAllLines(LocationTypesFile);
-                        for (int i = 0; i < ltypes.Length; i++)
-                            LocationTypes.Add(new LocationType(ltypes[i], i.ToString()));                        
-                    }
+                    string[] locTypes = File.ReadAllLines(LocationTypeFile, Encoding.UTF8);
+                    for (int i = 0; i < locTypes.Length; i++)
+                        LocationTypes.Add(new LocationType(locTypes[i], i.ToString()));
                     cboxLocation.DataSource = LocationTypes;
                     cboxLocation.DisplayMember = "Name";
                     cboxLocation.ValueMember = "Value";
@@ -162,39 +164,46 @@ namespace lorakon
                     cboxCoordType.DisplayMember = "Name";
                     cboxCoordType.ValueMember = "Value";
 
-
                     InputFile = SystemPath + InputBase;
                     if (!File.Exists(InputFile))                    
                         return;                                        
 
                     // Load params
-                    string[] lines = File.ReadAllLines(InputFile, Encoding.Default);
-                    //if (lines.Length < 16)
-                      //  return;                    
+                    string[] lines = File.ReadAllLines(InputFile, Encoding.UTF8);
+                    if (lines.Length >= 22)
+                    {
+                        tbLab.Text = lines[0];
+                        tbScollName.Text = lines[1];
+                        tbSTitle.Text = lines[2];
+                        cboxSDesc1.Text = lines[3];
+                        tbSIdent.Text = lines[4];
+                        cboxCommunity.SelectedIndex = cboxCommunity.FindStringExact(lines[5]);
+                        cboxCoordType.SelectedValue = lines[6];
+                        tbLatitude.Text = lines[7];
+                        tbLongitude.Text = lines[8];
+                        cboxLocation.SelectedValue = lines[9];
+                        tbSLoctn.Text = lines[10];
+                        tbSQuant.Text = lines[11];
+                        tbSQuantErr.Text = lines[12];
+                        cboxSUnits.Text = lines[13];
+                        cboxSGeomtry.Text = lines[14];
+                        DateTime dt = new DateTime(Convert.ToInt64(lines[15]));
+                        dtpSDate.Value = dt;
+                        dtpSTime.Value = dt;
+                        tbLivetime.Text = lines[16];
+                        tbIntegral.Text = lines[17];
+                        tbSSyserr.Text = lines[18];
+                        tbSSysterr.Text = lines[19];
+                        tbStartChannel.Text = lines[20];
+                        tbEndChannel.Text = lines[21];
+                        //tbSType.Text = lines[14];                          
+                    }
 
-                    tbLab.Text = lines[0];
-                    tbScollName.Text = lines[1];
-                    tbSTitle.Text = lines[2];
-                    cboxSDesc1.Text = lines[3];
-                    tbSIdent.Text = lines[4];
-                    cboxCommunity.SelectedIndex = cboxCommunity.FindStringExact(lines[5]);
-                    cboxCoordType.SelectedValue = lines[6];
-                    tbLatitude.Text = lines[7];
-                    tbLongitude.Text = lines[8];
-                    cboxLocation.SelectedValue = lines[9];
-                    tbSLoctn.Text = lines[10];
-                    tbSQuant.Text = lines[11];
-                    tbSQuantErr.Text = lines[12];
-                    cboxSUnits.Text = lines[13];
-                    cboxSGeomtry.Text = lines[14];                    
-                    DateTime dt = new DateTime(Convert.ToInt64(lines[15]));
-                    dtpSDate.Value = dt;
-                    dtpSTime.Value = dt;
-                    tbLivetime.Text = lines[16];
-                    tbIntegral.Text = lines[17];
-                    tbSSyserr.Text = lines[18];
-                    tbSSysterr.Text = lines[19];
-                    //tbSType.Text = lines[14];                          
+                    DateTime now = DateTime.Now;
+                    dtpSDate.Value = now;
+                    dtpSTime.Value = new DateTime(now.Year, now.Month, now.Day, 12, 0, 0);
+
+                    tbScollName.Focus();
                 }
                 catch (Exception ex)
                 {
@@ -248,15 +257,17 @@ namespace lorakon
                     tbSQuant.Text + Environment.NewLine +
                     tbSQuantErr.Text + Environment.NewLine +
                     cboxSUnits.Text + Environment.NewLine +
-                    cboxSGeomtry.Text + Environment.NewLine +                    
+                    cboxSGeomtry.Text + Environment.NewLine +
                     dt.Ticks + Environment.NewLine +
                     tbLivetime.Text + Environment.NewLine +
                     tbIntegral.Text + Environment.NewLine +
                     tbSSyserr.Text + Environment.NewLine +
-                    tbSSysterr.Text;
+                    tbSSysterr.Text + Environment.NewLine +
+                    tbStartChannel.Text + Environment.NewLine +
+                    tbEndChannel.Text;
                 //tbSType.Text + Environment.NewLine +
 
-                File.WriteAllText(InputFile, c, Encoding.Default);                
+                File.WriteAllText(InputFile, c, Encoding.UTF8);                
                 DialogResult = DialogResult.OK;
             }
             catch(Exception ex)

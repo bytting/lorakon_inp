@@ -1,0 +1,5 @@
+﻿Organisasjonsnummer
+Virksomhetsnummer
+Bruksnummer
+Stedsnavn
+Annet
