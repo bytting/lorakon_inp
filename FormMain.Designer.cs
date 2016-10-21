@@ -46,7 +46,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.tbSQuantErr = new System.Windows.Forms.TextBox();
             this.tbSQuant = new System.Windows.Forms.TextBox();
-            this.cboxSDesc1 = new System.Windows.Forms.ComboBox();
             this.cboxSGeomtry = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -75,6 +74,7 @@
             this.btnImport = new System.Windows.Forms.ToolStripDropDownButton();
             this.btnImportSampReg = new System.Windows.Forms.ToolStripMenuItem();
             this.ofd = new System.Windows.Forms.OpenFileDialog();
+            this.cboxSDesc1 = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tableLayoutMain.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -90,7 +90,7 @@
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnOk);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 537);
+            this.panel1.Location = new System.Drawing.Point(0, 546);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(509, 32);
             this.panel1.TabIndex = 0;
@@ -135,7 +135,6 @@
             this.tableLayoutMain.Controls.Add(this.label8, 0, 9);
             this.tableLayoutMain.Controls.Add(this.label12, 0, 10);
             this.tableLayoutMain.Controls.Add(this.panel4, 1, 9);
-            this.tableLayoutMain.Controls.Add(this.cboxSDesc1, 1, 3);
             this.tableLayoutMain.Controls.Add(this.cboxSGeomtry, 1, 11);
             this.tableLayoutMain.Controls.Add(this.label13, 0, 11);
             this.tableLayoutMain.Controls.Add(this.label7, 0, 0);
@@ -152,6 +151,7 @@
             this.tableLayoutMain.Controls.Add(this.panel2, 1, 12);
             this.tableLayoutMain.Controls.Add(this.label5, 0, 14);
             this.tableLayoutMain.Controls.Add(this.panel6, 1, 14);
+            this.tableLayoutMain.Controls.Add(this.cboxSDesc1, 1, 3);
             this.tableLayoutMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutMain.Location = new System.Drawing.Point(0, 25);
             this.tableLayoutMain.Name = "tableLayoutMain";
@@ -174,7 +174,7 @@
             this.tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutMain.Size = new System.Drawing.Size(509, 512);
+            this.tableLayoutMain.Size = new System.Drawing.Size(509, 521);
             this.tableLayoutMain.TabIndex = 1;
             // 
             // cboxSUnits
@@ -334,21 +334,6 @@
             this.tbSQuant.Name = "tbSQuant";
             this.tbSQuant.Size = new System.Drawing.Size(161, 23);
             this.tbSQuant.TabIndex = 10;
-            // 
-            // cboxSDesc1
-            // 
-            this.cboxSDesc1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cboxSDesc1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboxSDesc1.BackColor = System.Drawing.SystemColors.Window;
-            this.cboxSDesc1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboxSDesc1.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.cboxSDesc1.FormattingEnabled = true;
-            this.cboxSDesc1.Location = new System.Drawing.Point(206, 99);
-            this.cboxSDesc1.Name = "cboxSDesc1";
-            this.cboxSDesc1.Size = new System.Drawing.Size(300, 24);
-            this.cboxSDesc1.TabIndex = 2;
-            this.cboxSDesc1.TextUpdate += new System.EventHandler(this.cboxSDesc1_TextUpdate);
-            this.cboxSDesc1.Leave += new System.EventHandler(this.cboxSDesc1_Leave);
             // 
             // cboxSGeomtry
             // 
@@ -621,11 +606,21 @@
             this.btnImportSampReg.Size = new System.Drawing.Size(203, 22);
             this.btnImportSampReg.Text = "Sample registration logg";
             // 
+            // cboxSDesc1
+            // 
+            this.cboxSDesc1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboxSDesc1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxSDesc1.FormattingEnabled = true;
+            this.cboxSDesc1.Location = new System.Drawing.Point(206, 99);
+            this.cboxSDesc1.Name = "cboxSDesc1";
+            this.cboxSDesc1.Size = new System.Drawing.Size(300, 24);
+            this.cboxSDesc1.TabIndex = 35;
+            // 
             // FormSampleInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(509, 569);
+            this.ClientSize = new System.Drawing.Size(509, 578);
             this.Controls.Add(this.tableLayoutMain);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tools);
@@ -688,7 +683,6 @@
         private System.Windows.Forms.ToolStrip tools;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.ComboBox cboxSDesc1;
         private System.Windows.Forms.OpenFileDialog ofd;
         private System.Windows.Forms.ComboBox cboxLocation;
         private System.Windows.Forms.ComboBox cboxSGeomtry;
@@ -706,6 +700,7 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox tbIntegral;
         private System.Windows.Forms.TextBox tbLivetime;
+        private System.Windows.Forms.ComboBox cboxSDesc1;
     }
 }
 

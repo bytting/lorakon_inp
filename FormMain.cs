@@ -18,20 +18,10 @@
 // Authors: Dag Robole,
 using System;
 using System.IO;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Diagnostics;
 using Microsoft.Win32;
-using System.Xml;
-using System.Xml.Schema;
-using System.Xml.Serialization;
 
 namespace lorakon
 {
@@ -40,9 +30,10 @@ namespace lorakon
         bool Initialized = false;
         const string GenieRegistry = @"SOFTWARE\Wow6432Node\Canberra Industries, Inc.\Genie-2000 Environment";        
         const string InputBase = "input-params.txt";
-        const string SampleCategoryBase = "sample-types.txt";        
+        const string SampleCategoryBase = "sample-types.txt";
+        const string GeometryTypeBase = "geometry-types.txt";
         string GeniePath, LorakonPath, ReportsPath, SamplePath, QAPath, BkgPath, UploadPath, SystemPath, SampleLoadPath;
-        string SampleCategoryFile, InputFile;
+        string SampleCategoryFile, GeometryTypeFile, InputFile;        
 
         BindingList<LocationType> LocationTypes = new BindingList<LocationType>();
         BindingList<CoordinateType> CoordinateTypes = new BindingList<CoordinateType>();
@@ -50,7 +41,7 @@ namespace lorakon
         public FormSampleInput()
         {
             InitializeComponent();            
-        }
+        }        
 
         string GetGeniePath()
         {
@@ -121,7 +112,15 @@ namespace lorakon
 
                     SystemPath = LorakonPath + "System\\";
                     if (!Directory.Exists(SystemPath))
-                        Directory.CreateDirectory(SystemPath);                    
+                        Directory.CreateDirectory(SystemPath);
+
+                    GeometryTypeFile = SystemPath + GeometryTypeBase;
+                    if (!File.Exists(GeometryTypeFile))
+                    {
+                        MessageBox.Show("Geometry type file not found: " + GeometryTypeFile);
+                        Close();
+                        return;
+                    }
 
                     SampleCategoryFile = SystemPath + SampleCategoryBase;
                     if (!File.Exists(SampleCategoryFile))
@@ -135,10 +134,15 @@ namespace lorakon
                     if (!Directory.Exists(SampleLoadPath))
                         Directory.CreateDirectory(SampleLoadPath);
 
+                    // Load geometry types
+                    cboxSGeomtry.Items.Clear();                    
+                    string[] geomTypes = File.ReadAllLines(GeometryTypeFile);
+                    cboxSGeomtry.Items.AddRange(geomTypes);
+
                     // Load sample types
                     cboxSDesc1.Items.Clear();
-                    string[] types = File.ReadAllLines(SampleCategoryFile);
-                    cboxSDesc1.Items.AddRange(types);
+                    string[] sampTypes = File.ReadAllLines(SampleCategoryFile);
+                    cboxSDesc1.Items.AddRange(sampTypes);
 
                     // Load Location types
                     string LocationTypesFile = SystemPath + Path.DirectorySeparatorChar + "location-types.txt";
@@ -287,7 +291,7 @@ namespace lorakon
                 cb.Focus();
                 cb.Select(cb.Text.Length, 1);           
             }
-        }        
+        }
     }
 
     public class LocationType
