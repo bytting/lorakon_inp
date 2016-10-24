@@ -36,6 +36,7 @@ namespace lorakon
         const string LocationTypeBase = "location-types.txt";
         string GeniePath, LorakonPath, ReportsPath, SamplePath, QAPath, BkgPath, UploadPath, SystemPath, SampleLoadPath;
         string SampleCategoryFile, GeometryTypeFile, InputFile, CommunitiesFile, LocationTypeFile;
+        string FileID;
 
         BindingList<LocationType> LocationTypes = new BindingList<LocationType>();
         BindingList<CoordinateType> CoordinateTypes = new BindingList<CoordinateType>();
@@ -203,36 +204,35 @@ namespace lorakon
                     dtpSDate.Value = now;
                     dtpSTime.Value = new DateTime(now.Year, now.Month, now.Day, 12, 0, 0);
 
-                    // Load params
+                    // Load params from file
                     string[] lines = File.ReadAllLines(InputFile, Encoding.UTF8);
-                    if (lines.Length >= 23)
+                    if (lines.Length >= 21)
                     {
                         tbLab.Text = lines[0];
                         tbScollName.Text = lines[1];
                         tbSTitle.Text = lines[2];
                         cboxSDesc1.Text = lines[3];
                         tbSIdent.Text = lines[4];
-                        cboxCommunity.SelectedIndex = cboxCommunity.FindStringExact(lines[5]);
-                        cboxCoordType.SelectedValue = lines[6];
-                        tbLatitude.Text = lines[7];
-                        tbLongitude.Text = lines[8];
-                        tbAltitude.Text = lines[9];
-                        cboxLocation.SelectedValue = lines[10];
-                        tbSLoctn.Text = lines[11];
-                        tbSQuant.Text = lines[12];
-                        tbSQuantErr.Text = lines[13];
-                        cboxSUnits.Text = lines[14];
-                        cboxSGeomtry.Text = lines[15];
-                        DateTime dt = Convert.ToDateTime(lines[16]);
+                        cboxCommunity.SelectedIndex = cboxCommunity.FindStringExact(lines[5]);                        
+                        tbLatitude.Text = lines[6];
+                        tbLongitude.Text = lines[7];
+                        tbAltitude.Text = lines[8];
+                        cboxLocation.SelectedValue = lines[9];
+                        tbSLoctn.Text = lines[10];
+                        tbSQuant.Text = lines[11];
+                        tbSQuantErr.Text = lines[12];
+                        cboxSUnits.Text = lines[13];
+                        cboxSGeomtry.Text = lines[14];
+                        DateTime dt = Convert.ToDateTime(lines[15]);
                         dtpSDate.Value = dt;
                         dtpSTime.Value = dt;
-                        tbLivetime.Text = lines[17];
-                        tbIntegral.Text = lines[18];
-                        tbSSyserr.Text = lines[19];
-                        tbSSysterr.Text = lines[20];
-                        tbStartChannel.Text = lines[21];
-                        tbEndChannel.Text = lines[22];
-                        //tbSType.Text = lines[14];                          
+                        //tbLivetime.Text = lines[16];
+                        //tbIntegral.Text = lines[17];
+                        tbSSyserr.Text = lines[16];
+                        tbSSysterr.Text = lines[17];
+                        tbStartChannel.Text = lines[18];
+                        tbEndChannel.Text = lines[19];
+                        FileID = lines[20];
                     }                    
 
                     tbScollName.Focus();
@@ -248,7 +248,7 @@ namespace lorakon
         {
             DialogResult = DialogResult.Abort;            
 
-            // Valider felter
+            // FIXME: more checks
             if(String.IsNullOrEmpty(tbScollName.Text) 
                 || String.IsNullOrEmpty(tbSTitle.Text)
                 || String.IsNullOrEmpty(cboxSDesc1.Text)
@@ -256,21 +256,11 @@ namespace lorakon
                 || String.IsNullOrEmpty(tbSQuant.Text) 
                 || String.IsNullOrEmpty(tbSQuantErr.Text))
             {
-                MessageBox.Show("One or more required fields are missing");
+                MessageBox.Show("En eller flere påkrevde felter mangler");
                 return;
             }
 
-            /*if (String.IsNullOrEmpty(tbSLoctn.Text))
-            {
-                if (String.IsNullOrEmpty(tbLat.Text) || String.IsNullOrEmpty(tbLon.Text))
-                {
-                    MessageBox.Show("Coordinates or location is required");
-                    return;
-                }
-            } */           
-
-            // Opprett fil
-            //TextWriter writer = null;
+            // Store params to file
             try
             {                
                 DateTime dt = new DateTime(dtpSDate.Value.Year, dtpSDate.Value.Month, dtpSDate.Value.Day, dtpSTime.Value.Hour, dtpSTime.Value.Minute, dtpSTime.Value.Second);
@@ -281,7 +271,6 @@ namespace lorakon
                     cboxSDesc1.Text + Environment.NewLine +
                     tbSIdent.Text + Environment.NewLine +
                     cboxCommunity.Text + Environment.NewLine +
-                    cboxCoordType.SelectedValue + Environment.NewLine +
                     tbLatitude.Text + Environment.NewLine +
                     tbLongitude.Text + Environment.NewLine +
                     tbAltitude.Text + Environment.NewLine +
@@ -292,13 +281,13 @@ namespace lorakon
                     cboxSUnits.Text + Environment.NewLine +
                     cboxSGeomtry.Text + Environment.NewLine +
                     dt.ToString("yyyy-MM-dd hh:mm:ss") + Environment.NewLine +
-                    tbLivetime.Text + Environment.NewLine +
-                    tbIntegral.Text + Environment.NewLine +
+                    //tbLivetime.Text + Environment.NewLine +
+                    //tbIntegral.Text + Environment.NewLine +
                     tbSSyserr.Text + Environment.NewLine +
                     tbSSysterr.Text + Environment.NewLine +
                     tbStartChannel.Text + Environment.NewLine +
-                    tbEndChannel.Text;
-                //tbSType.Text + Environment.NewLine +
+                    tbEndChannel.Text + Environment.NewLine +
+                    Guid.NewGuid().ToString();
 
                 File.WriteAllText(InputFile, c, Encoding.UTF8);                
                 DialogResult = DialogResult.OK;
