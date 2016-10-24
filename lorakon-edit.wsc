@@ -63,7 +63,7 @@ function Execute(Dsc,Phase)
 	f.WriteLine Dsc.Parameter(CAM_F_SSYSTERR) ' Systerr
   f.WriteLine Dsc.Parameter(CAM_F_ASP1) ' Start channel
   f.WriteLine Dsc.Parameter(CAM_F_ASP2) ' End channel
-  f.WriteLine "" ' File ID
+  f.WriteLine Dsc.Parameter(CAM_T_SSPBSTR1) ' File ID
 	' f.WriteLine Dsc.Parameter(CAM_T_STYPE)
 	f.Close	
 

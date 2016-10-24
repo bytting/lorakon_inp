@@ -37,6 +37,7 @@ namespace lorakon
         string GeniePath, LorakonPath, ReportsPath, SamplePath, QAPath, BkgPath, UploadPath, SystemPath, SampleLoadPath;
         string SampleCategoryFile, GeometryTypeFile, InputFile, CommunitiesFile, LocationTypeFile;
         string FileID;
+        const int MagicNumber = 412441176;
 
         BindingList<LocationType> LocationTypes = new BindingList<LocationType>();
         BindingList<CoordinateType> CoordinateTypes = new BindingList<CoordinateType>();
@@ -287,7 +288,7 @@ namespace lorakon
                     tbSSysterr.Text + Environment.NewLine +
                     tbStartChannel.Text + Environment.NewLine +
                     tbEndChannel.Text + Environment.NewLine +
-                    Guid.NewGuid().ToString();
+                    (String.IsNullOrEmpty(FileID.Trim()) ? Guid.NewGuid().ToString() : FileID);
 
                 File.WriteAllText(InputFile, c, Encoding.UTF8);                
                 DialogResult = DialogResult.OK;
