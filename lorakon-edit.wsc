@@ -4,10 +4,10 @@
 <?component error="true" debug="true"?>
 
 <registration
-	description="Lorakon Run"
-	progid="lorakon-run.WSC"
+	description="Lorakon Edit"
+	progid="lorakon-edit.WSC"
 	version="1.00"
-	classid="{c63c0187-311d-423b-bf86-ae4a6f955522}"
+	classid="{c63c0177-311d-123b-bf8a-ae4a6f955522}"
 >
 </registration>
 
