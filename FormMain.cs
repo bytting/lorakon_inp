@@ -221,10 +221,11 @@ namespace lorakon
                         tbLab.Text = lines[0];
                         tbScollName.Text = lines[1];
                         tbSTitle.Text = lines[2];
-                        cboxSDesc1.Text = lines[3];
+                        if(sampleTypes.Contains(lines[3]))
+                            cboxSDesc1.Text = lines[3];
                         tbSIdent.Text = lines[4];
-                        //cboxCommunity.SelectedIndex = cboxCommunity.FindStringExact(lines[5]);
-                        cboxCommunity.Text = lines[5];
+                        if(communities.Contains(lines[5]))
+                            cboxCommunity.Text = lines[5];
                         tbLatitude.Text = lines[6];
                         tbLongitude.Text = lines[7];
                         tbAltitude.Text = lines[8];
@@ -268,6 +269,18 @@ namespace lorakon
                 || String.IsNullOrEmpty(tbSQuantErr.Text))
             {
                 MessageBox.Show("En eller flere påkrevde felter mangler");
+                return;
+            }
+
+            if(!sampleTypes.Contains(cboxSDesc1.Text))
+            {
+                statusLabel.Text = "Du må velge en gyldig prøvetype";
+                return;
+            }
+
+            if (!communities.Contains(cboxCommunity.Text))
+            {
+                statusLabel.Text = "Du må velge en gyldig kommune";
                 return;
             }
 
@@ -329,13 +342,6 @@ namespace lorakon
             else statusLabel.Text = String.Empty;
         }
 
-        private void cboxSDesc1_TextChanged(object sender, EventArgs e)
-        {
-            ComboBox cb = (ComboBox)sender;
-            if (!sampleTypes.Contains(cb.Text))
-                cb.Text = String.Empty;
-        }
-
         private void cboxCommunity_Leave(object sender, EventArgs e)
         {
             ComboBox cb = (ComboBox)sender;
@@ -346,13 +352,6 @@ namespace lorakon
                 statusLabel.Text = "Du må velge en gyldig kommune";
             }
             else statusLabel.Text = String.Empty;
-        }
-
-        private void cboxCommunity_TextChanged(object sender, EventArgs e)
-        {
-            ComboBox cb = (ComboBox)sender;
-            if (!communities.Contains(cb.Text))
-                cb.Text = String.Empty;
         }
     }
 

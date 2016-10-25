@@ -111,7 +111,7 @@
             this.btnCancel.Location = new System.Drawing.Point(368, 0);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(124, 32);
-            this.btnCancel.TabIndex = 21;
+            this.btnCancel.TabIndex = 18;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -123,7 +123,7 @@
             this.btnOk.Location = new System.Drawing.Point(492, 0);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(117, 32);
-            this.btnOk.TabIndex = 20;
+            this.btnOk.TabIndex = 17;
             this.btnOk.Text = "Ok";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
@@ -202,7 +202,7 @@
             this.cboxSUnits.Location = new System.Drawing.Point(211, 311);
             this.cboxSUnits.Name = "cboxSUnits";
             this.cboxSUnits.Size = new System.Drawing.Size(395, 24);
-            this.cboxSUnits.TabIndex = 12;
+            this.cboxSUnits.TabIndex = 11;
             // 
             // tbSIdent
             // 
@@ -212,7 +212,7 @@
             this.tbSIdent.MaxLength = 16;
             this.tbSIdent.Name = "tbSIdent";
             this.tbSIdent.Size = new System.Drawing.Size(395, 23);
-            this.tbSIdent.TabIndex = 3;
+            this.tbSIdent.TabIndex = 4;
             // 
             // tbSTitle
             // 
@@ -223,7 +223,7 @@
             this.tbSTitle.MaxLength = 64;
             this.tbSTitle.Name = "tbSTitle";
             this.tbSTitle.Size = new System.Drawing.Size(395, 23);
-            this.tbSTitle.TabIndex = 1;
+            this.tbSTitle.TabIndex = 2;
             // 
             // tbScollName
             // 
@@ -234,7 +234,7 @@
             this.tbScollName.MaxLength = 24;
             this.tbScollName.Name = "tbScollName";
             this.tbScollName.Size = new System.Drawing.Size(395, 23);
-            this.tbScollName.TabIndex = 0;
+            this.tbScollName.TabIndex = 1;
             // 
             // label2
             // 
@@ -321,7 +321,7 @@
             this.panel4.Location = new System.Drawing.Point(211, 279);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(395, 26);
-            this.panel4.TabIndex = 9;
+            this.panel4.TabIndex = 10;
             this.panel4.TabStop = true;
             // 
             // tbSQuantErr
@@ -333,7 +333,7 @@
             this.tbSQuantErr.MaxLength = 24;
             this.tbSQuantErr.Name = "tbSQuantErr";
             this.tbSQuantErr.Size = new System.Drawing.Size(185, 23);
-            this.tbSQuantErr.TabIndex = 11;
+            this.tbSQuantErr.TabIndex = 1;
             // 
             // tbSQuant
             // 
@@ -344,7 +344,7 @@
             this.tbSQuant.MaxLength = 24;
             this.tbSQuant.Name = "tbSQuant";
             this.tbSQuant.Size = new System.Drawing.Size(210, 23);
-            this.tbSQuant.TabIndex = 10;
+            this.tbSQuant.TabIndex = 0;
             // 
             // cboxSGeomtry
             // 
@@ -355,7 +355,7 @@
             this.cboxSGeomtry.Name = "cboxSGeomtry";
             this.cboxSGeomtry.Size = new System.Drawing.Size(395, 24);
             this.cboxSGeomtry.Sorted = true;
-            this.cboxSGeomtry.TabIndex = 22;
+            this.cboxSGeomtry.TabIndex = 12;
             // 
             // label13
             // 
@@ -389,7 +389,7 @@
             this.tbLab.MaxLength = 16;
             this.tbLab.Name = "tbLab";
             this.tbLab.Size = new System.Drawing.Size(395, 22);
-            this.tbLab.TabIndex = 24;
+            this.tbLab.TabIndex = 0;
             // 
             // cboxLocation
             // 
@@ -401,7 +401,7 @@
             this.cboxLocation.Location = new System.Drawing.Point(3, 227);
             this.cboxLocation.Name = "cboxLocation";
             this.cboxLocation.Size = new System.Drawing.Size(202, 23);
-            this.cboxLocation.TabIndex = 20;
+            this.cboxLocation.TabIndex = 8;
             // 
             // tbSLoctn
             // 
@@ -412,7 +412,7 @@
             this.tbSLoctn.MaxLength = 32;
             this.tbSLoctn.Name = "tbSLoctn";
             this.tbSLoctn.Size = new System.Drawing.Size(395, 23);
-            this.tbSLoctn.TabIndex = 8;
+            this.tbSLoctn.TabIndex = 9;
             // 
             // cboxCoordType
             // 
@@ -423,7 +423,7 @@
             this.cboxCoordType.Location = new System.Drawing.Point(3, 195);
             this.cboxCoordType.Name = "cboxCoordType";
             this.cboxCoordType.Size = new System.Drawing.Size(202, 24);
-            this.cboxCoordType.TabIndex = 29;
+            this.cboxCoordType.TabIndex = 6;
             // 
             // panel3
             // 
@@ -434,7 +434,7 @@
             this.panel3.Location = new System.Drawing.Point(211, 195);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(395, 26);
-            this.panel3.TabIndex = 27;
+            this.panel3.TabIndex = 7;
             // 
             // tbLongitude
             // 
@@ -485,8 +485,7 @@
             this.cboxCommunity.Name = "cboxCommunity";
             this.cboxCommunity.Size = new System.Drawing.Size(395, 24);
             this.cboxCommunity.Sorted = true;
-            this.cboxCommunity.TabIndex = 30;
-            this.cboxCommunity.TextChanged += new System.EventHandler(this.cboxCommunity_TextChanged);
+            this.cboxCommunity.TabIndex = 5;
             this.cboxCommunity.Leave += new System.EventHandler(this.cboxCommunity_Leave);
             // 
             // label14
@@ -509,7 +508,7 @@
             this.panel2.Location = new System.Drawing.Point(211, 375);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(395, 26);
-            this.panel2.TabIndex = 17;
+            this.panel2.TabIndex = 13;
             this.panel2.TabStop = true;
             // 
             // dtpSTime
@@ -521,7 +520,7 @@
             this.dtpSTime.Name = "dtpSTime";
             this.dtpSTime.ShowUpDown = true;
             this.dtpSTime.Size = new System.Drawing.Size(185, 23);
-            this.dtpSTime.TabIndex = 19;
+            this.dtpSTime.TabIndex = 1;
             // 
             // dtpSDate
             // 
@@ -531,7 +530,7 @@
             this.dtpSDate.Location = new System.Drawing.Point(0, 0);
             this.dtpSDate.Name = "dtpSDate";
             this.dtpSDate.Size = new System.Drawing.Size(210, 23);
-            this.dtpSDate.TabIndex = 18;
+            this.dtpSDate.TabIndex = 0;
             // 
             // label5
             // 
@@ -552,7 +551,7 @@
             this.panel6.Location = new System.Drawing.Point(211, 427);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(395, 26);
-            this.panel6.TabIndex = 34;
+            this.panel6.TabIndex = 14;
             // 
             // tbIntegral
             // 
@@ -582,8 +581,7 @@
             this.cboxSDesc1.Name = "cboxSDesc1";
             this.cboxSDesc1.Size = new System.Drawing.Size(395, 24);
             this.cboxSDesc1.Sorted = true;
-            this.cboxSDesc1.TabIndex = 35;
-            this.cboxSDesc1.TextChanged += new System.EventHandler(this.cboxSDesc1_TextChanged);
+            this.cboxSDesc1.TabIndex = 3;
             this.cboxSDesc1.Leave += new System.EventHandler(this.cboxSDesc1_Leave);
             // 
             // label6
@@ -605,7 +603,7 @@
             this.panel7.Location = new System.Drawing.Point(211, 459);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(395, 26);
-            this.panel7.TabIndex = 37;
+            this.panel7.TabIndex = 15;
             // 
             // tbEndChannel
             // 
@@ -635,7 +633,7 @@
             this.panel5.Location = new System.Drawing.Point(211, 491);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(395, 26);
-            this.panel5.TabIndex = 14;
+            this.panel5.TabIndex = 16;
             this.panel5.TabStop = true;
             // 
             // tbSSysterr
@@ -646,7 +644,7 @@
             this.tbSSysterr.MaxLength = 24;
             this.tbSSysterr.Name = "tbSSysterr";
             this.tbSSysterr.Size = new System.Drawing.Size(185, 23);
-            this.tbSSysterr.TabIndex = 16;
+            this.tbSSysterr.TabIndex = 1;
             // 
             // tbSSyserr
             // 
@@ -656,7 +654,7 @@
             this.tbSSyserr.MaxLength = 24;
             this.tbSSyserr.Name = "tbSSyserr";
             this.tbSSyserr.Size = new System.Drawing.Size(210, 23);
-            this.tbSSyserr.TabIndex = 15;
+            this.tbSSyserr.TabIndex = 0;
             // 
             // label11
             // 
