@@ -18,6 +18,7 @@
 // Authors: Dag Robole,
 using System;
 using System.IO;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using System.Windows.Forms;
@@ -36,7 +37,11 @@ namespace lorakon
         const string LocationTypeBase = "location-types.txt";
         string GeniePath, LorakonPath, ReportsPath, SamplePath, QAPath, BkgPath, UploadPath, SystemPath, SampleLoadPath;
         string SampleCategoryFile, GeometryTypeFile, InputFile, CommunitiesFile, LocationTypeFile;
-        string FileID;
+        string FileID;        
+
+        AutoCompleteStringCollection sampleTypes = new AutoCompleteStringCollection();
+        AutoCompleteStringCollection communities = new AutoCompleteStringCollection();        
+
         const int MagicNumber = 412441176;
 
         BindingList<LocationType> LocationTypes = new BindingList<LocationType>();
@@ -72,6 +77,8 @@ namespace lorakon
             tbAltitude.KeyPress += CustomEvents.Integer_KeyPress;
             tbStartChannel.KeyPress += CustomEvents.Integer_KeyPress;
             tbEndChannel.KeyPress += CustomEvents.Integer_KeyPress;
+
+            statusLabel.Text = String.Empty;
         }
 
         private void FormSampleInput_Paint(object sender, PaintEventArgs e)
@@ -170,19 +177,21 @@ namespace lorakon
                         Directory.CreateDirectory(SampleLoadPath);
 
                     // Load communities
-                    cboxCommunity.Items.Clear();
-                    string[] commTypes = File.ReadAllLines(CommunitiesFile, Encoding.UTF8);
-                    cboxCommunity.Items.AddRange(commTypes);                    
+                    string[] communitiesList = File.ReadAllLines(CommunitiesFile, Encoding.UTF8);
+                    communities.AddRange(communitiesList);
+                    cboxCommunity.Items.AddRange(communitiesList);
+                    cboxCommunity.AutoCompleteCustomSource = communities;
 
                     // Load geometry types
                     cboxSGeomtry.Items.Clear();                    
                     string[] geomTypes = File.ReadAllLines(GeometryTypeFile, Encoding.UTF8);
-                    cboxSGeomtry.Items.AddRange(geomTypes);                    
+                    cboxSGeomtry.Items.AddRange(geomTypes);
 
                     // Load sample types
-                    cboxSDesc1.Items.Clear();
                     string[] sampTypes = File.ReadAllLines(SampleCategoryFile, Encoding.UTF8);
+                    sampleTypes.AddRange(sampTypes);
                     cboxSDesc1.Items.AddRange(sampTypes);
+                    cboxSDesc1.AutoCompleteCustomSource = sampleTypes;                    
 
                     string[] locTypes = File.ReadAllLines(LocationTypeFile, Encoding.UTF8);
                     for (int i = 0; i < locTypes.Length; i++)
@@ -214,7 +223,8 @@ namespace lorakon
                         tbSTitle.Text = lines[2];
                         cboxSDesc1.Text = lines[3];
                         tbSIdent.Text = lines[4];
-                        cboxCommunity.SelectedIndex = cboxCommunity.FindStringExact(lines[5]);                        
+                        //cboxCommunity.SelectedIndex = cboxCommunity.FindStringExact(lines[5]);
+                        cboxCommunity.Text = lines[5];
                         tbLatitude.Text = lines[6];
                         tbLongitude.Text = lines[7];
                         tbAltitude.Text = lines[8];
@@ -305,26 +315,44 @@ namespace lorakon
         {
             DialogResult = DialogResult.Cancel;
             Close();
-        }
-
-        private void cboxSDesc1_TextUpdate(object sender, EventArgs e)
-        {
-            ComboBox cb = (ComboBox)sender;
-            while (cb.FindString(cb.Text) < 0 && cb.Text.Length > 0)
-            {
-                cb.Text = cb.Text.Substring(0, cb.Text.Length - 1);
-                cb.Select(cb.Text.Length, 0);
-            }
-        }
+        }        
 
         private void cboxSDesc1_Leave(object sender, EventArgs e)
-        {
+        {            
             ComboBox cb = (ComboBox)sender;
-            if (cb.FindStringExact(cb.Text) < 0 && cb.Text.Length > 0)
+            if (!sampleTypes.Contains(cb.Text))
             {
                 cb.Focus();
-                cb.Select(cb.Text.Length, 1);           
+                cb.Select(cb.Text.Length, 1);
+                statusLabel.Text = "Du må velge en gyldig prøvetype";
             }
+            else statusLabel.Text = String.Empty;
+        }
+
+        private void cboxSDesc1_TextChanged(object sender, EventArgs e)
+        {
+            ComboBox cb = (ComboBox)sender;
+            if (!sampleTypes.Contains(cb.Text))
+                cb.Text = String.Empty;
+        }
+
+        private void cboxCommunity_Leave(object sender, EventArgs e)
+        {
+            ComboBox cb = (ComboBox)sender;
+            if (!communities.Contains(cb.Text))
+            {
+                cb.Focus();
+                cb.Select(cb.Text.Length, 1);
+                statusLabel.Text = "Du må velge en gyldig kommune";
+            }
+            else statusLabel.Text = String.Empty;
+        }
+
+        private void cboxCommunity_TextChanged(object sender, EventArgs e)
+        {
+            ComboBox cb = (ComboBox)sender;
+            if (!communities.Contains(cb.Text))
+                cb.Text = String.Empty;
         }
     }
 
