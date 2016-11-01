@@ -112,7 +112,10 @@ function Execute(Dsc,Phase)
 	f.Close
 	
 	Dsc.Parameter(CAM_T_SSPRSTR2) = "LORAKON"
-
+	Dsc.Parameter(CAM_T_STYPE) = ""
+	Dsc.Parameter(CAM_T_SDESC3) = ""
+	Dsc.Parameter(CAM_T_SDESC4) = ""
+	
 	set fso = Nothing
 	set csh = Nothing	
 

@@ -27,20 +27,36 @@ namespace lorakon
 {
     public partial class FormSampleInput : Form
     {
+        // Flag used to keep track of initialization in the paint event (Avoid displaying forms/messages in the load event)
         bool Initialized = false;
+
+        Encoding enc = Encoding.GetEncoding(1252);
+
+        // Registry key for the Genie2k installation path
         const string GenieRegistry = @"SOFTWARE\Wow6432Node\Canberra Industries, Inc.\Genie-2000 Environment";        
+
+        // Filename for input parameters
         const string InputBase = "input-params.txt";
-        const string SampleCategoryBase = "sample-types.txt";
+
+        // Filename for sample types
+        const string SampleTypeBase = "sample-types.txt";
+
+        // Filename for geometry types
         const string GeometryTypeBase = "geometry-types.txt";
+
+        // Filename for counties/communities
         const string CommunitiesBase = "communities.txt";
+
+        // Filename for location types
         const string LocationTypeBase = "location-types.txt";
-        string GeniePath, LorakonPath, ReportsPath, SamplePath, QAPath, BkgPath, UploadPath, SystemPath, SampleLoadPath;
-        string SampleCategoryFile, GeometryTypeFile, InputFile, CommunitiesFile, LocationTypeFile;
+
+        // Paths for configuration files
+        //string GeniePath, LorakonPath, ReportsPath, SamplePath, QAPath, BkgPath, UploadPath, SystemPath, SampleLoadPath;
+        string GeniePath, LorakonPath, SystemPath;
+        string SampleTypeFile, GeometryTypeFile, InputFile, CommunitiesFile, LocationTypeFile;
 
         AutoCompleteStringCollection sampleTypes = new AutoCompleteStringCollection();
-        AutoCompleteStringCollection communities = new AutoCompleteStringCollection();        
-
-        const int MagicNumber = 4124411;
+        AutoCompleteStringCollection communities = new AutoCompleteStringCollection();
 
         BindingList<LocationType> LocationTypes = new BindingList<LocationType>();
         BindingList<CoordinateType> CoordinateTypes = new BindingList<CoordinateType>();
@@ -100,27 +116,7 @@ namespace lorakon
 
                     LorakonPath = GeniePath + "Lorakon\\";
                     if (!Directory.Exists(LorakonPath))                    
-                        Directory.CreateDirectory(LorakonPath);
-
-                    ReportsPath = LorakonPath + "Rapporter\\";
-                    if (!Directory.Exists(ReportsPath))
-                        Directory.CreateDirectory(ReportsPath);
-
-                    SamplePath = ReportsPath + "PR\\";
-                    if (!Directory.Exists(SamplePath))
-                        Directory.CreateDirectory(SamplePath);
-
-                    QAPath = ReportsPath + "QA\\";
-                    if (!Directory.Exists(QAPath))
-                        Directory.CreateDirectory(QAPath);
-
-                    BkgPath = ReportsPath + "BKG\\";
-                    if (!Directory.Exists(BkgPath))
-                        Directory.CreateDirectory(BkgPath);
-
-                    UploadPath = ReportsPath + "PR_SENT\\";
-                    if (!Directory.Exists(UploadPath))
-                        Directory.CreateDirectory(UploadPath);
+                        Directory.CreateDirectory(LorakonPath);                    
 
                     SystemPath = LorakonPath + "System\\";
                     if (!Directory.Exists(SystemPath))
@@ -139,15 +135,15 @@ namespace lorakon
                         File.Copy(InstallDir + "template_geometry-types.txt", GeometryTypeFile, true);
                     }
 
-                    SampleCategoryFile = SystemPath + SampleCategoryBase;
-                    if (!File.Exists(SampleCategoryFile))
+                    SampleTypeFile = SystemPath + SampleTypeBase;
+                    if (!File.Exists(SampleTypeFile))
                     {
                         if (!File.Exists(InstallDir + "template_sample-types.txt"))
                         {
                             MessageBox.Show("Finner ikke filen " + InstallDir + "template_sample-types.txt");
                             Close();
                         }
-                        File.Copy(InstallDir + "template_sample-types.txt", SampleCategoryFile, true);
+                        File.Copy(InstallDir + "template_sample-types.txt", SampleTypeFile, true);
                     }
 
                     CommunitiesFile = SystemPath + CommunitiesBase;
@@ -170,30 +166,26 @@ namespace lorakon
                             Close();
                         }
                         File.Copy(InstallDir + "template_location-types.txt", LocationTypeFile, true);
-                    }
-
-                    SampleLoadPath = LorakonPath + "Eksterne\\";
-                    if (!Directory.Exists(SampleLoadPath))
-                        Directory.CreateDirectory(SampleLoadPath);
+                    }                    
 
                     // Load communities
-                    string[] communitiesList = File.ReadAllLines(CommunitiesFile, Encoding.UTF8);
+                    string[] communitiesList = File.ReadAllLines(CommunitiesFile, enc);
                     communities.AddRange(communitiesList);
                     cboxCommunity.Items.AddRange(communitiesList);
                     cboxCommunity.AutoCompleteCustomSource = communities;
 
                     // Load geometry types
                     cboxSGeomtry.Items.Clear();                    
-                    string[] geomTypes = File.ReadAllLines(GeometryTypeFile, Encoding.UTF8);
+                    string[] geomTypes = File.ReadAllLines(GeometryTypeFile, enc);
                     cboxSGeomtry.Items.AddRange(geomTypes);
 
                     // Load sample types
-                    string[] sampTypes = File.ReadAllLines(SampleCategoryFile, Encoding.UTF8);
+                    string[] sampTypes = File.ReadAllLines(SampleTypeFile, enc);
                     sampleTypes.AddRange(sampTypes);
                     cboxSDesc1.Items.AddRange(sampTypes);
                     cboxSDesc1.AutoCompleteCustomSource = sampleTypes;                    
 
-                    string[] locTypes = File.ReadAllLines(LocationTypeFile, Encoding.UTF8);
+                    string[] locTypes = File.ReadAllLines(LocationTypeFile, enc);
                     for (int i = 0; i < locTypes.Length; i++)
                         LocationTypes.Add(new LocationType(locTypes[i], i.ToString()));
                     cboxLocation.DataSource = LocationTypes;
@@ -214,7 +206,7 @@ namespace lorakon
                     if (File.Exists(InputFile))
                     {
                         // Load params from file                    
-                        string[] lines = File.ReadAllLines(InputFile, Encoding.UTF8);
+                        string[] lines = File.ReadAllLines(InputFile, enc);
 
                         if(lines.Length > 0)
                             tbLab.Text = lines[0];
@@ -279,8 +271,7 @@ namespace lorakon
         {
             DialogResult = DialogResult.Abort;            
 
-            // FIXME: more checks
-            /*
+            // FIXME: more checks            
             if(String.IsNullOrEmpty(tbScollName.Text) 
                 || String.IsNullOrEmpty(tbSTitle.Text)
                 || String.IsNullOrEmpty(cboxSDesc1.Text)
@@ -304,7 +295,7 @@ namespace lorakon
             {
                 statusLabel.Text = "Du må velge en gyldig kommune";
                 return;
-            }*/
+            }
 
             // Store params to file
             try
@@ -333,7 +324,7 @@ namespace lorakon
                     tbEndChannel.Text + Environment.NewLine +
                     tbComment.Text;
 
-                File.WriteAllText(InputFile, c, Encoding.UTF8);               
+                File.WriteAllText(InputFile, c, enc);               
                 DialogResult = DialogResult.OK;
             }
             catch(Exception ex)

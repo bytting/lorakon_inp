@@ -1,42 +1,42 @@
-ï»¿RÃ¸mskog, Ã˜stfold
-Marker, Ã˜stfold
-Aremark, Ã˜stfold
-Halden, Ã˜stfold
-TrÃ¸gstad, Ã˜stfold
-Spydeberg, Ã˜stfold
-HobÃ¸l, Ã˜stfold
-Askim, Ã˜stfold
-Skiptvet, Ã˜stfold
-Eidsberg, Ã˜stfold
-Rakkestad, Ã˜stfold
-VÃ¥ler, Ã˜stfold
-Moss, Ã˜stfold
-Rygge, Ã˜stfold
-RÃ¥de, Ã˜stfold
-Sarpsborg, Ã˜stfold
-Fredrikstad, Ã˜stfold
-Hvaler, Ã˜stfold
+Rømskog, Østfold
+Marker, Østfold
+Aremark, Østfold
+Halden, Østfold
+Trøgstad, Østfold
+Spydeberg, Østfold
+Hobøl, Østfold
+Askim, Østfold
+Skiptvet, Østfold
+Eidsberg, Østfold
+Rakkestad, Østfold
+Våler, Østfold
+Moss, Østfold
+Rygge, Østfold
+Råde, Østfold
+Sarpsborg, Østfold
+Fredrikstad, Østfold
+Hvaler, Østfold
 Hurdal, Akershus
 Eidsvoll, Akershus
 Nes, Akershus
-Aurskog-HÃ¸land, Akershus
+Aurskog-Høland, Akershus
 Ullensaker, Akershus
 Nannestad, Akershus
 Gjerdrum, Akershus
 Nittedal, Akershus
-SÃ¸rum, Akershus
+Sørum, Akershus
 Skedsmo, Akershus
-LÃ¸renskog, Akershus
+Lørenskog, Akershus
 Fet, Akershus
-RÃ¦lingen, Akershus
+Rælingen, Akershus
 Enebakk, Akershus
 Ski, Akershus
-OppegÃ¥rd, Akershus
+Oppegård, Akershus
 Nesodden, Akershus
-BÃ¦rum, Akershus
+Bærum, Akershus
 Asker, Akershus
 Frogn, Akershus
-Ã…s, Akershus
+Ås, Akershus
 Vestby, Akershus
 Oslo, Oslo
 Svelvik, Vestfold
@@ -47,13 +47,13 @@ Lardal, Vestfold
 Larvik, Vestfold
 Andebu, Vestfold
 Ramnes, Vestfold
-VÃ¥le, Vestfold
+Våle, Vestfold
 Borre, Vestfold
-TÃ¸nsberg, Vestfold
+Tønsberg, Vestfold
 Stokke, Vestfold
 Sandefjord, Vestfold
-NÃ¸tterÃ¸y, Vestfold
-TjÃ¸me, Vestfold
+Nøtterøy, Vestfold
+Tjøme, Vestfold
 Vinje, Telemark
 Tinn, Telemark
 Notodden, Telemark
@@ -64,19 +64,19 @@ Tokke, Telemark
 Fyresdal, Telemark
 Nissedal, Telemark
 Drangedal, Telemark
-BÃ¸, Telemark
+Bø, Telemark
 Nome, Telemark
 Sauherad, Telemark
 Skien, Telemark
 Siljan, Telemark
 Porsgrunn, Telemark
 Bamble, Telemark
-KragerÃ¸, Telemark
+Kragerø, Telemark
 Bykle, Aust-Agder
 Valle, Aust-Agder
 Bygland, Aust-Agder
 Evje og Hornnes, Aust-Agder
-Ã…mli, Aust-Agder
+Åmli, Aust-Agder
 Froland, Aust-Agder
 Birkenes, Aust-Agder
 Iveland, Aust-Agder
@@ -84,28 +84,28 @@ Lillesand, Aust-Agder
 Grimstad, Aust-Agder
 Arendal, Aust-Agder
 Tvedestrand, Aust-Agder
-VegÃ¥rshei, Aust-Agder
+Vegårshei, Aust-Agder
 Gjerstad, Aust-Agder
-RisÃ¸r, Aust-Agder
+Risør, Aust-Agder
 Sirdal, Vest-Agder
 Flekkefjord, Vest-Agder
 Kvinesdal, Vest-Agder
-Ã…seral, Vest-Agder
-HÃ¦gebostad, Vest-Agder
+Åseral, Vest-Agder
+Hægebostad, Vest-Agder
 Farsund, Vest-Agder
 Lyngdal, Vest-Agder
 Lindesnes, Vest-Agder
 Audnedal, Vest-Agder
 Mandal, Vest-Agder
 Marnardal, Vest-Agder
-SÃ¸gne, Vest-Agder
+Søgne, Vest-Agder
 Songdalen, Vest-Agder
 Vennesla, Vest-Agder
 Kristiansand, Vest-Agder
 Lund, Rogaland
 Sokndal, Rogaland
 Eigersund, Rogaland
-HÃ¥, Rogaland
+Hå, Rogaland
 Bjerkreim, Rogaland
 Gjesdal, Rogaland
 Time, Rogaland
@@ -114,18 +114,18 @@ Sola, Rogaland
 Sandnes, Rogaland
 Stavanger, Rogaland
 Randaberg, Rogaland
-KvitsÃ¸y, Rogaland
-RennesÃ¸y, Rogaland
+Kvitsøy, Rogaland
+Rennesøy, Rogaland
 Strand, Rogaland
 Forsand, Rogaland
 Hjelmeland, Rogaland
-FinnÃ¸y, Rogaland
+Finnøy, Rogaland
 Suldal, Rogaland
 Sauda, Rogaland
 Vindafjord, Rogaland
-TysvÃ¦r, Rogaland
+Tysvær, Rogaland
 Haugesund, Rogaland
-KarmÃ¸y, Rogaland
+Karmøy, Rogaland
 Bokn, Rogaland
 Utsira, Rogaland
 Ulvik, Hordaland
@@ -136,7 +136,7 @@ Jondal, Hordaland
 Kvinnherad, Hordaland
 Etne, Hordaland
 Sveio, Hordaland
-BÃ¸mlo, Hordaland
+Bømlo, Hordaland
 Stord, Hordaland
 Fitjar, Hordaland
 Tysnes, Hordaland
@@ -149,45 +149,45 @@ Semnanger, Hordaland
 Os, Hordaland
 Austevoll, Hordaland
 Bergen, Hordaland
-OsterÃ¸y, Hordaland
+Osterøy, Hordaland
 Modalen, Hordaland
 Masfjorden, Hordaland
-LindÃ¥s, Hordaland
+Lindås, Hordaland
 Sund, Hordaland
 Fjell, Hordaland
-AskÃ¸y, Hordaland
-Ã˜ygarden, Hordaland
+Askøy, Hordaland
+Øygarden, Hordaland
 Meland, Hordaland
-RadÃ¸y, Hordaland
+Radøy, Hordaland
 Austrheim, Hordaland
 Fedje, Hordaland
 Hemsedal, Buskerud
 Gol, Buskerud
-Ã…l, Buskerud
+Ål, Buskerud
 Hol, Buskerud
 Nes, Buskerud
 Nore og Uvdal, Buskerud
-FlÃ¥, Buskerud
+Flå, Buskerud
 Rollag, Buskerud
 Sigdal, Buskerud
-KrÃ¸dsherad, Buskerud
+Krødsherad, Buskerud
 Ringerike, Buskerud
 Hole, Buskerud
 Modum, Buskerud
 Flesberg, Buskerud
 Kongsberg, Buskerud
-Ã˜vre Eiker, Buskerud
+Øvre Eiker, Buskerud
 Nedre Eiker, Buskerud
 Lier, Buskerud
 Drammen, Buskerud
-RÃ¸yken, Buskerud
+Røyken, Buskerud
 Hurum, Buskerud
-LÃ¦rdal, Sogn og Fjordane
-Ã…rdal, Sogn og Fjordane
+Lærdal, Sogn og Fjordane
+Årdal, Sogn og Fjordane
 Luster, Sogn og Fjordane
 Aurland, Sogn og Fjordane
 Vik, Sogn og Fjordane
-HÃ¸yanger, Sogn og Fjordane
+Høyanger, Sogn og Fjordane
 Gulen, Sogn og Fjordane
 Hyllestad, Sogn og Fjordane
 Solund, Sogn og Fjordane
@@ -200,37 +200,37 @@ Eid, Sogn og Fjordane
 Gaular, Sogn og Fjordane
 Fjaler, Sogn og Fjordane
 Askvoll, Sogn og Fjordane
-FÃ¸rde, Sogn og Fjordane
-JÃ¸lster, Sogn og Fjordane
+Førde, Sogn og Fjordane
+Jølster, Sogn og Fjordane
 Gloppen, Sogn og Fjordane
 Naustdal, Sogn og Fjordane
 Flora, Sogn og Fjordane
 Bremanger, Sogn og Fjordane
-VÃ¥gsÃ¸y, Sogn og Fjordane
+Vågsøy, Sogn og Fjordane
 Selje, Sogn og Fjordane
-SkjÃ¥k, Oppland
+Skjåk, Oppland
 Lesja, Oppland
 Dovre, Oppland
 Lom, Oppland
-VÃ¥gÃ¥, Oppland
+Vågå, Oppland
 Sel, Oppland
 Vang, Oppland
 Vestre Slidre, Oppland
-Ã˜ystre Slidre, Oppland
+Øystre Slidre, Oppland
 Nord-Aurdal, Oppland
 Etnedal, Oppland
 Nord-Fron, Oppland
-SÃ¸r-Fron, Oppland
+Sør-Fron, Oppland
 Gausdal, Oppland
 Ringebu, Oppland
-Ã˜yer, Oppland
+Øyer, Oppland
 Lillehammer, Oppland
 Nordre Land, Oppland
-GjÃ¸vik, Oppland
-SÃ¸r-Aurdal, Oppland
-SÃ¸ndre Land, Oppland
+Gjøvik, Oppland
+Sør-Aurdal, Oppland
+Søndre Land, Oppland
 Vestre Toten, Oppland
-Ã˜stre Toten, Oppland
+Østre Toten, Oppland
 Gran, Oppland
 Jevnaker, Oppland
 Lunner, Oppland
@@ -243,111 +243,111 @@ Alvdal, Hedmark
 Rendalen, Hedmark
 Stor-Elvdal, Hedmark
 Trysil, Hedmark
-Ã…mot, Hedmark
+Åmot, Hedmark
 Ringsaker, Hedmark
 Hamar, Hedmark
-LÃ¸ten, Hedmark
+Løten, Hedmark
 Elverum, Hedmark
 Stange, Hedmark
-VÃ¥ler, Hedmark
-Ã…snes, Hedmark
+Våler, Hedmark
+Åsnes, Hedmark
 Nord-Odal, Hedmark
-SÃ¸r-Odal, Hedmark
+Sør-Odal, Hedmark
 Grue, Hedmark
 Kongsvinger, Hedmark
 Eidskog, Hedmark
-Sunndal, MÃ¸re og Romsdal
-Surnadal, MÃ¸re og Romsdal
-Rindal, MÃ¸re og Romsdal
-Nesset, MÃ¸re og Romsdal
-Rauma, MÃ¸re og Romsdal
-Molde, MÃ¸re og Romsdal
-Tingvoll, MÃ¸re og Romsdal
-Halsa, MÃ¸re og Romsdal
-Aure, MÃ¸re og Romsdal
-Tustna, MÃ¸re og Romsdal
-SmÃ¸la, MÃ¸re og Romsdal
-Frei, MÃ¸re og Romsdal
-Gjemnes, MÃ¸re og Romsdal
-Kristiansund, MÃ¸re og Romsdal
-Eide, MÃ¸re og Romsdal
-AverÃ¸y, MÃ¸re og Romsdal
-FrÃ¦na, MÃ¸re og Romsdal
-Aukra, MÃ¸re og Romsdal
-Norddal, MÃ¸re og Romsdal
-Stranda, MÃ¸re og Romsdal
-Stordal, MÃ¸re og Romsdal
-Vestnes, MÃ¸re og Romsdal
-Ã˜rskog, MÃ¸re og Romsdal
-Ã˜rsta, MÃ¸re og Romsdal
-Sykkylven, MÃ¸re og Romsdal
-Volda, MÃ¸re og Romsdal
-Vanylven, MÃ¸re og Romsdal
-Sande, MÃ¸re og Romsdal
-Skodje, MÃ¸re og Romsdal
-Haram, MÃ¸re og Romsdal
-Midsund, MÃ¸re og Romsdal
-SandÃ¸y, MÃ¸re og Romsdal
-Ã…lesund, MÃ¸re og Romsdal
-Sula, MÃ¸re og Romsdal
-Giske, MÃ¸re og Romsdal
-Hareid, MÃ¸re og Romsdal
-Ulstein, MÃ¸re og Romsdal
-HerÃ¸y, MÃ¸re og Romsdal
-RÃ¸ros, SÃ¸r-TrÃ¸ndelag
-Tydal, SÃ¸r-TrÃ¸ndelag
-Selbu, SÃ¸r-TrÃ¸ndelag
-HoltÃ¥len, SÃ¸r-TrÃ¸ndelag
-Midtre Gauldal, SÃ¸r-TrÃ¸ndelag
-Oppdal, SÃ¸r-TrÃ¸ndelag
-Rennebu, SÃ¸r-TrÃ¸ndelag
-Meldal, SÃ¸r-TrÃ¸ndelag
-Malvik, SÃ¸r-TrÃ¸ndelag
-Melhus, SÃ¸r-TrÃ¸ndelag
-KlÃ¦bu, SÃ¸r-TrÃ¸ndelag
-Trondheim, SÃ¸r-TrÃ¸ndelag
-Skaun, SÃ¸r-TrÃ¸ndelag
-Orkdal, SÃ¸r-TrÃ¸ndelag
-Hemne, SÃ¸r-TrÃ¸ndelag
-Snillfjord, SÃ¸r-TrÃ¸ndelag
-Agdenes, SÃ¸r-TrÃ¸ndelag
-Rissa, SÃ¸r-TrÃ¸ndelag
-Ã…fjord, SÃ¸r-TrÃ¸ndelag
-Roan, SÃ¸r-TrÃ¸ndelag
-Osen, SÃ¸r-TrÃ¸ndelag
-Hitra, SÃ¸r-TrÃ¸ndelag
-FrÃ¸ya, SÃ¸r-TrÃ¸ndelag
-Ã˜rland, SÃ¸r-TrÃ¸ndelag
-Bjugn, SÃ¸r-TrÃ¸ndelag
-Lierne, Nord-TrÃ¸ndelag
-RÃ¸yrvik, Nord-TrÃ¸ndelag
-SnÃ¥sa, Nord-TrÃ¸ndelag
-Verdal, Nord-TrÃ¸ndelag
-MerÃ¥ker, Nord-TrÃ¸ndelag
-StjÃ¸rdal, Nord-TrÃ¸ndelag
-Frosta, Nord-TrÃ¸ndelag
-Levanger, Nord-TrÃ¸ndelag
-Namsskogan, Nord-TrÃ¸ndelag
-Grong, Nord-TrÃ¸ndelag
-HÃ¸ylandet, Nord-TrÃ¸ndelag
-Overhalla, Nord-TrÃ¸ndelag
-Steinkjer, Nord-TrÃ¸ndelag
-Leksvik, Nord-TrÃ¸ndelag
-Mosvik, Nord-TrÃ¸ndelag
-InderÃ¸y, Nord-TrÃ¸ndelag
-Verran, Nord-TrÃ¸ndelag
-Namdalseid, Nord-TrÃ¸ndelag
-Namsos, Nord-TrÃ¸ndelag
-Flatanger, Nord-TrÃ¸ndelag
-Fosnes, Nord-TrÃ¸ndelag
-NÃ¦rÃ¸y, Nord-TrÃ¸ndelag
-Vikna, Nord-TrÃ¸ndelag
-Leka, Nord-TrÃ¸ndelag
+Sunndal, Møre og Romsdal
+Surnadal, Møre og Romsdal
+Rindal, Møre og Romsdal
+Nesset, Møre og Romsdal
+Rauma, Møre og Romsdal
+Molde, Møre og Romsdal
+Tingvoll, Møre og Romsdal
+Halsa, Møre og Romsdal
+Aure, Møre og Romsdal
+Tustna, Møre og Romsdal
+Smøla, Møre og Romsdal
+Frei, Møre og Romsdal
+Gjemnes, Møre og Romsdal
+Kristiansund, Møre og Romsdal
+Eide, Møre og Romsdal
+Averøy, Møre og Romsdal
+Fræna, Møre og Romsdal
+Aukra, Møre og Romsdal
+Norddal, Møre og Romsdal
+Stranda, Møre og Romsdal
+Stordal, Møre og Romsdal
+Vestnes, Møre og Romsdal
+Ørskog, Møre og Romsdal
+Ørsta, Møre og Romsdal
+Sykkylven, Møre og Romsdal
+Volda, Møre og Romsdal
+Vanylven, Møre og Romsdal
+Sande, Møre og Romsdal
+Skodje, Møre og Romsdal
+Haram, Møre og Romsdal
+Midsund, Møre og Romsdal
+Sandøy, Møre og Romsdal
+Ålesund, Møre og Romsdal
+Sula, Møre og Romsdal
+Giske, Møre og Romsdal
+Hareid, Møre og Romsdal
+Ulstein, Møre og Romsdal
+Herøy, Møre og Romsdal
+Røros, Sør-Trøndelag
+Tydal, Sør-Trøndelag
+Selbu, Sør-Trøndelag
+Holtålen, Sør-Trøndelag
+Midtre Gauldal, Sør-Trøndelag
+Oppdal, Sør-Trøndelag
+Rennebu, Sør-Trøndelag
+Meldal, Sør-Trøndelag
+Malvik, Sør-Trøndelag
+Melhus, Sør-Trøndelag
+Klæbu, Sør-Trøndelag
+Trondheim, Sør-Trøndelag
+Skaun, Sør-Trøndelag
+Orkdal, Sør-Trøndelag
+Hemne, Sør-Trøndelag
+Snillfjord, Sør-Trøndelag
+Agdenes, Sør-Trøndelag
+Rissa, Sør-Trøndelag
+Åfjord, Sør-Trøndelag
+Roan, Sør-Trøndelag
+Osen, Sør-Trøndelag
+Hitra, Sør-Trøndelag
+Frøya, Sør-Trøndelag
+Ørland, Sør-Trøndelag
+Bjugn, Sør-Trøndelag
+Lierne, Nord-Trøndelag
+Røyrvik, Nord-Trøndelag
+Snåsa, Nord-Trøndelag
+Verdal, Nord-Trøndelag
+Meråker, Nord-Trøndelag
+Stjørdal, Nord-Trøndelag
+Frosta, Nord-Trøndelag
+Levanger, Nord-Trøndelag
+Namsskogan, Nord-Trøndelag
+Grong, Nord-Trøndelag
+Høylandet, Nord-Trøndelag
+Overhalla, Nord-Trøndelag
+Steinkjer, Nord-Trøndelag
+Leksvik, Nord-Trøndelag
+Mosvik, Nord-Trøndelag
+Inderøy, Nord-Trøndelag
+Verran, Nord-Trøndelag
+Namdalseid, Nord-Trøndelag
+Namsos, Nord-Trøndelag
+Flatanger, Nord-Trøndelag
+Fosnes, Nord-Trøndelag
+Nærøy, Nord-Trøndelag
+Vikna, Nord-Trøndelag
+Leka, Nord-Trøndelag
 Hattfjelldal, Nordland
 Grane, Nordland
 Bindal, Nordland
-BrÃ¸nnÃ¸y, Nordland
-SÃ¸mna, Nordland
+Brønnøy, Nordland
+Sømna, Nordland
 Vefsn, Nordland
 Hemnes, Nordland
 Rana, Nordland
@@ -355,62 +355,62 @@ Leirfjord, Nordland
 Vevelstad, Nordland
 Vega, Nordland
 Alstahaug, Nordland
-HerÃ¸y, Nordland
-DÃ¸nna, Nordland
+Herøy, Nordland
+Dønna, Nordland
 Nesna, Nordland
-LurÃ¸y, Nordland
-RÃ¸dÃ¸y, Nordland
-TrÃ¦na, Nordland
-MelÃ¸y, Nordland
+Lurøy, Nordland
+Rødøy, Nordland
+Træna, Nordland
+Meløy, Nordland
 Saltdal, Nordland
 Beiarn, Nordland
 Skjerstad, Nordland
 Fauske, Nordland
-BodÃ¸, Nordland
-GildeskÃ¥l, Nordland
-SÃ¸rfold, Nordland
+Bodø, Nordland
+Gildeskål, Nordland
+Sørfold, Nordland
 Steigen, Nordland
-HamarÃ¸y, Nordland
+Hamarøy, Nordland
 Tysfjord, Nordland
 Ballangen, Nordland
 Narvik, Nordland
 Evenes, Nordland
 Tjeldsund, Nordland
-LÃ¸dingen, Nordland
+Lødingen, Nordland
 Hadsel, Nordland
 Sortland, Nordland
-BÃ¸, Nordland
-AndÃ¸y, Nordland
-Ã˜ksnes, Nordland
-VÃ¥gan, Nordland
-VestvÃ¥gÃ¸y, Nordland
+Bø, Nordland
+Andøy, Nordland
+Øksnes, Nordland
+Vågan, Nordland
+Vestvågøy, Nordland
 Flakstad, Nordland
 Moskenes, Nordland
-VÃ¦rÃ¸y, Nordland
-RÃ¸st, Nordland
-KvÃ¦nangen, Troms
+Værøy, Nordland
+Røst, Nordland
+Kvænangen, Troms
 Nordreisa, Troms
-SkjervÃ¸y, Troms
-KÃ¥fjord, Troms
+Skjervøy, Troms
+Kåfjord, Troms
 Storfjord, Troms
-MÃ¥lselv, Troms
+Målselv, Troms
 Bardu, Troms
 Lyngen, Troms
-TromsÃ¸, Troms
-KarlsÃ¸y, Troms
+Tromsø, Troms
+Karlsøy, Troms
 Balsfjord, Troms
 Lenvik, Troms
 Berg, Troms
 Torsken, Troms
-TranÃ¸y, Troms
-BjarkÃ¸y, Troms
-SÃ¸rreisa, Troms
-DyrÃ¸y, Troms
+Tranøy, Troms
+Bjarkøy, Troms
+Sørreisa, Troms
+Dyrøy, Troms
 Salangen, Troms
 Levangen, Troms
 Gratangen, Troms
-SkÃ¥nland, Troms
-KvÃ¦fjord, Troms
+Skånland, Troms
+Kvæfjord, Troms
 Harstad, Troms
 Kautokeino, Finnmark
 Karasjok, Finnmark
@@ -420,14 +420,14 @@ Hasvik, Finnmark
 Hammerfest, Finnmark
 Kvalsund, Finnmark
 Porsanger, Finnmark
-MÃ¥sÃ¸y, Finnmark
+Måsøy, Finnmark
 Nordkapp, Finnmark
 Lebesby, Finnmark
 Gamvik, Finnmark
 Tana, Finnmark
-BerlevÃ¥g, Finnmark
-BÃ¥tsfjord, Finnmark
-VardÃ¸, Finnmark
-VadsÃ¸, Finnmark
+Berlevåg, Finnmark
+Båtsfjord, Finnmark
+Vardø, Finnmark
+Vadsø, Finnmark
 Nesseby, Finnmark
-SÃ¸r-Varanger, Finnmark
+Sør-Varanger, Finnmark
