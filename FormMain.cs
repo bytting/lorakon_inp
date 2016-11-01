@@ -18,7 +18,6 @@
 // Authors: Dag Robole,
 using System;
 using System.IO;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using System.Windows.Forms;
@@ -37,12 +36,11 @@ namespace lorakon
         const string LocationTypeBase = "location-types.txt";
         string GeniePath, LorakonPath, ReportsPath, SamplePath, QAPath, BkgPath, UploadPath, SystemPath, SampleLoadPath;
         string SampleCategoryFile, GeometryTypeFile, InputFile, CommunitiesFile, LocationTypeFile;
-        string FileID;        
 
         AutoCompleteStringCollection sampleTypes = new AutoCompleteStringCollection();
         AutoCompleteStringCollection communities = new AutoCompleteStringCollection();        
 
-        const int MagicNumber = 412441176;
+        const int MagicNumber = 4124411;
 
         BindingList<LocationType> LocationTypes = new BindingList<LocationType>();
         BindingList<CoordinateType> CoordinateTypes = new BindingList<CoordinateType>();
@@ -67,16 +65,18 @@ namespace lorakon
 
         private void FormSampleInput_Load(object sender, EventArgs e)
         {
-            // Load      
-            tbSSyserr.KeyPress += CustomEvents.Integer_KeyPress;
-            tbSSysterr.KeyPress += CustomEvents.Integer_KeyPress;
+            // Load                  
             tbSQuant.KeyPress += CustomEvents.Numeric_KeyPress;
             tbSQuantErr.KeyPress += CustomEvents.Numeric_KeyPress;
-            tbLatitude.KeyPress += CustomEvents.InvariantNumeric_KeyPress;
-            tbLongitude.KeyPress += CustomEvents.InvariantNumeric_KeyPress;
-            tbAltitude.KeyPress += CustomEvents.Integer_KeyPress;
+            tbLatitude.KeyPress += CustomEvents.Numeric_KeyPress;
+            tbLongitude.KeyPress += CustomEvents.Numeric_KeyPress;
+            tbAltitude.KeyPress += CustomEvents.Numeric_KeyPress;
+            tbLivetime.KeyPress += CustomEvents.Integer_KeyPress;
+            tbIntegral.KeyPress += CustomEvents.Integer_KeyPress;
             tbStartChannel.KeyPress += CustomEvents.Integer_KeyPress;
             tbEndChannel.KeyPress += CustomEvents.Integer_KeyPress;
+            tbSSyserr.KeyPress += CustomEvents.Numeric_KeyPress;
+            tbSSysterr.KeyPress += CustomEvents.Numeric_KeyPress;
 
             statusLabel.Text = String.Empty;
         }
@@ -206,48 +206,67 @@ namespace lorakon
                     cboxCoordType.DisplayMember = "Name";
                     cboxCoordType.ValueMember = "Value";
 
-                    InputFile = SystemPath + InputBase;
-                    if (!File.Exists(InputFile))                    
-                        return;
-
                     DateTime now = DateTime.Now;
                     dtpSDate.Value = now;
                     dtpSTime.Value = new DateTime(now.Year, now.Month, now.Day, 12, 0, 0);
 
-                    // Load params from file
-                    string[] lines = File.ReadAllLines(InputFile, Encoding.UTF8);
-                    if (lines.Length >= 21)
+                    InputFile = SystemPath + InputBase;
+                    if (File.Exists(InputFile))
                     {
-                        tbLab.Text = lines[0];
-                        tbScollName.Text = lines[1];
-                        tbSTitle.Text = lines[2];
-                        if(sampleTypes.Contains(lines[3]))
-                            cboxSDesc1.Text = lines[3];
-                        tbSIdent.Text = lines[4];
-                        if(communities.Contains(lines[5]))
-                            cboxCommunity.Text = lines[5];
-                        tbLatitude.Text = lines[6];
-                        tbLongitude.Text = lines[7];
-                        tbAltitude.Text = lines[8];
-                        cboxLocation.SelectedValue = lines[9];
-                        tbSLoctn.Text = lines[10];
-                        tbSQuant.Text = lines[11];
-                        tbSQuantErr.Text = lines[12];
-                        cboxSUnits.Text = lines[13];
-                        cboxSGeomtry.Text = lines[14];
-                        DateTime dt = Convert.ToDateTime(lines[15]);
-                        dtpSDate.Value = dt;
-                        dtpSTime.Value = dt;
-                        //tbLivetime.Text = lines[16];
-                        //tbIntegral.Text = lines[17];
-                        tbSSyserr.Text = lines[16];
-                        tbSSysterr.Text = lines[17];
-                        tbStartChannel.Text = lines[18];
-                        tbEndChannel.Text = lines[19];
-                        FileID = lines[20];
-                    }                    
+                        // Load params from file                    
+                        string[] lines = File.ReadAllLines(InputFile, Encoding.UTF8);
 
-                    tbScollName.Focus();
+                        if(lines.Length > 0)
+                            tbLab.Text = lines[0];
+                        if (lines.Length > 1)
+                            tbScollName.Text = lines[1];
+                        if (lines.Length > 2)
+                            tbSTitle.Text = lines[2];
+                        if (lines.Length > 3)
+                            if (sampleTypes.Contains(lines[3]))
+                                cboxSDesc1.Text = lines[3];
+                        if (lines.Length > 4)
+                            tbSIdent.Text = lines[4];
+                        if (lines.Length > 5)
+                            if (communities.Contains(lines[5]))
+                                cboxCommunity.Text = lines[5];
+                        if (lines.Length > 6)
+                            tbLatitude.Text = lines[6];
+                        if (lines.Length > 7)
+                            tbLongitude.Text = lines[7];
+                        if (lines.Length > 8)
+                            tbAltitude.Text = lines[8];
+                        if (lines.Length > 9)
+                            cboxLocation.SelectedValue = lines[9];
+                        if (lines.Length > 10)
+                            tbSLoctn.Text = lines[10];
+                        if (lines.Length > 11)
+                            tbSQuant.Text = lines[11];
+                        if (lines.Length > 12)
+                            tbSQuantErr.Text = lines[12];
+                        if (lines.Length > 13)
+                            cboxSUnits.Text = lines[13];
+                        if (lines.Length > 14)
+                            cboxSGeomtry.Text = lines[14];
+                        if (lines.Length > 15)
+                        {
+                            DateTime dt = Convert.ToDateTime(lines[15]);
+                            dtpSDate.Value = dt;
+                            dtpSTime.Value = dt;
+                        }
+                        if (lines.Length > 16)
+                            tbSSyserr.Text = lines[16];
+                        if (lines.Length > 17)
+                            tbSSysterr.Text = lines[17];
+                        if (lines.Length > 18)
+                            tbStartChannel.Text = lines[18];
+                        if (lines.Length > 19)
+                            tbEndChannel.Text = lines[19];
+                        if (lines.Length > 20)
+                            tbComment.Text = lines[20];
+                    }
+
+                    tbLab.Focus();
                 }
                 catch (Exception ex)
                 {
@@ -261,12 +280,15 @@ namespace lorakon
             DialogResult = DialogResult.Abort;            
 
             // FIXME: more checks
+            /*
             if(String.IsNullOrEmpty(tbScollName.Text) 
                 || String.IsNullOrEmpty(tbSTitle.Text)
                 || String.IsNullOrEmpty(cboxSDesc1.Text)
                 || String.IsNullOrEmpty(cboxSUnits.Text)
                 || String.IsNullOrEmpty(tbSQuant.Text) 
-                || String.IsNullOrEmpty(tbSQuantErr.Text))
+                || String.IsNullOrEmpty(tbSQuantErr.Text)
+                || String.IsNullOrEmpty(tbSSyserr.Text)
+                || String.IsNullOrEmpty(tbSSysterr.Text))
             {
                 MessageBox.Show("En eller flere påkrevde felter mangler");
                 return;
@@ -282,11 +304,11 @@ namespace lorakon
             {
                 statusLabel.Text = "Du må velge en gyldig kommune";
                 return;
-            }
+            }*/
 
             // Store params to file
             try
-            {                
+            {
                 DateTime dt = new DateTime(dtpSDate.Value.Year, dtpSDate.Value.Month, dtpSDate.Value.Day, dtpSTime.Value.Hour, dtpSTime.Value.Minute, dtpSTime.Value.Second);
 
                 string c = tbLab.Text + Environment.NewLine +
@@ -304,21 +326,19 @@ namespace lorakon
                     tbSQuantErr.Text + Environment.NewLine +
                     cboxSUnits.Text + Environment.NewLine +
                     cboxSGeomtry.Text + Environment.NewLine +
-                    dt.ToString("yyyy-MM-dd hh:mm:ss") + Environment.NewLine +
-                    //tbLivetime.Text + Environment.NewLine +
-                    //tbIntegral.Text + Environment.NewLine +
+                    dt.ToString("yyyy-MM-dd hh:mm:ss") + Environment.NewLine +                    
                     tbSSyserr.Text + Environment.NewLine +
                     tbSSysterr.Text + Environment.NewLine +
                     tbStartChannel.Text + Environment.NewLine +
                     tbEndChannel.Text + Environment.NewLine +
-                    (String.IsNullOrEmpty(FileID.Trim()) ? Guid.NewGuid().ToString() : FileID);
+                    tbComment.Text;
 
-                File.WriteAllText(InputFile, c, Encoding.UTF8);                
+                File.WriteAllText(InputFile, c, Encoding.UTF8);               
                 DialogResult = DialogResult.OK;
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message);                
+                MessageBox.Show(ex.Message + Environment.NewLine + ex.StackTrace);                
             }            
 
             Close();

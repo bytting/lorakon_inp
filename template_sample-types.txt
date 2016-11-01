@@ -1,10 +1,14 @@
-﻿Ferskvannsfisk -> Biota
+﻿Biota -> Biota
+Ferskvannsfisk -> Biota
+Fugl -> Biota/Fugl
 Fjellrype -> Biota/Fugl
 Lirype -> Biota/Fugl
 Orrfugl -> Biota/Fugl
 Rugde -> Biota/Fugl
-Rype (uspes) -> Biota/Fugl
+Rype -> Biota/Fugl
+Insekter -> Biota/Insekter
 Europeisk honningbie -> Biota/Insekter
+Pattedyr -> Biota/Pattedyr
 Dåhjort -> Biota/Pattedyr
 Elg -> Biota/Pattedyr
 Fjellrotte -> Biota/Pattedyr
@@ -22,13 +26,13 @@ Reinsdyr -> Biota/Pattedyr
 Ringsel -> Biota/Pattedyr
 Rødmus -> Biota/Pattedyr
 Rødrev -> Biota/Pattedyr
-Spissmus (ikke spesifisert) -> Biota/Pattedyr
+Spissmus -> Biota/Pattedyr
 Spælsau, Lam -> Biota/Pattedyr
 Spælsau, Søye -> Biota/Pattedyr
 Storfe -> Biota/Pattedyr
 Storkobbe -> Biota/Pattedyr
 Svalbard rein -> Biota/Pattedyr
-ukjent -> Biota/Pattedyr
+Planter -> Biota/planter
 Bergmynte -> Biota/planter
 Bjørk -> Biota/planter
 Blokkebær -> Biota/planter
@@ -65,7 +69,6 @@ Kamskjel -> Biota/planter
 Kasjutre -> Biota/planter
 Krekling -> Biota/planter
 Lappvier -> Biota/planter
-Lys reinlav -> Biota/planter
 Marimjelle -> Biota/planter
 Matsyre/Engsyre -> Biota/planter
 Multe -> Biota/planter
@@ -74,8 +77,9 @@ Paranøttre -> Biota/planter
 Peanøtt -> Biota/planter
 Pistasjtre -> Biota/planter
 Rabbesiv -> Biota/planter
-Reinlav (Kvitkrull) -> Biota/planter
-Reinlav (uspes) -> Biota/planter
+Reinlav -> Biota/planter
+Reinlav, Kvitkrull -> Biota/planter
+Reinlav, Lys -> Biota/planter
 Rogn -> Biota/planter
 Røsslyng -> Biota/planter
 Sitkagran -> Biota/planter
@@ -88,28 +92,32 @@ Syre -> Biota/planter
 Torvmose sp. -> Biota/planter
 Torvull -> Biota/planter
 Tyttebær -> Biota/planter
-ukjent -> Biota/planter
+Planter -> Biota/planter
 Vier -> Biota/planter
+Saltvannsfisk -> Biota/Saltvannsfisk
 Hyse -> Biota/Saltvannsfisk
 Makrell -> Biota/Saltvannsfisk
 Sei -> Biota/Saltvannsfisk
 Sild -> Biota/Saltvannsfisk
 Torsk -> Biota/Saltvannsfisk
+Sjøpattedyr -> Biota/Sjøpattedyr
 Sel -> Biota/Sjøpattedyr
-Albusnegl/albuskjell -> Biota/Skalldyr
-amfipod -> Biota/Skalldyr
+Skalldyr -> Biota/Skalldyr
+Albusnegl/Albuskjell -> Biota/Skalldyr
+Amfipod -> Biota/Skalldyr
 Blåskjel -> Biota/Skalldyr
-Europeisk hummer -> Biota/Skalldyr
+Hummer -> Biota/Skalldyr
+Hummer, Europeisk -> Biota/Skalldyr
 Hoppekreps -> Biota/Skalldyr
 Knivskjel -> Biota/Skalldyr
 Leddsnegle -> Biota/Skalldyr
 Middelhavsskjell -> Biota/Skalldyr
 O-skjel -> Biota/Skalldyr
 Reker -> Biota/Skalldyr
-sandmusling -> Biota/Skalldyr
+Sandmusling -> Biota/Skalldyr
 Snegler -> Biota/Skalldyr
 Taskekrabbe -> Biota/Skalldyr
-ukjent -> Biota/Skalldyr
+Sopp -> Biota/Sopp
 Blek piggsopp -> Biota/Sopp
 Branngul riske  -> Biota/Sopp
 Brun ringløs fluesopp -> Biota/Sopp
@@ -140,17 +148,20 @@ Steinsopp -> Biota/Sopp
 Svartbrun rørsopp -> Biota/Sopp
 Svartskrubb -> Biota/Sopp
 Svovelsopp  -> Biota/Sopp
-Blæretang -> Biota/Tang/tare
-Fingertare -> Biota/Tang/tare
-Grisetang -> Biota/Tang/tare
-Kaurtang/Spiraltang -> Biota/Tang/tare
-mosdyr  -> Biota/Tang/tare
-Sagtang -> Biota/Tang/tare
-Sauetang -> Biota/Tang/tare
-Stortare -> Biota/Tang/tare
-Stritt kjerringhår -> Biota/Tang/tare
-Sukkertare -> Biota/Tang/tare
-Tare -> Biota/Tang/tare
+Tare -> Biota/Tang&Tare
+Tang -> Biota/Tang&Tare
+Tang&Tare -> Biota/Tang&Tare
+Blæretang -> Biota/Tang&Tare
+Fingertare -> Biota/Tang&Tare
+Grisetang -> Biota/Tang&Tare
+Kaurtang/Spiraltang -> Biota/Tang&Tare
+Mosdyr  -> Biota/Tang&Tare
+Sagtang -> Biota/Tang&Tare
+Sauetang -> Biota/Tang&Tare
+Stortare -> Biota/Tang&Tare
+Stritt kjerringhår -> Biota/Tang&Tare
+Sukkertare -> Biota/Tang&Tare
+Diverse -> Diverse
 Bomull -> Diverse
 Edelsten -> Diverse
 Gulvbelegg -> Diverse
@@ -166,27 +177,29 @@ Trepall -> Diverse
 Uranpellets -> Diverse
 Utfelling -> Diverse
 Wipe test -> Diverse
-jord -> Jord/Sediment
-Sand -> Jord/Sediment
+Jord -> Jord/Sediment
 Sediment -> Jord/Sediment
+Sand -> Jord/Sediment
 Slagg -> Jord/Sediment
 Stein -> Jord/Sediment
-Vulkanskaske -> Jord/Sediment
+Vulkansk aske -> Jord/Sediment
+Luft -> Luft
 Kull -> Luft
 Luftfilter -> Luft
+Næringsmidler -> Næringsmidler
 Honning -> Næringsmidler
 Kjøtt -> Næringsmidler
 Kraftfor -> Næringsmidler
 Melk -> Næringsmidler
 Ost -> Næringsmidler
 Ris -> Næringsmidler
+Vann -> Vann
 Avfallsvann -> Vann
-Avløpsvann (Kolonne) -> Vann
+Avløpsvann, Kolonne -> Vann
 Brakkvann -> Vann
 Ferskvann -> Vann
-grunnvann -> Vann
-Ikke oppgitt -> Vann
-Kloakk vann -> Vann
+Grunnvann -> Vann
+Kloakkvann -> Vann
 Regnvann -> Vann
 Saltvann -> Vann
-Sjøvann/saltvann -> Vann
+Sjøvann/Saltvann -> Vann
