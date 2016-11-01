@@ -1,0 +1,257 @@
+<sample_categories>
+	<category name="Biota">
+		<part>Alder</part>		
+		<category name="Fugl">
+			<part>Vinge</part>
+			<part>Fjær</part>
+			<type>Fugl</type>
+			<type>Rype</type>
+			<type>Fjellrype</type>
+			<type>Lirype</type>
+			<type>Orrfugl</type>
+			<type>Rugde</type>
+		</category>		
+		<category name="Insekter">			
+			<type>Insekter</type>
+			<type>Europeisk Honningbie</type>			
+		</category>
+		<category name="Pattedyr">
+			<part>Fot</part>
+			<part>Snute</part>
+			<type>Pattedyr</type>
+			<type>Dåhjort</type>
+			<type>Elg</type>
+			<type>Fjellrotte</type>
+			<type>Gaupe</type>
+			<type>Gråsidemus</type>
+			<type>Isbjørn</type>
+			<type>Jerv</type>
+			<type>Klatremus</type>
+			<type>Lam</type>
+			<type>Lemmen</type>
+			<type>Markmus</type>
+			<type>Menneske</type>
+			<type>Polarrev</type>
+			<type>Reinsdyr</type>
+			<type>Ringsel</type>
+			<type>Rødmus</type>
+			<type>Rødrev</type>
+			<type>Spissmus</type>
+			<type>Spælsau, Lam</type>
+			<type>Spælsau, Søye</type>
+			<type>Storfe</type>
+			<type>Storkobbe</type>
+			<type>Svalbard rein</type>			
+		</category>
+		<category name="Planter">			
+			<type>Planter</type>
+			<type>Bergmynte</type>
+			<type>Bjørk</type>
+			<type>Blokkebær</type>
+			<type>Blåbær</type>
+			<type>Bringebær</type>
+			<type>Bukkeblad</type>
+			<type>Dunbjørk</type>
+			<type>Duskull</type>
+			<type>Dvergbjørk</type>
+			<type>Einer</type>
+			<type>Engsyre</type>
+			<type>Etasjemose</type>
+			<type>Fjellmarikåpe</type>
+			<type>Fjellrinlav</type>
+			<type>Fjellsyre</type>
+			<type>Flaskestarr</type>
+			<type>Fnaslav</type>
+			<type>Fugletelg</type>
+			<type>Furu</type>
+			<type>Furumose</type>
+			<type>Furutorvmose</type>
+			<type>Gress</type>
+			<type>Grønnvier</type>
+			<type>Grå reinlav</type>
+			<type>Gråvier</type>
+			<type>Gullris</type>
+			<type>Gulskinn</type>
+			<type>Harerug</type>
+			<type>Islandslav</type>
+			<type>Kamskjell</type>
+			<type>Kasjutre</type>
+			<type>Krekling</type>
+			<type>Lappvier</type>
+			<type>Lys reinlav</type>
+			<type>Marimjelle</type>
+			<type>Matsyre/Engsyre</type>
+			<type>Multe</type>
+			<type>Museøre</type>
+			<type>Paranøtt tre</type>
+			<type>Paranøtt</type>
+			<type>Pistasj tre</type>
+			<type>Rabbesiv</type>
+			<type>Reinlav</type>
+			<type>Reinlav, Kvitrull</type>
+			<type>Rogn</type>
+			<type>Røsslyng</type>
+			<type>Sitgagran</type>
+			<type>Skogstorknebb</type>
+			<type>Smyle</type>
+			<type>Snørull</type>
+			<type>Starr</type>
+			<type>Stivstarr</type>
+			<type>Syre</type>
+			<type>Torvmose</type>
+			<type>Torvull</type>
+			<type>Tyttebær</type>
+			<type>Vier</type>
+		</category>
+		<category name="Saltvannsfisk">			
+			<type>Saltvannsfisk</type>
+			<type>Hyse</type>
+			<type>Makrell</type>
+			<type>Sei</type>
+			<type>Sild</type>
+			<type>Torsk</type>			
+			<type>Uer</type>
+			<type>Håbrann</type>
+			<type>Sjøørret</type>
+			<type>Makrellstørje</type>
+			<type>Tiskjegg</type>
+			<type>Laks</type>
+			<type>Lange</type>
+			<type>Lysing</type>
+			<type>Brungylt</type>
+			<type>Tunge</type>
+			<type>Slettvar</type>
+			<type>Panserulke</type>
+			<type>Lyr</type>
+			<type>Horngjel</type>			
+		</category>
+		<category name="Ferskvannsfisk">			
+			<type>Ferskvannsfisk</type>
+			<type>Ørret</type>
+			<type>Mort</type>
+			<type>Gjedde</type>
+			<type>Røye</type>
+			<type>Abbor</type>
+			<type>Sik</type>
+		</category>
+		<category name="Sjøpattedyr">			
+			<type>Sjøpattedyr</type>
+			<type>Sel</type>
+		</category>
+		<category name="Skalldyr">			
+			<type>Skalldyr</type>
+			<type>Albusnegl/Albuskjell</type>
+			<type>Amfipod</type>
+			<type>Blåskjell</type>
+			<type>Europeisk Hummer</type>
+			<type>Hoppekreps</type>
+			<type>Knivskjell</type>
+			<type>Leddsnegle</type>
+			<type>Middelhavsskjell</type>
+			<type>O-Skjell</type>
+			<type>Reke</type>
+			<type>Sandmusling</type>
+			<type>Snegle</type>
+			<type>Taskekrabbe</type>
+		</category>
+		<category name="Sopp">			
+			<type>Sopp</type>
+			<type>Blek Piggsopp</type>
+			<type>Branngul Riske</type>
+			<type>Brun Ringløs Fluesopp</type>
+			<type>Brunskrubb</type>
+			<type>Fløyelsrørsopp</type>
+			<type>Grønnkremle</type>
+			<type>Grå Kamfluesopp</type>
+			<type>Hulriske</type>
+			<type>Kantarell</type>
+			<type>Matriske</type>
+			<type>Mild Gulkremle</type>
+			<type>Myrskrubb</type>
+			<type>Pepperrørsopp</type>
+			<type>Pluggsopp</type>
+			<type>Rimsopp</type>
+			<type>Rosa Sleipsopp</type>
+			<type>Rød Fluesopp</type>
+			<type>Rødbelteslørsopp</type>
+			<type>Rødbrun Flathatt</type>
+			<type>Rødbrun Pepperriske</type>
+			<type>Rødnende Fluesopp</type>
+			<type>Rødskrubb</type>
+			<type>Sandsopp</type>
+			<type>Seig Kusopp</type>
+			<type>Skjeggriske</type>
+			<type>Smørsopp</type>
+			<type>Steinsopp</type>
+			<type>Svartbrun Rørsopp</type>
+			<type>Svartskrubb</type>
+			<type>Svovelsopp</type>
+		</category>
+		<category name="Tang/Tare">			
+			<type>Tang/Tare</type>
+			<type>Blæretang</type>
+			<type>Fingertare</type>
+			<type>Grisetang</type>
+			<type>Kaurtang/Spiraltang</type>
+			<type>Mosdyr</type>
+			<type>Sagtang</type>
+			<type>Sauetang</type>
+			<type>Stortare</type>
+			<type>Stritt Kjerringhår</type>
+			<type>Sukkertare</type>			
+		</category>		
+	</category>
+	<category name="Diverse">			
+		<type>Diverse</type>
+		<type>Bomull</type>
+		<type>Edelsten</type>
+		<type>Gulvbelegg</type>
+		<type>Gulvstøv</type>
+		<type>Interkalibreringsløsning</type>
+		<type>Interkalibreringsprøve</type>
+		<type>Phosphogypsum</type>
+		<type>Phosphogypsum, IAEA-434</type>
+		<type>Plast</type>
+		<type>Stryktest</type>
+		<type>Treforedling</type>
+		<type>Trepall</type>
+		<type>Uranpellets</type>
+		<type>Utfelling</type>
+		<type>Wipe test</type>
+	</category>
+	<category name="Jord/Sediment">			
+		<type>Jord/Sediment</type>
+		<type>Jord</type>
+		<type>Sand</type>
+		<type>Sediment</type>
+		<type>Slagg</type>
+		<type>Stein</type>
+		<type>Vulkansk Aske</type>
+	</category>
+	<category name="Luft">			
+		<type>Luft</type>
+		<type>Kull</type>
+		<type>Luftfilter</type>
+	</category>
+	<category name="Næringsmidler">			
+		<type>Næringsmidler</type>
+		<type>Honning</type>
+		<type>Kjøtt</type>
+		<type>Kraftfor</type>
+		<type>Melk</type>
+		<type>Ost</type>
+		<type>Ris</type>
+	</category>
+	<category name="Vann">			
+		<type>Vann</type>
+		<type>Avfallsvann</type>
+		<type>Avløpsvann (Kolonne)</type>
+		<type>Brakkvann</type>
+		<type>Ferskvann</type>
+		<type>Grunnvann</type>
+		<type>Kloakkvann</type>
+		<type>Regnvann</type>
+		<type>Saltvann</type>
+		<type>Sjøvann/Saltvann</type>
+	</category>	
+</sample_categories>
