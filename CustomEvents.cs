@@ -165,6 +165,43 @@ namespace lorakon
                 return false;
 
             return true;
+        }        
+
+        public static void Crop8_TextChanged(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.Text = Crop(tb.Text, 8);
+        }
+
+        public static void Crop16_TextChanged(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.Text = Crop(tb.Text, 16);
+        }
+
+        public static void Crop24_TextChanged(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.Text = Crop(tb.Text, 24);
+        }
+
+        public static void Crop32_TextChanged(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.Text = Crop(tb.Text, 32);
+        }
+
+        public static void Crop64_TextChanged(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.Text = Crop(tb.Text, 64);
+        }        
+
+        private static string Crop(string line, int size)
+        {
+            if (line.Length > size)
+                return line.Substring(0, size);
+            return line;
         }
     }    
 }

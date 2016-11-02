@@ -67,7 +67,7 @@ namespace lorakon
         public FormSampleInput()
         {
             InitializeComponent();            
-        }        
+        }
 
         string GetGeniePath()
         {
@@ -84,7 +84,25 @@ namespace lorakon
 
         private void FormSampleInput_Load(object sender, EventArgs e)
         {
-            // Load                  
+            // Limit max length of fields
+            tbLab.TextChanged += CustomEvents.Crop16_TextChanged;
+            tbScollName.TextChanged += CustomEvents.Crop24_TextChanged;
+            tbSTitle.TextChanged += CustomEvents.Crop64_TextChanged;
+            tbSIdent.TextChanged += CustomEvents.Crop16_TextChanged;
+            tbLatitude.TextChanged += CustomEvents.Crop16_TextChanged;
+            tbLongitude.TextChanged += CustomEvents.Crop16_TextChanged;
+            tbAltitude.TextChanged += CustomEvents.Crop16_TextChanged;
+            tbSLoctn.TextChanged += CustomEvents.Crop32_TextChanged;
+            tbSQuant.TextChanged += CustomEvents.Crop16_TextChanged;
+            tbSQuantErr.TextChanged += CustomEvents.Crop16_TextChanged;
+            tbLivetime.TextChanged += CustomEvents.Crop16_TextChanged;
+            tbIntegral.TextChanged += CustomEvents.Crop16_TextChanged;
+            tbStartChannel.TextChanged += CustomEvents.Crop8_TextChanged;
+            tbEndChannel.TextChanged += CustomEvents.Crop8_TextChanged;
+            tbSSyserr.TextChanged += CustomEvents.Crop8_TextChanged;
+            tbSSysterr.TextChanged += CustomEvents.Crop8_TextChanged;
+
+            // Force format of fields
             tbSQuant.KeyPress += CustomEvents.UnsignedNumeric_KeyPress;
             tbSQuantErr.KeyPress += CustomEvents.UnsignedNumeric_KeyPress;
             tbLatitude.KeyPress += CustomEvents.SignedNumeric_KeyPress;
@@ -476,15 +494,13 @@ namespace lorakon
                 MessageBox.Show(ex.Message);
                 Environment.Exit(1);
             }
-
-            //Close();
+            
             Environment.Exit(0);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
-            //Close();
             Environment.Exit(1);
         }        
 

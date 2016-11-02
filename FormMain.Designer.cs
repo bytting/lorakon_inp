@@ -335,7 +335,7 @@
             this.tbSQuantErr.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbSQuantErr.Font = new System.Drawing.Font("Tahoma", 9.75F);
             this.tbSQuantErr.Location = new System.Drawing.Point(210, 0);
-            this.tbSQuantErr.MaxLength = 24;
+            this.tbSQuantErr.MaxLength = 16;
             this.tbSQuantErr.Name = "tbSQuantErr";
             this.tbSQuantErr.Size = new System.Drawing.Size(237, 23);
             this.tbSQuantErr.TabIndex = 1;
@@ -346,7 +346,7 @@
             this.tbSQuant.Dock = System.Windows.Forms.DockStyle.Left;
             this.tbSQuant.Font = new System.Drawing.Font("Tahoma", 9.75F);
             this.tbSQuant.Location = new System.Drawing.Point(0, 0);
-            this.tbSQuant.MaxLength = 24;
+            this.tbSQuant.MaxLength = 16;
             this.tbSQuant.Name = "tbSQuant";
             this.tbSQuant.Size = new System.Drawing.Size(210, 23);
             this.tbSQuant.TabIndex = 0;
@@ -563,7 +563,7 @@
             // 
             this.tbIntegral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbIntegral.Location = new System.Drawing.Point(210, 0);
-            this.tbIntegral.MaxLength = 24;
+            this.tbIntegral.MaxLength = 16;
             this.tbIntegral.Name = "tbIntegral";
             this.tbIntegral.Size = new System.Drawing.Size(237, 22);
             this.tbIntegral.TabIndex = 1;
@@ -647,7 +647,7 @@
             this.tbSSysterr.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbSSysterr.Font = new System.Drawing.Font("Tahoma", 9.75F);
             this.tbSSysterr.Location = new System.Drawing.Point(210, 0);
-            this.tbSSysterr.MaxLength = 3;
+            this.tbSSysterr.MaxLength = 8;
             this.tbSSysterr.Name = "tbSSysterr";
             this.tbSSysterr.Size = new System.Drawing.Size(237, 23);
             this.tbSSysterr.TabIndex = 1;
@@ -657,7 +657,7 @@
             this.tbSSyserr.Dock = System.Windows.Forms.DockStyle.Left;
             this.tbSSyserr.Font = new System.Drawing.Font("Tahoma", 9.75F);
             this.tbSSyserr.Location = new System.Drawing.Point(0, 0);
-            this.tbSSyserr.MaxLength = 3;
+            this.tbSSyserr.MaxLength = 8;
             this.tbSSyserr.Name = "tbSSyserr";
             this.tbSSyserr.Size = new System.Drawing.Size(210, 23);
             this.tbSSyserr.TabIndex = 0;
