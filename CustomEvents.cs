@@ -32,7 +32,17 @@ namespace lorakon
                 e.Handled = true;
         }
 
-        public static void Numeric_KeyPress(object sender, KeyPressEventArgs e)
+        public static bool ValidateUnsignedInteger(string num)
+        {
+            for (int i = 0; i < num.Length; i++)
+            {
+                if (!Char.IsNumber(num[i]))
+                    return false;
+            }
+            return true;
+        }
+
+        public static void UnsignedNumeric_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Only allow decimals
             char sep = Convert.ToChar(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
@@ -40,6 +50,13 @@ namespace lorakon
             TextBox tb = (TextBox)sender;
             if (e.KeyChar == sep)
             {
+                // No separator at the beginning
+                if (tb.Text.Trim().Length == 0)
+                {
+                    e.Handled = true;
+                    return;
+                }
+
                 // Only allow one separator
                 foreach (char c in tb.Text)
                 {
@@ -55,14 +72,41 @@ namespace lorakon
                 e.Handled = true;
         }
 
-        public static void InvariantNumeric_KeyPress(object sender, KeyPressEventArgs e)
+        public static bool ValidateUnsignedNumeric(string num)
         {
-            // Only allow decimals
-            char sep = Convert.ToChar(CultureInfo.InvariantCulture.NumberFormat.NumberDecimalSeparator);
+            char sep = Convert.ToChar(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
+            int separators = 0;
+
+            for (int i=0; i<num.Length; i++)
+            {
+                if (!Char.IsNumber(num[i]) && num[i] != sep)
+                    return false;                
+
+                if (num[i] == sep)
+                    separators++;
+            }
+
+            if (separators > 1)
+                return false;
+
+            return true;
+        }
+
+        public static void SignedNumeric_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Only allow decimals and minus
+            char sep = Convert.ToChar(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
 
             TextBox tb = (TextBox)sender;
             if (e.KeyChar == sep)
             {
+                // No separator at the beginning
+                if(tb.SelectionStart == 0)
+                {
+                    e.Handled = true;
+                    return;
+                }
+
                 // Only allow one separator
                 foreach (char c in tb.Text)
                 {
@@ -74,8 +118,53 @@ namespace lorakon
                 }
             }
 
-            if (!Char.IsNumber(e.KeyChar) && !Char.IsControl(e.KeyChar) && e.KeyChar != sep)
+            if (e.KeyChar == '-')
+            {                
+                // Only minus at the beginning
+                if (tb.SelectionStart != 0)
+                {
+                    e.Handled = true;
+                    return;
+                }
+
+                // Only allow one minus
+                foreach (char c in tb.Text)
+                {
+                    if (c == '-')
+                    {
+                        e.Handled = true;
+                        return;
+                    }
+                }
+            }
+
+            if (!Char.IsNumber(e.KeyChar) && !Char.IsControl(e.KeyChar) && e.KeyChar != sep && e.KeyChar != '-')
                 e.Handled = true;
+        }
+
+        public static bool ValidateSignedNumeric(string num)
+        {
+            char sep = Convert.ToChar(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
+
+            int hyphens = 0, separators = 0;
+            for (int i = 0; i < num.Length; i++)
+            {
+                if (!Char.IsNumber(num[i]))
+                {
+                    if (num[i] != '-' && num[i] != sep)
+                        return false;
+
+                    if (num[i] == '-')
+                        hyphens++;
+                    else if (num[i] == sep)
+                        separators++;
+                }                    
+            }
+
+            if (hyphens > 1 || separators > 1)
+                return false;
+
+            return true;
         }
     }    
 }

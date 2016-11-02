@@ -647,7 +647,7 @@
             this.tbSSysterr.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbSSysterr.Font = new System.Drawing.Font("Tahoma", 9.75F);
             this.tbSSysterr.Location = new System.Drawing.Point(210, 0);
-            this.tbSSysterr.MaxLength = 24;
+            this.tbSSysterr.MaxLength = 3;
             this.tbSSysterr.Name = "tbSSysterr";
             this.tbSSysterr.Size = new System.Drawing.Size(237, 23);
             this.tbSSysterr.TabIndex = 1;
@@ -657,7 +657,7 @@
             this.tbSSyserr.Dock = System.Windows.Forms.DockStyle.Left;
             this.tbSSyserr.Font = new System.Drawing.Font("Tahoma", 9.75F);
             this.tbSSyserr.Location = new System.Drawing.Point(0, 0);
-            this.tbSSyserr.MaxLength = 24;
+            this.tbSSyserr.MaxLength = 3;
             this.tbSSyserr.Name = "tbSSyserr";
             this.tbSSyserr.Size = new System.Drawing.Size(210, 23);
             this.tbSSyserr.TabIndex = 0;

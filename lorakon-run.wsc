@@ -1,31 +1,31 @@
 ﻿<?xml version="1.0"?>
 <component>
 
-<?component error="true" debug="true"?>
+  <?component error="true" debug="true"?>
 
-<registration
-	description="Lorakon Run"
-	progid="lorakon-run.WSC"
-	version="1.00"
-	classid="{c63c0187-311d-423b-bf86-ae4a6f955522}"
+  <registration
+    description="Lorakon Run"
+    progid="lorakon-run.WSC"
+    version="1.00"
+    classid="{c63c0187-311d-423b-bf86-ae4a6f955522}"
 >
-</registration>
+  </registration>
 
-<public>
-	<method name="Execute">
-		<PARAMETER name="Dsc"/>
-		<PARAMETER name="Phase"/>
-	</method>
+  <public>
+    <method name="Execute">
+      <PARAMETER name="Dsc"/>
+      <PARAMETER name="Phase"/>
+    </method>
 
-	<method name="Setup">
-		<PARAMETER name="Dsc"/>
-		<PARAMETER name="Phase"/>
-	</method>
-</public>
+    <method name="Setup">
+      <PARAMETER name="Dsc"/>
+      <PARAMETER name="Phase"/>
+    </method>
+  </public>
 
-<script language="VBScript" src="campdef.vbs"></script>
-<script language="VBScript">
-<![CDATA[
+  <script language="VBScript" src="campdef.vbs"></script>
+  <script language="VBScript">
+    <![CDATA[
 
 function Execute(Dsc,Phase)	
 
@@ -36,7 +36,7 @@ function Execute(Dsc,Phase)
 	if not fso.FolderExists(geniePath & "Lorakon") then
 		fso.CreateFolder(geniePath & "Lorakon")
 	end if
-  if not fso.FolderExists(geniePath & "Lorakon\System") then
+    if not fso.FolderExists(geniePath & "Lorakon\System") then
 		fso.CreateFolder(geniePath & "Lorakon\System")
 	end if
   
@@ -66,7 +66,13 @@ function Execute(Dsc,Phase)
 	f.WriteLine Dsc.Parameter(CAM_T_SDESC4) ' Kommentar	
 	f.Close	
 
-	csh.Run geniePath & "exefiles\lorakon_inp.exe", 1, true		
+	returnValue = csh.Run(geniePath & "exefiles\lorakon_inp.exe", 1, true)
+	If returnValue <> 0 Then
+		set fso = Nothing
+		set csh = Nothing	
+		Execute = 0		
+		Exit Function
+	End If
 
 	set f = fso.OpenTextFile(paramFile, 1)
 	idx = 0
@@ -130,6 +136,6 @@ function Setup(Dsc,Phase)
 end function
 
 ]]>
-</script>
+  </script>
 
 </component>

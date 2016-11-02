@@ -30,6 +30,7 @@ namespace lorakon
         // Flag used to keep track of initialization in the paint event (Avoid displaying forms/messages in the load event)
         bool Initialized = false;
 
+        // Encoding used for config files
         Encoding enc = Encoding.GetEncoding(1252);
 
         // Registry key for the Genie2k installation path
@@ -50,10 +51,12 @@ namespace lorakon
         // Filename for location types
         const string LocationTypeBase = "location-types.txt";
 
-        // Paths for configuration files
-        //string GeniePath, LorakonPath, ReportsPath, SamplePath, QAPath, BkgPath, UploadPath, SystemPath, SampleLoadPath;
+        // Filename for laboratory name
+        const string LaboratoryBase = "laboratory.txt";
+
+        // Paths for configuration files        
         string GeniePath, LorakonPath, SystemPath;
-        string SampleTypeFile, GeometryTypeFile, InputFile, CommunitiesFile, LocationTypeFile;
+        string SampleTypeFile, GeometryTypeFile, InputFile, LaboratoryFile, CommunitiesFile, LocationTypeFile;
 
         AutoCompleteStringCollection sampleTypes = new AutoCompleteStringCollection();
         AutoCompleteStringCollection communities = new AutoCompleteStringCollection();
@@ -82,17 +85,17 @@ namespace lorakon
         private void FormSampleInput_Load(object sender, EventArgs e)
         {
             // Load                  
-            tbSQuant.KeyPress += CustomEvents.Numeric_KeyPress;
-            tbSQuantErr.KeyPress += CustomEvents.Numeric_KeyPress;
-            tbLatitude.KeyPress += CustomEvents.Numeric_KeyPress;
-            tbLongitude.KeyPress += CustomEvents.Numeric_KeyPress;
-            tbAltitude.KeyPress += CustomEvents.Numeric_KeyPress;
+            tbSQuant.KeyPress += CustomEvents.UnsignedNumeric_KeyPress;
+            tbSQuantErr.KeyPress += CustomEvents.UnsignedNumeric_KeyPress;
+            tbLatitude.KeyPress += CustomEvents.SignedNumeric_KeyPress;
+            tbLongitude.KeyPress += CustomEvents.SignedNumeric_KeyPress;
+            tbAltitude.KeyPress += CustomEvents.SignedNumeric_KeyPress;
             tbLivetime.KeyPress += CustomEvents.Integer_KeyPress;
             tbIntegral.KeyPress += CustomEvents.Integer_KeyPress;
             tbStartChannel.KeyPress += CustomEvents.Integer_KeyPress;
             tbEndChannel.KeyPress += CustomEvents.Integer_KeyPress;
-            tbSSyserr.KeyPress += CustomEvents.Numeric_KeyPress;
-            tbSSysterr.KeyPress += CustomEvents.Numeric_KeyPress;
+            tbSSyserr.KeyPress += CustomEvents.UnsignedNumeric_KeyPress;
+            tbSSysterr.KeyPress += CustomEvents.UnsignedNumeric_KeyPress;
 
             statusLabel.Text = String.Empty;
         }
@@ -258,6 +261,18 @@ namespace lorakon
                             tbComment.Text = lines[20];
                     }
 
+                    tbLab.Enabled = true;
+                    LaboratoryFile = SystemPath + LaboratoryBase;
+                    if (File.Exists(LaboratoryFile))
+                    {
+                        string[] LabName = File.ReadAllLines(LaboratoryFile, enc);
+                        if(LabName.Length > 0)
+                        {
+                            tbLab.Text = LabName[0].Trim();
+                            tbLab.Enabled = false;
+                        }
+                    }
+
                     tbLab.Focus();
                 }
                 catch (Exception ex)
@@ -271,17 +286,18 @@ namespace lorakon
         {
             DialogResult = DialogResult.Abort;            
 
-            // FIXME: more checks            
-            if(String.IsNullOrEmpty(tbScollName.Text) 
-                || String.IsNullOrEmpty(tbSTitle.Text)
-                || String.IsNullOrEmpty(cboxSDesc1.Text)
-                || String.IsNullOrEmpty(cboxSUnits.Text)
-                || String.IsNullOrEmpty(tbSQuant.Text) 
-                || String.IsNullOrEmpty(tbSQuantErr.Text)
-                || String.IsNullOrEmpty(tbSSyserr.Text)
-                || String.IsNullOrEmpty(tbSSysterr.Text))
+            // Sanity checks for input fields
+            if(String.IsNullOrEmpty(tbLab.Text.Trim()) 
+                || String.IsNullOrEmpty(tbScollName.Text.Trim()) 
+                || String.IsNullOrEmpty(tbSTitle.Text.Trim())
+                || String.IsNullOrEmpty(cboxSDesc1.Text.Trim())
+                || String.IsNullOrEmpty(cboxSUnits.Text.Trim())
+                || String.IsNullOrEmpty(tbSQuant.Text.Trim()) 
+                || String.IsNullOrEmpty(tbSQuantErr.Text.Trim())
+                || String.IsNullOrEmpty(tbSSyserr.Text.Trim())
+                || String.IsNullOrEmpty(tbSSysterr.Text.Trim()))
             {
-                MessageBox.Show("En eller flere påkrevde felter mangler");
+                statusLabel.Text = "En eller flere påkrevde felter mangler";
                 return;
             }
 
@@ -294,6 +310,128 @@ namespace lorakon
             if (!communities.Contains(cboxCommunity.Text))
             {
                 statusLabel.Text = "Du må velge en gyldig kommune";
+                return;
+            }
+
+            try
+            {
+                if (tbLatitude.Text.Trim() != string.Empty)
+                {
+                    double lat = Convert.ToDouble(tbLatitude.Text.Trim());
+                    if (lat < -90.0 || lat > 90.0)
+                    {
+                        statusLabel.Text = "Breddegrad er ugyldig";
+                        return;
+                    }
+                }
+
+                if (tbLongitude.Text.Trim() != string.Empty)
+                {
+                    double lon = Convert.ToDouble(tbLongitude.Text.Trim());
+                    if (lon < -180.0 || lon > 180.0)
+                    {
+                        statusLabel.Text = "Lengdegrad er ugyldig";
+                        return;
+                    }
+                }
+
+                if (tbAltitude.Text.Trim() != string.Empty)
+                {
+                    double alt = Convert.ToDouble(tbAltitude.Text.Trim());
+                    // 10994: Depth of the Challenger Deep
+                    // 480000: Thinkness of the atmosphere
+                    if (alt < -10994.0 || alt > 480000)
+                    {
+                        statusLabel.Text = "Høyde over havet er ugyldig";
+                        return;
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                statusLabel.Text = "Ugyldige koordinater funnet";
+                return;
+            }
+
+            try
+            {
+                if (tbSSyserr.Text.Trim() != string.Empty)
+                {
+                    double syserr = Convert.ToDouble(tbSSyserr.Text.Trim());
+                    if (syserr < 0.0 || syserr > 100.0)
+                    {
+                        statusLabel.Text = "Random Error er ugyldig";
+                        return;
+                    }
+                }
+
+                if (tbSSysterr.Text.Trim() != string.Empty)
+                {
+                    double systerr = Convert.ToDouble(tbSSysterr.Text.Trim());
+                    if (systerr < 0.0 || systerr > 100.0)
+                    {
+                        statusLabel.Text = "System Error er ugyldig";
+                        return;
+                    }
+                }                
+            }
+            catch (Exception ex)
+            {
+                statusLabel.Text = "Ugyldige Error verdier funnet";
+                return;
+            }
+
+            if(!CustomEvents.ValidateSignedNumeric(tbLatitude.Text))
+            {
+                statusLabel.Text = "Ugyldig breddegrad funnet";
+                return;
+            }
+
+            if (!CustomEvents.ValidateSignedNumeric(tbLongitude.Text))
+            {
+                statusLabel.Text = "Ugyldig lengdegrad funnet";
+                return;
+            }
+
+            if (!CustomEvents.ValidateSignedNumeric(tbAltitude.Text))
+            {
+                statusLabel.Text = "Høyde over havet er ugyldig";
+                return;
+            }
+
+            if (!CustomEvents.ValidateUnsignedNumeric(tbSQuant.Text))
+            {
+                statusLabel.Text = "Ugyldig prøvemengde";
+                return;
+            }
+
+            if (!CustomEvents.ValidateUnsignedNumeric(tbSQuantErr.Text))
+            {
+                statusLabel.Text = "Ugyldig prøvemengde error";
+                return;
+            }
+
+            if (!CustomEvents.ValidateUnsignedNumeric(tbSSyserr.Text))
+            {
+                statusLabel.Text = "Ugyldig random error";
+                return;
+            }
+
+            if (!CustomEvents.ValidateUnsignedNumeric(tbSSysterr.Text))
+            {
+                statusLabel.Text = "Ugyldig system error";
+                return;
+            }
+
+            if (!CustomEvents.ValidateUnsignedInteger(tbLivetime.Text))
+            {
+                statusLabel.Text = "Ugyldig livetime";
+                return;
+            }
+
+            if (!CustomEvents.ValidateUnsignedInteger(tbIntegral.Text))
+            {
+                statusLabel.Text = "Ugyldig integral";
                 return;
             }
 
@@ -324,21 +462,30 @@ namespace lorakon
                     tbEndChannel.Text + Environment.NewLine +
                     tbComment.Text;
 
-                File.WriteAllText(InputFile, c, enc);               
+                File.WriteAllText(InputFile, c, enc);
+
+                if (!File.Exists(LaboratoryFile))
+                {
+                    File.WriteAllText(LaboratoryFile, tbLab.Text, enc);
+                }
+
                 DialogResult = DialogResult.OK;
             }
             catch(Exception ex)
             {
-                MessageBox.Show(ex.Message + Environment.NewLine + ex.StackTrace);                
-            }            
+                MessageBox.Show(ex.Message);
+                Environment.Exit(1);
+            }
 
-            Close();
+            //Close();
+            Environment.Exit(0);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
-            Close();
+            //Close();
+            Environment.Exit(1);
         }        
 
         private void cboxSDesc1_Leave(object sender, EventArgs e)
