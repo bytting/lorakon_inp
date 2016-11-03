@@ -1,257 +1,243 @@
-<sample_categories>
-	<category name="Biota">
-		<part>Alder</part>		
-		<category name="Fugl">
-			<part>Vinge</part>
-			<part>Fjær</part>
-			<type>Fugl</type>
-			<type>Rype</type>
-			<type>Fjellrype</type>
-			<type>Lirype</type>
-			<type>Orrfugl</type>
-			<type>Rugde</type>
-		</category>		
-		<category name="Insekter">			
-			<type>Insekter</type>
-			<type>Europeisk Honningbie</type>			
-		</category>
-		<category name="Pattedyr">
-			<part>Fot</part>
-			<part>Snute</part>
-			<type>Pattedyr</type>
-			<type>Dåhjort</type>
-			<type>Elg</type>
-			<type>Fjellrotte</type>
-			<type>Gaupe</type>
-			<type>Gråsidemus</type>
-			<type>Isbjørn</type>
-			<type>Jerv</type>
-			<type>Klatremus</type>
-			<type>Lam</type>
-			<type>Lemmen</type>
-			<type>Markmus</type>
-			<type>Menneske</type>
-			<type>Polarrev</type>
-			<type>Reinsdyr</type>
-			<type>Ringsel</type>
-			<type>Rødmus</type>
-			<type>Rødrev</type>
-			<type>Spissmus</type>
-			<type>Spælsau, Lam</type>
-			<type>Spælsau, Søye</type>
-			<type>Storfe</type>
-			<type>Storkobbe</type>
-			<type>Svalbard rein</type>			
-		</category>
-		<category name="Planter">			
-			<type>Planter</type>
-			<type>Bergmynte</type>
-			<type>Bjørk</type>
-			<type>Blokkebær</type>
-			<type>Blåbær</type>
-			<type>Bringebær</type>
-			<type>Bukkeblad</type>
-			<type>Dunbjørk</type>
-			<type>Duskull</type>
-			<type>Dvergbjørk</type>
-			<type>Einer</type>
-			<type>Engsyre</type>
-			<type>Etasjemose</type>
-			<type>Fjellmarikåpe</type>
-			<type>Fjellrinlav</type>
-			<type>Fjellsyre</type>
-			<type>Flaskestarr</type>
-			<type>Fnaslav</type>
-			<type>Fugletelg</type>
-			<type>Furu</type>
-			<type>Furumose</type>
-			<type>Furutorvmose</type>
-			<type>Gress</type>
-			<type>Grønnvier</type>
-			<type>Grå reinlav</type>
-			<type>Gråvier</type>
-			<type>Gullris</type>
-			<type>Gulskinn</type>
-			<type>Harerug</type>
-			<type>Islandslav</type>
-			<type>Kamskjell</type>
-			<type>Kasjutre</type>
-			<type>Krekling</type>
-			<type>Lappvier</type>
-			<type>Lys reinlav</type>
-			<type>Marimjelle</type>
-			<type>Matsyre/Engsyre</type>
-			<type>Multe</type>
-			<type>Museøre</type>
-			<type>Paranøtt tre</type>
-			<type>Paranøtt</type>
-			<type>Pistasj tre</type>
-			<type>Rabbesiv</type>
-			<type>Reinlav</type>
-			<type>Reinlav, Kvitrull</type>
-			<type>Rogn</type>
-			<type>Røsslyng</type>
-			<type>Sitgagran</type>
-			<type>Skogstorknebb</type>
-			<type>Smyle</type>
-			<type>Snørull</type>
-			<type>Starr</type>
-			<type>Stivstarr</type>
-			<type>Syre</type>
-			<type>Torvmose</type>
-			<type>Torvull</type>
-			<type>Tyttebær</type>
-			<type>Vier</type>
-		</category>
-		<category name="Saltvannsfisk">			
-			<type>Saltvannsfisk</type>
-			<type>Hyse</type>
-			<type>Makrell</type>
-			<type>Sei</type>
-			<type>Sild</type>
-			<type>Torsk</type>			
-			<type>Uer</type>
-			<type>Håbrann</type>
-			<type>Sjøørret</type>
-			<type>Makrellstørje</type>
-			<type>Tiskjegg</type>
-			<type>Laks</type>
-			<type>Lange</type>
-			<type>Lysing</type>
-			<type>Brungylt</type>
-			<type>Tunge</type>
-			<type>Slettvar</type>
-			<type>Panserulke</type>
-			<type>Lyr</type>
-			<type>Horngjel</type>			
-		</category>
-		<category name="Ferskvannsfisk">			
-			<type>Ferskvannsfisk</type>
-			<type>Ørret</type>
-			<type>Mort</type>
-			<type>Gjedde</type>
-			<type>Røye</type>
-			<type>Abbor</type>
-			<type>Sik</type>
-		</category>
-		<category name="Sjøpattedyr">			
-			<type>Sjøpattedyr</type>
-			<type>Sel</type>
-		</category>
-		<category name="Skalldyr">			
-			<type>Skalldyr</type>
-			<type>Albusnegl/Albuskjell</type>
-			<type>Amfipod</type>
-			<type>Blåskjell</type>
-			<type>Europeisk Hummer</type>
-			<type>Hoppekreps</type>
-			<type>Knivskjell</type>
-			<type>Leddsnegle</type>
-			<type>Middelhavsskjell</type>
-			<type>O-Skjell</type>
-			<type>Reke</type>
-			<type>Sandmusling</type>
-			<type>Snegle</type>
-			<type>Taskekrabbe</type>
-		</category>
-		<category name="Sopp">			
-			<type>Sopp</type>
-			<type>Blek Piggsopp</type>
-			<type>Branngul Riske</type>
-			<type>Brun Ringløs Fluesopp</type>
-			<type>Brunskrubb</type>
-			<type>Fløyelsrørsopp</type>
-			<type>Grønnkremle</type>
-			<type>Grå Kamfluesopp</type>
-			<type>Hulriske</type>
-			<type>Kantarell</type>
-			<type>Matriske</type>
-			<type>Mild Gulkremle</type>
-			<type>Myrskrubb</type>
-			<type>Pepperrørsopp</type>
-			<type>Pluggsopp</type>
-			<type>Rimsopp</type>
-			<type>Rosa Sleipsopp</type>
-			<type>Rød Fluesopp</type>
-			<type>Rødbelteslørsopp</type>
-			<type>Rødbrun Flathatt</type>
-			<type>Rødbrun Pepperriske</type>
-			<type>Rødnende Fluesopp</type>
-			<type>Rødskrubb</type>
-			<type>Sandsopp</type>
-			<type>Seig Kusopp</type>
-			<type>Skjeggriske</type>
-			<type>Smørsopp</type>
-			<type>Steinsopp</type>
-			<type>Svartbrun Rørsopp</type>
-			<type>Svartskrubb</type>
-			<type>Svovelsopp</type>
-		</category>
-		<category name="Tang/Tare">			
-			<type>Tang/Tare</type>
-			<type>Blæretang</type>
-			<type>Fingertare</type>
-			<type>Grisetang</type>
-			<type>Kaurtang/Spiraltang</type>
-			<type>Mosdyr</type>
-			<type>Sagtang</type>
-			<type>Sauetang</type>
-			<type>Stortare</type>
-			<type>Stritt Kjerringhår</type>
-			<type>Sukkertare</type>			
-		</category>		
-	</category>
-	<category name="Diverse">			
-		<type>Diverse</type>
-		<type>Bomull</type>
-		<type>Edelsten</type>
-		<type>Gulvbelegg</type>
-		<type>Gulvstøv</type>
-		<type>Interkalibreringsløsning</type>
-		<type>Interkalibreringsprøve</type>
-		<type>Phosphogypsum</type>
-		<type>Phosphogypsum, IAEA-434</type>
-		<type>Plast</type>
-		<type>Stryktest</type>
-		<type>Treforedling</type>
-		<type>Trepall</type>
-		<type>Uranpellets</type>
-		<type>Utfelling</type>
-		<type>Wipe test</type>
-	</category>
-	<category name="Jord/Sediment">			
-		<type>Jord/Sediment</type>
-		<type>Jord</type>
-		<type>Sand</type>
-		<type>Sediment</type>
-		<type>Slagg</type>
-		<type>Stein</type>
-		<type>Vulkansk Aske</type>
-	</category>
-	<category name="Luft">			
-		<type>Luft</type>
-		<type>Kull</type>
-		<type>Luftfilter</type>
-	</category>
-	<category name="Næringsmidler">			
-		<type>Næringsmidler</type>
-		<type>Honning</type>
-		<type>Kjøtt</type>
-		<type>Kraftfor</type>
-		<type>Melk</type>
-		<type>Ost</type>
-		<type>Ris</type>
-	</category>
-	<category name="Vann">			
-		<type>Vann</type>
-		<type>Avfallsvann</type>
-		<type>Avløpsvann (Kolonne)</type>
-		<type>Brakkvann</type>
-		<type>Ferskvann</type>
-		<type>Grunnvann</type>
-		<type>Kloakkvann</type>
-		<type>Regnvann</type>
-		<type>Saltvann</type>
-		<type>Sjøvann/Saltvann</type>
-	</category>	
-</sample_categories>
+ï»¿<?xml version="1.0" encoding="utf-8"?>
+<sampletypes>
+	<sampletype name="Biota">
+		<samplepart name="Alder"></samplepart>		
+		<sampletype name="Fugl">
+			<samplepart name="Vinge"></samplepart>
+			<samplepart name="FjÃ¦r"></samplepart>
+			<sampletype name="Rype"></sampletype>
+			<sampletype name="Fjellrype"></sampletype>
+			<sampletype name="Lirype"></sampletype>
+			<sampletype name="Orrfugl"></sampletype>
+			<sampletype name="Rugde"></sampletype>
+		</sampletype>		
+		<sampletype name="Insekter">						
+			<sampletype name="Europeisk Honningbie"></sampletype>			
+		</sampletype>
+		<sampletype name="Pattedyr">
+			<samplepart name="Fot"></samplepart>
+			<samplepart name="Snute"></samplepart>			
+			<sampletype name="DÃ¥hjort"></sampletype>
+			<sampletype name="Elg"></sampletype>
+			<sampletype name="Fjellrotte"></sampletype>
+			<sampletype name="Gaupe"></sampletype>
+			<sampletype name="GrÃ¥sidemus"></sampletype>
+			<sampletype name="IsbjÃ¸rn"></sampletype>
+			<sampletype name="Jerv"></sampletype>
+			<sampletype name="Klatremus"></sampletype>
+			<sampletype name="Lam"></sampletype>
+			<sampletype name="Lemmen"></sampletype>
+			<sampletype name="Markmus"></sampletype>
+			<sampletype name="Menneske"></sampletype>
+			<sampletype name="Polarrev"></sampletype>
+			<sampletype name="Reinsdyr"></sampletype>
+			<sampletype name="Ringsel"></sampletype>
+			<sampletype name="RÃ¸dmus"></sampletype>
+			<sampletype name="RÃ¸drev"></sampletype>
+			<sampletype name="Spissmus"></sampletype>
+			<sampletype name="SpÃ¦lsau, Lam"></sampletype>
+			<sampletype name="SpÃ¦lsau, SÃ¸ye"></sampletype>
+			<sampletype name="Storfe"></sampletype>
+			<sampletype name="Storkobbe"></sampletype>
+			<sampletype name="Svalbard rein"></sampletype>			
+		</sampletype>
+		<sampletype name="Planter">						
+			<sampletype name="Bergmynte"></sampletype>
+			<sampletype name="BjÃ¸rk"></sampletype>
+			<sampletype name="BlokkebÃ¦r"></sampletype>
+			<sampletype name="BlÃ¥bÃ¦r"></sampletype>
+			<sampletype name="BringebÃ¦r"></sampletype>
+			<sampletype name="Bukkeblad"></sampletype>
+			<sampletype name="DunbjÃ¸rk"></sampletype>
+			<sampletype name="Duskull"></sampletype>
+			<sampletype name="DvergbjÃ¸rk"></sampletype>
+			<sampletype name="Einer"></sampletype>
+			<sampletype name="Engsyre"></sampletype>
+			<sampletype name="Etasjemose"></sampletype>
+			<sampletype name="FjellmarikÃ¥pe"></sampletype>
+			<sampletype name="Fjellrinlav"></sampletype>
+			<sampletype name="Fjellsyre"></sampletype>
+			<sampletype name="Flaskestarr"></sampletype>
+			<sampletype name="Fnaslav"></sampletype>
+			<sampletype name="Fugletelg"></sampletype>
+			<sampletype name="Furu"></sampletype>
+			<sampletype name="Furumose"></sampletype>
+			<sampletype name="Furutorvmose"></sampletype>
+			<sampletype name="Gress"></sampletype>
+			<sampletype name="GrÃ¸nnvier"></sampletype>
+			<sampletype name="GrÃ¥ reinlav"></sampletype>
+			<sampletype name="GrÃ¥vier"></sampletype>
+			<sampletype name="Gullris"></sampletype>
+			<sampletype name="Gulskinn"></sampletype>
+			<sampletype name="Harerug"></sampletype>
+			<sampletype name="Islandslav"></sampletype>
+			<sampletype name="Kamskjell"></sampletype>
+			<sampletype name="Kasjutre"></sampletype>
+			<sampletype name="Krekling"></sampletype>
+			<sampletype name="Lappvier"></sampletype>
+			<sampletype name="Lys reinlav"></sampletype>
+			<sampletype name="Marimjelle"></sampletype>
+			<sampletype name="Matsyre/Engsyre"></sampletype>
+			<sampletype name="Multe"></sampletype>
+			<sampletype name="MuseÃ¸re"></sampletype>
+			<sampletype name="ParanÃ¸tt tre"></sampletype>
+			<sampletype name="ParanÃ¸tt"></sampletype>
+			<sampletype name="Pistasjtre"></sampletype>
+			<sampletype name="Rabbesiv"></sampletype>
+			<sampletype name="Reinlav"></sampletype>
+			<sampletype name="Reinlav, Kvitrull"></sampletype>
+			<sampletype name="Rogn"></sampletype>
+			<sampletype name="RÃ¸sslyng"></sampletype>
+			<sampletype name="Sitgagran"></sampletype>
+			<sampletype name="Skogstorknebb"></sampletype>
+			<sampletype name="Smyle"></sampletype>
+			<sampletype name="SnÃ¸rull"></sampletype>
+			<sampletype name="Starr"></sampletype>
+			<sampletype name="Stivstarr"></sampletype>
+			<sampletype name="Syre"></sampletype>
+			<sampletype name="Torvmose"></sampletype>
+			<sampletype name="Torvull"></sampletype>
+			<sampletype name="TyttebÃ¦r"></sampletype>
+			<sampletype name="Vier"></sampletype>
+		</sampletype>
+		<sampletype name="Saltvannsfisk">						
+			<sampletype name="Hyse"></sampletype>
+			<sampletype name="Makrell"></sampletype>
+			<sampletype name="Sei"></sampletype>
+			<sampletype name="Sild"></sampletype>
+			<sampletype name="Torsk"></sampletype>			
+			<sampletype name="Uer"></sampletype>
+			<sampletype name="HÃ¥brann"></sampletype>
+			<sampletype name="SjÃ¸Ã¸rret"></sampletype>
+			<sampletype name="MakrellstÃ¸rje"></sampletype>
+			<sampletype name="Tiskjegg"></sampletype>
+			<sampletype name="Laks"></sampletype>
+			<sampletype name="Lange"></sampletype>
+			<sampletype name="Lysing"></sampletype>
+			<sampletype name="Brungylt"></sampletype>
+			<sampletype name="Tunge"></sampletype>
+			<sampletype name="Slettvar"></sampletype>
+			<sampletype name="Panserulke"></sampletype>
+			<sampletype name="Lyr"></sampletype>
+			<sampletype name="Horngjel"></sampletype>			
+		</sampletype>
+		<sampletype name="Ferskvannsfisk">						
+			<sampletype name="Ã˜rret"></sampletype>
+			<sampletype name="Mort"></sampletype>
+			<sampletype name="Gjedde"></sampletype>
+			<sampletype name="RÃ¸ye"></sampletype>
+			<sampletype name="Abbor"></sampletype>
+			<sampletype name="Sik"></sampletype>
+		</sampletype>
+		<sampletype name="SjÃ¸pattedyr">						
+			<sampletype name="Sel"></sampletype>
+		</sampletype>
+		<sampletype name="Skalldyr">						
+			<sampletype name="Albusnegl/Albuskjell"></sampletype>
+			<sampletype name="Amfipod"></sampletype>
+			<sampletype name="BlÃ¥skjell"></sampletype>
+			<sampletype name="Europeisk Hummer"></sampletype>
+			<sampletype name="Hoppekreps"></sampletype>
+			<sampletype name="Knivskjell"></sampletype>
+			<sampletype name="Leddsnegle"></sampletype>
+			<sampletype name="Middelhavsskjell"></sampletype>
+			<sampletype name="O-Skjell"></sampletype>
+			<sampletype name="Reke"></sampletype>
+			<sampletype name="Sandmusling"></sampletype>
+			<sampletype name="Snegle"></sampletype>
+			<sampletype name="Taskekrabbe"></sampletype>
+		</sampletype>
+		<sampletype name="Sopp">						
+			<sampletype name="Blek Piggsopp"></sampletype>
+			<sampletype name="Branngul Riske"></sampletype>
+			<sampletype name="Brun RinglÃ¸s Fluesopp"></sampletype>
+			<sampletype name="Brunskrubb"></sampletype>
+			<sampletype name="FlÃ¸yelsrÃ¸rsopp"></sampletype>
+			<sampletype name="GrÃ¸nnkremle"></sampletype>
+			<sampletype name="GrÃ¥ Kamfluesopp"></sampletype>
+			<sampletype name="Hulriske"></sampletype>
+			<sampletype name="Kantarell"></sampletype>
+			<sampletype name="Matriske"></sampletype>
+			<sampletype name="Mild Gulkremle"></sampletype>
+			<sampletype name="Myrskrubb"></sampletype>
+			<sampletype name="PepperrÃ¸rsopp"></sampletype>
+			<sampletype name="Pluggsopp"></sampletype>
+			<sampletype name="Rimsopp"></sampletype>
+			<sampletype name="Rosa Sleipsopp"></sampletype>
+			<sampletype name="RÃ¸d Fluesopp"></sampletype>
+			<sampletype name="RÃ¸dbelteslÃ¸rsopp"></sampletype>
+			<sampletype name="RÃ¸dbrun Flathatt"></sampletype>
+			<sampletype name="RÃ¸dbrun Pepperriske"></sampletype>
+			<sampletype name="RÃ¸dnende Fluesopp"></sampletype>
+			<sampletype name="RÃ¸dskrubb"></sampletype>
+			<sampletype name="Sandsopp"></sampletype>
+			<sampletype name="Seig Kusopp"></sampletype>
+			<sampletype name="Skjeggriske"></sampletype>
+			<sampletype name="SmÃ¸rsopp"></sampletype>
+			<sampletype name="Steinsopp"></sampletype>
+			<sampletype name="Svartbrun RÃ¸rsopp"></sampletype>
+			<sampletype name="Svartskrubb"></sampletype>
+			<sampletype name="Svovelsopp"></sampletype>
+		</sampletype>
+		<sampletype name="Tang/Tare">					
+			<sampletype name="BlÃ¦retang"></sampletype>
+			<sampletype name="Fingertare"></sampletype>
+			<sampletype name="Grisetang"></sampletype>
+			<sampletype name="Kaurtang/Spiraltang"></sampletype>
+			<sampletype name="Mosdyr"></sampletype>
+			<sampletype name="Sagtang"></sampletype>
+			<sampletype name="Sauetang"></sampletype>
+			<sampletype name="Stortare"></sampletype>
+			<sampletype name="Stritt KjerringhÃ¥r"></sampletype>
+			<sampletype name="Sukkertare"></sampletype>			
+		</sampletype>		
+	</sampletype>
+	<sampletype name="Diverse">					
+		<sampletype name="Bomull"></sampletype>
+		<sampletype name="Edelsten"></sampletype>
+		<sampletype name="Gulvbelegg"></sampletype>
+		<sampletype name="GulvstÃ¸v"></sampletype>
+		<sampletype name="InterkalibreringslÃ¸sning"></sampletype>
+		<sampletype name="InterkalibreringsprÃ¸ve"></sampletype>
+		<sampletype name="Phosphogypsum"></sampletype>
+		<sampletype name="Phosphogypsum, IAEA-434"></sampletype>
+		<sampletype name="Plast"></sampletype>
+		<sampletype name="Stryktest"></sampletype>
+		<sampletype name="Treforedling"></sampletype>
+		<sampletype name="Trepall"></sampletype>
+		<sampletype name="Uranpellets"></sampletype>
+		<sampletype name="Utfelling"></sampletype>
+		<sampletype name="Wipe test"></sampletype>
+	</sampletype>
+	<sampletype name="Jord/Sediment">				
+		<sampletype name="Jord"></sampletype>
+		<sampletype name="Sand"></sampletype>
+		<sampletype name="Sediment"></sampletype>
+		<sampletype name="Slagg"></sampletype>
+		<sampletype name="Stein"></sampletype>
+		<sampletype name="Vulkansk Aske"></sampletype>
+	</sampletype>
+	<sampletype name="Luft">				
+		<sampletype name="Kull"></sampletype>
+		<sampletype name="Luftfilter"></sampletype>
+	</sampletype>
+	<sampletype name="NÃ¦ringsmidler">				
+		<sampletype name="Honning"></sampletype>
+		<sampletype name="KjÃ¸tt"></sampletype>
+		<sampletype name="Kraftfor"></sampletype>
+		<sampletype name="Melk"></sampletype>
+		<sampletype name="Ost"></sampletype>
+		<sampletype name="Ris"></sampletype>
+	</sampletype>
+	<sampletype name="Vann">				
+		<sampletype name="Avfallsvann"></sampletype>
+		<sampletype name="AvlÃ¸psvann (Kolonne)"></sampletype>
+		<sampletype name="Brakkvann"></sampletype>
+		<sampletype name="Ferskvann"></sampletype>
+		<sampletype name="Grunnvann"></sampletype>
+		<sampletype name="Kloakkvann"></sampletype>
+		<sampletype name="Regnvann"></sampletype>
+		<sampletype name="Saltvann"></sampletype>
+		<sampletype name="SjÃ¸vann/Saltvann"></sampletype>
+	</sampletype>	
+</sampletypes>

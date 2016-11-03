@@ -101,6 +101,7 @@ namespace lorakon
             tbEndChannel.TextChanged += CustomEvents.Crop8_TextChanged;
             tbSSyserr.TextChanged += CustomEvents.Crop8_TextChanged;
             tbSSysterr.TextChanged += CustomEvents.Crop8_TextChanged;
+            tbComment.TextChanged += CustomEvents.Crop64_TextChanged;
 
             // Force format of fields
             tbSQuant.KeyPress += CustomEvents.UnsignedNumeric_KeyPress;

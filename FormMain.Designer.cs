@@ -101,7 +101,7 @@
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnOk);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 592);
+            this.panel1.Location = new System.Drawing.Point(0, 599);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(693, 32);
             this.panel1.TabIndex = 0;
@@ -190,7 +190,7 @@
             this.tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutMain.Size = new System.Drawing.Size(693, 567);
+            this.tableLayoutMain.Size = new System.Drawing.Size(693, 574);
             this.tableLayoutMain.TabIndex = 1;
             // 
             // cboxSUnits
@@ -671,7 +671,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(234, 32);
             this.label11.TabIndex = 17;
-            this.label11.Text = "Random Err / Syst. Err (%)";
+            this.label11.Text = "Random Err (%) / Syst. Err (%)";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label9
@@ -724,7 +724,7 @@
             // 
             this.status.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLabel});
-            this.status.Location = new System.Drawing.Point(0, 624);
+            this.status.Location = new System.Drawing.Point(0, 631);
             this.status.Name = "status";
             this.status.Size = new System.Drawing.Size(693, 22);
             this.status.TabIndex = 2;
@@ -743,7 +743,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(693, 646);
+            this.ClientSize = new System.Drawing.Size(693, 653);
             this.Controls.Add(this.tableLayoutMain);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tools);
