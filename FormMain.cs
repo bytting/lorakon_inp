@@ -17,9 +17,11 @@
 */
 // Authors: Dag Robole,
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.ComponentModel;
 using System.Text;
+using System.Xml;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
@@ -57,12 +59,11 @@ namespace lorakon
         // Paths for configuration files        
         string GeniePath, LorakonPath, SystemPath;
         string SampleTypeFile, GeometryTypeFile, InputFile, LaboratoryFile, CommunitiesFile, LocationTypeFile;
-
-        AutoCompleteStringCollection sampleTypes = new AutoCompleteStringCollection();
+        
         AutoCompleteStringCollection communities = new AutoCompleteStringCollection();
-
+        //BindingList<SampleType> SampleTypes = new BindingList<SampleType>();
         BindingList<LocationType> LocationTypes = new BindingList<LocationType>();
-        BindingList<CoordinateType> CoordinateTypes = new BindingList<CoordinateType>();
+        BindingList<CoordinateType> CoordinateTypes = new BindingList<CoordinateType>();        
 
         public FormSampleInput()
         {
@@ -202,10 +203,9 @@ namespace lorakon
                     cboxSGeomtry.Items.AddRange(geomTypes);
 
                     // Load sample types
-                    string[] sampTypes = File.ReadAllLines(SampleTypeFile, enc);
-                    sampleTypes.AddRange(sampTypes);
-                    cboxSDesc1.Items.AddRange(sampTypes);
-                    cboxSDesc1.AutoCompleteCustomSource = sampleTypes;                    
+                    string[] sampTypes = GetSampleTypes();
+                    foreach(string st in sampTypes)                    
+                        cboxSampleType.Items.Add(new SampleType(GetLabelFromSampleType(st), st));                    
 
                     string[] locTypes = File.ReadAllLines(LocationTypeFile, enc);
                     for (int i = 0; i < locTypes.Length; i++)
@@ -236,9 +236,8 @@ namespace lorakon
                             tbScollName.Text = lines[1];
                         if (lines.Length > 2)
                             tbSTitle.Text = lines[2];
-                        if (lines.Length > 3)
-                            if (sampleTypes.Contains(lines[3]))
-                                cboxSDesc1.Text = lines[3];
+                        if (lines.Length > 3)                            
+                            cboxSampleType.Text = GetLabelFromSampleType(lines[3]);
                         if (lines.Length > 4)
                             tbSIdent.Text = lines[4];
                         if (lines.Length > 5)
@@ -297,9 +296,70 @@ namespace lorakon
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                }                
+                }
             }
         }        
+
+        private string GetSampleTypeFromLabel(string lbl)
+        {
+            string[] items = lbl.Split(new string[] { " -> " }, StringSplitOptions.RemoveEmptyEntries);
+            if (items.Length > 0)
+                return items[1];
+            else return String.Empty;
+        }
+
+        private string GetLabelFromSampleType(string st)
+        {
+            string[] items = st.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+            if (items.Length > 0)
+                return items[items.Length - 1] + " -> " + st;
+            else return String.Empty;
+        }
+
+        private bool SampleTypeExists(string stName)
+        {
+            foreach(SampleType st in cboxSampleType.Items)
+            {
+                if (st.Name == stName)
+                    return true;
+            }
+            return false;
+        }
+
+        private string[] GetSampleTypes()
+        {            
+            List<string> sampleTypes = new List<string>();
+            XmlDocument doc = new XmlDocument();
+            doc.Load("C:\\Genie2k\\Lorakon\\System\\sample-types.xml");
+            XmlElement root = doc.DocumentElement;
+            AddSampleTypes(root, ref sampleTypes);
+            return sampleTypes.ToArray();
+        }
+
+        private void AddSampleTypes(XmlNode node, ref List<string> sampleTypes)
+        {
+            foreach (XmlNode n in node.ChildNodes)
+            {
+                if (n.NodeType == XmlNodeType.Element && n.Name.ToLower() == "sampletype")
+                {
+                    //sampleTypes.Add(n.Attributes["name"].InnerText);
+                    sampleTypes.Add(GetNodePath(n));
+                    AddSampleTypes(n, ref sampleTypes);
+                }
+            }
+        }
+
+        private string GetNodePath(XmlNode node)
+        {
+            string path = node.Attributes["name"].InnerText;
+            XmlNode search = null;            
+            while ((search = node.ParentNode).Name.ToLower() != "sampletypes")
+            {
+                path = search.Attributes["name"].InnerText + "/" + path;
+                node = search;
+            }
+            return path;
+        }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
@@ -309,7 +369,7 @@ namespace lorakon
             if(String.IsNullOrEmpty(tbLab.Text.Trim()) 
                 || String.IsNullOrEmpty(tbScollName.Text.Trim()) 
                 || String.IsNullOrEmpty(tbSTitle.Text.Trim())
-                || String.IsNullOrEmpty(cboxSDesc1.Text.Trim())
+                || String.IsNullOrEmpty(cboxSampleType.Text.Trim())
                 || String.IsNullOrEmpty(cboxSUnits.Text.Trim())
                 || String.IsNullOrEmpty(tbSQuant.Text.Trim()) 
                 || String.IsNullOrEmpty(tbSQuantErr.Text.Trim())
@@ -318,13 +378,7 @@ namespace lorakon
             {
                 statusLabel.Text = "En eller flere påkrevde felter mangler";
                 return;
-            }
-
-            if(!sampleTypes.Contains(cboxSDesc1.Text))
-            {
-                statusLabel.Text = "Du må velge en gyldig prøvetype";
-                return;
-            }
+            }           
 
             if (!communities.Contains(cboxCommunity.Text))
             {
@@ -454,6 +508,13 @@ namespace lorakon
                 return;
             }
 
+            if(!SampleTypeExists(cboxSampleType.Text))
+            {
+                cboxSampleType.Focus();
+                statusLabel.Text = "Du må velge en gyldig prøvetype";
+                return;
+            }            
+
             // Store params to file
             try
             {
@@ -462,7 +523,7 @@ namespace lorakon
                 string c = tbLab.Text + Environment.NewLine +
                     tbScollName.Text + Environment.NewLine +
                     tbSTitle.Text + Environment.NewLine +
-                    cboxSDesc1.Text + Environment.NewLine +
+                    GetSampleTypeFromLabel(cboxSampleType.Text) + Environment.NewLine +
                     tbSIdent.Text + Environment.NewLine +
                     cboxCommunity.Text + Environment.NewLine +
                     tbLatitude.Text + Environment.NewLine +
@@ -499,34 +560,51 @@ namespace lorakon
             Environment.Exit(0);
         }
 
+        private void cboxSampleType_Leave(object sender, EventArgs e)
+        {               
+            if(!SampleTypeExists(cboxSampleType.Text))            
+            {
+                cboxSampleType.Focus();                    
+                statusLabel.Text = "Du må velge en gyldig prøvetype";
+            }
+            else statusLabel.Text = String.Empty;
+        }                
+
+        private void cboxCommunity_Leave(object sender, EventArgs e)
+        {            
+            if (!String.IsNullOrEmpty(cboxCommunity.Text))
+            {
+                if (!communities.Contains(cboxCommunity.Text))
+                {
+                    cboxCommunity.Focus();
+                    //cb.Select(cb.Text.Length, 1);
+                    statusLabel.Text = "Du må velge en gyldig kommune";
+                }
+                else statusLabel.Text = String.Empty;
+            }
+        }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
             Environment.Exit(1);
-        }        
+        }
+    }
 
-        private void cboxSDesc1_Leave(object sender, EventArgs e)
-        {            
-            ComboBox cb = (ComboBox)sender;
-            if (!sampleTypes.Contains(cb.Text))
-            {
-                cb.Focus();
-                cb.Select(cb.Text.Length, 1);
-                statusLabel.Text = "Du må velge en gyldig prøvetype";
-            }
-            else statusLabel.Text = String.Empty;
+    public class SampleType
+    {
+        public string Name { get; set; }
+        public string Value { get; set; }
+
+        public SampleType(string name, string value)
+        {
+            Name = name;
+            Value = value;
         }
 
-        private void cboxCommunity_Leave(object sender, EventArgs e)
+        public override string ToString()
         {
-            ComboBox cb = (ComboBox)sender;
-            if (!communities.Contains(cb.Text))
-            {
-                cb.Focus();
-                cb.Select(cb.Text.Length, 1);
-                statusLabel.Text = "Du må velge en gyldig kommune";
-            }
-            else statusLabel.Text = String.Empty;
+            return Name;
         }
     }
 

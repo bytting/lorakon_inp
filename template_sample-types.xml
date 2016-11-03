@@ -11,8 +11,9 @@
 			<sampletype name="Orrfugl"></sampletype>
 			<sampletype name="Rugde"></sampletype>
 		</sampletype>		
-		<sampletype name="Insekter">						
-			<sampletype name="Europeisk Honningbie"></sampletype>			
+		<sampletype name="Insekter">
+			<samplepart name="Honning"></samplepart>
+			<sampletype name="Europeisk Honningbie"></sampletype>
 		</sampletype>
 		<sampletype name="Pattedyr">
 			<samplepart name="Fot"></samplepart>
@@ -29,17 +30,26 @@
 			<sampletype name="Lemmen"></sampletype>
 			<sampletype name="Markmus"></sampletype>
 			<sampletype name="Menneske"></sampletype>
-			<sampletype name="Polarrev"></sampletype>
-			<sampletype name="Reinsdyr"></sampletype>
+			<sampletype name="Hundedyr">
+				<sampletype name="Rev"></sampletype>
+				<sampletype name="Polarrev"></sampletype>
+				<sampletype name="Rødrev"></sampletype>
+				<sampletype name="Ulv"></sampletype>
+			</sampletype>			
+			<sampletype name="Reinsdyr">
+				<sampletype name="Svalbard rein"></sampletype>
+			</sampletype>
 			<sampletype name="Ringsel"></sampletype>
-			<sampletype name="Rødmus"></sampletype>
-			<sampletype name="Rødrev"></sampletype>
+			<sampletype name="Rødmus"></sampletype>			
 			<sampletype name="Spissmus"></sampletype>
-			<sampletype name="Spælsau, Lam"></sampletype>
-			<sampletype name="Spælsau, Søye"></sampletype>
-			<sampletype name="Storfe"></sampletype>
-			<sampletype name="Storkobbe"></sampletype>
-			<sampletype name="Svalbard rein"></sampletype>			
+			<sampletype name="Sau">
+				<sampletype name="Spælsau"></sampletype>
+			</sampletype>			
+			<sampletype name="Storfe">
+				<sampletype name="Norsk Rødt Fe"></sampletype>
+				<sampletype name="Dølafe"></sampletype>
+			</sampletype>
+			<sampletype name="Storkobbe"></sampletype>			
 		</sampletype>
 		<sampletype name="Planter">						
 			<sampletype name="Bergmynte"></sampletype>
@@ -54,38 +64,39 @@
 			<sampletype name="Einer"></sampletype>
 			<sampletype name="Engsyre"></sampletype>
 			<sampletype name="Etasjemose"></sampletype>
-			<sampletype name="Fjellmarikåpe"></sampletype>
-			<sampletype name="Fjellrinlav"></sampletype>
+			<sampletype name="Fjellmarikåpe"></sampletype>			
 			<sampletype name="Fjellsyre"></sampletype>
 			<sampletype name="Flaskestarr"></sampletype>
-			<sampletype name="Fnaslav"></sampletype>
+			<sampletype name="Lav">
+				<sampletype name="Fnaslav"></sampletype>
+				<sampletype name="Fjellreinlav"></sampletype>
+				<sampletype name="Grå reinlav"></sampletype>
+				<sampletype name="Gulskinn"></sampletype>
+				<sampletype name="Lys reinlav"></sampletype>
+				<sampletype name="Reinlav"></sampletype>
+				<sampletype name="Kvitkrull"></sampletype>
+			</sampletype>			
 			<sampletype name="Fugletelg"></sampletype>
 			<sampletype name="Furu"></sampletype>
 			<sampletype name="Furumose"></sampletype>
 			<sampletype name="Furutorvmose"></sampletype>
 			<sampletype name="Gress"></sampletype>
-			<sampletype name="Grønnvier"></sampletype>
-			<sampletype name="Grå reinlav"></sampletype>
+			<sampletype name="Grønnvier"></sampletype>			
 			<sampletype name="Gråvier"></sampletype>
-			<sampletype name="Gullris"></sampletype>
-			<sampletype name="Gulskinn"></sampletype>
+			<sampletype name="Gullris"></sampletype>			
 			<sampletype name="Harerug"></sampletype>
-			<sampletype name="Islandslav"></sampletype>
-			<sampletype name="Kamskjell"></sampletype>
+			<sampletype name="Islandslav"></sampletype>			
 			<sampletype name="Kasjutre"></sampletype>
 			<sampletype name="Krekling"></sampletype>
-			<sampletype name="Lappvier"></sampletype>
-			<sampletype name="Lys reinlav"></sampletype>
+			<sampletype name="Lappvier"></sampletype>			
 			<sampletype name="Marimjelle"></sampletype>
-			<sampletype name="Matsyre/Engsyre"></sampletype>
+			<sampletype name="Engsyre"></sampletype>
 			<sampletype name="Multe"></sampletype>
 			<sampletype name="Museøre"></sampletype>
 			<sampletype name="Paranøtt tre"></sampletype>
 			<sampletype name="Paranøtt"></sampletype>
 			<sampletype name="Pistasjtre"></sampletype>
-			<sampletype name="Rabbesiv"></sampletype>
-			<sampletype name="Reinlav"></sampletype>
-			<sampletype name="Reinlav, Kvitrull"></sampletype>
+			<sampletype name="Rabbesiv"></sampletype>						
 			<sampletype name="Rogn"></sampletype>
 			<sampletype name="Røsslyng"></sampletype>
 			<sampletype name="Sitgagran"></sampletype>
@@ -100,40 +111,45 @@
 			<sampletype name="Tyttebær"></sampletype>
 			<sampletype name="Vier"></sampletype>
 		</sampletype>
-		<sampletype name="Saltvannsfisk">						
-			<sampletype name="Hyse"></sampletype>
-			<sampletype name="Makrell"></sampletype>
-			<sampletype name="Sei"></sampletype>
-			<sampletype name="Sild"></sampletype>
-			<sampletype name="Torsk"></sampletype>			
-			<sampletype name="Uer"></sampletype>
-			<sampletype name="Håbrann"></sampletype>
-			<sampletype name="Sjøørret"></sampletype>
-			<sampletype name="Makrellstørje"></sampletype>
-			<sampletype name="Tiskjegg"></sampletype>
-			<sampletype name="Laks"></sampletype>
-			<sampletype name="Lange"></sampletype>
-			<sampletype name="Lysing"></sampletype>
-			<sampletype name="Brungylt"></sampletype>
-			<sampletype name="Tunge"></sampletype>
-			<sampletype name="Slettvar"></sampletype>
-			<sampletype name="Panserulke"></sampletype>
-			<sampletype name="Lyr"></sampletype>
-			<sampletype name="Horngjel"></sampletype>			
-		</sampletype>
-		<sampletype name="Ferskvannsfisk">						
-			<sampletype name="Ørret"></sampletype>
-			<sampletype name="Mort"></sampletype>
-			<sampletype name="Gjedde"></sampletype>
-			<sampletype name="Røye"></sampletype>
-			<sampletype name="Abbor"></sampletype>
-			<sampletype name="Sik"></sampletype>
+		<sampletype name="Fisk">
+			<samplepart name="Hale"></samplepart>
+			<samplepart name="Gjelle"></samplepart>
+			<samplepart name="Lever"></samplepart>
+			<sampletype name="Saltvannsfisk">
+				<sampletype name="Hyse"></sampletype>
+				<sampletype name="Makrell"></sampletype>
+				<sampletype name="Sei"></sampletype>
+				<sampletype name="Sild"></sampletype>
+				<sampletype name="Torsk"></sampletype>			
+				<sampletype name="Uer"></sampletype>
+				<sampletype name="Håbrann"></sampletype>				
+				<sampletype name="Makrellstørje"></sampletype>
+				<sampletype name="Tiskjegg"></sampletype>				
+				<sampletype name="Lange"></sampletype>
+				<sampletype name="Lysing"></sampletype>
+				<sampletype name="Brungylt"></sampletype>
+				<sampletype name="Tunge"></sampletype>
+				<sampletype name="Slettvar"></sampletype>
+				<sampletype name="Panserulke"></sampletype>
+				<sampletype name="Lyr"></sampletype>
+				<sampletype name="Horngjel"></sampletype>			
+			</sampletype>
+			<sampletype name="Ferskvannsfisk">						
+				<sampletype name="Ørret"></sampletype>
+				<sampletype name="Mort"></sampletype>
+				<sampletype name="Gjedde"></sampletype>
+				<sampletype name="Røye"></sampletype>
+				<sampletype name="Abbor"></sampletype>
+				<sampletype name="Sik"></sampletype>
+				<sampletype name="Sjøørret"></sampletype>
+				<sampletype name="Laks"></sampletype>
+			</sampletype>
 		</sampletype>
 		<sampletype name="Sjøpattedyr">						
 			<sampletype name="Sel"></sampletype>
 		</sampletype>
 		<sampletype name="Skalldyr">						
-			<sampletype name="Albusnegl/Albuskjell"></sampletype>
+			<sampletype name="Albusnegl"></sampletype>
 			<sampletype name="Amfipod"></sampletype>
 			<sampletype name="Blåskjell"></sampletype>
 			<sampletype name="Europeisk Hummer"></sampletype>
@@ -146,8 +162,11 @@
 			<sampletype name="Sandmusling"></sampletype>
 			<sampletype name="Snegle"></sampletype>
 			<sampletype name="Taskekrabbe"></sampletype>
+			<sampletype name="Kamskjell"></sampletype>
 		</sampletype>
-		<sampletype name="Sopp">						
+		<sampletype name="Sopp">	
+			<samplepart name="Hatt"></samplepart>
+			<samplepart name="Stilk"></samplepart>
 			<sampletype name="Blek Piggsopp"></sampletype>
 			<sampletype name="Branngul Riske"></sampletype>
 			<sampletype name="Brun Ringløs Fluesopp"></sampletype>
@@ -179,11 +198,11 @@
 			<sampletype name="Svartskrubb"></sampletype>
 			<sampletype name="Svovelsopp"></sampletype>
 		</sampletype>
-		<sampletype name="Tang/Tare">					
+		<sampletype name="Tang+Tare">
 			<sampletype name="Blæretang"></sampletype>
 			<sampletype name="Fingertare"></sampletype>
 			<sampletype name="Grisetang"></sampletype>
-			<sampletype name="Kaurtang/Spiraltang"></sampletype>
+			<sampletype name="Spiraltang"></sampletype>
 			<sampletype name="Mosdyr"></sampletype>
 			<sampletype name="Sagtang"></sampletype>
 			<sampletype name="Sauetang"></sampletype>
@@ -209,7 +228,7 @@
 		<sampletype name="Utfelling"></sampletype>
 		<sampletype name="Wipe test"></sampletype>
 	</sampletype>
-	<sampletype name="Jord/Sediment">				
+	<sampletype name="Jord+Sediment">				
 		<sampletype name="Jord"></sampletype>
 		<sampletype name="Sand"></sampletype>
 		<sampletype name="Sediment"></sampletype>
@@ -218,7 +237,7 @@
 		<sampletype name="Vulkansk Aske"></sampletype>
 	</sampletype>
 	<sampletype name="Luft">				
-		<sampletype name="Kull"></sampletype>
+		<sampletype name="Kullfilter"></sampletype>
 		<sampletype name="Luftfilter"></sampletype>
 	</sampletype>
 	<sampletype name="Næringsmidler">				
@@ -238,6 +257,6 @@
 		<sampletype name="Kloakkvann"></sampletype>
 		<sampletype name="Regnvann"></sampletype>
 		<sampletype name="Saltvann"></sampletype>
-		<sampletype name="Sjøvann/Saltvann"></sampletype>
+		<sampletype name="Sjøvann"></sampletype>
 	</sampletype>	
 </sampletypes>

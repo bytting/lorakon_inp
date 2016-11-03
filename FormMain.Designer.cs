@@ -67,7 +67,7 @@
             this.panelLivetime = new System.Windows.Forms.Panel();
             this.tbIntegral = new System.Windows.Forms.TextBox();
             this.tbLivetime = new System.Windows.Forms.TextBox();
-            this.cboxSDesc1 = new System.Windows.Forms.ComboBox();
+            this.cboxSampleType = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.panelChannels = new System.Windows.Forms.Panel();
             this.tbEndChannel = new System.Windows.Forms.TextBox();
@@ -160,7 +160,7 @@
             this.tableLayoutMain.Controls.Add(this.panelReferenceDate, 1, 12);
             this.tableLayoutMain.Controls.Add(this.label5, 0, 14);
             this.tableLayoutMain.Controls.Add(this.panelLivetime, 1, 14);
-            this.tableLayoutMain.Controls.Add(this.cboxSDesc1, 1, 3);
+            this.tableLayoutMain.Controls.Add(this.cboxSampleType, 1, 3);
             this.tableLayoutMain.Controls.Add(this.label6, 0, 15);
             this.tableLayoutMain.Controls.Add(this.panelChannels, 1, 15);
             this.tableLayoutMain.Controls.Add(this.panelError, 1, 16);
@@ -577,18 +577,18 @@
             this.tbLivetime.Size = new System.Drawing.Size(210, 22);
             this.tbLivetime.TabIndex = 0;
             // 
-            // cboxSDesc1
+            // cboxSampleType
             // 
-            this.cboxSDesc1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cboxSDesc1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.cboxSDesc1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboxSDesc1.FormattingEnabled = true;
-            this.cboxSDesc1.Location = new System.Drawing.Point(243, 99);
-            this.cboxSDesc1.Name = "cboxSDesc1";
-            this.cboxSDesc1.Size = new System.Drawing.Size(447, 24);
-            this.cboxSDesc1.Sorted = true;
-            this.cboxSDesc1.TabIndex = 3;
-            this.cboxSDesc1.Leave += new System.EventHandler(this.cboxSDesc1_Leave);
+            this.cboxSampleType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cboxSampleType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboxSampleType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboxSampleType.FormattingEnabled = true;
+            this.cboxSampleType.Location = new System.Drawing.Point(243, 99);
+            this.cboxSampleType.Name = "cboxSampleType";
+            this.cboxSampleType.Size = new System.Drawing.Size(447, 24);
+            this.cboxSampleType.Sorted = true;
+            this.cboxSampleType.TabIndex = 3;
+            this.cboxSampleType.Leave += new System.EventHandler(this.cboxSampleType_Leave);
             // 
             // label6
             // 
@@ -828,7 +828,7 @@
         private System.Windows.Forms.Panel panelLivetime;
         private System.Windows.Forms.TextBox tbIntegral;
         private System.Windows.Forms.TextBox tbLivetime;
-        private System.Windows.Forms.ComboBox cboxSDesc1;
+        private System.Windows.Forms.ComboBox cboxSampleType;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panelChannels;
         private System.Windows.Forms.TextBox tbEndChannel;
