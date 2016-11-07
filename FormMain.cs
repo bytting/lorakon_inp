@@ -123,9 +123,8 @@ namespace lorakon
                     GeniePath = GetGeniePath();
                     if (String.IsNullOrEmpty(GeniePath))
                     {
-                        MessageBox.Show("Genie2k directory not found: " + GeniePath);
-                        Close();
-                        return;
+                        MessageBox.Show("Genie2k katalog ble ikke funnet");
+                        Environment.Exit(1);                        
                     }
 
                     LorakonPath = GeniePath + "Lorakon\\";
@@ -229,15 +228,22 @@ namespace lorakon
                             tbSTitle.Text = ValidateString(lines[2], tbSTitle.MaxLength);
                         if (lines.Length > 3)
                         {
-                            string st = ValidateString(lines[3], cboxSampleType.MaxLength);
-                            if(!String.IsNullOrEmpty(st))
-                                cboxSampleType.Text = GetLabelFromSampleType(st);
+                            string st = ValidateString(lines[3], cboxSampleType.MaxLength);                            
+                            if (!String.IsNullOrEmpty(st))
+                            {
+                                string sampType = GetLabelFromSampleType(st);
+                                if(SampleTypeExists(sampType))
+                                    cboxSampleType.Text = sampType;
+                            }                                
                         }
                         if (lines.Length > 4)
                         {
                             string comp = ValidateString(lines[4], cboxComponent.MaxLength);
                             if (!String.IsNullOrEmpty(comp))
-                                cboxComponent.Text = comp;
+                            {
+                                if(cboxComponent.Items.Contains(comp))
+                                    cboxComponent.Text = comp;
+                            }
                         }
                         if (lines.Length > 5)
                             tbSIdent.Text = ValidateString(lines[5], tbSIdent.MaxLength);
@@ -296,15 +302,15 @@ namespace lorakon
                     LaboratoryFile = SystemPath + LaboratoryBase;
                     if (File.Exists(LaboratoryFile))
                     {
-                        string[] LabName = File.ReadAllLines(LaboratoryFile, enc);
-                        if(LabName.Length > 0)
+                        string LabName = File.ReadAllText(LaboratoryFile, enc).Trim();
+                        if(!String.IsNullOrEmpty(LabName))
                         {
-                            tbLab.Text = LabName[0].Trim();
+                            tbLab.Text = LabName;
                             tbLab.Enabled = false;
                         }
                     }
 
-                    tbLab.Focus();
+                    tbScollName.Focus();
                 }
                 catch (Exception ex)
                 {
@@ -387,10 +393,17 @@ namespace lorakon
         private string[] GetSampleTypes()
         {
             List<string> sampleTypes = new List<string>();
-            XmlDocument doc = new XmlDocument();
-            doc.Load(SampleTypeFile);
-            XmlElement root = doc.DocumentElement;
-            AddSampleTypes(root, ref sampleTypes);
+            try
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.Load(SampleTypeFile);
+                XmlElement root = doc.DocumentElement;
+                AddSampleTypes(root, ref sampleTypes);                
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             return sampleTypes.ToArray();
         }
 
@@ -425,19 +438,26 @@ namespace lorakon
             string sampleType = GetSampleTypeFromLabel(cboxSampleType.Text);
             string[] items = sampleType.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
 
-            XmlDocument xmlDoc = new XmlDocument();
-            xmlDoc.Load(SampleTypeFile);
-
-            cboxComponent.Items.Clear();
-            cboxComponent.Items.Add("");
-            cboxComponent.Text = String.Empty;
-            string samplePath = "/";
-            foreach (string st in items)
+            try
             {
-                samplePath += "/sampletype[@name='" + st + "']";
-                XmlNodeList sampleNodes = xmlDoc.SelectNodes(samplePath + "/component");
-                foreach (XmlNode sNode in sampleNodes)
-                    cboxComponent.Items.Add(sNode.Attributes["name"].InnerText);                
+                XmlDocument xmlDoc = new XmlDocument();
+                xmlDoc.Load(SampleTypeFile);
+
+                cboxComponent.Items.Clear();
+                cboxComponent.Items.Add("");
+                cboxComponent.Text = String.Empty;
+                string samplePath = "/";
+                foreach (string st in items)
+                {
+                    samplePath += "/sampletype[@name='" + st + "']";
+                    XmlNodeList sampleNodes = xmlDoc.SelectNodes(samplePath + "/component");
+                    foreach (XmlNode sNode in sampleNodes)
+                        cboxComponent.Items.Add(sNode.Attributes["name"].InnerText);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }        
 
@@ -476,9 +496,7 @@ namespace lorakon
                 || String.IsNullOrEmpty(cboxSampleType.Text.Trim())
                 || String.IsNullOrEmpty(cboxSUnits.Text.Trim())
                 || String.IsNullOrEmpty(tbSQuant.Text.Trim()) 
-                || String.IsNullOrEmpty(tbSQuantErr.Text.Trim())
-                || String.IsNullOrEmpty(tbSSyserr.Text.Trim())
-                || String.IsNullOrEmpty(tbSSysterr.Text.Trim()))
+                || String.IsNullOrEmpty(tbSQuantErr.Text.Trim()))
             {
                 statusLabel.Text = "En eller flere påkrevde felter mangler";
                 return;
@@ -629,16 +647,13 @@ namespace lorakon
                     cboxSUnits.Text + Environment.NewLine +
                     cboxSGeomtry.Text + Environment.NewLine +
                     dt.ToString("yyyy-MM-dd hh:mm:ss") + Environment.NewLine +                    
-                    tbSSyserr.Text + Environment.NewLine +
-                    tbSSysterr.Text + Environment.NewLine +
+                    (String.IsNullOrEmpty(tbSSyserr.Text.Trim()) ? "0" : tbSSyserr.Text.Trim()) + Environment.NewLine +
+                    (String.IsNullOrEmpty(tbSSysterr.Text.Trim()) ? "0" : tbSSysterr.Text.Trim()) + Environment.NewLine +
                     tbComment.Text;
 
                 File.WriteAllText(InputFile, c, enc);
-
-                if (!File.Exists(LaboratoryFile))
-                {
-                    File.WriteAllText(LaboratoryFile, tbLab.Text, enc);
-                }
+                
+                File.WriteAllText(LaboratoryFile, tbLab.Text, enc);
 
                 DialogResult = DialogResult.OK;
             }

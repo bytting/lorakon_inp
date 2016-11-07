@@ -105,7 +105,7 @@
             this.btnCancel.Location = new System.Drawing.Point(452, 0);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(124, 32);
-            this.btnCancel.TabIndex = 18;
+            this.btnCancel.TabIndex = 19;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -117,7 +117,7 @@
             this.btnOk.Location = new System.Drawing.Point(576, 0);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(117, 32);
-            this.btnOk.TabIndex = 17;
+            this.btnOk.TabIndex = 18;
             this.btnOk.Text = "Ok";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
@@ -199,7 +199,7 @@
             this.cboxSUnits.MaxLength = 16;
             this.cboxSUnits.Name = "cboxSUnits";
             this.cboxSUnits.Size = new System.Drawing.Size(447, 24);
-            this.cboxSUnits.TabIndex = 11;
+            this.cboxSUnits.TabIndex = 12;
             // 
             // tbSIdent
             // 
@@ -209,7 +209,7 @@
             this.tbSIdent.MaxLength = 16;
             this.tbSIdent.Name = "tbSIdent";
             this.tbSIdent.Size = new System.Drawing.Size(447, 23);
-            this.tbSIdent.TabIndex = 4;
+            this.tbSIdent.TabIndex = 5;
             // 
             // tbSTitle
             // 
@@ -318,7 +318,7 @@
             this.panelSampleQuant.Location = new System.Drawing.Point(243, 311);
             this.panelSampleQuant.Name = "panelSampleQuant";
             this.panelSampleQuant.Size = new System.Drawing.Size(447, 26);
-            this.panelSampleQuant.TabIndex = 10;
+            this.panelSampleQuant.TabIndex = 11;
             this.panelSampleQuant.TabStop = true;
             // 
             // tbSQuantErr
@@ -353,7 +353,7 @@
             this.cboxSGeomtry.Name = "cboxSGeomtry";
             this.cboxSGeomtry.Size = new System.Drawing.Size(447, 24);
             this.cboxSGeomtry.Sorted = true;
-            this.cboxSGeomtry.TabIndex = 12;
+            this.cboxSGeomtry.TabIndex = 13;
             // 
             // label13
             // 
@@ -400,7 +400,7 @@
             this.cboxLocation.MaxLength = 120;
             this.cboxLocation.Name = "cboxLocation";
             this.cboxLocation.Size = new System.Drawing.Size(234, 23);
-            this.cboxLocation.TabIndex = 8;
+            this.cboxLocation.TabIndex = 9;
             // 
             // tbSLoctn
             // 
@@ -411,7 +411,7 @@
             this.tbSLoctn.MaxLength = 32;
             this.tbSLoctn.Name = "tbSLoctn";
             this.tbSLoctn.Size = new System.Drawing.Size(447, 23);
-            this.tbSLoctn.TabIndex = 9;
+            this.tbSLoctn.TabIndex = 10;
             // 
             // cboxCoordType
             // 
@@ -422,7 +422,7 @@
             this.cboxCoordType.Location = new System.Drawing.Point(3, 227);
             this.cboxCoordType.Name = "cboxCoordType";
             this.cboxCoordType.Size = new System.Drawing.Size(234, 24);
-            this.cboxCoordType.TabIndex = 6;
+            this.cboxCoordType.TabIndex = 7;
             // 
             // panelCoords
             // 
@@ -433,7 +433,7 @@
             this.panelCoords.Location = new System.Drawing.Point(243, 227);
             this.panelCoords.Name = "panelCoords";
             this.panelCoords.Size = new System.Drawing.Size(447, 26);
-            this.panelCoords.TabIndex = 7;
+            this.panelCoords.TabIndex = 8;
             // 
             // tbLongitude
             // 
@@ -484,7 +484,7 @@
             this.cboxCommunity.Name = "cboxCommunity";
             this.cboxCommunity.Size = new System.Drawing.Size(447, 24);
             this.cboxCommunity.Sorted = true;
-            this.cboxCommunity.TabIndex = 5;
+            this.cboxCommunity.TabIndex = 6;
             this.cboxCommunity.Leave += new System.EventHandler(this.cboxCommunity_Leave);
             // 
             // label14
@@ -508,7 +508,7 @@
             this.panelReferenceDate.Location = new System.Drawing.Point(243, 407);
             this.panelReferenceDate.Name = "panelReferenceDate";
             this.panelReferenceDate.Size = new System.Drawing.Size(447, 26);
-            this.panelReferenceDate.TabIndex = 13;
+            this.panelReferenceDate.TabIndex = 14;
             this.panelReferenceDate.TabStop = true;
             // 
             // dtpSTime
@@ -607,7 +607,7 @@
             this.tbComment.Location = new System.Drawing.Point(243, 491);
             this.tbComment.Name = "tbComment";
             this.tbComment.Size = new System.Drawing.Size(447, 22);
-            this.tbComment.TabIndex = 38;
+            this.tbComment.TabIndex = 17;
             // 
             // label10
             // 
@@ -623,12 +623,13 @@
             // cboxComponent
             // 
             this.cboxComponent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboxComponent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxComponent.FormattingEnabled = true;
             this.cboxComponent.Location = new System.Drawing.Point(243, 131);
             this.cboxComponent.MaxLength = 255;
             this.cboxComponent.Name = "cboxComponent";
             this.cboxComponent.Size = new System.Drawing.Size(447, 24);
-            this.cboxComponent.TabIndex = 40;
+            this.cboxComponent.TabIndex = 4;
             // 
             // tools
             // 
