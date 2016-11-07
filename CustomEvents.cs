@@ -195,7 +195,13 @@ namespace lorakon
         {
             TextBox tb = (TextBox)sender;
             tb.Text = Crop(tb.Text, 64);
-        }        
+        }
+
+        public static void Crop255_TextChanged(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            tb.Text = Crop(tb.Text, 255);
+        }
 
         private static string Crop(string line, int size)
         {

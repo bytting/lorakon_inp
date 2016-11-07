@@ -423,6 +423,8 @@
             this.cboxCoordType.Name = "cboxCoordType";
             this.cboxCoordType.Size = new System.Drawing.Size(234, 24);
             this.cboxCoordType.TabIndex = 7;
+            this.cboxCoordType.SelectedIndexChanged += new System.EventHandler(this.cboxCoordType_SelectedIndexChanged);
+            this.cboxCoordType.MouseHover += new System.EventHandler(this.cboxCoordType_MouseHover);
             // 
             // panelCoords
             // 
@@ -481,6 +483,7 @@
             this.cboxCommunity.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboxCommunity.FormattingEnabled = true;
             this.cboxCommunity.Location = new System.Drawing.Point(243, 195);
+            this.cboxCommunity.MaxLength = 255;
             this.cboxCommunity.Name = "cboxCommunity";
             this.cboxCommunity.Size = new System.Drawing.Size(447, 24);
             this.cboxCommunity.Sorted = true;

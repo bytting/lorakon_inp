@@ -61,26 +61,14 @@ namespace lorakon
         string SampleTypeFile, GeometryTypeFile, InputFile, LaboratoryFile, CommunitiesFile, LocationTypeFile;
         
         AutoCompleteStringCollection communities = new AutoCompleteStringCollection();        
-        BindingList<LocationType> LocationTypes = new BindingList<LocationType>();
-        BindingList<CoordinateType> CoordinateTypes = new BindingList<CoordinateType>();        
+        BindingList<LocationType> LocationTypes = new BindingList<LocationType>();        
+
+        ToolTip coordToolTip = new ToolTip();
 
         public FormSampleInput()
         {
             InitializeComponent();            
-        }
-
-        string GetGeniePath()
-        {
-            RegistryKey rk = Registry.LocalMachine.OpenSubKey(GenieRegistry, false);
-            String value = (String)rk.GetValue("GENIE2K");
-            if (!String.IsNullOrEmpty(value))
-                return value;            
-
-            if(Directory.Exists("C:\\GENIE2K\\"))
-                return "C:\\GENIE2K\\";
-
-            return String.Empty;
-        }
+        }        
 
         private void FormSampleInput_Load(object sender, EventArgs e)
         {
@@ -97,7 +85,7 @@ namespace lorakon
             tbSQuantErr.TextChanged += CustomEvents.Crop16_TextChanged;            
             tbSSyserr.TextChanged += CustomEvents.Crop8_TextChanged;
             tbSSysterr.TextChanged += CustomEvents.Crop8_TextChanged;
-            tbComment.TextChanged += CustomEvents.Crop64_TextChanged;
+            tbComment.TextChanged += CustomEvents.Crop255_TextChanged;
 
             // Force format of fields
             tbSQuant.KeyPress += CustomEvents.UnsignedNumeric_KeyPress;
@@ -197,6 +185,7 @@ namespace lorakon
                     foreach(string st in sampTypes)                    
                         cboxSampleType.Items.Add(new SampleType(GetLabelFromSampleType(st), st));                    
 
+                    // Load location types
                     string[] locTypes = File.ReadAllLines(LocationTypeFile, enc);
                     for (int i = 0; i < locTypes.Length; i++)
                         LocationTypes.Add(new LocationType(locTypes[i], i.ToString()));
@@ -204,11 +193,12 @@ namespace lorakon
                     cboxLocation.DisplayMember = "Name";
                     cboxLocation.ValueMember = "Value";
 
-                    CoordinateTypes.Add(new CoordinateType("Desimalgrader (Lat,Lon,Alt)", "0"));
-                    CoordinateTypes.Add(new CoordinateType("Grader/Minutter/Sekunder", "1"));
-                    cboxCoordType.DataSource = CoordinateTypes;
-                    cboxCoordType.DisplayMember = "Name";
-                    cboxCoordType.ValueMember = "Value";
+                    // Add coordinate types                    
+                    cboxCoordType.Items.Add(new CoordinateType("", CoordinateFormat.None));
+                    cboxCoordType.Items.Add(new CoordinateType("WGS84", CoordinateFormat.WGS84));
+                    cboxCoordType.Items.Add(new CoordinateType("Desimalgrader", CoordinateFormat.DecimalDegrees));
+                    cboxCoordType.Items.Add(new CoordinateType("Grader/Minutter/Sekunder", CoordinateFormat.DegreesMinutesSeconds));
+                    cboxCoordType.Items.Add(new CoordinateType("Grader/Desimal minutter", CoordinateFormat.DegreesDecimalMinutes));
 
                     DateTime now = DateTime.Now;
                     dtpSDate.Value = now;
@@ -317,6 +307,19 @@ namespace lorakon
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        string GetGeniePath()
+        {
+            RegistryKey rk = Registry.LocalMachine.OpenSubKey(GenieRegistry, false);
+            String value = (String)rk.GetValue("GENIE2K");
+            if (!String.IsNullOrEmpty(value))
+                return value;
+
+            if (Directory.Exists("C:\\GENIE2K\\"))
+                return "C:\\GENIE2K\\";
+
+            return String.Empty;
         }
 
         private string ValidateString(string s, int siz)
@@ -433,6 +436,41 @@ namespace lorakon
             return false;
         }
 
+        private void cboxCoordType_MouseHover(object sender, EventArgs e)
+        {
+            coordToolTip.ToolTipTitle = "Format:";
+            coordToolTip.UseFading = true;
+            coordToolTip.UseAnimation = true;
+            coordToolTip.IsBalloon = true;
+            coordToolTip.ShowAlways = true;
+            coordToolTip.AutoPopDelay = 10000;
+            coordToolTip.InitialDelay = 700;
+            coordToolTip.ReshowDelay = 0;
+            coordToolTip.SetToolTip(cboxCoordType, (string)cboxCoordType.Tag);
+        }
+
+        private void cboxCoordType_SelectedIndexChanged(object sender, EventArgs e)
+        {            
+            switch(((CoordinateType)cboxCoordType.SelectedItem).Value)
+            {
+                case CoordinateFormat.None:
+                    cboxCoordType.Tag = "";
+                    break;
+                case CoordinateFormat.WGS84:
+                    cboxCoordType.Tag = "40.446 -79.982";
+                    break;
+                case CoordinateFormat.DegreesMinutesSeconds:
+                    cboxCoordType.Tag = "40° 26′ 46″ N 79° 58′ 56″ W";
+                    break;
+                case CoordinateFormat.DegreesDecimalMinutes:
+                    cboxCoordType.Tag = " 40° 26.767′ N 79° 58.933′ W";
+                    break;
+                case CoordinateFormat.DecimalDegrees:
+                    cboxCoordType.Tag = "40.446° N 79.982° W";
+                    break;
+            }            
+        }
+
         private void cboxSampleType_SelectedIndexChanged(object sender, EventArgs e)
         {            
             string sampleType = GetSampleTypeFromLabel(cboxSampleType.Text);
@@ -483,7 +521,7 @@ namespace lorakon
                 node = search;
             }
             return path;
-        }
+        }        
 
         private void btnOk_Click(object sender, EventArgs e)
         {
@@ -508,45 +546,75 @@ namespace lorakon
                 return;
             }
 
-            try
+            CoordinateFormat fmt = ((CoordinateType)cboxCoordType.SelectedItem).Value;
+
+            if (fmt == CoordinateFormat.DecimalDegrees)
             {
-                if (tbLatitude.Text.Trim() != string.Empty)
+                if (tbLatitude.Text.Trim() == String.Empty || tbLongitude.Text.Trim() == String.Empty)
                 {
-                    double lat = Convert.ToDouble(tbLatitude.Text.Trim());
+                    statusLabel.Text = "Breddegrad eller Lengdegrad mangler";
+                    return;
+                }
+
+                double lat, lon;
+
+                try
+                {                    
+                    lat = Convert.ToDouble(tbLatitude.Text.Trim());
                     if (lat < -90.0 || lat > 90.0)
                     {
                         statusLabel.Text = "Breddegrad er ugyldig";
                         return;
-                    }
-                }
-
-                if (tbLongitude.Text.Trim() != string.Empty)
-                {
-                    double lon = Convert.ToDouble(tbLongitude.Text.Trim());
+                    }                
+                    
+                    lon = Convert.ToDouble(tbLongitude.Text.Trim());
                     if (lon < -180.0 || lon > 180.0)
                     {
                         statusLabel.Text = "Lengdegrad er ugyldig";
                         return;
-                    }
+                    }                    
+                }
+                catch
+                {
+                    statusLabel.Text = "Ugyldig format på koordinater";
+                    return;
+                }
+            }
+            else if (fmt == CoordinateFormat.DegreesMinutesSeconds)
+            {
+                if (tbLatitude.Text.Trim() == String.Empty || tbLongitude.Text.Trim() == String.Empty)
+                {
+                    statusLabel.Text = "Breddegrad eller Lengdegrad mangler";
+                    return;
                 }
 
-                if (tbAltitude.Text.Trim() != string.Empty)
+                try
                 {
-                    double alt = Convert.ToDouble(tbAltitude.Text.Trim());
-                    // 10994: Depth of the Challenger Deep
-                    // 480000: Thinkness of the atmosphere
-                    if (alt < -10994.0 || alt > 480000)
-                    {
-                        statusLabel.Text = "Høyde over havet er ugyldig";
-                        return;
-                    }
+                    //lat = ConvertToDecimalDegrees(tbLatitude.Text.Trim());
+                    //lon = ConvertToDecimalDegrees(tbLongitude.Text.Trim());
+                }
+                catch
+                {
+                    statusLabel.Text = "Ugyldig format på koordinater";
+                    return;
                 }
             }
-            catch(Exception ex)
+            else if (fmt == CoordinateFormat.DegreesDecimalMinutes)
             {
-                statusLabel.Text = "Ugyldige koordinater funnet";
-                return;
+
             }
+
+            if (tbAltitude.Text.Trim() != string.Empty)
+            {
+                double alt = Convert.ToDouble(tbAltitude.Text.Trim());
+                // 10994: Depth of the Challenger Deep
+                // 480000: Thinkness of the atmosphere
+                if (alt < -10994.0 || alt > 480000)
+                {
+                    statusLabel.Text = "Høyde over havet er ugyldig";
+                    return;
+                }
+            }            
 
             try
             {
@@ -714,7 +782,7 @@ namespace lorakon
         }
     }
 
-    public class LocationType
+    class LocationType
     {
         public string Name { get; set; }
         public string Value { get; set; }
@@ -731,12 +799,21 @@ namespace lorakon
         }
     }
 
-    public class CoordinateType
+    enum CoordinateFormat
+    {
+        None = 0,
+        WGS84 = 1,
+        DecimalDegrees = 2,
+        DegreesMinutesSeconds = 3,
+        DegreesDecimalMinutes = 4
+    }
+
+    class CoordinateType
     {
         public string Name { get; set; }
-        public string Value { get; set; }
+        public CoordinateFormat Value { get; set; }
 
-        public CoordinateType(string name, string value)
+        public CoordinateType(string name, CoordinateFormat value)
         {
             Name = name;
             Value = value;
