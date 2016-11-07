@@ -42,7 +42,7 @@ namespace lorakon
         const string InputBase = "input-params.txt";
 
         // Filename for sample types
-        const string SampleTypeBase = "sample-types.txt";
+        const string SampleTypeBase = "sample-types.xml";
 
         // Filename for geometry types
         const string GeometryTypeBase = "geometry-types.txt";
@@ -60,8 +60,7 @@ namespace lorakon
         string GeniePath, LorakonPath, SystemPath;
         string SampleTypeFile, GeometryTypeFile, InputFile, LaboratoryFile, CommunitiesFile, LocationTypeFile;
         
-        AutoCompleteStringCollection communities = new AutoCompleteStringCollection();
-        //BindingList<SampleType> SampleTypes = new BindingList<SampleType>();
+        AutoCompleteStringCollection communities = new AutoCompleteStringCollection();        
         BindingList<LocationType> LocationTypes = new BindingList<LocationType>();
         BindingList<CoordinateType> CoordinateTypes = new BindingList<CoordinateType>();        
 
@@ -95,11 +94,7 @@ namespace lorakon
             tbAltitude.TextChanged += CustomEvents.Crop16_TextChanged;
             tbSLoctn.TextChanged += CustomEvents.Crop32_TextChanged;
             tbSQuant.TextChanged += CustomEvents.Crop16_TextChanged;
-            tbSQuantErr.TextChanged += CustomEvents.Crop16_TextChanged;
-            tbLivetime.TextChanged += CustomEvents.Crop16_TextChanged;
-            tbIntegral.TextChanged += CustomEvents.Crop16_TextChanged;
-            tbStartChannel.TextChanged += CustomEvents.Crop8_TextChanged;
-            tbEndChannel.TextChanged += CustomEvents.Crop8_TextChanged;
+            tbSQuantErr.TextChanged += CustomEvents.Crop16_TextChanged;            
             tbSSyserr.TextChanged += CustomEvents.Crop8_TextChanged;
             tbSSysterr.TextChanged += CustomEvents.Crop8_TextChanged;
             tbComment.TextChanged += CustomEvents.Crop64_TextChanged;
@@ -109,11 +104,7 @@ namespace lorakon
             tbSQuantErr.KeyPress += CustomEvents.UnsignedNumeric_KeyPress;
             tbLatitude.KeyPress += CustomEvents.SignedNumeric_KeyPress;
             tbLongitude.KeyPress += CustomEvents.SignedNumeric_KeyPress;
-            tbAltitude.KeyPress += CustomEvents.SignedNumeric_KeyPress;
-            tbLivetime.KeyPress += CustomEvents.Integer_KeyPress;
-            tbIntegral.KeyPress += CustomEvents.Integer_KeyPress;
-            tbStartChannel.KeyPress += CustomEvents.Integer_KeyPress;
-            tbEndChannel.KeyPress += CustomEvents.Integer_KeyPress;
+            tbAltitude.KeyPress += CustomEvents.SignedNumeric_KeyPress;            
             tbSSyserr.KeyPress += CustomEvents.UnsignedNumeric_KeyPress;
             tbSSysterr.KeyPress += CustomEvents.UnsignedNumeric_KeyPress;
 
@@ -161,12 +152,12 @@ namespace lorakon
                     SampleTypeFile = SystemPath + SampleTypeBase;
                     if (!File.Exists(SampleTypeFile))
                     {
-                        if (!File.Exists(InstallDir + "template_sample-types.txt"))
+                        if (!File.Exists(InstallDir + "template_sample-types.xml"))
                         {
-                            MessageBox.Show("Finner ikke filen " + InstallDir + "template_sample-types.txt");
+                            MessageBox.Show("Finner ikke filen " + InstallDir + "template_sample-types.xml");
                             Close();
                         }
-                        File.Copy(InstallDir + "template_sample-types.txt", SampleTypeFile, true);
+                        File.Copy(InstallDir + "template_sample-types.xml", SampleTypeFile, true);
                     }
 
                     CommunitiesFile = SystemPath + CommunitiesBase;
@@ -231,52 +222,74 @@ namespace lorakon
                         string[] lines = File.ReadAllLines(InputFile, enc);
 
                         if(lines.Length > 0)
-                            tbLab.Text = lines[0];
+                            tbLab.Text = ValidateString(lines[0], tbLab.MaxLength);
                         if (lines.Length > 1)
-                            tbScollName.Text = lines[1];
+                            tbScollName.Text = ValidateString(lines[1], tbScollName.MaxLength);
                         if (lines.Length > 2)
-                            tbSTitle.Text = lines[2];
-                        if (lines.Length > 3)                            
-                            cboxSampleType.Text = GetLabelFromSampleType(lines[3]);
+                            tbSTitle.Text = ValidateString(lines[2], tbSTitle.MaxLength);
+                        if (lines.Length > 3)
+                        {
+                            string st = ValidateString(lines[3], cboxSampleType.MaxLength);
+                            if(!String.IsNullOrEmpty(st))
+                                cboxSampleType.Text = GetLabelFromSampleType(st);
+                        }
                         if (lines.Length > 4)
-                            tbSIdent.Text = lines[4];
+                        {
+                            string comp = ValidateString(lines[4], cboxComponent.MaxLength);
+                            if (!String.IsNullOrEmpty(comp))
+                                cboxComponent.Text = comp;
+                        }
                         if (lines.Length > 5)
-                            if (communities.Contains(lines[5]))
-                                cboxCommunity.Text = lines[5];
+                            tbSIdent.Text = ValidateString(lines[5], tbSIdent.MaxLength);
                         if (lines.Length > 6)
-                            tbLatitude.Text = lines[6];
+                            if (communities.Contains(lines[6]))
+                                cboxCommunity.Text = lines[6];
                         if (lines.Length > 7)
-                            tbLongitude.Text = lines[7];
+                            tbLatitude.Text = ValidateDouble(lines[7], tbLatitude.MaxLength);
                         if (lines.Length > 8)
-                            tbAltitude.Text = lines[8];
+                            tbLongitude.Text = ValidateDouble(lines[8], tbLongitude.MaxLength);
                         if (lines.Length > 9)
-                            cboxLocation.SelectedValue = lines[9];
+                            tbAltitude.Text = ValidateDouble(lines[9], tbAltitude.MaxLength);
                         if (lines.Length > 10)
-                            tbSLoctn.Text = lines[10];
+                        {
+                            string loc = ValidateInteger(lines[10], cboxLocation.MaxLength);
+                            if(!String.IsNullOrEmpty(loc))
+                                cboxLocation.SelectedValue = loc;
+                        }
                         if (lines.Length > 11)
-                            tbSQuant.Text = lines[11];
+                            tbSLoctn.Text = ValidateString(lines[11], tbSLoctn.MaxLength);
                         if (lines.Length > 12)
-                            tbSQuantErr.Text = lines[12];
+                            tbSQuant.Text = ValidateFloat(lines[12], tbSQuant.MaxLength);
                         if (lines.Length > 13)
-                            cboxSUnits.Text = lines[13];
+                            tbSQuantErr.Text = ValidateFloat(lines[13], tbSQuantErr.MaxLength);
                         if (lines.Length > 14)
-                            cboxSGeomtry.Text = lines[14];
+                        {
+                            string unit = ValidateString(lines[14], cboxSUnits.MaxLength);
+                            if(!String.IsNullOrEmpty(unit))
+                                cboxSUnits.Text = unit;
+                        }
                         if (lines.Length > 15)
                         {
-                            DateTime dt = Convert.ToDateTime(lines[15]);
-                            dtpSDate.Value = dt;
-                            dtpSTime.Value = dt;
+                            string geom = ValidateString(lines[15], cboxSGeomtry.MaxLength);
+                            if(!String.IsNullOrEmpty(geom))
+                                cboxSGeomtry.Text = geom;
                         }
                         if (lines.Length > 16)
-                            tbSSyserr.Text = lines[16];
+                        {
+                            string sdt = ValidateDateTime(lines[16], 24);
+                            if (!String.IsNullOrEmpty(sdt))
+                            {
+                                DateTime dt = Convert.ToDateTime(sdt);
+                                dtpSDate.Value = dt;
+                                dtpSTime.Value = dt;
+                            }
+                        }
                         if (lines.Length > 17)
-                            tbSSysterr.Text = lines[17];
+                            tbSSyserr.Text = ValidateFloat(lines[17], tbSSyserr.MaxLength);
                         if (lines.Length > 18)
-                            tbStartChannel.Text = lines[18];
+                            tbSSysterr.Text = ValidateFloat(lines[18], tbSSysterr.MaxLength);
                         if (lines.Length > 19)
-                            tbEndChannel.Text = lines[19];
-                        if (lines.Length > 20)
-                            tbComment.Text = lines[20];
+                            tbComment.Text = ValidateString(lines[19], 255);
                     }
 
                     tbLab.Enabled = true;
@@ -298,7 +311,88 @@ namespace lorakon
                     MessageBox.Show(ex.Message);
                 }
             }
-        }        
+        }
+
+        private string ValidateString(string s, int siz)
+        {
+            if (s.Length > siz)
+                return s.Substring(0, siz);
+            return s;
+        }
+
+        private string ValidateInteger(string s, int siz)
+        {
+            if (s.Length > siz)
+                return String.Empty;
+            try
+            {
+                Convert.ToInt32(s);
+            }            
+            catch
+            {
+                return String.Empty;
+            }
+
+            return s;
+        }
+
+        private string ValidateFloat(string s, int siz)
+        {
+            if (s.Length > siz)
+                return String.Empty;
+            try
+            {
+                Convert.ToSingle(s);
+            }
+            catch
+            {
+                return String.Empty;
+            }
+
+            return s;
+        }
+
+        private string ValidateDouble(string s, int siz)
+        {
+            if (s.Length > siz)
+                return String.Empty;
+            try
+            {
+                Convert.ToDouble(s);
+            }
+            catch
+            {
+                return String.Empty;
+            }
+
+            return s;
+        }
+
+        private string ValidateDateTime(string s, int siz)
+        {
+            if (s.Length > siz)
+                return String.Empty;
+            try
+            {
+                Convert.ToDateTime(s);
+            }
+            catch
+            {
+                return String.Empty;
+            }
+
+            return s;
+        }
+
+        private string[] GetSampleTypes()
+        {
+            List<string> sampleTypes = new List<string>();
+            XmlDocument doc = new XmlDocument();
+            doc.Load(SampleTypeFile);
+            XmlElement root = doc.DocumentElement;
+            AddSampleTypes(root, ref sampleTypes);
+            return sampleTypes.ToArray();
+        }
 
         private string GetSampleTypeFromLabel(string lbl)
         {
@@ -326,23 +420,33 @@ namespace lorakon
             return false;
         }
 
-        private string[] GetSampleTypes()
+        private void cboxSampleType_SelectedIndexChanged(object sender, EventArgs e)
         {            
-            List<string> sampleTypes = new List<string>();
-            XmlDocument doc = new XmlDocument();
-            doc.Load("C:\\Genie2k\\Lorakon\\System\\sample-types.xml");
-            XmlElement root = doc.DocumentElement;
-            AddSampleTypes(root, ref sampleTypes);
-            return sampleTypes.ToArray();
-        }
+            string sampleType = GetSampleTypeFromLabel(cboxSampleType.Text);
+            string[] items = sampleType.Split(new char[] { '/' }, StringSplitOptions.RemoveEmptyEntries);
+
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(SampleTypeFile);
+
+            cboxComponent.Items.Clear();
+            cboxComponent.Items.Add("");
+            cboxComponent.Text = String.Empty;
+            string samplePath = "/";
+            foreach (string st in items)
+            {
+                samplePath += "/sampletype[@name='" + st + "']";
+                XmlNodeList sampleNodes = xmlDoc.SelectNodes(samplePath + "/component");
+                foreach (XmlNode sNode in sampleNodes)
+                    cboxComponent.Items.Add(sNode.Attributes["name"].InnerText);                
+            }
+        }        
 
         private void AddSampleTypes(XmlNode node, ref List<string> sampleTypes)
         {
             foreach (XmlNode n in node.ChildNodes)
             {
                 if (n.NodeType == XmlNodeType.Element && n.Name.ToLower() == "sampletype")
-                {
-                    //sampleTypes.Add(n.Attributes["name"].InnerText);
+                {                    
                     sampleTypes.Add(GetNodePath(n));
                     AddSampleTypes(n, ref sampleTypes);
                 }
@@ -494,19 +598,7 @@ namespace lorakon
             {
                 statusLabel.Text = "Ugyldig system error";
                 return;
-            }
-
-            if (!CustomEvents.ValidateUnsignedInteger(tbLivetime.Text))
-            {
-                statusLabel.Text = "Ugyldig livetime";
-                return;
-            }
-
-            if (!CustomEvents.ValidateUnsignedInteger(tbIntegral.Text))
-            {
-                statusLabel.Text = "Ugyldig integral";
-                return;
-            }
+            }            
 
             if(!SampleTypeExists(cboxSampleType.Text))
             {
@@ -524,6 +616,7 @@ namespace lorakon
                     tbScollName.Text + Environment.NewLine +
                     tbSTitle.Text + Environment.NewLine +
                     GetSampleTypeFromLabel(cboxSampleType.Text) + Environment.NewLine +
+                    cboxComponent.Text + Environment.NewLine +
                     tbSIdent.Text + Environment.NewLine +
                     cboxCommunity.Text + Environment.NewLine +
                     tbLatitude.Text + Environment.NewLine +
@@ -538,8 +631,6 @@ namespace lorakon
                     dt.ToString("yyyy-MM-dd hh:mm:ss") + Environment.NewLine +                    
                     tbSSyserr.Text + Environment.NewLine +
                     tbSSysterr.Text + Environment.NewLine +
-                    tbStartChannel.Text + Environment.NewLine +
-                    tbEndChannel.Text + Environment.NewLine +
                     tbComment.Text;
 
                 File.WriteAllText(InputFile, c, enc);

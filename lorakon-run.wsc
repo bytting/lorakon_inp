@@ -1,31 +1,31 @@
 ﻿<?xml version="1.0"?>
 <component>
 
-  <?component error="true" debug="true"?>
+<?component error="true" debug="true"?>
 
-  <registration
-    description="Lorakon Run"
-    progid="lorakon-run.WSC"
-    version="1.00"
-    classid="{c63c0187-311d-423b-bf86-ae4a6f955522}"
+<registration
+	description="Lorakon Run"
+	progid="lorakon-run.WSC"
+	version="1.00"
+	classid="{c63c0187-311d-423b-bf86-ae4a6f955522}"
 >
-  </registration>
+</registration>
 
-  <public>
-    <method name="Execute">
-      <PARAMETER name="Dsc"/>
-      <PARAMETER name="Phase"/>
-    </method>
+<public>
+	<method name="Execute">
+		<PARAMETER name="Dsc"/>
+		<PARAMETER name="Phase"/>
+	</method>
 
-    <method name="Setup">
-      <PARAMETER name="Dsc"/>
-      <PARAMETER name="Phase"/>
-    </method>
-  </public>
+	<method name="Setup">
+		<PARAMETER name="Dsc"/>
+		<PARAMETER name="Phase"/>
+	</method>
+</public>
 
-  <script language="VBScript" src="campdef.vbs"></script>
-  <script language="VBScript">
-    <![CDATA[
+<script language="VBScript" src="campdef.vbs"></script>
+<script language="VBScript">
+<![CDATA[
 
 function Execute(Dsc,Phase)	
 
@@ -46,9 +46,10 @@ function Execute(Dsc,Phase)
 	f.WriteLine Dsc.Parameter(CAM_T_SSPRSTR1) ' Lab
 	f.WriteLine Dsc.Parameter(CAM_T_SCOLLNAME) ' Prøvetaker
 	f.WriteLine Dsc.Parameter(CAM_T_STITLE) ' Prøvetittel
-	f.WriteLine Dsc.Parameter(CAM_T_SDESC1)	' Prøvetype
+	f.WriteLine Dsc.Parameter(CAM_T_SUCSTRING1)	' Prøvetype
+	f.WriteLine Dsc.Parameter(CAM_T_SUCSTRING2)	' Prøve komponent
 	f.WriteLine Dsc.Parameter(CAM_T_SIDENT) ' PrøveID
-	f.WriteLine Dsc.Parameter(CAM_T_SDESC2) ' Fylke/Kommune	
+	f.WriteLine Dsc.Parameter(CAM_T_SUCSTRING3) ' Fylke/Kommune	
 	f.WriteLine CStr(Dsc.Parameter(CAM_G_SGPSLATITUDE)) ' Lat
 	f.WriteLine CStr(Dsc.Parameter(CAM_G_SGPSLONGITUD)) ' Lon
 	f.WriteLine CStr(Dsc.Parameter(CAM_G_SGPSALTITUDE)) ' Alt
@@ -63,7 +64,7 @@ function Execute(Dsc,Phase)
 	f.WriteLine CStr(Dsc.Parameter(CAM_F_SSYSTERR)) ' Systerr
 	f.WriteLine CStr(Dsc.Parameter(CAM_L_SSPI2)) ' Start channel
 	f.WriteLine CStr(Dsc.Parameter(CAM_L_SSPI3)) ' End channel
-	f.WriteLine Dsc.Parameter(CAM_T_SDESC4) ' Kommentar	
+	f.WriteLine Dsc.Parameter(CAM_T_SUCSTRING4) ' Kommentar	
 	f.Close	
 
 	returnValue = csh.Run(geniePath & "exefiles\lorakon_inp.exe", 1, true)
@@ -82,34 +83,35 @@ function Execute(Dsc,Phase)
 		case 0 Dsc.Parameter(CAM_T_SSPRSTR1) = line ' Lab
 		case 1 Dsc.Parameter(CAM_T_SCOLLNAME) = line ' Prøvetaker
 		case 2 Dsc.Parameter(CAM_T_STITLE) = line ' Prøvetittel
-		case 3 Dsc.Parameter(CAM_T_SDESC1) = line ' Prøvetype
-		case 4 Dsc.Parameter(CAM_T_SIDENT) = line ' PrøveID
-		case 5 Dsc.Parameter(CAM_T_SDESC2) = line ' Fylke/Kommune					
-		case 6 Dsc.Parameter(CAM_G_SGPSLATITUDE) = CDbl(line) ' Lat
-		case 7 Dsc.Parameter(CAM_G_SGPSLONGITUD) = CDbl(line) ' Lon
-		case 8 Dsc.Parameter(CAM_G_SGPSALTITUDE) = CDbl(line) ' Alt
-		case 9 Dsc.Parameter(CAM_L_SSPI1) = CInt(line) ' Lokasjonstype	
-		case 10 Dsc.Parameter(CAM_T_SLOCTN) = line ' Lokasjon
-		case 11 Dsc.Parameter(CAM_F_SQUANT) = CDbl(line) ' Prøvemengde
-		case 12 Dsc.Parameter(CAM_F_SQUANTERR) = CDbl(line) ' Prøvemengde error
-		case 13 Dsc.Parameter(CAM_T_SUNITS) = line ' Prøvemengde enhet
-		case 14 Dsc.Parameter(CAM_T_SGEOMTRY) = line ' Geometri
-		case 15 Dsc.Parameter(CAM_X_STIME) = CDate(line) ' Referansedato
-		case 16
+		case 3 Dsc.Parameter(CAM_T_SUCSTRING1) = line ' Prøvetype
+		case 4 Dsc.Parameter(CAM_T_SUCSTRING2) = line ' Prøve komponent
+		case 5 Dsc.Parameter(CAM_T_SIDENT) = line ' PrøveID
+		case 6 Dsc.Parameter(CAM_T_SUCSTRING3) = line ' Fylke/Kommune					
+		case 7 Dsc.Parameter(CAM_G_SGPSLATITUDE) = CDbl(line) ' Lat
+		case 8 Dsc.Parameter(CAM_G_SGPSLONGITUD) = CDbl(line) ' Lon
+		case 9 Dsc.Parameter(CAM_G_SGPSALTITUDE) = CDbl(line) ' Alt
+		case 10 Dsc.Parameter(CAM_L_SSPI1) = CInt(line) ' Lokasjonstype	
+		case 11 Dsc.Parameter(CAM_T_SLOCTN) = line ' Lokasjon
+		case 12 Dsc.Parameter(CAM_F_SQUANT) = CDbl(line) ' Prøvemengde
+		case 13 Dsc.Parameter(CAM_F_SQUANTERR) = CDbl(line) ' Prøvemengde error
+		case 14 Dsc.Parameter(CAM_T_SUNITS) = line ' Prøvemengde enhet
+		case 15 Dsc.Parameter(CAM_T_SGEOMTRY) = line ' Geometri
+		case 16 Dsc.Parameter(CAM_X_STIME) = CDate(line) ' Referansedato
+		case 17
 			if len(line) > 0 then
 				Dsc.Parameter(CAM_F_SSYSERR) = CDbl(line) ' Syserr
 			else
 				Dsc.Parameter(CAM_F_SSYSERR) = CDbl(0) ' Syserr
 			end if
-		case 17
+		case 18
 			if len(line) > 0 then
 				Dsc.Parameter(CAM_F_SSYSTERR) = CDbl(line) ' Systerr
 			else
 				Dsc.Parameter(CAM_F_SSYSTERR) = CDbl(0) ' Systerr
 			end if
-		case 18 Dsc.Parameter(CAM_L_SSPI2) = CInt(line) ' Start channel
-		case 19 Dsc.Parameter(CAM_L_SSPI3) = CInt(line) ' End channel
-		case 20 Dsc.Parameter(CAM_T_SDESC4) = line ' Kommentar
+		case 19 Dsc.Parameter(CAM_L_SSPI2) = CInt(line) ' Start channel
+		case 20 Dsc.Parameter(CAM_L_SSPI3) = CInt(line) ' End channel
+		case 21 Dsc.Parameter(CAM_T_SUCSTRING4) = line ' Kommentar
 		case else
 			exit do
 		end select
@@ -119,6 +121,8 @@ function Execute(Dsc,Phase)
 	
 	Dsc.Parameter(CAM_T_SSPRSTR2) = "LORAKON"
 	Dsc.Parameter(CAM_T_STYPE) = ""
+	Dsc.Parameter(CAM_T_SDESC1)	= ""
+	Dsc.Parameter(CAM_T_SDESC2)	= ""
 	Dsc.Parameter(CAM_T_SDESC3) = ""
 	Dsc.Parameter(CAM_T_SDESC4) = ""
 	
@@ -136,6 +140,6 @@ function Setup(Dsc,Phase)
 end function
 
 ]]>
-  </script>
+</script>
 
 </component>
