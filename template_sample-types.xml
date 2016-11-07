@@ -1,262 +1,265 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sampletypes>
-	<sampletype name="Biota">
-		<samplepart name="Alder"></samplepart>		
-		<sampletype name="Fugl">
-			<samplepart name="Vinge"></samplepart>
-			<samplepart name="Fjær"></samplepart>
-			<sampletype name="Rype"></sampletype>
-			<sampletype name="Fjellrype"></sampletype>
-			<sampletype name="Lirype"></sampletype>
-			<sampletype name="Orrfugl"></sampletype>
-			<sampletype name="Rugde"></sampletype>
+	<sampletype name="Biota" name_english="" name_latin="">
+		<component name="Alder" name_english="" name_latin=""></component>		
+		<sampletype name="Fugl" name_english="" name_latin="">
+			<component name="Vinge" name_english="" name_latin=""></component>
+			<component name="Fjær" name_english="" name_latin=""></component>
+			<sampletype name="Rype" name_english="" name_latin=""></sampletype>
+			<sampletype name="Fjellrype" name_english="" name_latin=""></sampletype>
+			<sampletype name="Lirype" name_english="" name_latin=""></sampletype>
+			<sampletype name="Orrfugl" name_english="" name_latin=""></sampletype>
+			<sampletype name="Rugde" name_english="" name_latin=""></sampletype>
 		</sampletype>		
-		<sampletype name="Insekter">
-			<samplepart name="Honning"></samplepart>
-			<sampletype name="Europeisk Honningbie"></sampletype>
+		<sampletype name="Insekter" name_english="" name_latin="">
+			<component name="Honning" name_english="" name_latin=""></component>
+			<sampletype name="Europeisk Honningbie" name_english="" name_latin=""></sampletype>
 		</sampletype>
-		<sampletype name="Pattedyr">
-			<samplepart name="Fot"></samplepart>
-			<samplepart name="Snute"></samplepart>			
-			<sampletype name="Dåhjort"></sampletype>
-			<sampletype name="Elg"></sampletype>
-			<sampletype name="Fjellrotte"></sampletype>
-			<sampletype name="Gaupe"></sampletype>
-			<sampletype name="Gråsidemus"></sampletype>
-			<sampletype name="Isbjørn"></sampletype>
-			<sampletype name="Jerv"></sampletype>
-			<sampletype name="Klatremus"></sampletype>
-			<sampletype name="Lam"></sampletype>
-			<sampletype name="Lemmen"></sampletype>
-			<sampletype name="Markmus"></sampletype>
-			<sampletype name="Menneske"></sampletype>
-			<sampletype name="Hundedyr">
-				<sampletype name="Rev"></sampletype>
-				<sampletype name="Polarrev"></sampletype>
-				<sampletype name="Rødrev"></sampletype>
-				<sampletype name="Ulv"></sampletype>
+		<sampletype name="Pattedyr" name_english="" name_latin="">
+			<component name="Fot" name_english="" name_latin=""></component>
+			<component name="Snute" name_english="" name_latin=""></component>			
+			<sampletype name="Dåhjort" name_english="" name_latin=""></sampletype>
+			<sampletype name="Elg" name_english="" name_latin=""></sampletype>
+			<sampletype name="Fjellrotte" name_english="" name_latin=""></sampletype>
+			<sampletype name="Gaupe" name_english="" name_latin=""></sampletype>
+			<sampletype name="Gråsidemus" name_english="" name_latin=""></sampletype>
+			<sampletype name="Isbjørn" name_english="" name_latin=""></sampletype>
+			<sampletype name="Jerv" name_english="" name_latin=""></sampletype>
+			<sampletype name="Klatremus" name_english="" name_latin=""></sampletype>
+			<sampletype name="Lam" name_english="" name_latin=""></sampletype>
+			<sampletype name="Lemmen" name_english="" name_latin=""></sampletype>
+			<sampletype name="Markmus" name_english="" name_latin=""></sampletype>
+			<sampletype name="Menneske" name_english="" name_latin=""></sampletype>
+			<sampletype name="Hundedyr" name_english="" name_latin="">
+				<component name="Tann" name_english="" name_latin=""></component>
+				<sampletype name="Rev" name_english="" name_latin=""></sampletype>
+				<sampletype name="Polarrev" name_english="" name_latin=""></sampletype>
+				<sampletype name="Rødrev" name_english="" name_latin=""></sampletype>
+				<sampletype name="Ulv" name_english="" name_latin="">
+					<component name="Hyl" name_english="" name_latin=""></component>
+				</sampletype>
 			</sampletype>			
-			<sampletype name="Reinsdyr">
-				<sampletype name="Svalbard rein"></sampletype>
+			<sampletype name="Reinsdyr" name_english="" name_latin="">
+				<sampletype name="Svalbard rein" name_english="" name_latin=""></sampletype>
 			</sampletype>
-			<sampletype name="Ringsel"></sampletype>
-			<sampletype name="Rødmus"></sampletype>			
-			<sampletype name="Spissmus"></sampletype>
-			<sampletype name="Sau">
-				<sampletype name="Spælsau"></sampletype>
+			<sampletype name="Ringsel" name_english="" name_latin=""></sampletype>
+			<sampletype name="Rødmus" name_english="" name_latin=""></sampletype>			
+			<sampletype name="Spissmus" name_english="" name_latin=""></sampletype>
+			<sampletype name="Sau" name_english="" name_latin="">
+				<sampletype name="Spælsau" name_english="" name_latin=""></sampletype>
 			</sampletype>			
-			<sampletype name="Storfe">
-				<sampletype name="Norsk Rødt Fe"></sampletype>
-				<sampletype name="Dølafe"></sampletype>
+			<sampletype name="Storfe" name_english="" name_latin="">
+				<sampletype name="Norsk Rødt Fe" name_english="" name_latin=""></sampletype>
+				<sampletype name="Dølafe" name_english="" name_latin=""></sampletype>
 			</sampletype>
-			<sampletype name="Storkobbe"></sampletype>			
+			<sampletype name="Storkobbe" name_english="" name_latin=""></sampletype>			
 		</sampletype>
-		<sampletype name="Planter">						
-			<sampletype name="Bergmynte"></sampletype>
-			<sampletype name="Bjørk"></sampletype>
-			<sampletype name="Blokkebær"></sampletype>
-			<sampletype name="Blåbær"></sampletype>
-			<sampletype name="Bringebær"></sampletype>
-			<sampletype name="Bukkeblad"></sampletype>
-			<sampletype name="Dunbjørk"></sampletype>
-			<sampletype name="Duskull"></sampletype>
-			<sampletype name="Dvergbjørk"></sampletype>
-			<sampletype name="Einer"></sampletype>
-			<sampletype name="Engsyre"></sampletype>
-			<sampletype name="Etasjemose"></sampletype>
-			<sampletype name="Fjellmarikåpe"></sampletype>			
-			<sampletype name="Fjellsyre"></sampletype>
-			<sampletype name="Flaskestarr"></sampletype>
-			<sampletype name="Lav">
-				<sampletype name="Fnaslav"></sampletype>
-				<sampletype name="Fjellreinlav"></sampletype>
-				<sampletype name="Grå reinlav"></sampletype>
-				<sampletype name="Gulskinn"></sampletype>
-				<sampletype name="Lys reinlav"></sampletype>
-				<sampletype name="Reinlav"></sampletype>
-				<sampletype name="Kvitkrull"></sampletype>
+		<sampletype name="Planter" name_english="" name_latin="">						
+			<sampletype name="Bergmynte" name_english="" name_latin=""></sampletype>
+			<sampletype name="Bjørk" name_english="" name_latin=""></sampletype>
+			<sampletype name="Blokkebær" name_english="" name_latin=""></sampletype>
+			<sampletype name="Blåbær" name_english="" name_latin=""></sampletype>
+			<sampletype name="Bringebær" name_english="" name_latin=""></sampletype>
+			<sampletype name="Bukkeblad" name_english="" name_latin=""></sampletype>
+			<sampletype name="Dunbjørk" name_english="" name_latin=""></sampletype>
+			<sampletype name="Duskull" name_english="" name_latin=""></sampletype>
+			<sampletype name="Dvergbjørk" name_english="" name_latin=""></sampletype>
+			<sampletype name="Einer" name_english="" name_latin=""></sampletype>
+			<sampletype name="Engsyre" name_english="" name_latin=""></sampletype>
+			<sampletype name="Etasjemose" name_english="" name_latin=""></sampletype>
+			<sampletype name="Fjellmarikåpe" name_english="" name_latin=""></sampletype>			
+			<sampletype name="Fjellsyre" name_english="" name_latin=""></sampletype>
+			<sampletype name="Flaskestarr" name_english="" name_latin=""></sampletype>
+			<sampletype name="Lav" name_english="" name_latin="">
+				<sampletype name="Fnaslav" name_english="" name_latin=""></sampletype>
+				<sampletype name="Fjellreinlav" name_english="" name_latin=""></sampletype>
+				<sampletype name="Grå reinlav" name_english="" name_latin=""></sampletype>
+				<sampletype name="Gulskinn" name_english="" name_latin=""></sampletype>
+				<sampletype name="Lys reinlav" name_english="" name_latin=""></sampletype>
+				<sampletype name="Reinlav" name_english="" name_latin=""></sampletype>
+				<sampletype name="Kvitkrull" name_english="" name_latin=""></sampletype>
 			</sampletype>			
-			<sampletype name="Fugletelg"></sampletype>
-			<sampletype name="Furu"></sampletype>
-			<sampletype name="Furumose"></sampletype>
-			<sampletype name="Furutorvmose"></sampletype>
-			<sampletype name="Gress"></sampletype>
-			<sampletype name="Grønnvier"></sampletype>			
-			<sampletype name="Gråvier"></sampletype>
-			<sampletype name="Gullris"></sampletype>			
-			<sampletype name="Harerug"></sampletype>
-			<sampletype name="Islandslav"></sampletype>			
-			<sampletype name="Kasjutre"></sampletype>
-			<sampletype name="Krekling"></sampletype>
-			<sampletype name="Lappvier"></sampletype>			
-			<sampletype name="Marimjelle"></sampletype>
-			<sampletype name="Engsyre"></sampletype>
-			<sampletype name="Multe"></sampletype>
-			<sampletype name="Museøre"></sampletype>
-			<sampletype name="Paranøtt tre"></sampletype>
-			<sampletype name="Paranøtt"></sampletype>
-			<sampletype name="Pistasjtre"></sampletype>
-			<sampletype name="Rabbesiv"></sampletype>						
-			<sampletype name="Rogn"></sampletype>
-			<sampletype name="Røsslyng"></sampletype>
-			<sampletype name="Sitgagran"></sampletype>
-			<sampletype name="Skogstorknebb"></sampletype>
-			<sampletype name="Smyle"></sampletype>
-			<sampletype name="Snørull"></sampletype>
-			<sampletype name="Starr"></sampletype>
-			<sampletype name="Stivstarr"></sampletype>
-			<sampletype name="Syre"></sampletype>
-			<sampletype name="Torvmose"></sampletype>
-			<sampletype name="Torvull"></sampletype>
-			<sampletype name="Tyttebær"></sampletype>
-			<sampletype name="Vier"></sampletype>
+			<sampletype name="Fugletelg" name_english="" name_latin=""></sampletype>
+			<sampletype name="Furu" name_english="" name_latin=""></sampletype>
+			<sampletype name="Furumose" name_english="" name_latin=""></sampletype>
+			<sampletype name="Furutorvmose" name_english="" name_latin=""></sampletype>
+			<sampletype name="Gress" name_english="" name_latin=""></sampletype>
+			<sampletype name="Grønnvier" name_english="" name_latin=""></sampletype>			
+			<sampletype name="Gråvier" name_english="" name_latin=""></sampletype>
+			<sampletype name="Gullris" name_english="" name_latin=""></sampletype>			
+			<sampletype name="Harerug" name_english="" name_latin=""></sampletype>
+			<sampletype name="Islandslav" name_english="" name_latin=""></sampletype>			
+			<sampletype name="Kasjutre" name_english="" name_latin=""></sampletype>
+			<sampletype name="Krekling" name_english="" name_latin=""></sampletype>
+			<sampletype name="Lappvier" name_english="" name_latin=""></sampletype>			
+			<sampletype name="Marimjelle" name_english="" name_latin=""></sampletype>
+			<sampletype name="Engsyre" name_english="" name_latin=""></sampletype>
+			<sampletype name="Multe" name_english="" name_latin=""></sampletype>
+			<sampletype name="Museøre" name_english="" name_latin=""></sampletype>
+			<sampletype name="Paranøtt tre" name_english="" name_latin=""></sampletype>
+			<sampletype name="Paranøtt" name_english="" name_latin=""></sampletype>
+			<sampletype name="Pistasjtre" name_english="" name_latin=""></sampletype>
+			<sampletype name="Rabbesiv" name_english="" name_latin=""></sampletype>						
+			<sampletype name="Rogn" name_english="" name_latin=""></sampletype>
+			<sampletype name="Røsslyng" name_english="" name_latin=""></sampletype>
+			<sampletype name="Sitgagran" name_english="" name_latin=""></sampletype>
+			<sampletype name="Skogstorknebb" name_english="" name_latin=""></sampletype>
+			<sampletype name="Smyle" name_english="" name_latin=""></sampletype>
+			<sampletype name="Snørull" name_english="" name_latin=""></sampletype>
+			<sampletype name="Starr" name_english="" name_latin=""></sampletype>
+			<sampletype name="Stivstarr" name_english="" name_latin=""></sampletype>
+			<sampletype name="Syre" name_english="" name_latin=""></sampletype>
+			<sampletype name="Torvmose" name_english="" name_latin=""></sampletype>
+			<sampletype name="Torvull" name_english="" name_latin=""></sampletype>
+			<sampletype name="Tyttebær" name_english="" name_latin=""></sampletype>
+			<sampletype name="Vier" name_english="" name_latin=""></sampletype>
 		</sampletype>
-		<sampletype name="Fisk">
-			<samplepart name="Hale"></samplepart>
-			<samplepart name="Gjelle"></samplepart>
-			<samplepart name="Lever"></samplepart>
-			<sampletype name="Saltvannsfisk">
-				<sampletype name="Hyse"></sampletype>
-				<sampletype name="Makrell"></sampletype>
-				<sampletype name="Sei"></sampletype>
-				<sampletype name="Sild"></sampletype>
-				<sampletype name="Torsk"></sampletype>			
-				<sampletype name="Uer"></sampletype>
-				<sampletype name="Håbrann"></sampletype>				
-				<sampletype name="Makrellstørje"></sampletype>
-				<sampletype name="Tiskjegg"></sampletype>				
-				<sampletype name="Lange"></sampletype>
-				<sampletype name="Lysing"></sampletype>
-				<sampletype name="Brungylt"></sampletype>
-				<sampletype name="Tunge"></sampletype>
-				<sampletype name="Slettvar"></sampletype>
-				<sampletype name="Panserulke"></sampletype>
-				<sampletype name="Lyr"></sampletype>
-				<sampletype name="Horngjel"></sampletype>			
+		<sampletype name="Fisk" name_english="" name_latin="">
+			<component name="Hale" name_english="" name_latin=""></component>
+			<component name="Gjelle" name_english="" name_latin=""></component>
+			<component name="Lever" name_english="" name_latin=""></component>
+			<sampletype name="Saltvannsfisk" name_english="" name_latin="">
+				<sampletype name="Hyse" name_english="" name_latin=""></sampletype>
+				<sampletype name="Makrell" name_english="" name_latin=""></sampletype>
+				<sampletype name="Sei" name_english="" name_latin=""></sampletype>
+				<sampletype name="Sild" name_english="" name_latin=""></sampletype>
+				<sampletype name="Torsk" name_english="" name_latin=""></sampletype>			
+				<sampletype name="Uer" name_english="" name_latin=""></sampletype>
+				<sampletype name="Håbrann" name_english="" name_latin=""></sampletype>				
+				<sampletype name="Makrellstørje" name_english="" name_latin=""></sampletype>
+				<sampletype name="Tiskjegg" name_english="" name_latin=""></sampletype>				
+				<sampletype name="Lange" name_english="" name_latin=""></sampletype>
+				<sampletype name="Lysing" name_english="" name_latin=""></sampletype>
+				<sampletype name="Brungylt" name_english="" name_latin=""></sampletype>
+				<sampletype name="Tunge" name_english="" name_latin=""></sampletype>
+				<sampletype name="Slettvar" name_english="" name_latin=""></sampletype>
+				<sampletype name="Panserulke" name_english="" name_latin=""></sampletype>
+				<sampletype name="Lyr" name_english="" name_latin=""></sampletype>
+				<sampletype name="Horngjel" name_english="" name_latin=""></sampletype>			
 			</sampletype>
-			<sampletype name="Ferskvannsfisk">						
-				<sampletype name="Ørret"></sampletype>
-				<sampletype name="Mort"></sampletype>
-				<sampletype name="Gjedde"></sampletype>
-				<sampletype name="Røye"></sampletype>
-				<sampletype name="Abbor"></sampletype>
-				<sampletype name="Sik"></sampletype>
-				<sampletype name="Sjøørret"></sampletype>
-				<sampletype name="Laks"></sampletype>
+			<sampletype name="Ferskvannsfisk" name_english="" name_latin="">						
+				<sampletype name="Ørret" name_english="" name_latin=""></sampletype>
+				<sampletype name="Mort" name_english="" name_latin=""></sampletype>
+				<sampletype name="Gjedde" name_english="" name_latin=""></sampletype>
+				<sampletype name="Røye" name_english="" name_latin=""></sampletype>
+				<sampletype name="Abbor" name_english="" name_latin=""></sampletype>
+				<sampletype name="Sik" name_english="" name_latin=""></sampletype>
+				<sampletype name="Sjøørret" name_english="" name_latin=""></sampletype>
+				<sampletype name="Laks" name_english="" name_latin=""></sampletype>
 			</sampletype>
 		</sampletype>
-		<sampletype name="Sjøpattedyr">						
-			<sampletype name="Sel"></sampletype>
+		<sampletype name="Sjøpattedyr" name_english="" name_latin="">						
+			<sampletype name="Sel" name_english="" name_latin=""></sampletype>
 		</sampletype>
-		<sampletype name="Skalldyr">						
-			<sampletype name="Albusnegl"></sampletype>
-			<sampletype name="Amfipod"></sampletype>
-			<sampletype name="Blåskjell"></sampletype>
-			<sampletype name="Europeisk Hummer"></sampletype>
-			<sampletype name="Hoppekreps"></sampletype>
-			<sampletype name="Knivskjell"></sampletype>
-			<sampletype name="Leddsnegle"></sampletype>
-			<sampletype name="Middelhavsskjell"></sampletype>
-			<sampletype name="O-Skjell"></sampletype>
-			<sampletype name="Reke"></sampletype>
-			<sampletype name="Sandmusling"></sampletype>
-			<sampletype name="Snegle"></sampletype>
-			<sampletype name="Taskekrabbe"></sampletype>
-			<sampletype name="Kamskjell"></sampletype>
+		<sampletype name="Skalldyr" name_english="" name_latin="">						
+			<sampletype name="Albusnegl" name_english="" name_latin=""></sampletype>
+			<sampletype name="Amfipod" name_english="" name_latin=""></sampletype>
+			<sampletype name="Blåskjell" name_english="" name_latin=""></sampletype>
+			<sampletype name="Europeisk Hummer" name_english="" name_latin=""></sampletype>
+			<sampletype name="Hoppekreps" name_english="" name_latin=""></sampletype>
+			<sampletype name="Knivskjell" name_english="" name_latin=""></sampletype>
+			<sampletype name="Leddsnegle" name_english="" name_latin=""></sampletype>
+			<sampletype name="Middelhavsskjell" name_english="" name_latin=""></sampletype>
+			<sampletype name="O-Skjell" name_english="" name_latin=""></sampletype>
+			<sampletype name="Reke" name_english="" name_latin=""></sampletype>
+			<sampletype name="Sandmusling" name_english="" name_latin=""></sampletype>
+			<sampletype name="Snegle" name_english="" name_latin=""></sampletype>
+			<sampletype name="Taskekrabbe" name_english="" name_latin=""></sampletype>
+			<sampletype name="Kamskjell" name_english="" name_latin=""></sampletype>
 		</sampletype>
-		<sampletype name="Sopp">	
-			<samplepart name="Hatt"></samplepart>
-			<samplepart name="Stilk"></samplepart>
-			<sampletype name="Blek Piggsopp"></sampletype>
-			<sampletype name="Branngul Riske"></sampletype>
-			<sampletype name="Brun Ringløs Fluesopp"></sampletype>
-			<sampletype name="Brunskrubb"></sampletype>
-			<sampletype name="Fløyelsrørsopp"></sampletype>
-			<sampletype name="Grønnkremle"></sampletype>
-			<sampletype name="Grå Kamfluesopp"></sampletype>
-			<sampletype name="Hulriske"></sampletype>
-			<sampletype name="Kantarell"></sampletype>
-			<sampletype name="Matriske"></sampletype>
-			<sampletype name="Mild Gulkremle"></sampletype>
-			<sampletype name="Myrskrubb"></sampletype>
-			<sampletype name="Pepperrørsopp"></sampletype>
-			<sampletype name="Pluggsopp"></sampletype>
-			<sampletype name="Rimsopp"></sampletype>
-			<sampletype name="Rosa Sleipsopp"></sampletype>
-			<sampletype name="Rød Fluesopp"></sampletype>
-			<sampletype name="Rødbelteslørsopp"></sampletype>
-			<sampletype name="Rødbrun Flathatt"></sampletype>
-			<sampletype name="Rødbrun Pepperriske"></sampletype>
-			<sampletype name="Rødnende Fluesopp"></sampletype>
-			<sampletype name="Rødskrubb"></sampletype>
-			<sampletype name="Sandsopp"></sampletype>
-			<sampletype name="Seig Kusopp"></sampletype>
-			<sampletype name="Skjeggriske"></sampletype>
-			<sampletype name="Smørsopp"></sampletype>
-			<sampletype name="Steinsopp"></sampletype>
-			<sampletype name="Svartbrun Rørsopp"></sampletype>
-			<sampletype name="Svartskrubb"></sampletype>
-			<sampletype name="Svovelsopp"></sampletype>
+		<sampletype name="Sopp" name_english="" name_latin="">	
+			<component name="Hatt" name_english="" name_latin=""></component>
+			<component name="Stilk" name_english="" name_latin=""></component>
+			<sampletype name="Blek Piggsopp" name_english="" name_latin=""></sampletype>
+			<sampletype name="Branngul Riske" name_english="" name_latin=""></sampletype>
+			<sampletype name="Brun Ringløs Fluesopp" name_english="" name_latin=""></sampletype>
+			<sampletype name="Brunskrubb" name_english="" name_latin=""></sampletype>
+			<sampletype name="Fløyelsrørsopp" name_english="" name_latin=""></sampletype>
+			<sampletype name="Grønnkremle" name_english="" name_latin=""></sampletype>
+			<sampletype name="Grå Kamfluesopp" name_english="" name_latin=""></sampletype>
+			<sampletype name="Hulriske" name_english="" name_latin=""></sampletype>
+			<sampletype name="Kantarell" name_english="" name_latin=""></sampletype>
+			<sampletype name="Matriske" name_english="" name_latin=""></sampletype>
+			<sampletype name="Mild Gulkremle" name_english="" name_latin=""></sampletype>
+			<sampletype name="Myrskrubb" name_english="" name_latin=""></sampletype>
+			<sampletype name="Pepperrørsopp" name_english="" name_latin=""></sampletype>
+			<sampletype name="Pluggsopp" name_english="" name_latin=""></sampletype>
+			<sampletype name="Rimsopp" name_english="" name_latin=""></sampletype>
+			<sampletype name="Rosa Sleipsopp" name_english="" name_latin=""></sampletype>
+			<sampletype name="Rød Fluesopp" name_english="" name_latin=""></sampletype>
+			<sampletype name="Rødbelteslørsopp" name_english="" name_latin=""></sampletype>
+			<sampletype name="Rødbrun Flathatt" name_english="" name_latin=""></sampletype>
+			<sampletype name="Rødbrun Pepperriske" name_english="" name_latin=""></sampletype>
+			<sampletype name="Rødnende Fluesopp" name_english="" name_latin=""></sampletype>
+			<sampletype name="Rødskrubb" name_english="" name_latin=""></sampletype>
+			<sampletype name="Sandsopp" name_english="" name_latin=""></sampletype>
+			<sampletype name="Seig Kusopp" name_english="" name_latin=""></sampletype>
+			<sampletype name="Skjeggriske" name_english="" name_latin=""></sampletype>
+			<sampletype name="Smørsopp" name_english="" name_latin=""></sampletype>
+			<sampletype name="Steinsopp" name_english="" name_latin=""></sampletype>
+			<sampletype name="Svartbrun Rørsopp" name_english="" name_latin=""></sampletype>
+			<sampletype name="Svartskrubb" name_english="" name_latin=""></sampletype>
+			<sampletype name="Svovelsopp" name_english="" name_latin=""></sampletype>
 		</sampletype>
-		<sampletype name="Tang+Tare">
-			<sampletype name="Blæretang"></sampletype>
-			<sampletype name="Fingertare"></sampletype>
-			<sampletype name="Grisetang"></sampletype>
-			<sampletype name="Spiraltang"></sampletype>
-			<sampletype name="Mosdyr"></sampletype>
-			<sampletype name="Sagtang"></sampletype>
-			<sampletype name="Sauetang"></sampletype>
-			<sampletype name="Stortare"></sampletype>
-			<sampletype name="Stritt Kjerringhår"></sampletype>
-			<sampletype name="Sukkertare"></sampletype>			
+		<sampletype name="Tang+Tare" name_english="" name_latin="">
+			<sampletype name="Blæretang" name_english="" name_latin=""></sampletype>
+			<sampletype name="Fingertare" name_english="" name_latin=""></sampletype>
+			<sampletype name="Grisetang" name_english="" name_latin=""></sampletype>
+			<sampletype name="Spiraltang" name_english="" name_latin=""></sampletype>
+			<sampletype name="Mosdyr" name_english="" name_latin=""></sampletype>
+			<sampletype name="Sagtang" name_english="" name_latin=""></sampletype>
+			<sampletype name="Sauetang" name_english="" name_latin=""></sampletype>
+			<sampletype name="Stortare" name_english="" name_latin=""></sampletype>
+			<sampletype name="Stritt Kjerringhår" name_english="" name_latin=""></sampletype>
+			<sampletype name="Sukkertare" name_english="" name_latin=""></sampletype>			
 		</sampletype>		
 	</sampletype>
-	<sampletype name="Diverse">					
-		<sampletype name="Bomull"></sampletype>
-		<sampletype name="Edelsten"></sampletype>
-		<sampletype name="Gulvbelegg"></sampletype>
-		<sampletype name="Gulvstøv"></sampletype>
-		<sampletype name="Interkalibreringsløsning"></sampletype>
-		<sampletype name="Interkalibreringsprøve"></sampletype>
-		<sampletype name="Phosphogypsum"></sampletype>
-		<sampletype name="Phosphogypsum, IAEA-434"></sampletype>
-		<sampletype name="Plast"></sampletype>
-		<sampletype name="Stryktest"></sampletype>
-		<sampletype name="Treforedling"></sampletype>
-		<sampletype name="Trepall"></sampletype>
-		<sampletype name="Uranpellets"></sampletype>
-		<sampletype name="Utfelling"></sampletype>
-		<sampletype name="Wipe test"></sampletype>
+	<sampletype name="Diverse" name_english="" name_latin="">					
+		<sampletype name="Bomull" name_english="" name_latin=""></sampletype>
+		<sampletype name="Edelsten" name_english="" name_latin=""></sampletype>
+		<sampletype name="Gulvbelegg" name_english="" name_latin=""></sampletype>
+		<sampletype name="Gulvstøv" name_english="" name_latin=""></sampletype>
+		<sampletype name="Interkalibreringsløsning" name_english="" name_latin=""></sampletype>
+		<sampletype name="Interkalibreringsprøve" name_english="" name_latin=""></sampletype>
+		<sampletype name="Phosphogypsum" name_english="" name_latin=""></sampletype>
+		<sampletype name="Phosphogypsum, IAEA-434" name_english="" name_latin=""></sampletype>
+		<sampletype name="Plast" name_english="" name_latin=""></sampletype>
+		<sampletype name="Stryktest" name_english="" name_latin=""></sampletype>
+		<sampletype name="Treforedling" name_english="" name_latin=""></sampletype>
+		<sampletype name="Trepall" name_english="" name_latin=""></sampletype>
+		<sampletype name="Uranpellets" name_english="" name_latin=""></sampletype>
+		<sampletype name="Utfelling" name_english="" name_latin=""></sampletype>
+		<sampletype name="Wipe test" name_english="" name_latin=""></sampletype>
 	</sampletype>
-	<sampletype name="Jord+Sediment">				
-		<sampletype name="Jord"></sampletype>
-		<sampletype name="Sand"></sampletype>
-		<sampletype name="Sediment"></sampletype>
-		<sampletype name="Slagg"></sampletype>
-		<sampletype name="Stein"></sampletype>
-		<sampletype name="Vulkansk Aske"></sampletype>
+	<sampletype name="Jord+Sediment" name_english="" name_latin="">				
+		<sampletype name="Jord" name_english="" name_latin=""></sampletype>
+		<sampletype name="Sand" name_english="" name_latin=""></sampletype>
+		<sampletype name="Sediment" name_english="" name_latin=""></sampletype>
+		<sampletype name="Slagg" name_english="" name_latin=""></sampletype>
+		<sampletype name="Stein" name_english="" name_latin=""></sampletype>
+		<sampletype name="Vulkansk Aske" name_english="" name_latin=""></sampletype>
 	</sampletype>
-	<sampletype name="Luft">				
-		<sampletype name="Kullfilter"></sampletype>
-		<sampletype name="Luftfilter"></sampletype>
+	<sampletype name="Luft" name_english="" name_latin="">				
+		<sampletype name="Kullfilter" name_english="" name_latin=""></sampletype>
+		<sampletype name="Luftfilter" name_english="" name_latin=""></sampletype>
 	</sampletype>
-	<sampletype name="Næringsmidler">				
-		<sampletype name="Honning"></sampletype>
-		<sampletype name="Kjøtt"></sampletype>
-		<sampletype name="Kraftfor"></sampletype>
-		<sampletype name="Melk"></sampletype>
-		<sampletype name="Ost"></sampletype>
-		<sampletype name="Ris"></sampletype>
+	<sampletype name="Næringsmidler" name_english="" name_latin="">				
+		<sampletype name="Honning" name_english="" name_latin=""></sampletype>
+		<sampletype name="Kjøtt" name_english="" name_latin=""></sampletype>
+		<sampletype name="Kraftfor" name_english="" name_latin=""></sampletype>
+		<sampletype name="Melk" name_english="" name_latin=""></sampletype>
+		<sampletype name="Ost" name_english="" name_latin=""></sampletype>
+		<sampletype name="Ris" name_english="" name_latin=""></sampletype>
 	</sampletype>
-	<sampletype name="Vann">				
-		<sampletype name="Avfallsvann"></sampletype>
-		<sampletype name="Avløpsvann (Kolonne)"></sampletype>
-		<sampletype name="Brakkvann"></sampletype>
-		<sampletype name="Ferskvann"></sampletype>
-		<sampletype name="Grunnvann"></sampletype>
-		<sampletype name="Kloakkvann"></sampletype>
-		<sampletype name="Regnvann"></sampletype>
-		<sampletype name="Saltvann"></sampletype>
-		<sampletype name="Sjøvann"></sampletype>
+	<sampletype name="Vann" name_english="" name_latin="">				
+		<sampletype name="Avfallsvann" name_english="" name_latin=""></sampletype>
+		<sampletype name="Avløpsvann (Kolonne)" name_english="" name_latin=""></sampletype>
+		<sampletype name="Brakkvann" name_english="" name_latin=""></sampletype>
+		<sampletype name="Ferskvann" name_english="" name_latin=""></sampletype>
+		<sampletype name="Grunnvann" name_english="" name_latin=""></sampletype>
+		<sampletype name="Kloakkvann" name_english="" name_latin=""></sampletype>
+		<sampletype name="Regnvann" name_english="" name_latin=""></sampletype>
+		<sampletype name="Saltvann" name_english="" name_latin=""></sampletype>
+		<sampletype name="Sjøvann" name_english="" name_latin=""></sampletype>
 	</sampletype>	
 </sampletypes>
