@@ -389,6 +389,7 @@
             this.cboxLocation.Name = "cboxLocation";
             this.cboxLocation.Size = new System.Drawing.Size(234, 23);
             this.cboxLocation.TabIndex = 9;
+            this.cboxLocation.SelectedIndexChanged += new System.EventHandler(this.cboxLocation_SelectedIndexChanged);
             // 
             // tbSLoctn
             // 
@@ -684,10 +685,10 @@
             // statusLabel
             // 
             this.statusLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.statusLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.statusLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.statusLabel.ForeColor = System.Drawing.Color.Red;
             this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(85, 17);
+            this.statusLabel.Size = new System.Drawing.Size(82, 17);
             this.statusLabel.Text = "<statusLabel>";
             // 
             // panelUnitGeom

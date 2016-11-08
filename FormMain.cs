@@ -183,12 +183,12 @@ namespace lorakon
                     // Load sample types
                     string[] sampTypes = GetSampleTypes();
                     foreach(string st in sampTypes)                    
-                        cboxSampleType.Items.Add(new SampleType(GetLabelFromSampleType(st), st));                    
+                        cboxSampleType.Items.Add(new SampleType(GetLabelFromSampleType(st), st));
 
-                    // Load location types
+                    // Load location types                    
                     string[] locTypes = File.ReadAllLines(LocationTypeFile, enc);
                     for (int i = 0; i < locTypes.Length; i++)
-                        LocationTypes.Add(new LocationType(locTypes[i], i.ToString()));
+                        LocationTypes.Add(new LocationType(locTypes[i], i));
                     cboxLocation.DataSource = LocationTypes;
                     cboxLocation.DisplayMember = "Name";
                     cboxLocation.ValueMember = "Value";
@@ -251,7 +251,7 @@ namespace lorakon
                         {
                             string loc = PrepareStringParam(lines[10], typeof(Int32), cboxLocation.MaxLength);
                             if(!String.IsNullOrEmpty(loc))
-                                cboxLocation.SelectedValue = loc;
+                                cboxLocation.SelectedValue = Convert.ToInt32(loc);
                         }
                         if (lines.Length > 11)
                             tbSLoctn.Text = PrepareStringParam(lines[11], typeof(String), tbSLoctn.MaxLength);
@@ -435,9 +435,19 @@ namespace lorakon
             tbSSyserr.Width = panelError.Width / 2;
         }
 
+        private void cboxLocation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            tbSLoctn.Enabled = true;
+            if (cboxLocation.Text.Trim() == String.Empty)
+            {
+                tbSLoctn.Text = String.Empty;
+                tbSLoctn.Enabled = false;
+            }
+        }
+
         private void cboxCoordType_MouseHover(object sender, EventArgs e)
         {
-            coordToolTip.ToolTipTitle = "Format:";
+            coordToolTip.ToolTipTitle = "";
             coordToolTip.UseFading = true;
             coordToolTip.UseAnimation = true;
             coordToolTip.IsBalloon = true;
@@ -449,23 +459,33 @@ namespace lorakon
         }
 
         private void cboxCoordType_SelectedIndexChanged(object sender, EventArgs e)
-        {            
-            switch(((CoordinateType)cboxCoordType.SelectedItem).Value)
+        {
+            tbLatitude.Enabled = true;
+            tbLongitude.Enabled = true;
+            tbAltitude.Enabled = true;
+            
+            switch (((CoordinateType)cboxCoordType.SelectedItem).Value)
             {
-                case CoordinateFormat.None:
-                    cboxCoordType.Tag = "";
+                case CoordinateFormat.None:                    
+                    cboxCoordType.Tag = "Velg koordinat format...";
+                    tbLatitude.Text = String.Empty;
+                    tbLongitude.Text = String.Empty;
+                    tbAltitude.Text = String.Empty;
+                    tbLatitude.Enabled = false;
+                    tbLongitude.Enabled = false;
+                    tbAltitude.Enabled = false;
                     break;
                 case CoordinateFormat.WGS84:
-                    cboxCoordType.Tag = "40.446     -79.982";
+                    cboxCoordType.Tag = "Format:   40.446    -79.982";
                     break;
                 case CoordinateFormat.DegreesMinutesSeconds:
-                    cboxCoordType.Tag = "40° 26′ 46″ N     79° 58′ 56″ W";
+                    cboxCoordType.Tag = "Format:   40° 26′ 46″ N    79° 58′ 56″ W";
                     break;
                 case CoordinateFormat.DegreesDecimalMinutes:
-                    cboxCoordType.Tag = " 40° 26.767′ N     79° 58.933′ W";
+                    cboxCoordType.Tag = "Format:   40° 26.767′ N    79° 58.933′ W";
                     break;
                 case CoordinateFormat.DecimalDegrees:
-                    cboxCoordType.Tag = "40.446° N     79.982° W";
+                    cboxCoordType.Tag = "Format:   40.446° N    79.982° W";
                     break;
             }            
         }
@@ -575,19 +595,27 @@ namespace lorakon
             else if (fmt == CoordinateFormat.DecimalDegrees)
             {
 
-            }
+            }                        
 
-            if (tbAltitude.Text.Trim() != string.Empty)
+            try
             {
-                double alt = Convert.ToDouble(tbAltitude.Text.Trim());
-                // 10994: Depth of the Challenger Deep
-                // 480000: Thinkness of the atmosphere
-                if (alt < -10994.0 || alt > 480000)
+                if (tbAltitude.Text.Trim() != string.Empty)
                 {
-                    statusLabel.Text = "Høyde over havet er ugyldig";
-                    return;
+                    double alt = Convert.ToDouble(tbAltitude.Text.Trim());
+                    // 10994: Depth of the Challenger Deep
+                    // 480000: Thinkness of the atmosphere
+                    if (alt < -10994.0 || alt > 480000)
+                    {
+                        statusLabel.Text = "Høyde over havet er ugyldig";
+                        return;
+                    }
                 }
-            }            
+            }
+            catch (Exception ex)
+            {
+                statusLabel.Text = "Ugyldige høyde over havet";
+                return;
+            }
 
             try
             {
@@ -632,6 +660,12 @@ namespace lorakon
             if (!CustomEvents.ValidateSignedNumeric(tbAltitude.Text))
             {
                 statusLabel.Text = "Høyde over havet er ugyldig";
+                return;
+            }
+
+            if(cboxLocation.Text.Trim() != String.Empty && tbSLoctn.Text.Trim() == String.Empty)
+            {
+                statusLabel.Text = "Lokasjon info mangler";
                 return;
             }
 
@@ -758,12 +792,12 @@ namespace lorakon
     class LocationType
     {
         public string Name { get; set; }
-        public string Value { get; set; }
+        public int Value { get; set; }
 
-        public LocationType(string name, string value)
+        public LocationType(string name, int val)
         {
             Name = name;
-            Value = value;
+            Value = val;
         }
 
         public override string ToString()
