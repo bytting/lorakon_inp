@@ -51,7 +51,7 @@ namespace lorakon
             if (e.KeyChar == sep)
             {
                 // No separator at the beginning
-                if (tb.Text.Trim().Length == 0)
+                if (tb.SelectionStart == 0)
                 {
                     e.Handled = true;
                     return;

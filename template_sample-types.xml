@@ -1,10 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <sampletypes>
-	<sampletype name="Biota" name_english="" name_latin="">
-		<component name="Alder" name_english="" name_latin=""></component>		
+	<sampletype name="Biota" name_english="" name_latin="">		
 		<sampletype name="Fugl" name_english="" name_latin="">
 			<component name="Vinge" name_english="" name_latin=""></component>
 			<component name="Fjær" name_english="" name_latin=""></component>
+			<component name="Egg" name_english="" name_latin=""></component>
+			<component name="Eggevite" name_english="" name_latin=""></component>
+			<component name="Eggeplomme" name_english="" name_latin=""></component>
 			<sampletype name="Rype" name_english="" name_latin=""></sampletype>
 			<sampletype name="Fjellrype" name_english="" name_latin=""></sampletype>
 			<sampletype name="Lirype" name_english="" name_latin=""></sampletype>
@@ -220,9 +222,6 @@
 				<sampletype name="Laks" name_english="" name_latin=""></sampletype>
 			</sampletype>
 		</sampletype>
-		<sampletype name="Sjøpattedyr" name_english="" name_latin="">						
-			<sampletype name="Sel" name_english="" name_latin=""></sampletype>
-		</sampletype>
 		<sampletype name="Skalldyr" name_english="" name_latin="">						
 			<sampletype name="Albusnegl" name_english="" name_latin=""></sampletype>
 			<sampletype name="Amfipod" name_english="" name_latin=""></sampletype>
@@ -323,11 +322,52 @@
 				<sampletype name="Blomsterhonning" name_english="" name_latin=""></sampletype>
 				<sampletype name="Sommmerhonning" name_english="" name_latin=""></sampletype>
 			</sampletype>
-		<sampletype name="Kjøtt" name_english="" name_latin=""></sampletype>
+		<sampletype name="Kjøttprodukter" name_english="" name_latin="">
+				<sampletype name="Svinekoteletter" name_english="" name_latin=""></sampletype>
+				<sampletype name="Svinekoteletter nakke" name_english="" name_latin=""></sampletype>
+				<sampletype name="Karbonadedeig" name_english="" name_latin=""></sampletype>
+				<sampletype name="Kjøttdeig" name_english="" name_latin=""></sampletype>
+				<sampletype name="Kylling fillet" name_english="" name_latin=""></sampletype>
+				<sampletype name="Entrecote storfe" name_english="" name_latin=""></sampletype>
+				<sampletype name="Kylling kjøttdeig" name_english="" name_latin=""></sampletype>
+				<sampletype name="Svinestek" name_english="" name_latin=""></sampletype>
+				<sampletype name="Reinstek" name_english="" name_latin=""></sampletype>
+			</sampletype>
 		<sampletype name="Kraftfor" name_english="" name_latin=""></sampletype>
-		<sampletype name="Melk" name_english="" name_latin=""></sampletype>
-		<sampletype name="Ost" name_english="" name_latin=""></sampletype>
-		<sampletype name="Ris" name_english="" name_latin=""></sampletype>
+		<sampletype name="Melkeprodukter" name_english="" name_latin="">
+				<sampletype name="Lettmelk" name_english="" name_latin=""></sampletype>
+				<sampletype name="Kefir" name_english="" name_latin=""></sampletype>
+				<sampletype name="Ekstra lettmelk" name_english="" name_latin=""></sampletype>
+				<sampletype name="H-melk" name_english="" name_latin=""></sampletype>
+				<sampletype name="Fløte" name_english="" name_latin=""></sampletype>
+				<sampletype name="Rømme" name_english="" name_latin=""></sampletype>
+				<sampletype name="Seterrømme" name_english="" name_latin=""></sampletype>
+				<sampletype name="Yoghurt" name_english="" name_latin=""></sampletype>
+			</sampletype>
+		<sampletype name="Ost" name_english="" name_latin="">
+				<sampletype name="Gulost" name_english="" name_latin=""></sampletype>
+				<sampletype name="Lett gulost" name_english="" name_latin=""></sampletype>
+				<sampletype name="Brunost" name_english="" name_latin=""></sampletype>
+				<sampletype name="Kesam" name_english="" name_latin=""></sampletype>
+				<sampletype name="Kvarg" name_english="" name_latin=""></sampletype>
+				<sampletype name="Prim" name_english="" name_latin=""></sampletype>
+				<sampletype name="Gudbrandsdalsost" name_english="" name_latin=""></sampletype>
+				<sampletype name="Fløtemysost" name_english="" name_latin=""></sampletype>
+				<sampletype name="Ridderost" name_english="" name_latin=""></sampletype>
+				<sampletype name="Norzola" name_english="" name_latin=""></sampletype>
+				<sampletype name="Gamalost" name_english="" name_latin=""></sampletype>
+				<sampletype name="Pultost" name_english="" name_latin=""></sampletype>
+			</sampletype>
+		<sampletype name="Ris" name_english="" name_latin="">
+				<sampletype name="Basmatiris" name_english="" name_latin=""></sampletype>
+				<sampletype name="Langkornet polert ris" name_english="" name_latin=""></sampletype>
+				<sampletype name="Jasminris" name_english="" name_latin=""></sampletype>
+				<sampletype name="Thailandsk hvit ris" name_english="" name_latin=""></sampletype>
+				<sampletype name="Thailandsk svart ris" name_english="" name_latin=""></sampletype>
+				<sampletype name="Arborioris" name_english="" name_latin=""></sampletype>
+				<sampletype name="Carnaroli" name_english="" name_latin=""></sampletype>
+				<sampletype name="Sushiris" name_english="" name_latin=""></sampletype>
+			</sampletype>
 	</sampletype>
 	<sampletype name="Vann" name_english="" name_latin="">				
 		<sampletype name="Avfallsvann" name_english="" name_latin=""></sampletype>

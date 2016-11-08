@@ -199,6 +199,7 @@ namespace lorakon
                     cboxCoordType.Items.Add(new CoordinateType("Desimalgrader", CoordinateFormat.DecimalDegrees));
                     cboxCoordType.Items.Add(new CoordinateType("Grader/Minutter/Sekunder", CoordinateFormat.DegreesMinutesSeconds));
                     cboxCoordType.Items.Add(new CoordinateType("Grader/Desimal minutter", CoordinateFormat.DegreesDecimalMinutes));
+                    cboxCoordType.SelectedIndex = 1;
 
                     DateTime now = DateTime.Now;
                     dtpSDate.Value = now;
@@ -211,14 +212,14 @@ namespace lorakon
                         string[] lines = File.ReadAllLines(InputFile, enc);
 
                         if(lines.Length > 0)
-                            tbLab.Text = ValidateString(lines[0], tbLab.MaxLength);
+                            tbLab.Text = PrepareStringParam(lines[0], typeof(String), tbLab.MaxLength);
                         if (lines.Length > 1)
-                            tbScollName.Text = ValidateString(lines[1], tbScollName.MaxLength);
+                            tbScollName.Text = PrepareStringParam(lines[1], typeof(String), tbScollName.MaxLength);
                         if (lines.Length > 2)
-                            tbSTitle.Text = ValidateString(lines[2], tbSTitle.MaxLength);
+                            tbSTitle.Text = PrepareStringParam(lines[2], typeof(String), tbSTitle.MaxLength);
                         if (lines.Length > 3)
                         {
-                            string st = ValidateString(lines[3], cboxSampleType.MaxLength);                            
+                            string st = PrepareStringParam(lines[3], typeof(String), cboxSampleType.MaxLength);                            
                             if (!String.IsNullOrEmpty(st))
                             {
                                 string sampType = GetLabelFromSampleType(st);
@@ -228,7 +229,7 @@ namespace lorakon
                         }
                         if (lines.Length > 4)
                         {
-                            string comp = ValidateString(lines[4], cboxComponent.MaxLength);
+                            string comp = PrepareStringParam(lines[4], typeof(String), cboxComponent.MaxLength);
                             if (!String.IsNullOrEmpty(comp))
                             {
                                 if(cboxComponent.Items.Contains(comp))
@@ -236,43 +237,43 @@ namespace lorakon
                             }
                         }
                         if (lines.Length > 5)
-                            tbSIdent.Text = ValidateString(lines[5], tbSIdent.MaxLength);
+                            tbSIdent.Text = PrepareStringParam(lines[5], typeof(String), tbSIdent.MaxLength);
                         if (lines.Length > 6)
                             if (communities.Contains(lines[6]))
                                 cboxCommunity.Text = lines[6];
                         if (lines.Length > 7)
-                            tbLatitude.Text = ValidateDouble(lines[7], tbLatitude.MaxLength);
+                            tbLatitude.Text = PrepareStringParam(lines[7], typeof(Double), tbLatitude.MaxLength);
                         if (lines.Length > 8)
-                            tbLongitude.Text = ValidateDouble(lines[8], tbLongitude.MaxLength);
+                            tbLongitude.Text = PrepareStringParam(lines[8], typeof(Double), tbLongitude.MaxLength);
                         if (lines.Length > 9)
-                            tbAltitude.Text = ValidateDouble(lines[9], tbAltitude.MaxLength);
+                            tbAltitude.Text = PrepareStringParam(lines[9], typeof(Double), tbAltitude.MaxLength);
                         if (lines.Length > 10)
                         {
-                            string loc = ValidateInteger(lines[10], cboxLocation.MaxLength);
+                            string loc = PrepareStringParam(lines[10], typeof(Int32), cboxLocation.MaxLength);
                             if(!String.IsNullOrEmpty(loc))
                                 cboxLocation.SelectedValue = loc;
                         }
                         if (lines.Length > 11)
-                            tbSLoctn.Text = ValidateString(lines[11], tbSLoctn.MaxLength);
+                            tbSLoctn.Text = PrepareStringParam(lines[11], typeof(String), tbSLoctn.MaxLength);
                         if (lines.Length > 12)
-                            tbSQuant.Text = ValidateFloat(lines[12], tbSQuant.MaxLength);
+                            tbSQuant.Text = PrepareStringParam(lines[12], typeof(float), tbSQuant.MaxLength);
                         if (lines.Length > 13)
-                            tbSQuantErr.Text = ValidateFloat(lines[13], tbSQuantErr.MaxLength);
+                            tbSQuantErr.Text = PrepareStringParam(lines[13], typeof(float), tbSQuantErr.MaxLength);
                         if (lines.Length > 14)
                         {
-                            string unit = ValidateString(lines[14], cboxSUnits.MaxLength);
+                            string unit = PrepareStringParam(lines[14], typeof(String), cboxSUnits.MaxLength);
                             if(!String.IsNullOrEmpty(unit))
                                 cboxSUnits.Text = unit;
                         }
                         if (lines.Length > 15)
                         {
-                            string geom = ValidateString(lines[15], cboxSGeomtry.MaxLength);
+                            string geom = PrepareStringParam(lines[15], typeof(String), cboxSGeomtry.MaxLength);
                             if(!String.IsNullOrEmpty(geom))
                                 cboxSGeomtry.Text = geom;
                         }
                         if (lines.Length > 16)
                         {
-                            string sdt = ValidateDateTime(lines[16], 24);
+                            string sdt = PrepareStringParam(lines[16], typeof(DateTime), 24);
                             if (!String.IsNullOrEmpty(sdt))
                             {
                                 DateTime dt = Convert.ToDateTime(sdt);
@@ -281,12 +282,12 @@ namespace lorakon
                             }
                         }
                         if (lines.Length > 17)
-                            tbSSyserr.Text = ValidateFloat(lines[17], tbSSyserr.MaxLength);
+                            tbSSyserr.Text = PrepareStringParam(lines[17], typeof(float), tbSSyserr.MaxLength);
                         if (lines.Length > 18)
-                            tbSSysterr.Text = ValidateFloat(lines[18], tbSSysterr.MaxLength);
+                            tbSSysterr.Text = PrepareStringParam(lines[18], typeof(float), tbSSysterr.MaxLength);
                         if (lines.Length > 19)
-                            tbComment.Text = ValidateString(lines[19], 255);
-                    }
+                            tbComment.Text = PrepareStringParam(lines[19], typeof(String), 255);
+                    }                    
 
                     tbLab.Enabled = true;
                     LaboratoryFile = SystemPath + LaboratoryBase;
@@ -322,68 +323,21 @@ namespace lorakon
             return String.Empty;
         }
 
-        private string ValidateString(string s, int siz)
-        {
-            if (s.Length > siz)
-                return s.Substring(0, siz);
-            return s;
-        }
-
-        private string ValidateInteger(string s, int siz)
+        private string PrepareStringParam(string s, Type type, int siz)
         {
             if (s.Length > siz)
                 return String.Empty;
+
             try
             {
-                Convert.ToInt32(s);
-            }            
-            catch
-            {
-                return String.Empty;
-            }
-
-            return s;
-        }
-
-        private string ValidateFloat(string s, int siz)
-        {
-            if (s.Length > siz)
-                return String.Empty;
-            try
-            {
-                Convert.ToSingle(s);
-            }
-            catch
-            {
-                return String.Empty;
-            }
-
-            return s;
-        }
-
-        private string ValidateDouble(string s, int siz)
-        {
-            if (s.Length > siz)
-                return String.Empty;
-            try
-            {
-                Convert.ToDouble(s);
-            }
-            catch
-            {
-                return String.Empty;
-            }
-
-            return s;
-        }
-
-        private string ValidateDateTime(string s, int siz)
-        {
-            if (s.Length > siz)
-                return String.Empty;
-            try
-            {
-                Convert.ToDateTime(s);
+                if (type == typeof(Int32))
+                    Convert.ToInt32(s);
+                else if (type == typeof(float))
+                    Convert.ToSingle(s);
+                else if (type == typeof(double))
+                    Convert.ToDouble(s);
+                else if (type == typeof(DateTime))
+                    Convert.ToDateTime(s);
             }
             catch
             {
@@ -408,6 +362,30 @@ namespace lorakon
                 MessageBox.Show(ex.Message);
             }
             return sampleTypes.ToArray();
+        }
+
+        private void AddSampleTypes(XmlNode node, ref List<string> sampleTypes)
+        {
+            foreach (XmlNode n in node.ChildNodes)
+            {
+                if (n.NodeType == XmlNodeType.Element && n.Name.ToLower() == "sampletype")
+                {
+                    sampleTypes.Add(GetNodePath(n));
+                    AddSampleTypes(n, ref sampleTypes);
+                }
+            }
+        }
+
+        private string GetNodePath(XmlNode node)
+        {
+            string path = node.Attributes["name"].InnerText;
+            XmlNode search = null;
+            while ((search = node.ParentNode).Name.ToLower() != "sampletypes")
+            {
+                path = search.Attributes["name"].InnerText + "/" + path;
+                node = search;
+            }
+            return path;
         }
 
         private string GetSampleTypeFromLabel(string lbl)
@@ -457,16 +435,16 @@ namespace lorakon
                     cboxCoordType.Tag = "";
                     break;
                 case CoordinateFormat.WGS84:
-                    cboxCoordType.Tag = "40.446 -79.982";
+                    cboxCoordType.Tag = "40.446     -79.982";
                     break;
                 case CoordinateFormat.DegreesMinutesSeconds:
-                    cboxCoordType.Tag = "40° 26′ 46″ N 79° 58′ 56″ W";
+                    cboxCoordType.Tag = "40° 26′ 46″ N     79° 58′ 56″ W";
                     break;
                 case CoordinateFormat.DegreesDecimalMinutes:
-                    cboxCoordType.Tag = " 40° 26.767′ N 79° 58.933′ W";
+                    cboxCoordType.Tag = " 40° 26.767′ N     79° 58.933′ W";
                     break;
                 case CoordinateFormat.DecimalDegrees:
-                    cboxCoordType.Tag = "40.446° N 79.982° W";
+                    cboxCoordType.Tag = "40.446° N     79.982° W";
                     break;
             }            
         }
@@ -497,31 +475,7 @@ namespace lorakon
             {
                 MessageBox.Show(ex.Message);
             }
-        }        
-
-        private void AddSampleTypes(XmlNode node, ref List<string> sampleTypes)
-        {
-            foreach (XmlNode n in node.ChildNodes)
-            {
-                if (n.NodeType == XmlNodeType.Element && n.Name.ToLower() == "sampletype")
-                {                    
-                    sampleTypes.Add(GetNodePath(n));
-                    AddSampleTypes(n, ref sampleTypes);
-                }
-            }
-        }
-
-        private string GetNodePath(XmlNode node)
-        {
-            string path = node.Attributes["name"].InnerText;
-            XmlNode search = null;            
-            while ((search = node.ParentNode).Name.ToLower() != "sampletypes")
-            {
-                path = search.Attributes["name"].InnerText + "/" + path;
-                node = search;
-            }
-            return path;
-        }        
+        }                
 
         private void btnOk_Click(object sender, EventArgs e)
         {
@@ -548,14 +502,14 @@ namespace lorakon
 
             CoordinateFormat fmt = ((CoordinateType)cboxCoordType.SelectedItem).Value;
 
-            if (fmt == CoordinateFormat.DecimalDegrees)
+            if(fmt != CoordinateFormat.None && (tbLatitude.Text.Trim() == String.Empty || tbLongitude.Text.Trim() == String.Empty))            
             {
-                if (tbLatitude.Text.Trim() == String.Empty || tbLongitude.Text.Trim() == String.Empty)
-                {
-                    statusLabel.Text = "Breddegrad eller Lengdegrad mangler";
-                    return;
-                }
+                statusLabel.Text = "Breddegrad eller Lengdegrad mangler";
+                return;
+            }
 
+            if (fmt == CoordinateFormat.WGS84)
+            {
                 double lat, lon;
 
                 try
@@ -582,12 +536,6 @@ namespace lorakon
             }
             else if (fmt == CoordinateFormat.DegreesMinutesSeconds)
             {
-                if (tbLatitude.Text.Trim() == String.Empty || tbLongitude.Text.Trim() == String.Empty)
-                {
-                    statusLabel.Text = "Breddegrad eller Lengdegrad mangler";
-                    return;
-                }
-
                 try
                 {
                     //lat = ConvertToDecimalDegrees(tbLatitude.Text.Trim());
@@ -600,6 +548,10 @@ namespace lorakon
                 }
             }
             else if (fmt == CoordinateFormat.DegreesDecimalMinutes)
+            {
+
+            }
+            else if (fmt == CoordinateFormat.DecimalDegrees)
             {
 
             }
