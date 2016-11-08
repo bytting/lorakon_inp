@@ -301,6 +301,7 @@ namespace lorakon
                         }
                     }
 
+                    FormSampleInput_Resize(sender, e);
                     tbScollName.Focus();
                 }
                 catch (Exception ex)
@@ -422,6 +423,16 @@ namespace lorakon
                 cboxSampleType.Text = GetLabelFromSampleType(form.SelectedSampleType);
                 cboxSampleType_SelectedIndexChanged(sender, e);
             }
+        }
+
+        private void FormSampleInput_Resize(object sender, EventArgs e)
+        {
+            tbLatitude.Width = panelCoords.Width / 3;
+            tbAltitude.Width = panelCoords.Width / 3;
+            tbSQuant.Width = panelSampleQuant.Width / 2;
+            cboxSUnits.Width = panelUnitGeom.Width / 2;
+            dtpSDate.Width = panelReferenceDate.Width / 2;
+            tbSSyserr.Width = panelError.Width / 2;
         }
 
         private void cboxCoordType_MouseHover(object sender, EventArgs e)

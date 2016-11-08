@@ -78,6 +78,7 @@
             // 
             this.treeSampleTypes.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.treeSampleTypes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeSampleTypes.Indent = 28;
             this.treeSampleTypes.Location = new System.Drawing.Point(0, 0);
             this.treeSampleTypes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.treeSampleTypes.Name = "treeSampleTypes";
