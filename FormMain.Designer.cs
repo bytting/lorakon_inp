@@ -33,10 +33,7 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
             this.tableLayoutMain = new System.Windows.Forms.TableLayoutPanel();
-            this.cboxSUnits = new System.Windows.Forms.ComboBox();
-            this.tbSIdent = new System.Windows.Forms.TextBox();
             this.tbSTitle = new System.Windows.Forms.TextBox();
-            this.tbScollName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -44,9 +41,7 @@
             this.panelSampleQuant = new System.Windows.Forms.Panel();
             this.tbSQuantErr = new System.Windows.Forms.TextBox();
             this.tbSQuant = new System.Windows.Forms.TextBox();
-            this.cboxSGeomtry = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.tbLab = new System.Windows.Forms.TextBox();
             this.cboxLocation = new System.Windows.Forms.ComboBox();
             this.tbSLoctn = new System.Windows.Forms.TextBox();
             this.cboxCoordType = new System.Windows.Forms.ComboBox();
@@ -67,23 +62,28 @@
             this.label9 = new System.Windows.Forms.Label();
             this.tbComment = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.cboxComponent = new System.Windows.Forms.ComboBox();
             this.panelSampleType = new System.Windows.Forms.Panel();
             this.cboxSampleType = new System.Windows.Forms.ComboBox();
             this.btnBrowseSampleType = new System.Windows.Forms.Button();
+            this.panelUnitGeom = new System.Windows.Forms.Panel();
+            this.cboxSGeomtry = new System.Windows.Forms.ComboBox();
+            this.cboxSUnits = new System.Windows.Forms.ComboBox();
+            this.panelCoordLabel = new System.Windows.Forms.Panel();
+            this.labelCoordAltitude = new System.Windows.Forms.Label();
+            this.labelCoordLongitude = new System.Windows.Forms.Label();
+            this.labelCoordLatitude = new System.Windows.Forms.Label();
+            this.panelLab = new System.Windows.Forms.Panel();
+            this.tbScollName = new System.Windows.Forms.TextBox();
+            this.tbLab = new System.Windows.Forms.TextBox();
+            this.panelSampleCompID = new System.Windows.Forms.Panel();
+            this.tbSIdent = new System.Windows.Forms.TextBox();
+            this.cboxComponent = new System.Windows.Forms.ComboBox();
             this.tools = new System.Windows.Forms.ToolStrip();
             this.btnImport = new System.Windows.Forms.ToolStripDropDownButton();
             this.btnImportSampReg = new System.Windows.Forms.ToolStripMenuItem();
             this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.status = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.panelUnitGeom = new System.Windows.Forms.Panel();
-            this.panelCoordLabel = new System.Windows.Forms.Panel();
-            this.labelCoordLatitude = new System.Windows.Forms.Label();
-            this.labelCoordAltitude = new System.Windows.Forms.Label();
-            this.labelCoordLongitude = new System.Windows.Forms.Label();
-            this.panelLab = new System.Windows.Forms.Panel();
-            this.panelSampleCompID = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.tableLayoutMain.SuspendLayout();
             this.panelSampleQuant.SuspendLayout();
@@ -91,12 +91,12 @@
             this.panelReferenceDate.SuspendLayout();
             this.panelError.SuspendLayout();
             this.panelSampleType.SuspendLayout();
-            this.tools.SuspendLayout();
-            this.status.SuspendLayout();
             this.panelUnitGeom.SuspendLayout();
             this.panelCoordLabel.SuspendLayout();
             this.panelLab.SuspendLayout();
             this.panelSampleCompID.SuspendLayout();
+            this.tools.SuspendLayout();
+            this.status.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -187,33 +187,6 @@
             this.tableLayoutMain.Size = new System.Drawing.Size(784, 482);
             this.tableLayoutMain.TabIndex = 1;
             // 
-            // cboxSUnits
-            // 
-            this.cboxSUnits.BackColor = System.Drawing.SystemColors.Window;
-            this.cboxSUnits.Dock = System.Windows.Forms.DockStyle.Left;
-            this.cboxSUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboxSUnits.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.cboxSUnits.FormattingEnabled = true;
-            this.cboxSUnits.Items.AddRange(new object[] {
-            "Kg",
-            "g",
-            "L"});
-            this.cboxSUnits.Location = new System.Drawing.Point(0, 0);
-            this.cboxSUnits.MaxLength = 16;
-            this.cboxSUnits.Name = "cboxSUnits";
-            this.cboxSUnits.Size = new System.Drawing.Size(246, 24);
-            this.cboxSUnits.TabIndex = 0;
-            // 
-            // tbSIdent
-            // 
-            this.tbSIdent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbSIdent.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.tbSIdent.Location = new System.Drawing.Point(246, 0);
-            this.tbSIdent.MaxLength = 16;
-            this.tbSIdent.Name = "tbSIdent";
-            this.tbSIdent.Size = new System.Drawing.Size(292, 23);
-            this.tbSIdent.TabIndex = 1;
-            // 
             // tbSTitle
             // 
             this.tbSTitle.BackColor = System.Drawing.SystemColors.Window;
@@ -224,17 +197,6 @@
             this.tbSTitle.Name = "tbSTitle";
             this.tbSTitle.Size = new System.Drawing.Size(538, 23);
             this.tbSTitle.TabIndex = 2;
-            // 
-            // tbScollName
-            // 
-            this.tbScollName.BackColor = System.Drawing.SystemColors.Window;
-            this.tbScollName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbScollName.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.tbScollName.Location = new System.Drawing.Point(246, 0);
-            this.tbScollName.MaxLength = 24;
-            this.tbScollName.Name = "tbScollName";
-            this.tbScollName.Size = new System.Drawing.Size(292, 23);
-            this.tbScollName.TabIndex = 1;
             // 
             // label2
             // 
@@ -321,18 +283,6 @@
             this.tbSQuant.Size = new System.Drawing.Size(246, 23);
             this.tbSQuant.TabIndex = 0;
             // 
-            // cboxSGeomtry
-            // 
-            this.cboxSGeomtry.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboxSGeomtry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboxSGeomtry.FormattingEnabled = true;
-            this.cboxSGeomtry.Location = new System.Drawing.Point(246, 0);
-            this.cboxSGeomtry.MaxLength = 16;
-            this.cboxSGeomtry.Name = "cboxSGeomtry";
-            this.cboxSGeomtry.Size = new System.Drawing.Size(292, 24);
-            this.cboxSGeomtry.Sorted = true;
-            this.cboxSGeomtry.TabIndex = 1;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
@@ -345,16 +295,6 @@
             this.label7.TabIndex = 23;
             this.label7.Text = "Laboratorie / Operatør";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tbLab
-            // 
-            this.tbLab.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tbLab.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbLab.Location = new System.Drawing.Point(0, 0);
-            this.tbLab.MaxLength = 16;
-            this.tbLab.Name = "tbLab";
-            this.tbLab.Size = new System.Drawing.Size(246, 22);
-            this.tbLab.TabIndex = 0;
             // 
             // cboxLocation
             // 
@@ -577,17 +517,6 @@
             this.label10.Text = "Prøve komponent / Prøve ID";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // cboxComponent
-            // 
-            this.cboxComponent.Dock = System.Windows.Forms.DockStyle.Left;
-            this.cboxComponent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboxComponent.FormattingEnabled = true;
-            this.cboxComponent.Location = new System.Drawing.Point(0, 0);
-            this.cboxComponent.MaxLength = 255;
-            this.cboxComponent.Name = "cboxComponent";
-            this.cboxComponent.Size = new System.Drawing.Size(246, 24);
-            this.cboxComponent.TabIndex = 0;
-            // 
             // panelSampleType
             // 
             this.panelSampleType.Controls.Add(this.cboxSampleType);
@@ -623,6 +552,151 @@
             this.btnBrowseSampleType.Text = "...";
             this.btnBrowseSampleType.UseVisualStyleBackColor = true;
             this.btnBrowseSampleType.Click += new System.EventHandler(this.btnBrowseSampleType_Click);
+            // 
+            // panelUnitGeom
+            // 
+            this.panelUnitGeom.Controls.Add(this.cboxSGeomtry);
+            this.panelUnitGeom.Controls.Add(this.cboxSUnits);
+            this.panelUnitGeom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelUnitGeom.Location = new System.Drawing.Point(243, 311);
+            this.panelUnitGeom.Name = "panelUnitGeom";
+            this.panelUnitGeom.Size = new System.Drawing.Size(538, 26);
+            this.panelUnitGeom.TabIndex = 12;
+            // 
+            // cboxSGeomtry
+            // 
+            this.cboxSGeomtry.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboxSGeomtry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxSGeomtry.FormattingEnabled = true;
+            this.cboxSGeomtry.Location = new System.Drawing.Point(246, 0);
+            this.cboxSGeomtry.MaxLength = 16;
+            this.cboxSGeomtry.Name = "cboxSGeomtry";
+            this.cboxSGeomtry.Size = new System.Drawing.Size(292, 24);
+            this.cboxSGeomtry.Sorted = true;
+            this.cboxSGeomtry.TabIndex = 1;
+            // 
+            // cboxSUnits
+            // 
+            this.cboxSUnits.BackColor = System.Drawing.SystemColors.Window;
+            this.cboxSUnits.Dock = System.Windows.Forms.DockStyle.Left;
+            this.cboxSUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxSUnits.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.cboxSUnits.FormattingEnabled = true;
+            this.cboxSUnits.Items.AddRange(new object[] {
+            "Kg",
+            "g",
+            "L"});
+            this.cboxSUnits.Location = new System.Drawing.Point(0, 0);
+            this.cboxSUnits.MaxLength = 16;
+            this.cboxSUnits.Name = "cboxSUnits";
+            this.cboxSUnits.Size = new System.Drawing.Size(246, 24);
+            this.cboxSUnits.TabIndex = 0;
+            // 
+            // panelCoordLabel
+            // 
+            this.panelCoordLabel.Controls.Add(this.labelCoordAltitude);
+            this.panelCoordLabel.Controls.Add(this.labelCoordLongitude);
+            this.panelCoordLabel.Controls.Add(this.labelCoordLatitude);
+            this.panelCoordLabel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCoordLabel.Location = new System.Drawing.Point(243, 163);
+            this.panelCoordLabel.Name = "panelCoordLabel";
+            this.panelCoordLabel.Size = new System.Drawing.Size(538, 26);
+            this.panelCoordLabel.TabIndex = 40;
+            // 
+            // labelCoordAltitude
+            // 
+            this.labelCoordAltitude.AutoSize = true;
+            this.labelCoordAltitude.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelCoordAltitude.Location = new System.Drawing.Point(328, 4);
+            this.labelCoordAltitude.Name = "labelCoordAltitude";
+            this.labelCoordAltitude.Size = new System.Drawing.Size(106, 16);
+            this.labelCoordAltitude.TabIndex = 1;
+            this.labelCoordAltitude.Text = "Høyde over havet";
+            this.labelCoordAltitude.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // labelCoordLongitude
+            // 
+            this.labelCoordLongitude.AutoSize = true;
+            this.labelCoordLongitude.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelCoordLongitude.Location = new System.Drawing.Point(160, 4);
+            this.labelCoordLongitude.Name = "labelCoordLongitude";
+            this.labelCoordLongitude.Size = new System.Drawing.Size(75, 16);
+            this.labelCoordLongitude.TabIndex = 2;
+            this.labelCoordLongitude.Text = "Lengdegrad";
+            this.labelCoordLongitude.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // labelCoordLatitude
+            // 
+            this.labelCoordLatitude.AutoSize = true;
+            this.labelCoordLatitude.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.labelCoordLatitude.Location = new System.Drawing.Point(3, 4);
+            this.labelCoordLatitude.Name = "labelCoordLatitude";
+            this.labelCoordLatitude.Size = new System.Drawing.Size(74, 16);
+            this.labelCoordLatitude.TabIndex = 0;
+            this.labelCoordLatitude.Text = "Breddegrad";
+            this.labelCoordLatitude.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // panelLab
+            // 
+            this.panelLab.Controls.Add(this.tbScollName);
+            this.panelLab.Controls.Add(this.tbLab);
+            this.panelLab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelLab.Location = new System.Drawing.Point(243, 3);
+            this.panelLab.Name = "panelLab";
+            this.panelLab.Size = new System.Drawing.Size(538, 26);
+            this.panelLab.TabIndex = 0;
+            // 
+            // tbScollName
+            // 
+            this.tbScollName.BackColor = System.Drawing.SystemColors.Window;
+            this.tbScollName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbScollName.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.tbScollName.Location = new System.Drawing.Point(246, 0);
+            this.tbScollName.MaxLength = 24;
+            this.tbScollName.Name = "tbScollName";
+            this.tbScollName.Size = new System.Drawing.Size(292, 23);
+            this.tbScollName.TabIndex = 1;
+            // 
+            // tbLab
+            // 
+            this.tbLab.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tbLab.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbLab.Location = new System.Drawing.Point(0, 0);
+            this.tbLab.MaxLength = 16;
+            this.tbLab.Name = "tbLab";
+            this.tbLab.Size = new System.Drawing.Size(246, 22);
+            this.tbLab.TabIndex = 0;
+            // 
+            // panelSampleCompID
+            // 
+            this.panelSampleCompID.Controls.Add(this.tbSIdent);
+            this.panelSampleCompID.Controls.Add(this.cboxComponent);
+            this.panelSampleCompID.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelSampleCompID.Location = new System.Drawing.Point(243, 99);
+            this.panelSampleCompID.Name = "panelSampleCompID";
+            this.panelSampleCompID.Size = new System.Drawing.Size(538, 26);
+            this.panelSampleCompID.TabIndex = 5;
+            // 
+            // tbSIdent
+            // 
+            this.tbSIdent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbSIdent.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.tbSIdent.Location = new System.Drawing.Point(246, 0);
+            this.tbSIdent.MaxLength = 16;
+            this.tbSIdent.Name = "tbSIdent";
+            this.tbSIdent.Size = new System.Drawing.Size(292, 23);
+            this.tbSIdent.TabIndex = 1;
+            // 
+            // cboxComponent
+            // 
+            this.cboxComponent.Dock = System.Windows.Forms.DockStyle.Left;
+            this.cboxComponent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboxComponent.FormattingEnabled = true;
+            this.cboxComponent.Location = new System.Drawing.Point(0, 0);
+            this.cboxComponent.MaxLength = 255;
+            this.cboxComponent.Name = "cboxComponent";
+            this.cboxComponent.Size = new System.Drawing.Size(246, 24);
+            this.cboxComponent.TabIndex = 0;
             // 
             // tools
             // 
@@ -671,80 +745,6 @@
             this.statusLabel.Size = new System.Drawing.Size(82, 17);
             this.statusLabel.Text = "<statusLabel>";
             // 
-            // panelUnitGeom
-            // 
-            this.panelUnitGeom.Controls.Add(this.cboxSGeomtry);
-            this.panelUnitGeom.Controls.Add(this.cboxSUnits);
-            this.panelUnitGeom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelUnitGeom.Location = new System.Drawing.Point(243, 311);
-            this.panelUnitGeom.Name = "panelUnitGeom";
-            this.panelUnitGeom.Size = new System.Drawing.Size(538, 26);
-            this.panelUnitGeom.TabIndex = 12;
-            // 
-            // panelCoordLabel
-            // 
-            this.panelCoordLabel.Controls.Add(this.labelCoordAltitude);
-            this.panelCoordLabel.Controls.Add(this.labelCoordLongitude);
-            this.panelCoordLabel.Controls.Add(this.labelCoordLatitude);
-            this.panelCoordLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCoordLabel.Location = new System.Drawing.Point(243, 163);
-            this.panelCoordLabel.Name = "panelCoordLabel";
-            this.panelCoordLabel.Size = new System.Drawing.Size(538, 26);
-            this.panelCoordLabel.TabIndex = 40;
-            // 
-            // labelCoordLatitude
-            // 
-            this.labelCoordLatitude.AutoSize = true;
-            this.labelCoordLatitude.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.labelCoordLatitude.Location = new System.Drawing.Point(3, 4);
-            this.labelCoordLatitude.Name = "labelCoordLatitude";
-            this.labelCoordLatitude.Size = new System.Drawing.Size(74, 16);
-            this.labelCoordLatitude.TabIndex = 0;
-            this.labelCoordLatitude.Text = "Breddegrad";
-            this.labelCoordLatitude.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // labelCoordAltitude
-            // 
-            this.labelCoordAltitude.AutoSize = true;
-            this.labelCoordAltitude.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.labelCoordAltitude.Location = new System.Drawing.Point(328, 4);
-            this.labelCoordAltitude.Name = "labelCoordAltitude";
-            this.labelCoordAltitude.Size = new System.Drawing.Size(106, 16);
-            this.labelCoordAltitude.TabIndex = 1;
-            this.labelCoordAltitude.Text = "Høyde over havet";
-            this.labelCoordAltitude.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // labelCoordLongitude
-            // 
-            this.labelCoordLongitude.AutoSize = true;
-            this.labelCoordLongitude.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.labelCoordLongitude.Location = new System.Drawing.Point(160, 4);
-            this.labelCoordLongitude.Name = "labelCoordLongitude";
-            this.labelCoordLongitude.Size = new System.Drawing.Size(75, 16);
-            this.labelCoordLongitude.TabIndex = 2;
-            this.labelCoordLongitude.Text = "Lengdegrad";
-            this.labelCoordLongitude.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // panelLab
-            // 
-            this.panelLab.Controls.Add(this.tbScollName);
-            this.panelLab.Controls.Add(this.tbLab);
-            this.panelLab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelLab.Location = new System.Drawing.Point(243, 3);
-            this.panelLab.Name = "panelLab";
-            this.panelLab.Size = new System.Drawing.Size(538, 26);
-            this.panelLab.TabIndex = 0;
-            // 
-            // panelSampleCompID
-            // 
-            this.panelSampleCompID.Controls.Add(this.tbSIdent);
-            this.panelSampleCompID.Controls.Add(this.cboxComponent);
-            this.panelSampleCompID.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelSampleCompID.Location = new System.Drawing.Point(243, 99);
-            this.panelSampleCompID.Name = "panelSampleCompID";
-            this.panelSampleCompID.Size = new System.Drawing.Size(538, 26);
-            this.panelSampleCompID.TabIndex = 5;
-            // 
             // FormSampleInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -777,10 +777,6 @@
             this.panelError.ResumeLayout(false);
             this.panelError.PerformLayout();
             this.panelSampleType.ResumeLayout(false);
-            this.tools.ResumeLayout(false);
-            this.tools.PerformLayout();
-            this.status.ResumeLayout(false);
-            this.status.PerformLayout();
             this.panelUnitGeom.ResumeLayout(false);
             this.panelCoordLabel.ResumeLayout(false);
             this.panelCoordLabel.PerformLayout();
@@ -788,6 +784,10 @@
             this.panelLab.PerformLayout();
             this.panelSampleCompID.ResumeLayout(false);
             this.panelSampleCompID.PerformLayout();
+            this.tools.ResumeLayout(false);
+            this.tools.PerformLayout();
+            this.status.ResumeLayout(false);
+            this.status.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

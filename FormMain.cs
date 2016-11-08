@@ -60,8 +60,7 @@ namespace lorakon
         string GeniePath, LorakonPath, SystemPath;
         string SampleTypeFile, GeometryTypeFile, InputFile, LaboratoryFile, CommunitiesFile, LocationTypeFile;
         
-        AutoCompleteStringCollection communities = new AutoCompleteStringCollection();        
-        BindingList<LocationType> LocationTypes = new BindingList<LocationType>();        
+        AutoCompleteStringCollection communities = new AutoCompleteStringCollection();
 
         ToolTip coordToolTip = new ToolTip();
         ToolTip locationToolTip = new ToolTip();
@@ -176,8 +175,7 @@ namespace lorakon
                     cboxCommunity.Items.AddRange(communitiesList);
                     cboxCommunity.AutoCompleteCustomSource = communities;
 
-                    // Load geometry types
-                    cboxSGeomtry.Items.Clear();                    
+                    // Load geometry types                    
                     string[] geomTypes = File.ReadAllLines(GeometryTypeFile, enc);
                     cboxSGeomtry.Items.AddRange(geomTypes);
 
@@ -188,11 +186,7 @@ namespace lorakon
 
                     // Load location types                    
                     string[] locTypes = File.ReadAllLines(LocationTypeFile, enc);
-                    for (int i = 0; i < locTypes.Length; i++)
-                        LocationTypes.Add(new LocationType(locTypes[i], i));
-                    cboxLocation.DataSource = LocationTypes;
-                    cboxLocation.DisplayMember = "Name";
-                    cboxLocation.ValueMember = "Value";
+                    cboxLocation.Items.AddRange(locTypes);                    
 
                     // Add coordinate types                    
                     cboxCoordType.Items.Add(new CoordinateType("", CoordinateFormat.None));
@@ -249,9 +243,9 @@ namespace lorakon
                             tbAltitude.Text = PrepareStringParam(lines[9], typeof(Double), tbAltitude.MaxLength);
                         if (lines.Length > 10)
                         {
-                            string loc = PrepareStringParam(lines[10], typeof(Int32), cboxLocation.MaxLength);
+                            string loc = PrepareStringParam(lines[10], typeof(String), cboxLocation.MaxLength);
                             if(!String.IsNullOrEmpty(loc))
-                                cboxLocation.SelectedValue = Convert.ToInt32(loc);
+                                cboxLocation.Text = loc;
                         }
                         if (lines.Length > 11)
                             tbSLoctn.Text = PrepareStringParam(lines[11], typeof(String), tbSLoctn.MaxLength);
@@ -749,7 +743,7 @@ namespace lorakon
                     tbLatitude.Text + Environment.NewLine +
                     tbLongitude.Text + Environment.NewLine +
                     tbAltitude.Text + Environment.NewLine +
-                    cboxLocation.SelectedValue + Environment.NewLine +
+                    cboxLocation.Text + Environment.NewLine +
                     tbSLoctn.Text + Environment.NewLine +
                     tbSQuant.Text + Environment.NewLine +
                     tbSQuantErr.Text + Environment.NewLine +

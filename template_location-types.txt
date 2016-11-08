@@ -1,3 +1,4 @@
+
 Organisasjonsnummer
 Virksomhetsnummer
 Bruksnummer

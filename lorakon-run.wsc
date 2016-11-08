@@ -53,8 +53,8 @@ function Execute(Dsc,Phase)
 	f.WriteLine CStr(Dsc.Parameter(CAM_G_SGPSLATITUDE)) ' Lat
 	f.WriteLine CStr(Dsc.Parameter(CAM_G_SGPSLONGITUD)) ' Lon
 	f.WriteLine CStr(Dsc.Parameter(CAM_G_SGPSALTITUDE)) ' Alt
-	f.WriteLine CStr(Dsc.Parameter(CAM_L_SSPI1)) ' Lokasjonstype	
-	f.WriteLine Dsc.Parameter(CAM_T_SLOCTN) ' Lokasjon
+	f.WriteLine Dsc.Parameter(CAM_T_SUCSTRING5)) ' Lokasjonstype	
+	f.WriteLine Dsc.Parameter(CAM_T_SUCSTRING6) ' Lokasjon
 	f.WriteLine CStr(Dsc.Parameter(CAM_F_SQUANT)) ' Prøvemengde
 	f.WriteLine CStr(Dsc.Parameter(CAM_F_SQUANTERR)) ' Prøvemengde error
 	f.WriteLine Dsc.Parameter(CAM_T_SUNITS) ' Prøvemengde enhet
@@ -90,8 +90,8 @@ function Execute(Dsc,Phase)
 		case 7 Dsc.Parameter(CAM_G_SGPSLATITUDE) = CDbl(line) ' Lat
 		case 8 Dsc.Parameter(CAM_G_SGPSLONGITUD) = CDbl(line) ' Lon
 		case 9 Dsc.Parameter(CAM_G_SGPSALTITUDE) = CDbl(line) ' Alt
-		case 10 Dsc.Parameter(CAM_L_SSPI1) = CInt(line) ' Lokasjonstype	
-		case 11 Dsc.Parameter(CAM_T_SLOCTN) = line ' Lokasjon
+		case 10 Dsc.Parameter(CAM_T_SUCSTRING5) = line ' Lokasjonstype	
+		case 11 Dsc.Parameter(CAM_T_SUCSTRING6) = line ' Lokasjon
 		case 12 Dsc.Parameter(CAM_F_SQUANT) = CDbl(line) ' Prøvemengde
 		case 13 Dsc.Parameter(CAM_F_SQUANTERR) = CDbl(line) ' Prøvemengde error
 		case 14 Dsc.Parameter(CAM_T_SUNITS) = line ' Prøvemengde enhet
@@ -121,6 +121,7 @@ function Execute(Dsc,Phase)
 	
 	Dsc.Parameter(CAM_T_SSPRSTR2) = "LORAKON"
 	Dsc.Parameter(CAM_T_STYPE) = ""
+	Dsc.Parameter(CAM_T_SLOCTN) = ""
 	Dsc.Parameter(CAM_T_SDESC1)	= ""
 	Dsc.Parameter(CAM_T_SDESC2)	= ""
 	Dsc.Parameter(CAM_T_SDESC3) = ""
