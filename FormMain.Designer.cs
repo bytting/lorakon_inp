@@ -206,13 +206,13 @@
             // 
             // tbSIdent
             // 
-            this.tbSIdent.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tbSIdent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbSIdent.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.tbSIdent.Location = new System.Drawing.Point(0, 0);
+            this.tbSIdent.Location = new System.Drawing.Point(246, 0);
             this.tbSIdent.MaxLength = 16;
             this.tbSIdent.Name = "tbSIdent";
-            this.tbSIdent.Size = new System.Drawing.Size(246, 23);
-            this.tbSIdent.TabIndex = 0;
+            this.tbSIdent.Size = new System.Drawing.Size(292, 23);
+            this.tbSIdent.TabIndex = 1;
             // 
             // tbSTitle
             // 
@@ -574,19 +574,19 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(234, 32);
             this.label10.TabIndex = 39;
-            this.label10.Text = "Prøve ID / Prøve komponent";
+            this.label10.Text = "Prøve komponent / Prøve ID";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // cboxComponent
             // 
-            this.cboxComponent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboxComponent.Dock = System.Windows.Forms.DockStyle.Left;
             this.cboxComponent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxComponent.FormattingEnabled = true;
-            this.cboxComponent.Location = new System.Drawing.Point(246, 0);
+            this.cboxComponent.Location = new System.Drawing.Point(0, 0);
             this.cboxComponent.MaxLength = 255;
             this.cboxComponent.Name = "cboxComponent";
-            this.cboxComponent.Size = new System.Drawing.Size(292, 24);
-            this.cboxComponent.TabIndex = 1;
+            this.cboxComponent.Size = new System.Drawing.Size(246, 24);
+            this.cboxComponent.TabIndex = 0;
             // 
             // panelSampleType
             // 
@@ -607,7 +607,7 @@
             this.cboxSampleType.Location = new System.Drawing.Point(0, 0);
             this.cboxSampleType.MaxLength = 255;
             this.cboxSampleType.Name = "cboxSampleType";
-            this.cboxSampleType.Size = new System.Drawing.Size(502, 24);
+            this.cboxSampleType.Size = new System.Drawing.Size(504, 24);
             this.cboxSampleType.Sorted = true;
             this.cboxSampleType.TabIndex = 0;
             this.cboxSampleType.SelectedIndexChanged += new System.EventHandler(this.cboxSampleType_SelectedIndexChanged);
@@ -616,9 +616,9 @@
             // btnBrowseSampleType
             // 
             this.btnBrowseSampleType.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnBrowseSampleType.Location = new System.Drawing.Point(502, 0);
+            this.btnBrowseSampleType.Location = new System.Drawing.Point(504, 0);
             this.btnBrowseSampleType.Name = "btnBrowseSampleType";
-            this.btnBrowseSampleType.Size = new System.Drawing.Size(36, 26);
+            this.btnBrowseSampleType.Size = new System.Drawing.Size(34, 26);
             this.btnBrowseSampleType.TabIndex = 1;
             this.btnBrowseSampleType.Text = "...";
             this.btnBrowseSampleType.UseVisualStyleBackColor = true;
@@ -737,8 +737,8 @@
             // 
             // panelSampleCompID
             // 
-            this.panelSampleCompID.Controls.Add(this.cboxComponent);
             this.panelSampleCompID.Controls.Add(this.tbSIdent);
+            this.panelSampleCompID.Controls.Add(this.cboxComponent);
             this.panelSampleCompID.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSampleCompID.Location = new System.Drawing.Point(243, 99);
             this.panelSampleCompID.Name = "panelSampleCompID";

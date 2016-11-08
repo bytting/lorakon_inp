@@ -82,6 +82,7 @@
             this.treeSampleTypes.Location = new System.Drawing.Point(0, 0);
             this.treeSampleTypes.Margin = new System.Windows.Forms.Padding(4);
             this.treeSampleTypes.Name = "treeSampleTypes";
+            this.treeSampleTypes.ShowNodeToolTips = true;
             this.treeSampleTypes.Size = new System.Drawing.Size(484, 407);
             this.treeSampleTypes.TabIndex = 1;
             // 
@@ -115,6 +116,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(300, 300);
             this.Name = "FormSampleTypes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Velg prøvetype...";

@@ -444,7 +444,7 @@ namespace lorakon
         private void FormSampleInput_Resize(object sender, EventArgs e)
         {
             tbLab.Width = panelLab.Width / 2;
-            tbSIdent.Width = panelSampleCompID.Width / 2;
+            cboxComponent.Width = panelSampleCompID.Width / 2;
             tbLatitude.Width = panelCoords.Width / 3;
             tbAltitude.Width = panelCoords.Width / 3;
             tbSQuant.Width = panelSampleQuant.Width / 2;

@@ -41,6 +41,7 @@ namespace lorakon
                 {
                     TreeNode newNode = new TreeNode(n.Attributes["name"].InnerText);
                     newNode.Tag += tnode.Tag + "/" + n.Attributes["name"].InnerText;
+                    newNode.ToolTipText = ((string)newNode.Tag).Remove(0, 1);
                     tnode.Nodes.Add(newNode);
                     AddSampleTypes(n, newNode);
                 }
