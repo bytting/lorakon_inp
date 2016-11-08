@@ -64,6 +64,7 @@ namespace lorakon
         BindingList<LocationType> LocationTypes = new BindingList<LocationType>();        
 
         ToolTip coordToolTip = new ToolTip();
+        ToolTip locationToolTip = new ToolTip();
 
         public FormSampleInput()
         {
@@ -198,8 +199,7 @@ namespace lorakon
                     cboxCoordType.Items.Add(new CoordinateType("WGS84", CoordinateFormat.WGS84));
                     cboxCoordType.Items.Add(new CoordinateType("Desimalgrader", CoordinateFormat.DecimalDegrees));
                     cboxCoordType.Items.Add(new CoordinateType("Grader/Minutter/Sekunder", CoordinateFormat.DegreesMinutesSeconds));
-                    cboxCoordType.Items.Add(new CoordinateType("Grader/Desimal minutter", CoordinateFormat.DegreesDecimalMinutes));
-                    cboxCoordType.SelectedIndex = 1;
+                    cboxCoordType.Items.Add(new CoordinateType("Grader/Desimal minutter", CoordinateFormat.DegreesDecimalMinutes));                    
 
                     DateTime now = DateTime.Now;
                     dtpSDate.Value = now;
@@ -287,7 +287,22 @@ namespace lorakon
                             tbSSysterr.Text = PrepareStringParam(lines[18], typeof(float), tbSSysterr.MaxLength);
                         if (lines.Length > 19)
                             tbComment.Text = PrepareStringParam(lines[19], typeof(String), 255);
-                    }                    
+                    }
+
+                    if(tbLatitude.Text.Trim() != String.Empty || tbLongitude.Text.Trim() != String.Empty)
+                    {
+                        cboxCoordType.SelectedIndex = 1;
+                        tbLatitude.Enabled = true;
+                        tbLongitude.Enabled = true;
+                        tbAltitude.Enabled = true;
+                    }
+                    else
+                    {
+                        cboxCoordType.SelectedIndex = 0;
+                        tbLatitude.Enabled = false;
+                        tbLongitude.Enabled = false;
+                        tbAltitude.Enabled = false;
+                    }
 
                     tbLab.Enabled = true;
                     LaboratoryFile = SystemPath + LaboratoryBase;
@@ -301,7 +316,8 @@ namespace lorakon
                         }
                     }
 
-                    FormSampleInput_Resize(sender, e);
+                    FormSampleInput_Resize(sender, e);                    
+
                     tbScollName.Focus();
                 }
                 catch (Exception ex)
@@ -427,12 +443,30 @@ namespace lorakon
 
         private void FormSampleInput_Resize(object sender, EventArgs e)
         {
+            tbLab.Width = panelLab.Width / 2;
+            tbSIdent.Width = panelSampleCompID.Width / 2;
             tbLatitude.Width = panelCoords.Width / 3;
             tbAltitude.Width = panelCoords.Width / 3;
             tbSQuant.Width = panelSampleQuant.Width / 2;
             cboxSUnits.Width = panelUnitGeom.Width / 2;
             dtpSDate.Width = panelReferenceDate.Width / 2;
             tbSSyserr.Width = panelError.Width / 2;
+            labelCoordLatitude.Left = tbLatitude.Left;
+            labelCoordLongitude.Left = tbLongitude.Left;
+            labelCoordAltitude.Left = tbAltitude.Left;
+        }        
+
+        private void cboxLocation_MouseHover(object sender, EventArgs e)
+        {
+            coordToolTip.ToolTipTitle = "";
+            coordToolTip.UseFading = true;
+            coordToolTip.UseAnimation = true;
+            coordToolTip.IsBalloon = true;
+            coordToolTip.ShowAlways = true;
+            coordToolTip.AutoPopDelay = 10000;
+            coordToolTip.InitialDelay = 700;
+            coordToolTip.ReshowDelay = 0;
+            coordToolTip.SetToolTip(cboxLocation, "Velg lokasjons informasjon...");
         }
 
         private void cboxLocation_SelectedIndexChanged(object sender, EventArgs e)

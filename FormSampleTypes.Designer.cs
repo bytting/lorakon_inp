@@ -44,16 +44,16 @@
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnOk);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 547);
+            this.panel1.Location = new System.Drawing.Point(0, 407);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(514, 32);
+            this.panel1.Size = new System.Drawing.Size(484, 32);
             this.panel1.TabIndex = 0;
             // 
             // btnCancel
             // 
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnCancel.Location = new System.Drawing.Point(309, 0);
+            this.btnCancel.Location = new System.Drawing.Point(279, 0);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 32);
@@ -65,7 +65,7 @@
             // btnOk
             // 
             this.btnOk.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnOk.Location = new System.Drawing.Point(409, 0);
+            this.btnOk.Location = new System.Drawing.Point(379, 0);
             this.btnOk.Margin = new System.Windows.Forms.Padding(4);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(105, 32);
@@ -82,16 +82,16 @@
             this.treeSampleTypes.Location = new System.Drawing.Point(0, 0);
             this.treeSampleTypes.Margin = new System.Windows.Forms.Padding(4);
             this.treeSampleTypes.Name = "treeSampleTypes";
-            this.treeSampleTypes.Size = new System.Drawing.Size(514, 547);
+            this.treeSampleTypes.Size = new System.Drawing.Size(484, 407);
             this.treeSampleTypes.TabIndex = 1;
             // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labelStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 579);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 439);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(514, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(484, 22);
             this.statusStrip1.TabIndex = 2;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -106,7 +106,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(514, 601);
+            this.ClientSize = new System.Drawing.Size(484, 461);
             this.Controls.Add(this.treeSampleTypes);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.statusStrip1);
