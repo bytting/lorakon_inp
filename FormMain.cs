@@ -355,7 +355,7 @@ namespace lorakon
                 XmlDocument doc = new XmlDocument();
                 doc.Load(SampleTypeFile);
                 XmlElement root = doc.DocumentElement;
-                AddSampleTypes(root, ref sampleTypes);                
+                AddSampleTypes(root, ref sampleTypes);
             }
             catch(Exception ex)
             {
@@ -412,6 +412,16 @@ namespace lorakon
                     return true;
             }
             return false;
+        }
+
+        private void btnBrowseSampleType_Click(object sender, EventArgs e)
+        {
+            FormSampleTypes form = new FormSampleTypes(SampleTypeFile);
+            if(form.ShowDialog() == DialogResult.OK)
+            {
+                cboxSampleType.Text = GetLabelFromSampleType(form.SelectedSampleType);
+                cboxSampleType_SelectedIndexChanged(sender, e);
+            }
         }
 
         private void cboxCoordType_MouseHover(object sender, EventArgs e)

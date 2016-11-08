@@ -63,7 +63,6 @@
             this.panelReferenceDate = new System.Windows.Forms.Panel();
             this.dtpSTime = new System.Windows.Forms.DateTimePicker();
             this.dtpSDate = new System.Windows.Forms.DateTimePicker();
-            this.cboxSampleType = new System.Windows.Forms.ComboBox();
             this.panelError = new System.Windows.Forms.Panel();
             this.tbSSysterr = new System.Windows.Forms.TextBox();
             this.tbSSyserr = new System.Windows.Forms.TextBox();
@@ -72,6 +71,9 @@
             this.tbComment = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.cboxComponent = new System.Windows.Forms.ComboBox();
+            this.panelSampleType = new System.Windows.Forms.Panel();
+            this.cboxSampleType = new System.Windows.Forms.ComboBox();
+            this.btnBrowseSampleType = new System.Windows.Forms.Button();
             this.tools = new System.Windows.Forms.ToolStrip();
             this.btnImport = new System.Windows.Forms.ToolStripDropDownButton();
             this.btnImportSampReg = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,6 +86,7 @@
             this.panelCoords.SuspendLayout();
             this.panelReferenceDate.SuspendLayout();
             this.panelError.SuspendLayout();
+            this.panelSampleType.SuspendLayout();
             this.tools.SuspendLayout();
             this.status.SuspendLayout();
             this.SuspendLayout();
@@ -93,7 +96,7 @@
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnOk);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 574);
+            this.panel1.Location = new System.Drawing.Point(0, 620);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(693, 32);
             this.panel1.TabIndex = 0;
@@ -106,7 +109,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(124, 32);
             this.btnCancel.TabIndex = 19;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Avbryt";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -150,13 +153,13 @@
             this.tableLayoutMain.Controls.Add(this.cboxCommunity, 1, 6);
             this.tableLayoutMain.Controls.Add(this.label14, 0, 13);
             this.tableLayoutMain.Controls.Add(this.panelReferenceDate, 1, 13);
-            this.tableLayoutMain.Controls.Add(this.cboxSampleType, 1, 3);
             this.tableLayoutMain.Controls.Add(this.panelError, 1, 15);
             this.tableLayoutMain.Controls.Add(this.label11, 0, 15);
             this.tableLayoutMain.Controls.Add(this.label9, 0, 16);
             this.tableLayoutMain.Controls.Add(this.tbComment, 1, 16);
             this.tableLayoutMain.Controls.Add(this.label10, 0, 4);
             this.tableLayoutMain.Controls.Add(this.cboxComponent, 1, 4);
+            this.tableLayoutMain.Controls.Add(this.panelSampleType, 1, 3);
             this.tableLayoutMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutMain.Location = new System.Drawing.Point(0, 25);
             this.tableLayoutMain.Name = "tableLayoutMain";
@@ -181,7 +184,7 @@
             this.tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutMain.Size = new System.Drawing.Size(693, 549);
+            this.tableLayoutMain.Size = new System.Drawing.Size(693, 595);
             this.tableLayoutMain.TabIndex = 1;
             // 
             // cboxSUnits
@@ -535,21 +538,6 @@
             this.dtpSDate.Size = new System.Drawing.Size(210, 23);
             this.dtpSDate.TabIndex = 0;
             // 
-            // cboxSampleType
-            // 
-            this.cboxSampleType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cboxSampleType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cboxSampleType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboxSampleType.FormattingEnabled = true;
-            this.cboxSampleType.Location = new System.Drawing.Point(243, 99);
-            this.cboxSampleType.MaxLength = 255;
-            this.cboxSampleType.Name = "cboxSampleType";
-            this.cboxSampleType.Size = new System.Drawing.Size(447, 24);
-            this.cboxSampleType.Sorted = true;
-            this.cboxSampleType.TabIndex = 3;
-            this.cboxSampleType.SelectedIndexChanged += new System.EventHandler(this.cboxSampleType_SelectedIndexChanged);
-            this.cboxSampleType.Leave += new System.EventHandler(this.cboxSampleType_Leave);
-            // 
             // panelError
             // 
             this.panelError.Controls.Add(this.tbSSysterr);
@@ -634,6 +622,42 @@
             this.cboxComponent.Size = new System.Drawing.Size(447, 24);
             this.cboxComponent.TabIndex = 4;
             // 
+            // panelSampleType
+            // 
+            this.panelSampleType.Controls.Add(this.cboxSampleType);
+            this.panelSampleType.Controls.Add(this.btnBrowseSampleType);
+            this.panelSampleType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelSampleType.Location = new System.Drawing.Point(243, 99);
+            this.panelSampleType.Name = "panelSampleType";
+            this.panelSampleType.Size = new System.Drawing.Size(447, 26);
+            this.panelSampleType.TabIndex = 3;
+            // 
+            // cboxSampleType
+            // 
+            this.cboxSampleType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cboxSampleType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboxSampleType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cboxSampleType.FormattingEnabled = true;
+            this.cboxSampleType.Location = new System.Drawing.Point(0, 0);
+            this.cboxSampleType.MaxLength = 255;
+            this.cboxSampleType.Name = "cboxSampleType";
+            this.cboxSampleType.Size = new System.Drawing.Size(411, 24);
+            this.cboxSampleType.Sorted = true;
+            this.cboxSampleType.TabIndex = 0;
+            this.cboxSampleType.SelectedIndexChanged += new System.EventHandler(this.cboxSampleType_SelectedIndexChanged);
+            this.cboxSampleType.Leave += new System.EventHandler(this.cboxSampleType_Leave);
+            // 
+            // btnBrowseSampleType
+            // 
+            this.btnBrowseSampleType.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnBrowseSampleType.Location = new System.Drawing.Point(411, 0);
+            this.btnBrowseSampleType.Name = "btnBrowseSampleType";
+            this.btnBrowseSampleType.Size = new System.Drawing.Size(36, 26);
+            this.btnBrowseSampleType.TabIndex = 1;
+            this.btnBrowseSampleType.Text = "...";
+            this.btnBrowseSampleType.UseVisualStyleBackColor = true;
+            this.btnBrowseSampleType.Click += new System.EventHandler(this.btnBrowseSampleType_Click);
+            // 
             // tools
             // 
             this.tools.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
@@ -665,7 +689,7 @@
             // 
             this.status.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLabel});
-            this.status.Location = new System.Drawing.Point(0, 606);
+            this.status.Location = new System.Drawing.Point(0, 652);
             this.status.Name = "status";
             this.status.Size = new System.Drawing.Size(693, 22);
             this.status.TabIndex = 2;
@@ -684,7 +708,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(693, 628);
+            this.ClientSize = new System.Drawing.Size(693, 674);
             this.Controls.Add(this.tableLayoutMain);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tools);
@@ -709,6 +733,7 @@
             this.panelReferenceDate.ResumeLayout(false);
             this.panelError.ResumeLayout(false);
             this.panelError.PerformLayout();
+            this.panelSampleType.ResumeLayout(false);
             this.tools.ResumeLayout(false);
             this.tools.PerformLayout();
             this.status.ResumeLayout(false);
@@ -769,6 +794,8 @@
         private System.Windows.Forms.TextBox tbComment;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cboxComponent;
+        private System.Windows.Forms.Panel panelSampleType;
+        private System.Windows.Forms.Button btnBrowseSampleType;
     }
 }
 
