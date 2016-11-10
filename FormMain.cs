@@ -267,7 +267,7 @@ namespace lorakon
                         }
                         if (lines.Length > 16)
                         {
-                            string sdt = PrepareStringParam(lines[16], typeof(DateTime), 24);
+                            string sdt = PrepareStringParam(lines[16], typeof(DateTime), 100);
                             if (!String.IsNullOrEmpty(sdt))
                             {
                                 DateTime dt = Convert.ToDateTime(sdt);
@@ -280,7 +280,7 @@ namespace lorakon
                         if (lines.Length > 18)
                             tbSSysterr.Text = PrepareStringParam(lines[18], typeof(float), tbSSysterr.MaxLength);
                         if (lines.Length > 19)
-                            tbComment.Text = PrepareStringParam(lines[19], typeof(String), 255);
+                            tbComment.Text = PrepareStringParam(lines[19], typeof(String), tbComment.MaxLength);
                     }
 
                     if(tbLatitude.Text.Trim() != String.Empty || tbLongitude.Text.Trim() != String.Empty)

@@ -317,7 +317,7 @@
             this.tbSLoctn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbSLoctn.Font = new System.Drawing.Font("Tahoma", 9.75F);
             this.tbSLoctn.Location = new System.Drawing.Point(243, 227);
-            this.tbSLoctn.MaxLength = 255;
+            this.tbSLoctn.MaxLength = 78;
             this.tbSLoctn.Name = "tbSLoctn";
             this.tbSLoctn.Size = new System.Drawing.Size(538, 23);
             this.tbSLoctn.TabIndex = 10;
@@ -503,6 +503,7 @@
             // 
             this.tbComment.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbComment.Location = new System.Drawing.Point(243, 427);
+            this.tbComment.MaxLength = 78;
             this.tbComment.Name = "tbComment";
             this.tbComment.Size = new System.Drawing.Size(538, 22);
             this.tbComment.TabIndex = 17;
