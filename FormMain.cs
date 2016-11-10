@@ -80,7 +80,7 @@ namespace lorakon
             tbLatitude.TextChanged += CustomEvents.Crop16_TextChanged;
             tbLongitude.TextChanged += CustomEvents.Crop16_TextChanged;
             tbAltitude.TextChanged += CustomEvents.Crop16_TextChanged;
-            tbSLoctn.TextChanged += CustomEvents.Crop32_TextChanged;
+            tbSLoctn.TextChanged += CustomEvents.Crop255_TextChanged;
             tbSQuant.TextChanged += CustomEvents.Crop16_TextChanged;
             tbSQuantErr.TextChanged += CustomEvents.Crop16_TextChanged;            
             tbSSyserr.TextChanged += CustomEvents.Crop8_TextChanged;

@@ -208,7 +208,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(234, 32);
             this.label2.TabIndex = 10;
-            this.label2.Text = "Prøvetype";
+            this.label2.Text = "Type";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label1
@@ -221,7 +221,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(234, 32);
             this.label1.TabIndex = 9;
-            this.label1.Text = "Prøvetittel";
+            this.label1.Text = "Prosjekt / Oppdrag";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label8
@@ -234,7 +234,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(234, 32);
             this.label8.TabIndex = 14;
-            this.label8.Text = "Prøvemengde / Prøvemengde Err";
+            this.label8.Text = "Mengde / Abs. Usikk.";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label12
@@ -247,7 +247,7 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(234, 32);
             this.label12.TabIndex = 15;
-            this.label12.Text = "Prøvemengde enhet / Geometri";
+            this.label12.Text = "Mengde enhet / Geom.";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panelSampleQuant
@@ -304,7 +304,7 @@
             this.cboxLocation.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxLocation.FormattingEnabled = true;
             this.cboxLocation.Location = new System.Drawing.Point(3, 227);
-            this.cboxLocation.MaxLength = 120;
+            this.cboxLocation.MaxLength = 255;
             this.cboxLocation.Name = "cboxLocation";
             this.cboxLocation.Size = new System.Drawing.Size(234, 23);
             this.cboxLocation.TabIndex = 9;
@@ -317,7 +317,7 @@
             this.tbSLoctn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbSLoctn.Font = new System.Drawing.Font("Tahoma", 9.75F);
             this.tbSLoctn.Location = new System.Drawing.Point(243, 227);
-            this.tbSLoctn.MaxLength = 32;
+            this.tbSLoctn.MaxLength = 255;
             this.tbSLoctn.Name = "tbSLoctn";
             this.tbSLoctn.Size = new System.Drawing.Size(538, 23);
             this.tbSLoctn.TabIndex = 10;
@@ -329,6 +329,7 @@
             this.cboxCoordType.DropDownWidth = 300;
             this.cboxCoordType.FormattingEnabled = true;
             this.cboxCoordType.Location = new System.Drawing.Point(3, 195);
+            this.cboxCoordType.MaxLength = 255;
             this.cboxCoordType.Name = "cboxCoordType";
             this.cboxCoordType.Size = new System.Drawing.Size(234, 24);
             this.cboxCoordType.TabIndex = 7;
@@ -484,7 +485,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(234, 32);
             this.label11.TabIndex = 17;
-            this.label11.Text = "Random Err (%) / Syst. Err (%)";
+            this.label11.Text = "Tilf. / Syst. Feil (%)";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label9
@@ -514,7 +515,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(234, 32);
             this.label10.TabIndex = 39;
-            this.label10.Text = "Prøve komponent / Prøve ID";
+            this.label10.Text = "Komponent / ID";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panelSampleType
@@ -713,6 +714,7 @@
             // 
             this.btnImport.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnImportSampReg});
+            this.btnImport.Enabled = false;
             this.btnImport.Image = ((System.Drawing.Image)(resources.GetObject("btnImport.Image")));
             this.btnImport.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnImport.Name = "btnImport";
