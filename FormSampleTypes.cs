@@ -39,9 +39,8 @@ namespace lorakon
             {
                 if (n.NodeType == XmlNodeType.Element && n.Name.ToLower() == "sampletype")
                 {
-                    TreeNode newNode = new TreeNode(n.Attributes["name"].InnerText);
-                    newNode.Tag += tnode.Tag + "/" + n.Attributes["name"].InnerText;
-                    newNode.ToolTipText = ((string)newNode.Tag).Remove(0, 1);
+                    TreeNode newNode = new TreeNode(n.Attributes["name"].InnerText);                    
+                    newNode.ToolTipText = tnode.ToolTipText + "/" + n.Attributes["name"].InnerText;                    
                     tnode.Nodes.Add(newNode);
                     AddSampleTypes(n, newNode);
                 }
@@ -63,8 +62,8 @@ namespace lorakon
                 return;
             }
 
-            labelStatus.Text = String.Empty;            
-            SelectedSampleType = (string)treeSampleTypes.SelectedNode.Tag;
+            labelStatus.Text = String.Empty;
+            SelectedSampleType = treeSampleTypes.SelectedNode.ToolTipText;
             SelectedSampleType = SelectedSampleType.Remove(0, 1);
 
             DialogResult = DialogResult.OK;

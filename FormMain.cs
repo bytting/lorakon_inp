@@ -577,53 +577,9 @@ namespace lorakon
                 return;
             }
 
-            if (fmt == CoordinateFormat.WGS84)
-            {
-                double lat, lon;
-
-                try
-                {                    
-                    lat = Convert.ToDouble(tbLatitude.Text.Trim());
-                    if (lat < -90.0 || lat > 90.0)
-                    {
-                        statusLabel.Text = "Breddegrad er ugyldig";
-                        return;
-                    }                
-                    
-                    lon = Convert.ToDouble(tbLongitude.Text.Trim());
-                    if (lon < -180.0 || lon > 180.0)
-                    {
-                        statusLabel.Text = "Lengdegrad er ugyldig";
-                        return;
-                    }                    
-                }
-                catch
-                {
-                    statusLabel.Text = "Ugyldig format på koordinater";
-                    return;
-                }
-            }
-            else if (fmt == CoordinateFormat.DegreesMinutesSeconds)
-            {
-                try
-                {
-                    //lat = ConvertToDecimalDegrees(tbLatitude.Text.Trim());
-                    //lon = ConvertToDecimalDegrees(tbLongitude.Text.Trim());
-                }
-                catch
-                {
-                    statusLabel.Text = "Ugyldig format på koordinater";
-                    return;
-                }
-            }
-            else if (fmt == CoordinateFormat.DegreesDecimalMinutes)
-            {
-
-            }
-            else if (fmt == CoordinateFormat.DecimalDegrees)
-            {
-
-            }                        
+            double lat, lon;
+            if(!ConvertCoordinates(fmt, out lat, out lon))            
+                return;
 
             try
             {
@@ -639,7 +595,7 @@ namespace lorakon
                     }
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 statusLabel.Text = "Ugyldige høyde over havet";
                 return;
@@ -667,7 +623,7 @@ namespace lorakon
                     }
                 }                
             }
-            catch (Exception ex)
+            catch
             {
                 statusLabel.Text = "Ugyldige Error verdier funnet";
                 return;
@@ -767,6 +723,71 @@ namespace lorakon
             }
             
             Environment.Exit(0);
+        }
+
+        private bool ConvertCoordinates(CoordinateFormat fmt, out double lat, out double lon)
+        {
+            lat = lon = 0.0;
+
+            try
+            {                
+                if (fmt == CoordinateFormat.WGS84)
+                {
+                    try
+                    {
+                        lat = Convert.ToDouble(tbLatitude.Text.Trim());
+                    }
+                    catch
+                    {
+                        throw new Exception("Breddegrad har ugyldig format");
+                    }
+
+                    if (lat < -90.0 || lat > 90.0)
+                    {
+                        throw new Exception("Breddegrad er utenfor gyldig område");
+                    }
+
+                    try
+                    {
+                        lon = Convert.ToDouble(tbLongitude.Text.Trim());
+                    }
+                    catch
+                    {
+                        throw new Exception("Lengdegrad har ugyldig format");
+                    }
+
+                    if (lon < -180.0 || lon > 180.0)
+                    {
+                        throw new Exception("Lengdegrad er utenfor gyldig område");
+                    }                
+                }
+                else if (fmt == CoordinateFormat.DegreesMinutesSeconds)
+                {
+                    // 40° 26' 46" N 79° 58' 56" W
+                    //degrees = degrees + minutes / 60 + seconds / 3600
+
+                    //throw new Exception("Ugyldig format på koordinater");
+
+                    throw new Exception("Format DegreesMinutesSeconds er ikke implementert");
+                }
+                else if (fmt == CoordinateFormat.DegreesDecimalMinutes)
+                {
+                    // 40° 26.767' N 79° 58.933' W
+                    throw new Exception("Format DegreesDecimalMinutes er ikke implementert");
+                }
+                else if (fmt == CoordinateFormat.DecimalDegrees)
+                {
+                    // 40.446° N 79.982° W
+                    throw new Exception("Format DecimalDegrees er ikke implementert");
+                }
+            }
+            catch(Exception ex)
+            {
+                statusLabel.Text = ex.Message;
+                return false;
+            }
+
+            return true;
         }
 
         private void cboxSampleType_Leave(object sender, EventArgs e)
