@@ -8,13 +8,13 @@ namespace lorakon
 {
     public partial class FormSampleTypes : Form
     {
-        private string SampleTypeFile;
+        private string SampleTypeFile;        
         public string SelectedSampleType;
 
         public FormSampleTypes(string sampleTypeFile)
         {
             InitializeComponent();
-            SampleTypeFile = sampleTypeFile;
+            SampleTypeFile = sampleTypeFile;            
         }
 
         private void FormSampleTypes_Load(object sender, EventArgs e)

@@ -100,6 +100,7 @@
     <Content Include="lorakon-run.wsc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="lorakon_run.vbs" />
     <Content Include="template_communities.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

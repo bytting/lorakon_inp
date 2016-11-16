@@ -437,8 +437,7 @@ namespace lorakon
 
         private void FormSampleInput_Resize(object sender, EventArgs e)
         {
-            tbLab.Width = panelLab.Width / 2;
-            cboxComponent.Width = panelSampleCompID.Width / 2;
+            tbLab.Width = panelLab.Width / 2;            
             tbLatitude.Width = panelCoords.Width / 3;
             tbAltitude.Width = panelCoords.Width / 3;
             tbSQuant.Width = panelSampleQuant.Width / 2;
@@ -507,10 +506,10 @@ namespace lorakon
                     cboxCoordType.Tag = "Format:   40.446    -79.982";
                     break;
                 case CoordinateFormat.DegreesMinutesSeconds:
-                    cboxCoordType.Tag = "Format:   40° 26′ 46″ N    79° 58′ 56″ W";
+                    cboxCoordType.Tag = "Format:   40° 26' 46\" N    79° 58' 56\" W";
                     break;
                 case CoordinateFormat.DegreesDecimalMinutes:
-                    cboxCoordType.Tag = "Format:   40° 26.767′ N    79° 58.933′ W";
+                    cboxCoordType.Tag = "Format:   40° 26.767' N    79° 58.933' W";
                     break;
                 case CoordinateFormat.DecimalDegrees:
                     cboxCoordType.Tag = "Format:   40.446° N    79.982° W";
@@ -537,7 +536,7 @@ namespace lorakon
                     samplePath += "/sampletype[@name='" + st + "']";
                     XmlNodeList sampleNodes = xmlDoc.SelectNodes(samplePath + "/component");
                     foreach (XmlNode sNode in sampleNodes)
-                        cboxComponent.Items.Add(sNode.Attributes["name"].InnerText);
+                        cboxComponent.Items.Insert(1, sNode.Attributes["name"].InnerText);
                 }
             }
             catch(Exception ex)
@@ -552,10 +551,11 @@ namespace lorakon
 
             // Sanity checks for input fields
             if(String.IsNullOrEmpty(tbLab.Text.Trim()) 
-                || String.IsNullOrEmpty(tbScollName.Text.Trim()) 
-                || String.IsNullOrEmpty(tbSTitle.Text.Trim())
+                || String.IsNullOrEmpty(tbScollName.Text.Trim())
+                || String.IsNullOrEmpty(tbSIdent.Text.Trim())
                 || String.IsNullOrEmpty(cboxSampleType.Text.Trim())
                 || String.IsNullOrEmpty(cboxSUnits.Text.Trim())
+                || String.IsNullOrEmpty(cboxSGeomtry.Text.Trim())
                 || String.IsNullOrEmpty(tbSQuant.Text.Trim()) 
                 || String.IsNullOrEmpty(tbSQuantErr.Text.Trim()))
             {
@@ -656,6 +656,13 @@ namespace lorakon
             if (!CustomEvents.ValidateUnsignedNumeric(tbSQuant.Text))
             {
                 statusLabel.Text = "Ugyldig prøvemengde";
+                return;
+            }
+
+            // FIXME
+            if(tbSQuant.Text.Trim() == "0")
+            {
+                statusLabel.Text = "Prøvemengde kan ikke være 0";
                 return;
             }
 
