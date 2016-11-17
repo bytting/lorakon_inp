@@ -17,8 +17,7 @@
 			<component name="Honning" name_english="" name_latin=""></component>
 			<sampletype name="Europeisk Honningbie" name_english="" name_latin=""></sampletype>
 		</sampletype>
-		<sampletype name="Pattedyr" name_english="" name_latin="">
-			<component name="Gevir" name_english="" name_latin=""></component>
+		<sampletype name="Pattedyr" name_english="" name_latin="">			
 			<component name="Nakke" name_english="" name_latin=""></component>
 			<component name="Lever" name_english="" name_latin=""></component>
 			<component name="Milt" name_english="" name_latin=""></component>
@@ -55,15 +54,7 @@
 				<sampletype name="Polarrev" name_english="" name_latin=""></sampletype>
 				<sampletype name="Mårhund" name_english="" name_latin=""></sampletype>
 				<sampletype name="Ulv" name_english="" name_latin=""></sampletype>
-			</sampletype>			
-			<sampletype name="Hjortedyr" name_english="" name_latin="">
-				<sampletype name="Svalbard rein" name_english="" name_latin=""></sampletype>
-				<sampletype name="Elg" name_english="" name_latin=""></sampletype>
-				<sampletype name="Dåhjort" name_english="" name_latin=""></sampletype>
-				<sampletype name="Finsk skogsrein" name_english="" name_latin=""></sampletype>
-				<sampletype name="Rådyr" name_english="" name_latin=""></sampletype>
-				<sampletype name="Hjort" name_english="" name_latin=""></sampletype>
-			</sampletype>
+			</sampletype>						
 			<sampletype name="Sel" name_english="" name_latin="">
 				<sampletype name="Ringsel" name_english="" name_latin=""></sampletype>
 				<sampletype name="Storkobbe" name_english="" name_latin=""></sampletype>
@@ -84,45 +75,56 @@
 				<sampletype name="Sydlig sjøelefant" name_english="" name_latin=""></sampletype>
 				<sampletype name="Weddellsel" name_english="" name_latin=""></sampletype>		
 			</sampletype>	
-			<sampletype name="Geit" name_english="" name_latin="">
-				<sampletype name="Norsk melkegeit" name_english="" name_latin=""></sampletype>
-				<sampletype name="Mohairgeit" name_english="" name_latin=""></sampletype>
-				<sampletype name="Kasjmirgeit" name_english="" name_latin=""></sampletype>
-				<sampletype name="Kystgeit" name_english="" name_latin=""></sampletype>
-				<sampletype name="Boergeit" name_english="" name_latin=""></sampletype>
-				<sampletype name="Dverggeiter" name_english="" name_latin=""></sampletype>
-			</sampletype>	
-			<sampletype name="Sau" name_english="" name_latin="">
-				<sampletype name="Spælsau" name_english="" name_latin=""></sampletype>
-				<sampletype name="Dalasau" name_english="" name_latin=""></sampletype>
-				<sampletype name="Blæset sau" name_english="" name_latin=""></sampletype>
-				<sampletype name="Finsk landrase" name_english="" name_latin=""></sampletype>
-				<sampletype name="Gammelnorsk sau" name_english="" name_latin=""></sampletype>
-				<sampletype name="Grå trøndersau" name_english="" name_latin=""></sampletype>
-				<sampletype name="Fuglestadbrogete sau" name_english="" name_latin=""></sampletype>
-				<sampletype name="Gammalnorsk spælsau" name_english="" name_latin=""></sampletype>
-				<sampletype name="Merino" name_english="" name_latin=""></sampletype>
-				<sampletype name="Norsk kvit sau" name_english="" name_latin=""></sampletype>
-				<sampletype name="Norsk pelssau" name_english="" name_latin=""></sampletype>
-				<sampletype name="Oxford down" name_english="" name_latin=""></sampletype>	
-				<sampletype name="Rygja" name_english="" name_latin=""></sampletype>	
-				<sampletype name="Sjeviot" name_english="" name_latin=""></sampletype>	
-				<sampletype name="Steigar" name_english="" name_latin=""></sampletype>	
-				<sampletype name="Suffolk" name_english="" name_latin=""></sampletype>	
-				<sampletype name="Svartfjes" name_english="" name_latin=""></sampletype>	
-				<sampletype name="Texel" name_english="" name_latin=""></sampletype>	
-				<sampletype name="Østfrisisk melkesau" name_english="" name_latin=""></sampletype>	
-			</sampletype>			
-			<sampletype name="Storfe" name_english="" name_latin="">
-				<sampletype name="Norsk Rødt Fe" name_english="" name_latin=""></sampletype>
-				<sampletype name="Dølafe" name_english="" name_latin=""></sampletype>
-				<sampletype name="Sidet trønder- og nordlandsfe" name_english="" name_latin=""></sampletype>
-				<sampletype name="Telemarksfe" name_english="" name_latin=""></sampletype>
-				<sampletype name="Lyngdalsfe" name_english="" name_latin=""></sampletype>
-				<sampletype name="Vestlandsk fjordfe" name_english="" name_latin=""></sampletype>
-				<sampletype name="Østlandsk rødkolle" name_english="" name_latin=""></sampletype>
-				<sampletype name="Vestlandsk raudkolle" name_english="" name_latin=""></sampletype>
-				<sampletype name="Målselvfe" name_english="" name_latin=""></sampletype>
+			<sampletype name="Klovdyr" name_english="" name_latin="">
+				<component name="Gevir" name_english="" name_latin=""></component>
+				<sampletype name="Hjortedyr" name_english="" name_latin="">
+					<sampletype name="Svalbard rein" name_english="" name_latin=""></sampletype>
+					<sampletype name="Elg" name_english="" name_latin=""></sampletype>
+					<sampletype name="Dåhjort" name_english="" name_latin=""></sampletype>
+					<sampletype name="Finsk skogsrein" name_english="" name_latin=""></sampletype>
+					<sampletype name="Rådyr" name_english="" name_latin=""></sampletype>
+					<sampletype name="Hjort" name_english="" name_latin=""></sampletype>
+				</sampletype>
+				<sampletype name="Geit" name_english="" name_latin="">
+					<sampletype name="Norsk melkegeit" name_english="" name_latin=""></sampletype>
+					<sampletype name="Mohairgeit" name_english="" name_latin=""></sampletype>
+					<sampletype name="Kasjmirgeit" name_english="" name_latin=""></sampletype>
+					<sampletype name="Kystgeit" name_english="" name_latin=""></sampletype>
+					<sampletype name="Boergeit" name_english="" name_latin=""></sampletype>
+					<sampletype name="Dverggeiter" name_english="" name_latin=""></sampletype>
+				</sampletype>	
+				<sampletype name="Sau" name_english="" name_latin="">
+					<sampletype name="Spælsau" name_english="" name_latin=""></sampletype>
+					<sampletype name="Dalasau" name_english="" name_latin=""></sampletype>
+					<sampletype name="Blæset sau" name_english="" name_latin=""></sampletype>
+					<sampletype name="Finsk landrase" name_english="" name_latin=""></sampletype>
+					<sampletype name="Gammelnorsk sau" name_english="" name_latin=""></sampletype>
+					<sampletype name="Grå trøndersau" name_english="" name_latin=""></sampletype>
+					<sampletype name="Fuglestadbrogete sau" name_english="" name_latin=""></sampletype>
+					<sampletype name="Gammalnorsk spælsau" name_english="" name_latin=""></sampletype>
+					<sampletype name="Merino" name_english="" name_latin=""></sampletype>
+					<sampletype name="Norsk kvit sau" name_english="" name_latin=""></sampletype>
+					<sampletype name="Norsk pelssau" name_english="" name_latin=""></sampletype>
+					<sampletype name="Oxford down" name_english="" name_latin=""></sampletype>	
+					<sampletype name="Rygja" name_english="" name_latin=""></sampletype>	
+					<sampletype name="Sjeviot" name_english="" name_latin=""></sampletype>	
+					<sampletype name="Steigar" name_english="" name_latin=""></sampletype>	
+					<sampletype name="Suffolk" name_english="" name_latin=""></sampletype>	
+					<sampletype name="Svartfjes" name_english="" name_latin=""></sampletype>	
+					<sampletype name="Texel" name_english="" name_latin=""></sampletype>	
+					<sampletype name="Østfrisisk melkesau" name_english="" name_latin=""></sampletype>	
+				</sampletype>			
+				<sampletype name="Storfe" name_english="" name_latin="">
+					<sampletype name="Norsk Rødt Fe" name_english="" name_latin=""></sampletype>
+					<sampletype name="Dølafe" name_english="" name_latin=""></sampletype>
+					<sampletype name="Sidet trønder- og nordlandsfe" name_english="" name_latin=""></sampletype>
+					<sampletype name="Telemarksfe" name_english="" name_latin=""></sampletype>
+					<sampletype name="Lyngdalsfe" name_english="" name_latin=""></sampletype>
+					<sampletype name="Vestlandsk fjordfe" name_english="" name_latin=""></sampletype>
+					<sampletype name="Østlandsk rødkolle" name_english="" name_latin=""></sampletype>
+					<sampletype name="Vestlandsk raudkolle" name_english="" name_latin=""></sampletype>
+					<sampletype name="Målselvfe" name_english="" name_latin=""></sampletype>
+				</sampletype>
 			</sampletype>		
 		</sampletype>
 		<sampletype name="Planter" name_english="" name_latin="">	
@@ -380,4 +382,8 @@
 		<sampletype name="Saltvann" name_english="" name_latin=""></sampletype>
 		<sampletype name="Sjøvann" name_english="" name_latin=""></sampletype>
 	</sampletype>	
+	<sampletype name="QA-måling" name_english="" name_latin="">				
+		<sampletype name="Bakgrunn" name_english="" name_latin=""></sampletype>
+		<sampletype name="Referansemåling" name_english="" name_latin=""></sampletype>
+	</sampletype>
 </sampletypes>
