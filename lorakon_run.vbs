@@ -1,11 +1,16 @@
-﻿function Execute(Dsc,Phase)	
+﻿
+function Execute(Dsc,Phase)	
 
 	On Error Resume Next
 	
+    ' CREATE FILESYSTEM AND SCRIPTING OBJECTS
 	set csh = CreateObject("WScript.Shell")
 	set fso = CreateObject("Scripting.FileSystemObject")
 
+    ' GET GENIE2K PATH FROM REGISTRY
 	geniePath = csh.RegRead("HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Canberra Industries, Inc.\Genie-2000 Environment\GENIE2K")
+
+    ' CREATE ENVIRONMENT
 	if not fso.FolderExists(geniePath & "Lorakon") then
 		fso.CreateFolder(geniePath & "Lorakon")
 	end if
@@ -13,8 +18,9 @@
 		fso.CreateFolder(geniePath & "Lorakon\System")
 	end if
   
-	paramFile = geniePath & "Lorakon\System\input-params.txt"
-	' msgbox Dsc.Information(7)
+	paramFile = geniePath & "Lorakon\System\input-params.txt"	
+
+    ' CHECK IF DATA SOURCE IS A DETECTOR (NOT FILE)
 	isDet = False
 	If InStr(Dsc.Information(7), "DET:") = 1 Then
 		isDet = True
@@ -62,6 +68,7 @@
 	Else
 		f.WriteLine Dsc.Parameter(CAM_T_SUCSTRING4) ' Kommentar	
 	End If
+	
 	f.Close
 	
     ' KJØR INPUT VINDU
@@ -77,8 +84,8 @@
 	set f = fso.OpenTextFile(paramFile, 1)
 	idx = 0
 	do until f.AtEndOfStream
-		line = f.ReadLine		
-
+		line = f.ReadLine
+		
 		select case idx
 		case 0 ' LABORATORY
             Dsc.Parameter(CAM_T_SSPRSTR1) = line ' Lab
@@ -97,14 +104,20 @@
 		case 7 ' LATITUDE
             If line <> "" Then
                 Dsc.Parameter(CAM_G_SGPSLATITUDE) = CDbl(line) ' Lat
+			Else
+				Dsc.Parameter(CAM_G_SGPSLATITUDE) = 0
             End If
 		case 8 ' LONGITUDE
             If line <> "" Then
                 Dsc.Parameter(CAM_G_SGPSLONGITUD) = CDbl(line) ' Lon
+			Else
+				Dsc.Parameter(CAM_G_SGPSLONGITUD) = 0
             End If
 		case 9 ' ALTITUDE
             If line <> "" Then
                 Dsc.Parameter(CAM_G_SGPSALTITUDE) = CDbl(line) ' Alt
+			Else
+				Dsc.Parameter(CAM_G_SGPSALTITUDE) = 0
             End If
 		case 10 ' LOKASJONSTYPE
             Dsc.Parameter(CAM_T_SUCSTRING10) = line ' Lokasjonstype	
@@ -128,14 +141,18 @@
             End If
 		case 17	' RANDOM ERROR
             If line <> "" Then
-                Dsc.Parameter(CAM_F_SSYSERR) = CDbl(line) ' Syserr					
+                Dsc.Parameter(CAM_F_SSYSERR) = CDbl(line) ' Syserr
+			Else
+				Dsc.Parameter(CAM_F_SSYSERR) = 0	
             End If
 		case 18	' SYSTEM ERROR
             If line <> "" Then
                 Dsc.Parameter(CAM_F_SSYSTERR) = CDbl(line) ' Systerr
+			Else
+				Dsc.Parameter(CAM_F_SSYSTERR) = 0
             End If
 		case 19 ' KOMMENTAR
-            Dsc.Parameter(CAM_T_SUCSTRING4) = line ' Kommentar
+			Dsc.Parameter(CAM_T_SUCSTRING4) = line ' Kommentar
 		case else
 			exit do
 		end select
@@ -163,3 +180,4 @@ function Setup(Dsc,Phase)
 	Setup = 0
 
 end function
+

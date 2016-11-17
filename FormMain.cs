@@ -22,6 +22,7 @@ using System.IO;
 using System.ComponentModel;
 using System.Text;
 using System.Xml;
+using System.Xml.Serialization;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
@@ -31,6 +32,8 @@ namespace lorakon
     {
         // Flag used to keep track of initialization in the paint event (Avoid displaying forms/messages in the load event)
         bool Initialized = false;
+
+        Settings settings = new Settings();
 
         // Encoding used for config files
         Encoding enc = Encoding.GetEncoding(1252);
@@ -51,14 +54,11 @@ namespace lorakon
         const string CommunitiesBase = "communities.txt";
 
         // Filename for location types
-        const string LocationTypeBase = "location-types.txt";
-
-        // Filename for laboratory name
-        const string LaboratoryBase = "laboratory.txt";
+        const string LocationTypeBase = "location-types.txt";        
 
         // Paths for configuration files        
         string GeniePath, LorakonPath, SystemPath;
-        string SampleTypeFile, GeometryTypeFile, InputFile, LaboratoryFile, CommunitiesFile, LocationTypeFile;
+        string SettingsFile, SampleTypeFile, GeometryTypeFile, InputFile, CommunitiesFile, LocationTypeFile;
         
         AutoCompleteStringCollection communities = new AutoCompleteStringCollection();
 
@@ -124,6 +124,12 @@ namespace lorakon
                         Directory.CreateDirectory(SystemPath);
 
                     string InstallDir = Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]) + Path.DirectorySeparatorChar;
+
+                    SettingsFile = SystemPath + "settings.xml";
+                    if (!File.Exists(SettingsFile))                    
+                        SaveSettings();
+
+                    LoadSettings();
 
                     GeometryTypeFile = SystemPath + GeometryTypeBase;
                     if (!File.Exists(GeometryTypeFile))
@@ -246,6 +252,7 @@ namespace lorakon
                             string loc = PrepareStringParam(lines[10], typeof(String), cboxLocation.MaxLength);
                             if(!String.IsNullOrEmpty(loc))
                                 cboxLocation.Text = loc;
+                            cboxLocation_SelectedIndexChanged(sender, e);
                         }
                         if (lines.Length > 11)
                             tbSLoctn.Text = PrepareStringParam(lines[11], typeof(String), tbSLoctn.MaxLength);
@@ -283,12 +290,31 @@ namespace lorakon
                             tbComment.Text = PrepareStringParam(lines[19], typeof(String), tbComment.MaxLength);
                     }
 
-                    if(tbLatitude.Text.Trim() != String.Empty || tbLongitude.Text.Trim() != String.Empty)
+                    if(tbLatitude.Text.Trim() != String.Empty && tbLongitude.Text.Trim() != String.Empty)
                     {
                         cboxCoordType.SelectedIndex = 1;
                         tbLatitude.Enabled = true;
                         tbLongitude.Enabled = true;
                         tbAltitude.Enabled = true;
+                        if(tbAltitude.Text.Trim() != String.Empty)
+                        {
+                            double lat, lon, alt;
+                            if(Double.TryParse(tbLatitude.Text, out lat) 
+                                && Double.TryParse(tbLongitude.Text, out lon) 
+                                && Double.TryParse(tbAltitude.Text, out alt))
+                            {
+                                if(lat == 0.0 && lon == 0.0 && alt == 0.0)
+                                {
+                                    cboxCoordType.SelectedIndex = 0;
+                                    tbLatitude.Text = String.Empty;
+                                    tbLongitude.Text = String.Empty;
+                                    tbAltitude.Text = String.Empty;
+                                    tbLatitude.Enabled = false;
+                                    tbLongitude.Enabled = false;
+                                    tbAltitude.Enabled = false;
+                                }
+                            }
+                        }
                     }
                     else
                     {
@@ -298,19 +324,31 @@ namespace lorakon
                         tbAltitude.Enabled = false;
                     }
 
-                    tbLab.Enabled = true;
-                    LaboratoryFile = SystemPath + LaboratoryBase;
-                    if (File.Exists(LaboratoryFile))
+                    FormSampleInput_Resize(sender, e);  
+                    
+                    if(String.IsNullOrEmpty(tbLab.Text.Trim()))
                     {
-                        string LabName = File.ReadAllText(LaboratoryFile, enc).Trim();
-                        if(!String.IsNullOrEmpty(LabName))
+                        if(settings.UseStoredLaboratoryName)
                         {
-                            tbLab.Text = LabName;
-                            tbLab.Enabled = false;
+                            if (String.IsNullOrEmpty(settings.StoredLaboratoryName))
+                            {
+                                tbLab.Enabled = true;
+                            }
+                            else
+                            {
+                                tbLab.Text = settings.StoredLaboratoryName;
+                                tbLab.Enabled = false;
+                            }
                         }
+                        else
+                        {
+                            tbLab.Enabled = true;
+                        }                        
                     }
-
-                    FormSampleInput_Resize(sender, e);                    
+                    else
+                    {
+                        tbLab.Enabled = false;
+                    }
 
                     tbScollName.Focus();
                 }
@@ -332,6 +370,26 @@ namespace lorakon
                 return "C:\\GENIE2K\\";
 
             return String.Empty;
+        }
+
+        private void LoadSettings()
+        {
+            // Deserialize settings from file
+            using (StreamReader sr = new StreamReader(SettingsFile))
+            {
+                XmlSerializer x = new XmlSerializer(settings.GetType());
+                settings = x.Deserialize(sr) as Settings;
+            }
+        }
+
+        private void SaveSettings()
+        {
+            // Serialize settings to file
+            using (StreamWriter sw = new StreamWriter(SettingsFile))
+            {
+                XmlSerializer x = new XmlSerializer(settings.GetType());
+                x.Serialize(sw, settings);
+            }
         }
 
         private string PrepareStringParam(string s, Type type, int siz)
@@ -481,9 +539,9 @@ namespace lorakon
             coordToolTip.ShowAlways = true;
             coordToolTip.AutoPopDelay = 10000;
             coordToolTip.InitialDelay = 700;
-            coordToolTip.ReshowDelay = 0;
+            coordToolTip.ReshowDelay = 0;            
             coordToolTip.SetToolTip(cboxCoordType, (string)cboxCoordType.Tag);
-        }
+        }        
 
         private void cboxCoordType_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -506,13 +564,13 @@ namespace lorakon
                     cboxCoordType.Tag = "Format:   40.446    -79.982";
                     break;
                 case CoordinateFormat.DegreesMinutesSeconds:
-                    cboxCoordType.Tag = "Format:   40° 26' 46\" N    79° 58' 56\" W";
+                    cboxCoordType.Tag = "Format:   40° 26' 46\" N     79° 58' 56\" W" + Environment.NewLine + Environment.NewLine + "\t° kan erstattes med *";
                     break;
                 case CoordinateFormat.DegreesDecimalMinutes:
-                    cboxCoordType.Tag = "Format:   40° 26.767' N    79° 58.933' W";
+                    cboxCoordType.Tag = "Format:   40° 26.767' N     79° 58.933' W" + Environment.NewLine + Environment.NewLine + "\t° kan erstattes med *";
                     break;
                 case CoordinateFormat.DecimalDegrees:
-                    cboxCoordType.Tag = "Format:   40.446° N    79.982° W";
+                    cboxCoordType.Tag = "Format:   40.446° N     79.982° W" + Environment.NewLine + Environment.NewLine + "\t° kan erstattes med *";
                     break;
             }            
         }
@@ -561,31 +619,82 @@ namespace lorakon
             {
                 statusLabel.Text = "En eller flere påkrevde felter mangler";
                 return;
-            }           
+            }
 
-            if (!communities.Contains(cboxCommunity.Text))
+            if (!String.IsNullOrEmpty(cboxCommunity.Text.Trim()) && !communities.Contains(cboxCommunity.Text))
             {
                 statusLabel.Text = "Du må velge en gyldig kommune";
+                return;
+            }            
+
+            if (!CustomEvents.ValidateSignedNumeric(tbAltitude.Text))
+            {
+                statusLabel.Text = "Høyde over havet er ugyldig";
+                return;
+            }
+
+            if(cboxLocation.Text.Trim() != String.Empty && tbSLoctn.Text.Trim() == String.Empty)
+            {
+                statusLabel.Text = "Lokasjon info mangler";
+                return;
+            }
+
+            if (!CustomEvents.ValidateUnsignedNumeric(tbSQuant.Text))
+            {
+                statusLabel.Text = "Ugyldig prøvemengde";
+                return;
+            }
+            
+            double sq = Convert.ToDouble(tbSQuant.Text.Trim());
+            if (sq <= 0.0)
+            {
+                statusLabel.Text = "Prøvemengde må være større enn 0";
+                return;
+            }
+
+            if (!CustomEvents.ValidateUnsignedNumeric(tbSQuantErr.Text))
+            {
+                statusLabel.Text = "Ugyldig prøvemengde error";
+                return;
+            }
+
+            if (!CustomEvents.ValidateUnsignedNumeric(tbSSyserr.Text))
+            {
+                statusLabel.Text = "Ugyldig random error";
+                return;
+            }
+
+            if (!CustomEvents.ValidateUnsignedNumeric(tbSSysterr.Text))
+            {
+                statusLabel.Text = "Ugyldig system error";
+                return;
+            }            
+
+            if(!SampleTypeExists(cboxSampleType.Text))
+            {
+                cboxSampleType.Focus();
+                statusLabel.Text = "Du må velge en gyldig prøvetype";
                 return;
             }
 
             CoordinateFormat fmt = ((CoordinateType)cboxCoordType.SelectedItem).Value;
 
-            if(fmt != CoordinateFormat.None && (tbLatitude.Text.Trim() == String.Empty || tbLongitude.Text.Trim() == String.Empty))            
+            if (fmt != CoordinateFormat.None && (tbLatitude.Text.Trim() == String.Empty || tbLongitude.Text.Trim() == String.Empty))
             {
                 statusLabel.Text = "Breddegrad eller Lengdegrad mangler";
                 return;
             }
 
             double lat, lon;
-            if(!ConvertCoordinates(fmt, out lat, out lon))            
+            if (!ConvertCoordinates(fmt, out lat, out lon))
                 return;
 
+            double alt = 0;
             try
             {
                 if (tbAltitude.Text.Trim() != string.Empty)
                 {
-                    double alt = Convert.ToDouble(tbAltitude.Text.Trim());
+                    alt = Convert.ToDouble(tbAltitude.Text.Trim());
                     // 10994: Depth of the Challenger Deep
                     // 480000: Thinkness of the atmosphere
                     if (alt < -10994.0 || alt > 480000)
@@ -621,7 +730,7 @@ namespace lorakon
                         statusLabel.Text = "System Error er ugyldig";
                         return;
                     }
-                }                
+                }
             }
             catch
             {
@@ -629,97 +738,36 @@ namespace lorakon
                 return;
             }
 
-            if(!CustomEvents.ValidateSignedNumeric(tbLatitude.Text))
-            {
-                statusLabel.Text = "Ugyldig breddegrad funnet";
-                return;
-            }
-
-            if (!CustomEvents.ValidateSignedNumeric(tbLongitude.Text))
-            {
-                statusLabel.Text = "Ugyldig lengdegrad funnet";
-                return;
-            }
-
-            if (!CustomEvents.ValidateSignedNumeric(tbAltitude.Text))
-            {
-                statusLabel.Text = "Høyde over havet er ugyldig";
-                return;
-            }
-
-            if(cboxLocation.Text.Trim() != String.Empty && tbSLoctn.Text.Trim() == String.Empty)
-            {
-                statusLabel.Text = "Lokasjon info mangler";
-                return;
-            }
-
-            if (!CustomEvents.ValidateUnsignedNumeric(tbSQuant.Text))
-            {
-                statusLabel.Text = "Ugyldig prøvemengde";
-                return;
-            }
-
-            // FIXME
-            if(tbSQuant.Text.Trim() == "0")
-            {
-                statusLabel.Text = "Prøvemengde kan ikke være 0";
-                return;
-            }
-
-            if (!CustomEvents.ValidateUnsignedNumeric(tbSQuantErr.Text))
-            {
-                statusLabel.Text = "Ugyldig prøvemengde error";
-                return;
-            }
-
-            if (!CustomEvents.ValidateUnsignedNumeric(tbSSyserr.Text))
-            {
-                statusLabel.Text = "Ugyldig random error";
-                return;
-            }
-
-            if (!CustomEvents.ValidateUnsignedNumeric(tbSSysterr.Text))
-            {
-                statusLabel.Text = "Ugyldig system error";
-                return;
-            }            
-
-            if(!SampleTypeExists(cboxSampleType.Text))
-            {
-                cboxSampleType.Focus();
-                statusLabel.Text = "Du må velge en gyldig prøvetype";
-                return;
-            }            
+            settings.StoredLaboratoryName = tbLab.Text.Trim();
 
             // Store params to file
             try
             {
                 DateTime dt = new DateTime(dtpSDate.Value.Year, dtpSDate.Value.Month, dtpSDate.Value.Day, dtpSTime.Value.Hour, dtpSTime.Value.Minute, dtpSTime.Value.Second);
 
-                string c = tbLab.Text + Environment.NewLine +
-                    tbScollName.Text + Environment.NewLine +
-                    tbSTitle.Text + Environment.NewLine +
+                string c = settings.StoredLaboratoryName + Environment.NewLine +
+                    tbScollName.Text.Trim() + Environment.NewLine +
+                    tbSTitle.Text.Trim() + Environment.NewLine +
                     GetSampleTypeFromLabel(cboxSampleType.Text) + Environment.NewLine +
-                    cboxComponent.Text + Environment.NewLine +
-                    tbSIdent.Text + Environment.NewLine +
-                    cboxCommunity.Text + Environment.NewLine +
-                    tbLatitude.Text + Environment.NewLine +
-                    tbLongitude.Text + Environment.NewLine +
-                    tbAltitude.Text + Environment.NewLine +
-                    cboxLocation.Text + Environment.NewLine +
-                    tbSLoctn.Text + Environment.NewLine +
-                    tbSQuant.Text + Environment.NewLine +
-                    tbSQuantErr.Text + Environment.NewLine +
-                    cboxSUnits.Text + Environment.NewLine +
-                    cboxSGeomtry.Text + Environment.NewLine +
+                    cboxComponent.Text.Trim() + Environment.NewLine +
+                    tbSIdent.Text.Trim() + Environment.NewLine +
+                    cboxCommunity.Text.Trim() + Environment.NewLine +
+                    lat.ToString() + Environment.NewLine +
+                    lon.ToString() + Environment.NewLine +
+                    alt.ToString() + Environment.NewLine +
+                    cboxLocation.Text.Trim() + Environment.NewLine +
+                    tbSLoctn.Text.Trim() + Environment.NewLine +
+                    tbSQuant.Text.Trim() + Environment.NewLine +
+                    tbSQuantErr.Text.Trim() + Environment.NewLine +
+                    cboxSUnits.Text.Trim() + Environment.NewLine +
+                    cboxSGeomtry.Text.Trim() + Environment.NewLine +
                     dt.ToString("yyyy-MM-dd hh:mm:ss") + Environment.NewLine +                    
                     (String.IsNullOrEmpty(tbSSyserr.Text.Trim()) ? "0" : tbSSyserr.Text.Trim()) + Environment.NewLine +
                     (String.IsNullOrEmpty(tbSSysterr.Text.Trim()) ? "0" : tbSSysterr.Text.Trim()) + Environment.NewLine +
-                    tbComment.Text;
+                    tbComment.Text.Trim() + Environment.NewLine + Environment.NewLine;
 
                 File.WriteAllText(InputFile, c, enc);
-                
-                File.WriteAllText(LaboratoryFile, tbLab.Text, enc);
+                SaveSettings();
 
                 DialogResult = DialogResult.OK;
             }
@@ -739,53 +787,250 @@ namespace lorakon
             try
             {                
                 if (fmt == CoordinateFormat.WGS84)
-                {
-                    try
-                    {
-                        lat = Convert.ToDouble(tbLatitude.Text.Trim());
-                    }
-                    catch
-                    {
-                        throw new Exception("Breddegrad har ugyldig format");
-                    }
-
-                    if (lat < -90.0 || lat > 90.0)
-                    {
-                        throw new Exception("Breddegrad er utenfor gyldig område");
-                    }
-
-                    try
-                    {
-                        lon = Convert.ToDouble(tbLongitude.Text.Trim());
-                    }
-                    catch
-                    {
-                        throw new Exception("Lengdegrad har ugyldig format");
-                    }
-
-                    if (lon < -180.0 || lon > 180.0)
-                    {
+                {                    
+                    lat = Convert.ToDouble(tbLatitude.Text.Trim());                
+                    if (lat < -90.0 || lat > 90.0)                    
+                        throw new Exception("Breddegrad er utenfor gyldig område");                    
+                    
+                    lon = Convert.ToDouble(tbLongitude.Text.Trim());
+                    if (lon < -180.0 || lon > 180.0)                    
                         throw new Exception("Lengdegrad er utenfor gyldig område");
-                    }                
                 }
                 else if (fmt == CoordinateFormat.DegreesMinutesSeconds)
                 {
                     // 40° 26' 46" N 79° 58' 56" W
+
+                    int degs = 0, mins = 0, secs = 0, norths = 0, wests = 0;
+                    foreach(char c in tbLatitude.Text)
+                    {
+                        switch(c)
+                        {
+                            case '°':
+                            case '*':
+                                degs++;
+                                break;
+                            case '\'':
+                                mins++;
+                                break;
+                            case '"':
+                                secs++;
+                                break;
+                            case 'N':
+                            case 'n':
+                                norths++;
+                                break;                            
+                            default:
+                                if(!Char.IsDigit(c) && c != ' ')
+                                    throw new Exception("Ugyldig format på breddegrad");
+                                break;
+                        }
+                    }
+
+                    if (degs != 1 || mins != 1 || secs != 1 || norths != 1)
+                        throw new Exception("Ugyldig format på breddegrad");
+
+                    foreach (char c in tbLongitude.Text)
+                    {
+                        switch (c)
+                        {
+                            case '°':
+                            case '*':
+                                degs++;
+                                break;
+                            case '\'':
+                                mins++;
+                                break;
+                            case '"':
+                                secs++;
+                                break;                            
+                            case 'W':
+                            case 'w':
+                                wests++;
+                                break;
+                            default:
+                                if (!Char.IsDigit(c) && c != ' ')
+                                    throw new Exception("Ugyldig format på lengdegrad");
+                                break;
+                        }
+                    }
+
+                    if (degs != 2 || mins != 2 || secs != 2 || wests != 1)
+                        throw new Exception("Ugyldig format på lengdegrad");
+
+                    string[] latItems = tbLatitude.Text.Split(new char[] { '°', '*', '\'', '"', 'N', 'n', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    if(latItems.Length != 3)
+                        throw new Exception("Ugyldig format på breddegrad");
+
+                    int latDeg, latMin, latSec, lonDeg, lonMin, lonSec;
+                    if(!Int32.TryParse(latItems[0], out latDeg))
+                        throw new Exception("Ugyldig format på breddegrad");
+                    if (!Int32.TryParse(latItems[1], out latMin))
+                        throw new Exception("Ugyldig format på breddegrad");
+                    if (!Int32.TryParse(latItems[2], out latSec))
+                        throw new Exception("Ugyldig format på breddegrad");
+
+                    string[] lonItems = tbLongitude.Text.Split(new char[] { '°', '*', '\'', '"', 'W', 'w', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    if (lonItems.Length != 3)
+                        throw new Exception("Ugyldig format på lengdegrad");
+
+                    if (!Int32.TryParse(lonItems[0], out lonDeg))
+                        throw new Exception("Ugyldig format på lengdegrad");
+                    if (!Int32.TryParse(lonItems[1], out lonMin))
+                        throw new Exception("Ugyldig format på lengdegrad");
+                    if (!Int32.TryParse(lonItems[2], out lonSec))
+                        throw new Exception("Ugyldig format på lengdegrad");
+
                     //degrees = degrees + minutes / 60 + seconds / 3600
 
-                    //throw new Exception("Ugyldig format på koordinater");
-
-                    throw new Exception("Format DegreesMinutesSeconds er ikke implementert");
+                    lat = (double)latDeg + (latMin / 60.0) + (latSec / 3600.0);
+                    lon = (double)lonDeg + (lonMin / 60.0) + (lonSec / 3600.0);
                 }
                 else if (fmt == CoordinateFormat.DegreesDecimalMinutes)
                 {
                     // 40° 26.767' N 79° 58.933' W
-                    throw new Exception("Format DegreesDecimalMinutes er ikke implementert");
+
+                    int degs = 0, mins = 0, norths = 0, wests = 0;
+                    foreach (char c in tbLatitude.Text)
+                    {
+                        switch (c)
+                        {
+                            case '°':
+                            case '*':
+                                degs++;
+                                break;
+                            case '\'':
+                                mins++;
+                                break;                            
+                            case 'N':
+                            case 'n':
+                                norths++;
+                                break;
+                            default:
+                                if (!Char.IsDigit(c) && c != ' ')
+                                    throw new Exception("Ugyldig format på breddegrad");
+                                break;
+                        }
+                    }
+
+                    if (degs != 1 || mins != 1 || norths != 1)
+                        throw new Exception("Ugyldig format på breddegrad");
+
+                    foreach (char c in tbLongitude.Text)
+                    {
+                        switch (c)
+                        {
+                            case '°':
+                            case '*':
+                                degs++;
+                                break;
+                            case '\'':
+                                mins++;
+                                break;                            
+                            case 'W':
+                            case 'w':
+                                wests++;
+                                break;
+                            default:
+                                if (!Char.IsDigit(c) && c != ' ')
+                                    throw new Exception("Ugyldig format på lengdegrad");
+                                break;
+                        }
+                    }
+
+                    if (degs != 2 || mins != 2 || wests != 1)
+                        throw new Exception("Ugyldig format på lengdegrad");
+
+                    string[] latItems = tbLatitude.Text.Split(new char[] { '°', '*', '\'', 'N', 'n', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    if (latItems.Length != 2)
+                        throw new Exception("Ugyldig format på breddegrad");
+
+                    int latDeg, latMin, lonDeg, lonMin;
+                    if (!Int32.TryParse(latItems[0], out latDeg))
+                        throw new Exception("Ugyldig format på breddegrad");
+                    if (!Int32.TryParse(latItems[1], out latMin))
+                        throw new Exception("Ugyldig format på breddegrad");                    
+
+                    string[] lonItems = tbLongitude.Text.Split(new char[] { '°', '*', '\'', 'W', 'w', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    if (lonItems.Length != 2)
+                        throw new Exception("Ugyldig format på lengdegrad");
+
+                    if (!Int32.TryParse(lonItems[0], out lonDeg))
+                        throw new Exception("Ugyldig format på lengdegrad");
+                    if (!Int32.TryParse(lonItems[1], out lonMin))
+                        throw new Exception("Ugyldig format på lengdegrad");                    
+
+                    //degrees = degrees + minutes / 60
+
+                    lat = (double)latDeg + (latMin / 60.0);
+                    lon = (double)lonDeg + (lonMin / 60.0);
                 }
                 else if (fmt == CoordinateFormat.DecimalDegrees)
                 {
                     // 40.446° N 79.982° W
-                    throw new Exception("Format DecimalDegrees er ikke implementert");
+
+                    int degs = 0, norths = 0, wests = 0;
+                    foreach (char c in tbLatitude.Text)
+                    {
+                        switch (c)
+                        {
+                            case '°':
+                            case '*':
+                                degs++;
+                                break;                            
+                            case 'N':
+                            case 'n':
+                                norths++;
+                                break;                       
+                            default:
+                                if (!Char.IsDigit(c) && c != ' ')
+                                    throw new Exception("Ugyldig format på breddegrad");
+                                break;
+                        }
+                    }
+
+                    if (degs != 1 || norths != 1)
+                        throw new Exception("Ugyldig format på breddegrad");
+
+                    foreach (char c in tbLongitude.Text)
+                    {
+                        switch (c)
+                        {
+                            case '°':
+                            case '*':
+                                degs++;
+                                break;                            
+                            case 'W':
+                            case 'w':
+                                wests++;
+                                break;
+                            default:
+                                if (!Char.IsDigit(c) && c != ' ')
+                                    throw new Exception("Ugyldig format på lengdegrad");
+                                break;
+                        }
+                    }
+
+                    if (degs != 2 || wests != 1)
+                        throw new Exception("Ugyldig format på lengdegrad");
+
+                    string[] latItems = tbLatitude.Text.Split(new char[] { '°', '*', 'N', 'n', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    if (latItems.Length != 1)
+                        throw new Exception("Ugyldig format på breddegrad");
+
+                    double latDeg;
+                    if (!Double.TryParse(latItems[0], out latDeg))
+                        throw new Exception("Ugyldig format på breddegrad");
+
+                    string[] lonItems = tbLongitude.Text.Split(new char[] { '°', '*', 'W', 'w', ' ' }, StringSplitOptions.RemoveEmptyEntries);
+                    if (lonItems.Length != 1)
+                        throw new Exception("Ugyldig format på lengdegrad");
+
+                    double lonDeg;
+                    if (!Double.TryParse(lonItems[0], out lonDeg))
+                        throw new Exception("Ugyldig format på lengdegrad");
+
+                    lat = latDeg;
+                    lon = lonDeg;                    
                 }
             }
             catch(Exception ex)

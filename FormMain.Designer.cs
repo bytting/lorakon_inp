@@ -35,8 +35,6 @@
             this.tableLayoutMain = new System.Windows.Forms.TableLayoutPanel();
             this.tbSIdent = new System.Windows.Forms.TextBox();
             this.tbSTitle = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.panelSampleQuant = new System.Windows.Forms.Panel();
             this.tbSQuantErr = new System.Windows.Forms.TextBox();
             this.tbSQuant = new System.Windows.Forms.TextBox();
@@ -49,7 +47,6 @@
             this.tbLatitude = new System.Windows.Forms.TextBox();
             this.lblCommunity = new System.Windows.Forms.Label();
             this.cboxCommunity = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.panelReferenceDate = new System.Windows.Forms.Panel();
             this.dtpSTime = new System.Windows.Forms.DateTimePicker();
             this.dtpSDate = new System.Windows.Forms.DateTimePicker();
@@ -86,16 +83,19 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.label13 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.tools = new System.Windows.Forms.ToolStrip();
             this.btnImport = new System.Windows.Forms.ToolStripDropDownButton();
             this.btnImportSampReg = new System.Windows.Forms.ToolStripMenuItem();
             this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.status = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.label16 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutMain.SuspendLayout();
             this.panelSampleQuant.SuspendLayout();
@@ -110,10 +110,10 @@
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
-            this.tools.SuspendLayout();
-            this.status.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
+            this.tools.SuspendLayout();
+            this.status.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -214,7 +214,7 @@
             this.tbSIdent.MaxLength = 16;
             this.tbSIdent.Name = "tbSIdent";
             this.tbSIdent.Size = new System.Drawing.Size(538, 23);
-            this.tbSIdent.TabIndex = 1;
+            this.tbSIdent.TabIndex = 3;
             // 
             // tbSTitle
             // 
@@ -226,33 +226,6 @@
             this.tbSTitle.Name = "tbSTitle";
             this.tbSTitle.Size = new System.Drawing.Size(538, 23);
             this.tbSTitle.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(3, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 32);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Prosjekt";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label12.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.label12.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label12.Location = new System.Drawing.Point(0, 0);
-            this.label12.Name = "label12";
-            this.label12.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.label12.Size = new System.Drawing.Size(139, 19);
-            this.label12.TabIndex = 15;
-            this.label12.Text = "Mengde enhet / Geom.";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panelSampleQuant
             // 
@@ -391,20 +364,6 @@
             this.cboxCommunity.TabIndex = 6;
             this.cboxCommunity.Leave += new System.EventHandler(this.cboxCommunity_Leave);
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label14.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.label14.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label14.Location = new System.Drawing.Point(0, 0);
-            this.label14.Name = "label14";
-            this.label14.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.label14.Size = new System.Drawing.Size(91, 19);
-            this.label14.TabIndex = 18;
-            this.label14.Text = "Referansedato";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // panelReferenceDate
             // 
             this.panelReferenceDate.Controls.Add(this.dtpSTime);
@@ -519,7 +478,7 @@
             this.panelSampleType.Location = new System.Drawing.Point(243, 99);
             this.panelSampleType.Name = "panelSampleType";
             this.panelSampleType.Size = new System.Drawing.Size(538, 26);
-            this.panelSampleType.TabIndex = 3;
+            this.panelSampleType.TabIndex = 4;
             // 
             // cboxSampleType
             // 
@@ -670,7 +629,7 @@
             this.cboxComponent.MaxLength = 255;
             this.cboxComponent.Name = "cboxComponent";
             this.cboxComponent.Size = new System.Drawing.Size(538, 24);
-            this.cboxComponent.TabIndex = 0;
+            this.cboxComponent.TabIndex = 5;
             // 
             // panel2
             // 
@@ -818,6 +777,93 @@
             this.label8.Text = "Mengde / Abs. Usikk.";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.label15);
+            this.panel6.Controls.Add(this.label12);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(3, 343);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(234, 26);
+            this.panel6.TabIndex = 46;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label15.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.Red;
+            this.label15.Location = new System.Drawing.Point(139, 0);
+            this.label15.Name = "label15";
+            this.label15.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.label15.Size = new System.Drawing.Size(15, 22);
+            this.label15.TabIndex = 16;
+            this.label15.Text = "*";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label12.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.label12.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label12.Location = new System.Drawing.Point(0, 0);
+            this.label12.Name = "label12";
+            this.label12.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.label12.Size = new System.Drawing.Size(139, 19);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "Mengde enhet / Geom.";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.label16);
+            this.panel7.Controls.Add(this.label14);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(3, 375);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(234, 26);
+            this.panel7.TabIndex = 47;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label16.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.Red;
+            this.label16.Location = new System.Drawing.Point(91, 0);
+            this.label16.Name = "label16";
+            this.label16.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.label16.Size = new System.Drawing.Size(15, 22);
+            this.label16.TabIndex = 19;
+            this.label16.Text = "*";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label14.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.label14.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label14.Location = new System.Drawing.Point(0, 0);
+            this.label14.Name = "label14";
+            this.label14.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.label14.Size = new System.Drawing.Size(91, 19);
+            this.label14.TabIndex = 18;
+            this.label14.Text = "Referansedato";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label1.Location = new System.Drawing.Point(3, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 32);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Prosjekt";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // tools
             // 
             this.tools.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
@@ -866,52 +912,6 @@
             this.statusLabel.Size = new System.Drawing.Size(82, 17);
             this.statusLabel.Text = "<statusLabel>";
             // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.label15);
-            this.panel6.Controls.Add(this.label12);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 343);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(234, 26);
-            this.panel6.TabIndex = 46;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label15.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(139, 0);
-            this.label15.Name = "label15";
-            this.label15.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.label15.Size = new System.Drawing.Size(15, 22);
-            this.label15.TabIndex = 16;
-            this.label15.Text = "*";
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.label16);
-            this.panel7.Controls.Add(this.label14);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(3, 375);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(234, 26);
-            this.panel7.TabIndex = 47;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label16.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.Red;
-            this.label16.Location = new System.Drawing.Point(91, 0);
-            this.label16.Name = "label16";
-            this.label16.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.label16.Size = new System.Drawing.Size(15, 22);
-            this.label16.TabIndex = 19;
-            this.label16.Text = "*";
-            // 
             // FormSampleInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -957,14 +957,14 @@
             this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            this.tools.ResumeLayout(false);
-            this.tools.PerformLayout();
-            this.status.ResumeLayout(false);
-            this.status.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            this.tools.ResumeLayout(false);
+            this.tools.PerformLayout();
+            this.status.ResumeLayout(false);
+            this.status.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
