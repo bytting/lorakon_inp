@@ -838,7 +838,7 @@ namespace lorakon
 
                     lon = degree + (minutes / 60.0) + (seconds / 3600.0);
 
-                    if (match.Groups[4].Value == "S")
+                    if (match.Groups[4].Value == "W")
                         lon = -lon;
                 }
                 return lon;
@@ -868,7 +868,7 @@ namespace lorakon
                     //degrees = degrees + minutes / 60
                     lon = degree + minutes / 60.0;
 
-                    if (match.Groups[3].Value == "S")
+                    if (match.Groups[3].Value == "W")
                         lon = -lon;
                 }
                 return lon;
@@ -893,7 +893,7 @@ namespace lorakon
                 else
                 {
                     lon = Convert.ToDouble(match.Groups[1].Value);
-                    if (match.Groups[2].Value == "S")
+                    if (match.Groups[2].Value == "W")
                         lon = -lon;
                 }
                 return lon;
