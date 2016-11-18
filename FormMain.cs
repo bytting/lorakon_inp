@@ -591,31 +591,20 @@ namespace lorakon
                 cboxSampleType.Focus();
                 statusLabel.Text = "Du må velge en gyldig prøvetype";
                 return;
-            }            
+            }
 
-            double lat;
+            double lat, lon, alt = 0.0;
             try
             {
-                lat = GetLatitude();
+                lat = GetLatitude(tbLatitude.Text.Trim());
+                lon = GetLongitude(tbLongitude.Text.Trim());
             }
             catch(Exception ex)
             {
                 statusLabel.Text = ex.Message;
                 return;
             }
-
-            double lon;
-            try
-            {
-                lon = GetLongitude();
-            }
-            catch(Exception ex)
-            {
-                statusLabel.Text = ex.Message;
-                return;
-            }
-
-            double alt = 0;
+            
             try
             {
                 if (tbAltitude.Text.Trim() != string.Empty)
@@ -706,10 +695,10 @@ namespace lorakon
             Environment.Exit(0);
         }
 
-        private double GetLatitude()
+        private double GetLatitude(string input)
         {
             double lat = 0;
-            string input = tbLatitude.Text.Trim().Replace('°', '*');
+            input = input.Replace('°', '*');
             Regex regex = new Regex("^(\\d{1,3})\\*?\\s+(\\d{1,2})'?\\s+(\\d{1,2})\"?\\s*([NS])$");
             Match match = regex.Match(input);
             if(match.Success)
@@ -821,10 +810,10 @@ namespace lorakon
             throw new Exception("Ugyldig format på breddegrad");
         }
 
-        private double GetLongitude()
+        private double GetLongitude(string input)
         {
             double lon = 0;
-            string input = tbLongitude.Text.Trim().Replace('°', '*');
+            input = input.Replace('°', '*');
             Regex regex = new Regex("^(\\d{1,3})\\*?\\s+(\\d{1,2})'?\\s+(\\d{1,2})\"?\\s*([EW])$");
             Match match = regex.Match(input);
             if (match.Success)
