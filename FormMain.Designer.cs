@@ -40,7 +40,6 @@
             this.tbSQuant = new System.Windows.Forms.TextBox();
             this.cboxLocation = new System.Windows.Forms.ComboBox();
             this.tbSLoctn = new System.Windows.Forms.TextBox();
-            this.cboxCoordType = new System.Windows.Forms.ComboBox();
             this.panelCoords = new System.Windows.Forms.Panel();
             this.tbLongitude = new System.Windows.Forms.TextBox();
             this.tbAltitude = new System.Windows.Forms.TextBox();
@@ -160,7 +159,6 @@
             this.tableLayoutMain.Controls.Add(this.panelSampleQuant, 1, 10);
             this.tableLayoutMain.Controls.Add(this.cboxLocation, 0, 8);
             this.tableLayoutMain.Controls.Add(this.tbSLoctn, 1, 8);
-            this.tableLayoutMain.Controls.Add(this.cboxCoordType, 0, 7);
             this.tableLayoutMain.Controls.Add(this.panelCoords, 1, 7);
             this.tableLayoutMain.Controls.Add(this.lblCommunity, 0, 5);
             this.tableLayoutMain.Controls.Add(this.cboxCommunity, 1, 5);
@@ -285,20 +283,6 @@
             this.tbSLoctn.Name = "tbSLoctn";
             this.tbSLoctn.Size = new System.Drawing.Size(538, 23);
             this.tbSLoctn.TabIndex = 10;
-            // 
-            // cboxCoordType
-            // 
-            this.cboxCoordType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cboxCoordType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboxCoordType.DropDownWidth = 300;
-            this.cboxCoordType.FormattingEnabled = true;
-            this.cboxCoordType.Location = new System.Drawing.Point(3, 227);
-            this.cboxCoordType.MaxLength = 255;
-            this.cboxCoordType.Name = "cboxCoordType";
-            this.cboxCoordType.Size = new System.Drawing.Size(234, 24);
-            this.cboxCoordType.TabIndex = 7;
-            this.cboxCoordType.SelectedIndexChanged += new System.EventHandler(this.cboxCoordType_SelectedIndexChanged);
-            this.cboxCoordType.MouseHover += new System.EventHandler(this.cboxCoordType_MouseHover);
             // 
             // panelCoords
             // 
@@ -1007,7 +991,6 @@
         private System.Windows.Forms.Panel panelCoords;
         private System.Windows.Forms.TextBox tbLongitude;
         private System.Windows.Forms.TextBox tbLatitude;
-        private System.Windows.Forms.ComboBox cboxCoordType;
         private System.Windows.Forms.ComboBox cboxCommunity;
         private System.Windows.Forms.Label lblCommunity;
         private System.Windows.Forms.ComboBox cboxSampleType;
