@@ -78,9 +78,7 @@ namespace lorakon
             tbLab.TextChanged += CustomEvents.Crop16_TextChanged;
             tbScollName.TextChanged += CustomEvents.Crop24_TextChanged;
             tbSTitle.TextChanged += CustomEvents.Crop64_TextChanged;
-            tbSIdent.TextChanged += CustomEvents.Crop16_TextChanged;
-            //tbLatitude.TextChanged += CustomEvents.Crop16_TextChanged;
-            //tbLongitude.TextChanged += CustomEvents.Crop16_TextChanged;
+            tbSIdent.TextChanged += CustomEvents.Crop16_TextChanged;            
             tbAltitude.TextChanged += CustomEvents.Crop16_TextChanged;
             tbSLoctn.TextChanged += CustomEvents.Crop255_TextChanged;
             tbSQuant.TextChanged += CustomEvents.Crop16_TextChanged;
@@ -91,14 +89,24 @@ namespace lorakon
 
             // Force format of fields
             tbSQuant.KeyPress += CustomEvents.UnsignedNumeric_KeyPress;
-            tbSQuantErr.KeyPress += CustomEvents.UnsignedNumeric_KeyPress;
-            //tbLatitude.KeyPress += CustomEvents.SignedNumeric_KeyPress;
-            //tbLongitude.KeyPress += CustomEvents.SignedNumeric_KeyPress;
+            tbSQuantErr.KeyPress += CustomEvents.UnsignedNumeric_KeyPress;            
             tbAltitude.KeyPress += CustomEvents.SignedNumeric_KeyPress;            
             tbSSyserr.KeyPress += CustomEvents.UnsignedNumeric_KeyPress;
             tbSSysterr.KeyPress += CustomEvents.UnsignedNumeric_KeyPress;
 
             statusLabel.Text = String.Empty;
+
+            coordToolTip.ToolTipTitle = "";
+            coordToolTip.UseFading = true;
+            coordToolTip.UseAnimation = true;
+            coordToolTip.IsBalloon = true;
+            coordToolTip.ShowAlways = true;
+            coordToolTip.AutoPopDelay = 10000;
+            coordToolTip.InitialDelay = 700;
+            coordToolTip.ReshowDelay = 0;
+            coordToolTip.SetToolTip(labelCoordLatitude, "Breddegard format..."); // FIXME
+            coordToolTip.SetToolTip(labelCoordLongitude, "Lengdegrad format..."); // FIXME
+            coordToolTip.SetToolTip(labelCoordAltitude, "MOH format..."); // FIXME
         }
 
         private void FormSampleInput_Paint(object sender, PaintEventArgs e)
@@ -286,6 +294,17 @@ namespace lorakon
                     }                    
 
                     FormSampleInput_Resize(sender, e);  
+
+                    try
+                    {
+                        double lat = Convert.ToDouble(tbLatitude.Text.Trim());
+                        double lon = Convert.ToDouble(tbLongitude.Text.Trim());
+                        double alt = Convert.ToDouble(tbAltitude.Text.Trim());
+
+                        if (lat == 0.0 && lon == 0.0 && alt == 0.0)
+                            linkClearCoords_Click(sender, e);
+                    }
+                    catch { }
                     
                     if(String.IsNullOrEmpty(tbLab.Text.Trim()))
                     {
@@ -470,15 +489,15 @@ namespace lorakon
 
         private void cboxLocation_MouseHover(object sender, EventArgs e)
         {
-            coordToolTip.ToolTipTitle = "";
-            coordToolTip.UseFading = true;
-            coordToolTip.UseAnimation = true;
-            coordToolTip.IsBalloon = true;
-            coordToolTip.ShowAlways = true;
-            coordToolTip.AutoPopDelay = 10000;
-            coordToolTip.InitialDelay = 700;
-            coordToolTip.ReshowDelay = 0;
-            coordToolTip.SetToolTip(cboxLocation, "Velg lokasjons informasjon...");
+            locationToolTip.ToolTipTitle = "";
+            locationToolTip.UseFading = true;
+            locationToolTip.UseAnimation = true;
+            locationToolTip.IsBalloon = true;
+            locationToolTip.ShowAlways = true;
+            locationToolTip.AutoPopDelay = 10000;
+            locationToolTip.InitialDelay = 700;
+            locationToolTip.ReshowDelay = 0;
+            locationToolTip.SetToolTip(cboxLocation, "Velg lokasjons informasjon...");
         }
 
         private void cboxLocation_SelectedIndexChanged(object sender, EventArgs e)
@@ -489,7 +508,14 @@ namespace lorakon
                 tbSLoctn.Text = String.Empty;
                 tbSLoctn.Enabled = false;
             }
-        }        
+        }
+
+        private void linkClearCoords_Click(object sender, EventArgs e)
+        {
+            tbLatitude.Text = String.Empty;
+            tbLongitude.Text = String.Empty;
+            tbAltitude.Text = String.Empty;
+        }
 
         private void cboxSampleType_SelectedIndexChanged(object sender, EventArgs e)
         {            
@@ -593,11 +619,18 @@ namespace lorakon
                 return;
             }
 
-            double lat, lon, alt = 0.0;
+            double lat = 0.0, lon = 0.0, alt = 0.0;
             try
             {
-                lat = GetLatitude(tbLatitude.Text.Trim());
-                lon = GetLongitude(tbLongitude.Text.Trim());
+                if (tbLatitude.Text.Trim() != string.Empty)
+                {
+                    lat = GetLatitude(tbLatitude.Text.Trim());
+                }
+
+                if (tbLongitude.Text.Trim() != string.Empty)
+                {
+                    lon = GetLongitude(tbLongitude.Text.Trim());
+                }
             }
             catch(Exception ex)
             {

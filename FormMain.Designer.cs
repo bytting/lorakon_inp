@@ -95,6 +95,8 @@
             this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.status = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.linkClearCoords = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.tableLayoutMain.SuspendLayout();
             this.panelSampleQuant.SuspendLayout();
@@ -113,6 +115,7 @@
             this.panel7.SuspendLayout();
             this.tools.SuspendLayout();
             this.status.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -180,6 +183,7 @@
             this.tableLayoutMain.Controls.Add(this.panel6, 0, 11);
             this.tableLayoutMain.Controls.Add(this.panel7, 0, 12);
             this.tableLayoutMain.Controls.Add(this.label1, 0, 1);
+            this.tableLayoutMain.Controls.Add(this.panel8, 0, 7);
             this.tableLayoutMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutMain.Location = new System.Drawing.Point(0, 25);
             this.tableLayoutMain.Name = "tableLayoutMain";
@@ -896,6 +900,28 @@
             this.statusLabel.Size = new System.Drawing.Size(82, 17);
             this.statusLabel.Text = "<statusLabel>";
             // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.linkClearCoords);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(3, 227);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(234, 26);
+            this.panel8.TabIndex = 48;
+            // 
+            // linkClearCoords
+            // 
+            this.linkClearCoords.AutoSize = true;
+            this.linkClearCoords.Dock = System.Windows.Forms.DockStyle.Right;
+            this.linkClearCoords.Location = new System.Drawing.Point(201, 0);
+            this.linkClearCoords.Name = "linkClearCoords";
+            this.linkClearCoords.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
+            this.linkClearCoords.Size = new System.Drawing.Size(33, 19);
+            this.linkClearCoords.TabIndex = 0;
+            this.linkClearCoords.TabStop = true;
+            this.linkClearCoords.Text = "Tøm";
+            this.linkClearCoords.Click += new System.EventHandler(this.linkClearCoords_Click);
+            // 
             // FormSampleInput
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -949,6 +975,8 @@
             this.tools.PerformLayout();
             this.status.ResumeLayout(false);
             this.status.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1022,6 +1050,8 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.LinkLabel linkClearCoords;
     }
 }
 
