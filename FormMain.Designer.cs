@@ -298,7 +298,7 @@
             this.tbAltitude.Location = new System.Drawing.Point(346, 0);
             this.tbAltitude.MaxLength = 16;
             this.tbAltitude.Name = "tbAltitude";
-            this.tbAltitude.Size = new System.Drawing.Size(160, 22);
+            this.tbAltitude.Size = new System.Drawing.Size(160, 23);
             this.tbAltitude.TabIndex = 2;
             // 
             // tbLongitude
@@ -307,7 +307,7 @@
             this.tbLongitude.Location = new System.Drawing.Point(173, 0);
             this.tbLongitude.MaxLength = 16;
             this.tbLongitude.Name = "tbLongitude";
-            this.tbLongitude.Size = new System.Drawing.Size(173, 22);
+            this.tbLongitude.Size = new System.Drawing.Size(173, 23);
             this.tbLongitude.TabIndex = 1;
             // 
             // tbLatitude
@@ -316,7 +316,7 @@
             this.tbLatitude.Location = new System.Drawing.Point(0, 0);
             this.tbLatitude.MaxLength = 16;
             this.tbLatitude.Name = "tbLatitude";
-            this.tbLatitude.Size = new System.Drawing.Size(173, 22);
+            this.tbLatitude.Size = new System.Drawing.Size(173, 23);
             this.tbLatitude.TabIndex = 0;
             // 
             // btnCoordsClear
@@ -334,7 +334,7 @@
             // 
             this.lblCommunity.AutoSize = true;
             this.lblCommunity.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblCommunity.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCommunity.Font = new System.Drawing.Font("Arial", 9.5F);
             this.lblCommunity.Location = new System.Drawing.Point(3, 160);
             this.lblCommunity.Name = "lblCommunity";
             this.lblCommunity.Size = new System.Drawing.Size(234, 32);
@@ -423,7 +423,7 @@
             // 
             this.lblSysErrSystErr.AutoSize = true;
             this.lblSysErrSystErr.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblSysErrSystErr.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.lblSysErrSystErr.Font = new System.Drawing.Font("Arial", 9.5F);
             this.lblSysErrSystErr.Location = new System.Drawing.Point(3, 392);
             this.lblSysErrSystErr.Name = "lblSysErrSystErr";
             this.lblSysErrSystErr.Size = new System.Drawing.Size(234, 32);
@@ -435,6 +435,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label9.Font = new System.Drawing.Font("Arial", 9.5F);
             this.label9.Location = new System.Drawing.Point(3, 424);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(234, 32);
@@ -448,13 +449,14 @@
             this.tbComment.Location = new System.Drawing.Point(243, 427);
             this.tbComment.MaxLength = 78;
             this.tbComment.Name = "tbComment";
-            this.tbComment.Size = new System.Drawing.Size(538, 22);
+            this.tbComment.Size = new System.Drawing.Size(538, 23);
             this.tbComment.TabIndex = 17;
             // 
             // lblSampleComponent
             // 
             this.lblSampleComponent.AutoSize = true;
             this.lblSampleComponent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblSampleComponent.Font = new System.Drawing.Font("Arial", 9.5F);
             this.lblSampleComponent.Location = new System.Drawing.Point(3, 128);
             this.lblSampleComponent.Name = "lblSampleComponent";
             this.lblSampleComponent.Size = new System.Drawing.Size(234, 32);
@@ -606,6 +608,7 @@
             // 
             this.lblSampleID.AutoSize = true;
             this.lblSampleID.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblSampleID.Font = new System.Drawing.Font("Arial", 9.5F);
             this.lblSampleID.Location = new System.Drawing.Point(0, 0);
             this.lblSampleID.Name = "lblSampleID";
             this.lblSampleID.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
@@ -641,7 +644,7 @@
             // 
             this.lblLabOperator.AutoSize = true;
             this.lblLabOperator.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblLabOperator.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLabOperator.Font = new System.Drawing.Font("Arial", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLabOperator.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblLabOperator.Location = new System.Drawing.Point(0, 0);
             this.lblLabOperator.Name = "lblLabOperator";
@@ -667,7 +670,7 @@
             this.label6.Dock = System.Windows.Forms.DockStyle.Left;
             this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(64, 0);
+            this.label6.Location = new System.Drawing.Point(65, 0);
             this.label6.Name = "label6";
             this.label6.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.label6.Size = new System.Drawing.Size(15, 22);
@@ -678,12 +681,12 @@
             // 
             this.lblSampleType.AutoSize = true;
             this.lblSampleType.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblSampleType.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.lblSampleType.Font = new System.Drawing.Font("Arial", 9.5F);
             this.lblSampleType.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblSampleType.Location = new System.Drawing.Point(0, 0);
             this.lblSampleType.Name = "lblSampleType";
             this.lblSampleType.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.lblSampleType.Size = new System.Drawing.Size(64, 19);
+            this.lblSampleType.Size = new System.Drawing.Size(65, 19);
             this.lblSampleType.TabIndex = 10;
             this.lblSampleType.Text = "Prøvetype";
             this.lblSampleType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -704,7 +707,7 @@
             this.label13.Dock = System.Windows.Forms.DockStyle.Left;
             this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Red;
-            this.label13.Location = new System.Drawing.Point(128, 0);
+            this.label13.Location = new System.Drawing.Point(133, 0);
             this.label13.Name = "label13";
             this.label13.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.label13.Size = new System.Drawing.Size(15, 22);
@@ -715,12 +718,12 @@
             // 
             this.lblQuantityQuantErr.AutoSize = true;
             this.lblQuantityQuantErr.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblQuantityQuantErr.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.lblQuantityQuantErr.Font = new System.Drawing.Font("Arial", 9.5F);
             this.lblQuantityQuantErr.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblQuantityQuantErr.Location = new System.Drawing.Point(0, 0);
             this.lblQuantityQuantErr.Name = "lblQuantityQuantErr";
             this.lblQuantityQuantErr.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.lblQuantityQuantErr.Size = new System.Drawing.Size(128, 19);
+            this.lblQuantityQuantErr.Size = new System.Drawing.Size(133, 19);
             this.lblQuantityQuantErr.TabIndex = 14;
             this.lblQuantityQuantErr.Text = "Mengde / Abs. Usikk.";
             this.lblQuantityQuantErr.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -741,7 +744,7 @@
             this.label15.Dock = System.Windows.Forms.DockStyle.Left;
             this.label15.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(139, 0);
+            this.label15.Location = new System.Drawing.Point(141, 0);
             this.label15.Name = "label15";
             this.label15.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
             this.label15.Size = new System.Drawing.Size(15, 22);
@@ -752,12 +755,12 @@
             // 
             this.lblQuantityUnitGeometry.AutoSize = true;
             this.lblQuantityUnitGeometry.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblQuantityUnitGeometry.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.lblQuantityUnitGeometry.Font = new System.Drawing.Font("Arial", 9.5F);
             this.lblQuantityUnitGeometry.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblQuantityUnitGeometry.Location = new System.Drawing.Point(0, 0);
             this.lblQuantityUnitGeometry.Name = "lblQuantityUnitGeometry";
             this.lblQuantityUnitGeometry.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.lblQuantityUnitGeometry.Size = new System.Drawing.Size(139, 19);
+            this.lblQuantityUnitGeometry.Size = new System.Drawing.Size(141, 19);
             this.lblQuantityUnitGeometry.TabIndex = 15;
             this.lblQuantityUnitGeometry.Text = "Mengde enhet / Geom.";
             this.lblQuantityUnitGeometry.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -789,7 +792,7 @@
             // 
             this.lblRefDate.AutoSize = true;
             this.lblRefDate.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblRefDate.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.lblRefDate.Font = new System.Drawing.Font("Arial", 9.5F);
             this.lblRefDate.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblRefDate.Location = new System.Drawing.Point(0, 0);
             this.lblRefDate.Name = "lblRefDate";
@@ -803,11 +806,11 @@
             // 
             this.lblProject.AutoSize = true;
             this.lblProject.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblProject.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.lblProject.Font = new System.Drawing.Font("Arial", 9.5F);
             this.lblProject.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblProject.Location = new System.Drawing.Point(3, 32);
             this.lblProject.Name = "lblProject";
-            this.lblProject.Size = new System.Drawing.Size(54, 32);
+            this.lblProject.Size = new System.Drawing.Size(56, 32);
             this.lblProject.TabIndex = 9;
             this.lblProject.Text = "Prosjekt";
             this.lblProject.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -816,6 +819,7 @@
             // 
             this.lblCoords.AutoSize = true;
             this.lblCoords.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblCoords.Font = new System.Drawing.Font("Arial", 9.5F);
             this.lblCoords.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblCoords.Location = new System.Drawing.Point(3, 192);
             this.lblCoords.Name = "lblCoords";
@@ -881,7 +885,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tools);
             this.Controls.Add(this.status);
-            this.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;

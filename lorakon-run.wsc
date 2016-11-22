@@ -1,31 +1,31 @@
 ﻿<?xml version="1.0"?>
 <component>
 
-<?component error="true" debug="true"?>
+  <?component error="true" debug="true"?>
 
-<registration
-	description="Lorakon Run"
-	progid="lorakon-run.WSC"
-	version="1.00"
-	classid="{c63c0187-311d-423b-bf86-ae4a6f955522}"
+  <registration
+    description="Lorakon Run"
+    progid="lorakon-run.WSC"
+    version="1.00"
+    classid="{c63c0187-311d-423b-bf86-ae4a6f955522}"
 >
-</registration>
+  </registration>
 
-<public>
-	<method name="Execute">
-		<PARAMETER name="Dsc"/>
-		<PARAMETER name="Phase"/>
-	</method>
+  <public>
+    <method name="Execute">
+      <PARAMETER name="Dsc"/>
+      <PARAMETER name="Phase"/>
+    </method>
 
-	<method name="Setup">
-		<PARAMETER name="Dsc"/>
-		<PARAMETER name="Phase"/>
-	</method>
-</public>
+    <method name="Setup">
+      <PARAMETER name="Dsc"/>
+      <PARAMETER name="Phase"/>
+    </method>
+  </public>
 
-<script language="VBScript" src="campdef.vbs"></script>
-<script language="VBScript">
-<![CDATA[
+  <script language="VBScript" src="campdef.vbs"></script>
+  <script language="VBScript">
+    <![CDATA[
 
 function Execute(Dsc,Phase)	
 
@@ -56,45 +56,166 @@ function Execute(Dsc,Phase)
 	
     ' SKRIV DATA SOURCE VERDIER TIL INPUT FIL
 	set f = fso.OpenTextFile(paramFile, 2, True)
-	f.WriteLine Dsc.Parameter(CAM_T_SSPRSTR1) ' Lab
-	f.WriteLine Dsc.Parameter(CAM_T_SCOLLNAME) ' Prøvetaker
-	f.WriteLine Dsc.Parameter(CAM_T_STITLE) ' Prøvetittel
-	f.WriteLine Dsc.Parameter(CAM_T_SUCSTRING1)	' Prøvetype
-	f.WriteLine Dsc.Parameter(CAM_T_SUCSTRING2)	' Prøve komponent
-	If isDet Then
-		f.WriteLine ""
+	
+	lab = Dsc.Parameter(CAM_T_SSPRSTR1)
+	If IsNull(lab) or IsEmpty(lab) Then
+		f.WriteLine "" ' lab
 	Else
-		f.WriteLine Dsc.Parameter(CAM_T_SIDENT) ' PrøveID
+		f.WriteLine lab ' Lab
 	End If
-	f.WriteLine Dsc.Parameter(CAM_T_SUCSTRING3) ' Fylke/Kommune	
-	f.WriteLine CStr(Dsc.Parameter(CAM_G_SGPSLATITUDE)) ' Lat
-	f.WriteLine CStr(Dsc.Parameter(CAM_G_SGPSLONGITUD)) ' Lon
-	f.WriteLine CStr(Dsc.Parameter(CAM_G_SGPSALTITUDE)) ' Alt
-	f.WriteLine Dsc.Parameter(CAM_T_SUCSTRING10) ' Lokasjonstype	
-	f.WriteLine Dsc.Parameter(CAM_T_SUCSTRING9) ' Lokasjon
-	If isDet Then
-		f.WriteLine ""
+		
+	pt = Dsc.Parameter(CAM_T_SCOLLNAME)
+	If IsNull(pt) or IsEmpty(pt) Then
+		f.WriteLine "" ' operator
 	Else
-		f.WriteLine CStr(Dsc.Parameter(CAM_F_SQUANT)) ' Prøvemengde
+		f.WriteLine pt ' operator
 	End If
-	If isDet Then
-		f.WriteLine ""
+	
+	title = Dsc.Parameter(CAM_T_STITLE)
+	If IsNull(title) or IsEmpty(title) Then
+		f.WriteLine "" ' prosjekt
 	Else
-		f.WriteLine CStr(Dsc.Parameter(CAM_F_SQUANTERR)) ' Prøvemengde error
+		f.WriteLine title ' prosjekt
 	End If
-	If isDet Then
-		f.WriteLine ""
+	
+	samptype = Dsc.Parameter(CAM_T_SUCSTRING1)
+	If IsNull(samptype) or IsEmpty(samptype) Then
+		f.WriteLine "" ' Prøvetype
 	Else
-		f.WriteLine Dsc.Parameter(CAM_T_SUNITS) ' Prøve Enhet
+		f.WriteLine samptype	' Prøvetype
 	End If
-	f.WriteLine Dsc.Parameter(CAM_T_SGEOMTRY) ' Geometri
-	f.WriteLine Dsc.Parameter(CAM_X_STIME) ' Referansedato
-	f.WriteLine CStr(Dsc.Parameter(CAM_F_SSYSERR)) ' Syserr
-	f.WriteLine CStr(Dsc.Parameter(CAM_F_SSYSTERR)) ' Systerr	
+		
+	pc = Dsc.Parameter(CAM_T_SUCSTRING2)
+	If IsNull(pc) or IsEmpty(pc) Then
+		f.WriteLine "" ' prøvekomponent
+	Else
+		f.WriteLine pc ' prøvekomponent
+	End If
+	
 	If isDet Then
 		f.WriteLine ""
 	Else
-		f.WriteLine Dsc.Parameter(CAM_T_SUCSTRING4) ' Kommentar	
+		id = Dsc.Parameter(CAM_T_SIDENT)
+		If IsNull(id) or IsEmpty(id) Then
+			f.WriteLine "" ' prøveid
+		Else
+			f.WriteLine id ' prøveid
+		End If		
+	End If
+		
+	comm = Dsc.Parameter(CAM_T_SUCSTRING3)
+	If IsNull(comm) or IsEmpty(comm) Then
+		f.WriteLine "" ' Fylke/Kommune	
+	Else
+		f.WriteLine comm ' Fylke/Kommune	
+	End If
+	
+	lat = Dsc.Parameter(CAM_G_SGPSLATITUDE)
+	If IsNull(lat) or IsEmpty(lat) Then
+		f.WriteLine "" ' Lat
+	Else
+		f.WriteLine CStr(lat) ' Lat
+	End If
+		
+	lon = Dsc.Parameter(CAM_G_SGPSLONGITUD)
+	If IsNull(lon) or IsEmpty(lon) Then
+		f.WriteLine "" ' Lon
+	Else
+		f.WriteLine CStr(lon) ' Lon
+	End If
+		
+	alt = Dsc.Parameter(CAM_G_SGPSALTITUDE)
+	If IsNull(alt) or IsEmpty(alt) Then
+		f.WriteLine "" ' Alt
+	Else
+		f.WriteLine CStr(alt) ' Alt
+	End If
+	
+	loctype = Dsc.Parameter(CAM_T_SUCSTRING10)
+	If IsNull(loctype) or IsEmpty(loctype) Then
+		f.WriteLine "" ' Location Type
+	Else
+		f.WriteLine loctype ' Location Type
+	End If
+	
+	loc = Dsc.Parameter(CAM_T_SUCSTRING9)
+	If IsNull(loc) or IsEmpty(loc) Then
+		f.WriteLine "" ' Location
+	Else
+		f.WriteLine loc ' Location
+	End If
+	
+	If isDet Then
+		f.WriteLine ""
+	Else
+		quant = Dsc.Parameter(CAM_F_SQUANT)
+		If IsNull(quant) or IsEmpty(quant) Then
+			f.WriteLine "" ' Prøvemengde
+		Else
+			f.WriteLine CStr(quant) ' Prøvemengde
+		End If		
+	End If
+	
+	If isDet Then
+		f.WriteLine ""
+	Else		
+		quanterr = Dsc.Parameter(CAM_F_SQUANTERR)
+		If IsNull(quanterr) or IsEmpty(quanterr) Then
+			f.WriteLine "" ' Prøvemengde Error
+		Else
+			f.WriteLine CStr(quanterr) ' Prøvemengde Error
+		End If		
+	End If
+	
+	If isDet Then
+		f.WriteLine ""
+	Else		
+		unit = Dsc.Parameter(CAM_T_SUNITS)
+		If IsNull(unit) or IsEmpty(unit) Then
+			f.WriteLine "" ' Prøvenhet
+		Else
+			f.WriteLine unit ' Prøvenhet
+		End If		
+	End If
+		
+	geom = Dsc.Parameter(CAM_T_SGEOMTRY)
+	If IsNull(geom) or IsEmpty(geom) Then
+		f.WriteLine "" ' Geometri
+	Else
+		f.WriteLine geom ' Geometri
+	End If		
+		
+	ref = Dsc.Parameter(CAM_X_STIME)
+	If IsNull(ref) or IsEmpty(ref) Then
+		f.WriteLine "" ' Referansedato
+	Else
+		f.WriteLine ref ' Referansedato
+	End If		
+	
+	sys = Dsc.Parameter(CAM_F_SSYSERR)
+	If IsNull(sys) or IsEmpty(sys) Then
+		f.WriteLine "" ' Syserr
+	Else
+		f.WriteLine CStr(sys) ' Syserr
+	End If			
+		
+	syst = Dsc.Parameter(CAM_F_SSYSTERR)
+	If IsNull(syst) or IsEmpty(syst) Then
+		f.WriteLine "" ' Systerr	
+	Else
+		f.WriteLine CStr(syst) ' Systerr	
+	End If		
+	
+	If isDet Then
+		f.WriteLine ""
+	Else		
+		f.WriteLine Dsc.Parameter(CAM_T_SUCSTRING4) ' Kommentar
+		comment = Dsc.Parameter(CAM_T_SUCSTRING4)
+		If IsNull(comment) or IsEmpty(comment) Then
+			f.WriteLine "" ' Kommentar
+		Else
+			f.WriteLine comment ' Kommentar
+		End If		
 	End If
 	
 	f.Close
@@ -210,6 +331,6 @@ function Setup(Dsc,Phase)
 end function
 
 ]]>
-</script>
+  </script>
 
 </component>
