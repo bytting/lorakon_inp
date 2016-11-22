@@ -25,6 +25,8 @@ namespace lorakon
 {        
     public static class CustomEvents
     {
+        private static string NumSep = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
+
         public static void Integer_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Only allow numbers
@@ -45,7 +47,7 @@ namespace lorakon
         public static void UnsignedNumeric_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Only allow decimals
-            char sep = Convert.ToChar(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
+            char sep = Convert.ToChar(NumSep);
 
             TextBox tb = (TextBox)sender;
             if (e.KeyChar == sep)
@@ -74,7 +76,7 @@ namespace lorakon
 
         public static bool ValidateUnsignedNumeric(string num)
         {
-            char sep = Convert.ToChar(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
+            char sep = Convert.ToChar(NumSep);
             int separators = 0;
 
             for (int i=0; i<num.Length; i++)
@@ -95,7 +97,7 @@ namespace lorakon
         public static void SignedNumeric_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Only allow decimals and minus
-            char sep = Convert.ToChar(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
+            char sep = Convert.ToChar(NumSep);
 
             TextBox tb = (TextBox)sender;
             if (e.KeyChar == sep)
@@ -144,7 +146,7 @@ namespace lorakon
 
         public static bool ValidateSignedNumeric(string num)
         {
-            char sep = Convert.ToChar(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator);
+            char sep = Convert.ToChar(NumSep);
 
             int hyphens = 0, separators = 0;
             for (int i = 0; i < num.Length; i++)
@@ -165,7 +167,113 @@ namespace lorakon
                 return false;
 
             return true;
-        }        
+        }
+
+        public static void Latitude_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Only allow decimals and minus
+            char sep = Convert.ToChar(NumSep);
+
+            TextBox tb = (TextBox)sender;
+            if (e.KeyChar == sep)
+            {
+                // No separator at the beginning
+                if (tb.SelectionStart == 0)
+                {
+                    e.Handled = true;
+                    return;
+                }
+
+                // Only allow one separator
+                foreach (char c in tb.Text)
+                {
+                    if (c == sep)
+                    {
+                        e.Handled = true;
+                        return;
+                    }
+                }
+            }
+            
+            if (e.KeyChar == '-')
+            {
+                // Only minus at the beginning
+                if (tb.SelectionStart != 0)
+                {
+                    e.Handled = true;
+                    return;
+                }
+
+                // Only allow one minus
+                foreach (char c in tb.Text)
+                {
+                    if (c == '-')
+                    {
+                        e.Handled = true;
+                        return;
+                    }
+                }
+            }
+
+            if (!Char.IsNumber(e.KeyChar)
+                && !Char.IsControl(e.KeyChar)
+                && e.KeyChar != sep
+                && "-*°'\" NS".IndexOf(e.KeyChar) == -1)
+                e.Handled = true;
+        }
+
+        public static void Longitude_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Only allow decimals and minus
+            char sep = Convert.ToChar(NumSep);
+
+            TextBox tb = (TextBox)sender;
+            if (e.KeyChar == sep)
+            {
+                // No separator at the beginning
+                if (tb.SelectionStart == 0)
+                {
+                    e.Handled = true;
+                    return;
+                }
+
+                // Only allow one separator
+                foreach (char c in tb.Text)
+                {
+                    if (c == sep)
+                    {
+                        e.Handled = true;
+                        return;
+                    }
+                }
+            }
+
+            if (e.KeyChar == '-')
+            {
+                // Only minus at the beginning
+                if (tb.SelectionStart != 0)
+                {
+                    e.Handled = true;
+                    return;
+                }
+
+                // Only allow one minus
+                foreach (char c in tb.Text)
+                {
+                    if (c == '-')
+                    {
+                        e.Handled = true;
+                        return;
+                    }
+                }
+            }
+
+            if (!Char.IsNumber(e.KeyChar)
+                && !Char.IsControl(e.KeyChar)
+                && e.KeyChar != sep
+                && "-*°'\" EW".IndexOf(e.KeyChar) == -1)
+                e.Handled = true;
+        }
 
         public static void Crop8_TextChanged(object sender, EventArgs e)
         {

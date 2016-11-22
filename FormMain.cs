@@ -35,6 +35,8 @@ namespace lorakon
         // Flag used to keep track of initialization in the paint event (Avoid displaying forms/messages in the load event)
         bool Initialized = false;
 
+        string NumSep = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
+
         Settings settings = new Settings();
 
         // Encoding used for config files
@@ -64,8 +66,9 @@ namespace lorakon
         
         AutoCompleteStringCollection communities = new AutoCompleteStringCollection();
 
-        ToolTip coordToolTip = new ToolTip();
-        ToolTip locationToolTip = new ToolTip();
+        ToolTip Tip = new ToolTip();
+        ToolTip TipRequired = new ToolTip();
+        ToolTip TipOptional = new ToolTip();
 
         public FormSampleInput()
         {
@@ -74,6 +77,8 @@ namespace lorakon
 
         private void FormSampleInput_Load(object sender, EventArgs e)
         {
+            statusLabel.Text = String.Empty;
+
             // Limit max length of fields
             tbLab.TextChanged += CustomEvents.Crop16_TextChanged;
             tbScollName.TextChanged += CustomEvents.Crop24_TextChanged;
@@ -93,20 +98,29 @@ namespace lorakon
             tbAltitude.KeyPress += CustomEvents.SignedNumeric_KeyPress;            
             tbSSyserr.KeyPress += CustomEvents.UnsignedNumeric_KeyPress;
             tbSSysterr.KeyPress += CustomEvents.UnsignedNumeric_KeyPress;
+            tbLatitude.KeyPress += CustomEvents.Latitude_KeyPress;
+            tbLongitude.KeyPress += CustomEvents.Longitude_KeyPress;            
 
-            statusLabel.Text = String.Empty;
+            // Set up tooltips
+            Tip.ToolTipTitle = "";
+            Tip.SetToolTip(btnBrowseSampleType, "Velg prøvetype fra meny");
+            Tip.SetToolTip(btnCoordsClear, "Tøm felter for koordinater");
 
-            coordToolTip.ToolTipTitle = "";
-            coordToolTip.UseFading = true;
-            coordToolTip.UseAnimation = true;
-            coordToolTip.IsBalloon = true;
-            coordToolTip.ShowAlways = true;
-            coordToolTip.AutoPopDelay = 10000;
-            coordToolTip.InitialDelay = 700;
-            coordToolTip.ReshowDelay = 0;
-            coordToolTip.SetToolTip(labelCoordLatitude, "Breddegard format..."); // FIXME
-            coordToolTip.SetToolTip(labelCoordLongitude, "Lengdegrad format..."); // FIXME
-            coordToolTip.SetToolTip(labelCoordAltitude, "MOH format..."); // FIXME
+            TipRequired.ToolTipTitle = "Påkrevet";
+            TipRequired.SetToolTip(lblLabOperator, "Skriv inn navn på laboratorium og operator");
+            TipRequired.SetToolTip(lblSampleID, "Skriv inn identifikasjon til prøven");
+            TipRequired.SetToolTip(lblSampleType, "Velg prøvetype");
+            TipRequired.SetToolTip(lblQuantityQuantErr, "Skriv inn prøvemengde og absolutt usikkerhet");
+            TipRequired.SetToolTip(lblQuantityUnitGeometry, "Velg prøvemengde enhet og geometri");
+            TipRequired.SetToolTip(lblRefDate, "Velg referansedato");
+
+            TipOptional.ToolTipTitle = "Valgfri";
+            TipOptional.SetToolTip(lblProject, "Skriv inn navn på prosjekt/oppdrag");
+            TipOptional.SetToolTip(lblSampleComponent, "Velg hvilken del av prøven det har blitt målt på");
+            TipOptional.SetToolTip(lblCommunity, "Velg kommune/fylke der prøven ble tatt");
+            TipOptional.SetToolTip(lblCoords, "Breddegrad, Lengdegrad, Meter over havet");
+            TipOptional.SetToolTip(cboxLocation, "Velg lokasjons informasjon...");
+            TipOptional.SetToolTip(lblSysErrSystErr, "Skriv inn tilfeldig usikkerhet og system usikkerhet");
         }
 
         private void FormSampleInput_Paint(object sender, PaintEventArgs e)
@@ -481,24 +495,8 @@ namespace lorakon
             tbSQuant.Width = panelSampleQuant.Width / 2;
             cboxSUnits.Width = panelUnitGeom.Width / 2;
             dtpSDate.Width = panelReferenceDate.Width / 2;
-            tbSSyserr.Width = panelError.Width / 2;
-            labelCoordLatitude.Left = tbLatitude.Left;
-            labelCoordLongitude.Left = tbLongitude.Left;
-            labelCoordAltitude.Left = tbAltitude.Left;
+            tbSSyserr.Width = panelError.Width / 2;            
         }        
-
-        private void cboxLocation_MouseHover(object sender, EventArgs e)
-        {
-            locationToolTip.ToolTipTitle = "";
-            locationToolTip.UseFading = true;
-            locationToolTip.UseAnimation = true;
-            locationToolTip.IsBalloon = true;
-            locationToolTip.ShowAlways = true;
-            locationToolTip.AutoPopDelay = 10000;
-            locationToolTip.InitialDelay = 700;
-            locationToolTip.ReshowDelay = 0;
-            locationToolTip.SetToolTip(cboxLocation, "Velg lokasjons informasjon...");
-        }
 
         private void cboxLocation_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -625,11 +623,15 @@ namespace lorakon
                 if (tbLatitude.Text.Trim() != string.Empty)
                 {
                     lat = GetLatitude(tbLatitude.Text.Trim());
+                    if(lat > 90 || lat < -90)                
+                        throw new Exception("Breddegrad er utenfor gyldig område");                    
                 }
 
                 if (tbLongitude.Text.Trim() != string.Empty)
                 {
                     lon = GetLongitude(tbLongitude.Text.Trim());
+                    if (lon > 180 || lon < -180)                    
+                        throw new Exception("Lengdegrad er utenfor gyldig område");                    
                 }
             }
             catch(Exception ex)
@@ -645,16 +647,13 @@ namespace lorakon
                     alt = Convert.ToDouble(tbAltitude.Text.Trim());
                     // 10994: Depth of the Challenger Deep
                     // 480000: Thinkness of the atmosphere
-                    if (alt < -10994.0 || alt > 480000)
-                    {
-                        statusLabel.Text = "Høyde over havet er ugyldig";
-                        return;
-                    }
+                    if (alt < -10994.0 || alt > 480000)                    
+                        throw new Exception("Høyde over havet er ugyldig");
                 }
             }
-            catch
+            catch(Exception ex)
             {
-                statusLabel.Text = "Ugyldige høyde over havet";
+                statusLabel.Text = ex.Message;
                 return;
             }
 
@@ -728,115 +727,86 @@ namespace lorakon
             Environment.Exit(0);
         }
 
+        private int GetGroupSuccesses(Match m)
+        {
+            int nSuccesses = 0;
+            foreach (Group g in m.Groups)
+            {
+                if (g.Success)
+                    nSuccesses++;
+            }
+            return nSuccesses;
+        }
+
         private double GetLatitude(string input)
         {
             double lat = 0;
             input = input.Replace('°', '*');
-            Regex regex = new Regex("^(\\d{1,3})\\*?\\s+(\\d{1,2})'?\\s+(\\d{1,2})\"?\\s*([NS])$");
+            Regex regex = new Regex("^(\\d{1,3})\\*\\s+(\\d{1,2})'\\s+(\\d{1,2})\"\\s*([NS])$");
             Match match = regex.Match(input);
             if(match.Success)
             {
                 // Degrees, Minutes, Seconds
-                int found = 0;
-                foreach (Group g in match.Groups)
-                {
-                    if (g.Success)
-                        found++;
-                }
-
-                if (found != 5)
-                {
+                if (GetGroupSuccesses(match) != 5)                
                     throw new Exception("Ugyldig format på breddegrad");
-                }
-                else
-                {
-                    double degree = Convert.ToDouble(match.Groups[1].Value);
-                    double minutes = Convert.ToDouble(match.Groups[2].Value);
-                    double seconds = Convert.ToDouble(match.Groups[3].Value);
+                
+                double degree = Convert.ToDouble(match.Groups[1].Value);
+                double minutes = Convert.ToDouble(match.Groups[2].Value);
+                double seconds = Convert.ToDouble(match.Groups[3].Value);
                     
-                    lat = degree + (minutes / 60.0) + (seconds / 3600.0);
+                lat = degree + (minutes / 60.0) + (seconds / 3600.0);
 
-                    if (match.Groups[4].Value == "S")
-                        lat = -lat;                                        
-                }
+                if (match.Groups[4].Value == "S")
+                    lat = -lat;                                        
+                
                 return lat;
             }
 
-            regex = new Regex("^(\\d{1,3})\\*?\\s+(\\d{1,3},?\\d{0,6})'?\\s+([NS])$");
+            regex = new Regex("^(\\d{1,3})\\*\\s+(\\d{1,3}" + NumSep + "?\\d{0,6})'\\s+([NS])$");
             match = regex.Match(input);
             if (match.Success)
             {
-                // Degrees, Minutes                
-                int found = 0;
-                foreach (Group g in match.Groups)
-                {
-                    if (g.Success)
-                        found++;
-                }
-
-                if (found != 4)
-                {
+                // Degrees, Minutes
+                if (GetGroupSuccesses(match) != 4)                
                     throw new Exception("Ugyldig format på breddegrad");
-                }
-                else
-                {
-                    double degree = Convert.ToDouble(match.Groups[1].Value);
-                    double minutes = Convert.ToDouble(match.Groups[2].Value);                    
+                
+                double degree = Convert.ToDouble(match.Groups[1].Value);
+                double minutes = Convert.ToDouble(match.Groups[2].Value);                    
 
-                    //degrees = degrees + minutes / 60
-                    lat = degree + minutes / 60.0;
+                //degrees = degrees + minutes / 60
+                lat = degree + minutes / 60.0;
 
-                    if (match.Groups[3].Value == "S")
-                        lat = -lat;
-                }
+                if (match.Groups[3].Value == "S")
+                    lat = -lat;
+                
                 return lat;                
             }
 
-            regex = new Regex("^(\\d{1,3},?\\d{0,6})\\*?\\s+([NS])$");
+            regex = new Regex("^(\\d{1,3}" + NumSep + "?\\d{0,6})\\*\\s+([NS])$");
             match = regex.Match(input);
             if (match.Success)
             {
                 // Desimalgrader
-                int found = 0;
-                foreach (Group g in match.Groups)
-                {
-                    if (g.Success)
-                        found++;
-                }
-
-                if (found != 3)
-                {
+                if (GetGroupSuccesses(match) != 3)
                     throw new Exception("Ugyldig format på breddegrad");
-                }
-                else
-                {
-                    lat = Convert.ToDouble(match.Groups[1].Value);
-                    if (match.Groups[2].Value == "S")
-                        lat = -lat;
-                }
+
+                lat = Convert.ToDouble(match.Groups[1].Value);
+                if (match.Groups[2].Value == "S")
+                    lat = -lat;
+                                
                 return lat;
             }
 
-            regex = new Regex("^([-+]?\\d{1,3},?\\d{0,6})$");
+            regex = new Regex("^(-?\\d{1,3}" + NumSep + "?\\d{0,6})$");
             match = regex.Match(input);
             if (match.Success)
             {
                 // Desimal
-                int found = 0;
-                foreach (Group g in match.Groups)
-                {
-                    if (g.Success)
-                        found++;
-                }
-
-                if (found != 2)
-                {
+                if (GetGroupSuccesses(match) != 2)
                     throw new Exception("Ugyldig format på breddegrad");
-                }
-                else
-                {
-                    lat = Convert.ToDouble(match.Groups[1].Value);                    
-                }
+                
+                lat = Convert.ToDouble(match.Groups[1].Value);                                    
+
                 return lat;
             }
 
@@ -852,28 +822,18 @@ namespace lorakon
             if (match.Success)
             {
                 // Degrees, Minutes, Seconds
-                int found = 0;
-                foreach (Group g in match.Groups)
-                {
-                    if (g.Success)
-                        found++;
-                }
-
-                if (found != 5)
-                {
+                if (GetGroupSuccesses(match) != 5)
                     throw new Exception("Ugyldig format på lengdegrad");
-                }
-                else
-                {
-                    double degree = Convert.ToDouble(match.Groups[1].Value);
-                    double minutes = Convert.ToDouble(match.Groups[2].Value);
-                    double seconds = Convert.ToDouble(match.Groups[3].Value);
+                
+                double degree = Convert.ToDouble(match.Groups[1].Value);
+                double minutes = Convert.ToDouble(match.Groups[2].Value);
+                double seconds = Convert.ToDouble(match.Groups[3].Value);
 
-                    lon = degree + (minutes / 60.0) + (seconds / 3600.0);
+                lon = degree + (minutes / 60.0) + (seconds / 3600.0);
 
-                    if (match.Groups[4].Value == "W")
-                        lon = -lon;
-                }
+                if (match.Groups[4].Value == "W")
+                    lon = -lon;
+                
                 return lon;
             }
 
@@ -881,29 +841,19 @@ namespace lorakon
             match = regex.Match(input);
             if (match.Success)
             {
-                // Degrees, Minutes                
-                int found = 0;
-                foreach (Group g in match.Groups)
-                {
-                    if (g.Success)
-                        found++;
-                }
-
-                if (found != 4)
-                {
+                // Degrees, Minutes
+                if (GetGroupSuccesses(match) != 4)
                     throw new Exception("Ugyldig format på lengdegrad");
-                }
-                else
-                {
-                    double degree = Convert.ToDouble(match.Groups[1].Value);
-                    double minutes = Convert.ToDouble(match.Groups[2].Value);
+                
+                double degree = Convert.ToDouble(match.Groups[1].Value);
+                double minutes = Convert.ToDouble(match.Groups[2].Value);
 
-                    //degrees = degrees + minutes / 60
-                    lon = degree + minutes / 60.0;
+                //degrees = degrees + minutes / 60
+                lon = degree + minutes / 60.0;
 
-                    if (match.Groups[3].Value == "W")
-                        lon = -lon;
-                }
+                if (match.Groups[3].Value == "W")
+                    lon = -lon;                
+
                 return lon;
             }
 
@@ -912,23 +862,13 @@ namespace lorakon
             if (match.Success)
             {
                 // Desimalgrader
-                int found = 0;
-                foreach (Group g in match.Groups)
-                {
-                    if (g.Success)
-                        found++;
-                }
-
-                if (found != 3)
-                {
+                if (GetGroupSuccesses(match) != 3)
                     throw new Exception("Ugyldig format på lengdegrad");
-                }
-                else
-                {
-                    lon = Convert.ToDouble(match.Groups[1].Value);
-                    if (match.Groups[2].Value == "W")
-                        lon = -lon;
-                }
+                
+                lon = Convert.ToDouble(match.Groups[1].Value);
+                if (match.Groups[2].Value == "W")
+                    lon = -lon;                
+
                 return lon;
             }
 
@@ -937,21 +877,10 @@ namespace lorakon
             if (match.Success)
             {
                 // Desimal
-                int found = 0;
-                foreach (Group g in match.Groups)
-                {
-                    if (g.Success)
-                        found++;
-                }
-
-                if (found != 2)
-                {
+                if (GetGroupSuccesses(match) != 2)                
                     throw new Exception("Ugyldig format på lengdegrad");
-                }
-                else
-                {
-                    lon = Convert.ToDouble(match.Groups[1].Value);
-                }
+                                
+                lon = Convert.ToDouble(match.Groups[1].Value);
                 return lon;
             }
 

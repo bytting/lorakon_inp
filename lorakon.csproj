@@ -78,6 +78,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Images\clear-16.png" />
     <Content Include="Lorakon2016-Enh.TPL">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
