@@ -36,6 +36,7 @@ namespace lorakon
         bool Initialized = false;
 
         string NumSep = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
+        string NL = Environment.NewLine;
 
         Settings settings = new Settings();
 
@@ -102,7 +103,7 @@ namespace lorakon
             tbLongitude.KeyPress += CustomEvents.Longitude_KeyPress;            
 
             // Set up tooltips
-            Tip.ToolTipTitle = "";
+            Tip.ToolTipTitle = "";            
             Tip.SetToolTip(btnBrowseSampleType, "Velg prøvetype fra meny");
             Tip.SetToolTip(btnCoordsClear, "Tøm felter for koordinater");
 
@@ -118,7 +119,9 @@ namespace lorakon
             TipOptional.SetToolTip(lblProject, "Skriv inn navn på prosjekt/oppdrag");
             TipOptional.SetToolTip(lblSampleComponent, "Velg hvilken del av prøven det har blitt målt på");
             TipOptional.SetToolTip(lblCommunity, "Velg kommune/fylke der prøven ble tatt");
-            TipOptional.SetToolTip(lblCoords, "Breddegrad, Lengdegrad, Meter over havet");
+            TipOptional.SetToolTip(lblCoords, "Breddegrad, Lengdegrad, Meter over havet" + NL + NL 
+                + "Format på koordinater: " + NL + "61° 34' 12\" N   11° 67' 20\" E" + NL + "61° 34" + NumSep + "23' N   11° 67" + NumSep + "33' E" 
+                + NL + "61" + NumSep + "543478° N   11" + NumSep + "776344° E" + NL + "61" + NumSep + "543478   -11" + NumSep + "776344" + NL + NL + "° kan erstattes med *");
             TipOptional.SetToolTip(cboxLocation, "Velg lokasjons informasjon...");
             TipOptional.SetToolTip(lblSysErrSystErr, "Skriv inn tilfeldig usikkerhet og system usikkerhet");
         }
@@ -742,7 +745,7 @@ namespace lorakon
         {
             double lat = 0;
             input = input.Replace('°', '*');
-            Regex regex = new Regex("^(\\d{1,3})\\*\\s+(\\d{1,2})'\\s+(\\d{1,2})\"\\s*([NS])$");
+            Regex regex = new Regex("^(\\d{1,2})\\*?\\s+(\\d{1,2})'?\\s+(\\d{1,2})\"?\\s*([NS])$");
             Match match = regex.Match(input);
             if(match.Success)
             {
@@ -762,7 +765,7 @@ namespace lorakon
                 return lat;
             }
 
-            regex = new Regex("^(\\d{1,3})\\*\\s+(\\d{1,3}" + NumSep + "?\\d{0,6})'\\s+([NS])$");
+            regex = new Regex("^(\\d{1,2})\\*?\\s+(\\d{1,2}" + NumSep + "?\\d{0,6})'?\\s*([NS])$");
             match = regex.Match(input);
             if (match.Success)
             {
@@ -782,7 +785,7 @@ namespace lorakon
                 return lat;                
             }
 
-            regex = new Regex("^(\\d{1,3}" + NumSep + "?\\d{0,6})\\*\\s+([NS])$");
+            regex = new Regex("^(\\d{1,2}" + NumSep + "?\\d{0,6})\\*?\\s*([NS])$");
             match = regex.Match(input);
             if (match.Success)
             {
@@ -797,7 +800,7 @@ namespace lorakon
                 return lat;
             }
 
-            regex = new Regex("^(-?\\d{1,3}" + NumSep + "?\\d{0,6})$");
+            regex = new Regex("^(-?\\d{1,2}" + NumSep + "?\\d{0,6})$");
             match = regex.Match(input);
             if (match.Success)
             {
@@ -837,7 +840,7 @@ namespace lorakon
                 return lon;
             }
 
-            regex = new Regex("^(\\d{1,3})\\*?\\s+(\\d{1,3},?\\d{0,6})'?\\s+([EW])$");
+            regex = new Regex("^(\\d{1,3})\\*?\\s+(\\d{1,2},?\\d{0,6})'?\\s*([EW])$");
             match = regex.Match(input);
             if (match.Success)
             {
@@ -857,7 +860,7 @@ namespace lorakon
                 return lon;
             }
 
-            regex = new Regex("^(\\d{1,3},?\\d{0,6})\\*?\\s+([EW])$");
+            regex = new Regex("^(\\d{1,3},?\\d{0,6})\\*?\\s*([EW])$");
             match = regex.Match(input);
             if (match.Success)
             {
@@ -872,7 +875,7 @@ namespace lorakon
                 return lon;
             }
 
-            regex = new Regex("^([-+]?\\d{1,3},?\\d{0,6})$");
+            regex = new Regex("^(-?\\d{1,3},?\\d{0,6})$");
             match = regex.Match(input);
             if (match.Success)
             {

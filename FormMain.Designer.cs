@@ -44,7 +44,6 @@
             this.tbAltitude = new System.Windows.Forms.TextBox();
             this.tbLongitude = new System.Windows.Forms.TextBox();
             this.tbLatitude = new System.Windows.Forms.TextBox();
-            this.btnCoordsClear = new System.Windows.Forms.Button();
             this.lblCommunity = new System.Windows.Forms.Label();
             this.cboxCommunity = new System.Windows.Forms.ComboBox();
             this.panelReferenceDate = new System.Windows.Forms.Panel();
@@ -59,7 +58,6 @@
             this.lblSampleComponent = new System.Windows.Forms.Label();
             this.panelSampleType = new System.Windows.Forms.Panel();
             this.cboxSampleType = new System.Windows.Forms.ComboBox();
-            this.btnBrowseSampleType = new System.Windows.Forms.Button();
             this.panelUnitGeom = new System.Windows.Forms.Panel();
             this.cboxSGeomtry = new System.Windows.Forms.ComboBox();
             this.cboxSUnits = new System.Windows.Forms.ComboBox();
@@ -88,11 +86,13 @@
             this.lblProject = new System.Windows.Forms.Label();
             this.lblCoords = new System.Windows.Forms.Label();
             this.tools = new System.Windows.Forms.ToolStrip();
-            this.btnImport = new System.Windows.Forms.ToolStripDropDownButton();
-            this.btnImportSampReg = new System.Windows.Forms.ToolStripMenuItem();
             this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.status = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnCoordsClear = new System.Windows.Forms.Button();
+            this.btnBrowseSampleType = new System.Windows.Forms.Button();
+            this.btnImport = new System.Windows.Forms.ToolStripDropDownButton();
+            this.btnImportSampReg = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.tableLayoutMain.SuspendLayout();
             this.panelSampleQuant.SuspendLayout();
@@ -125,7 +125,7 @@
             // btnCancel
             // 
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnCancel.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.btnCancel.Font = new System.Drawing.Font("Tahoma", 9.5F);
             this.btnCancel.Location = new System.Drawing.Point(543, 0);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(124, 32);
@@ -137,7 +137,7 @@
             // btnOk
             // 
             this.btnOk.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnOk.Font = new System.Drawing.Font("Tahoma", 9.75F);
+            this.btnOk.Font = new System.Drawing.Font("Tahoma", 9.5F);
             this.btnOk.Location = new System.Drawing.Point(667, 0);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(117, 32);
@@ -298,7 +298,7 @@
             this.tbAltitude.Location = new System.Drawing.Point(346, 0);
             this.tbAltitude.MaxLength = 16;
             this.tbAltitude.Name = "tbAltitude";
-            this.tbAltitude.Size = new System.Drawing.Size(160, 23);
+            this.tbAltitude.Size = new System.Drawing.Size(166, 23);
             this.tbAltitude.TabIndex = 2;
             // 
             // tbLongitude
@@ -318,17 +318,6 @@
             this.tbLatitude.Name = "tbLatitude";
             this.tbLatitude.Size = new System.Drawing.Size(173, 23);
             this.tbLatitude.TabIndex = 0;
-            // 
-            // btnCoordsClear
-            // 
-            this.btnCoordsClear.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnCoordsClear.Image = global::lorakon.Properties.Resources.clear_16;
-            this.btnCoordsClear.Location = new System.Drawing.Point(506, 0);
-            this.btnCoordsClear.Name = "btnCoordsClear";
-            this.btnCoordsClear.Size = new System.Drawing.Size(32, 26);
-            this.btnCoordsClear.TabIndex = 3;
-            this.btnCoordsClear.UseVisualStyleBackColor = true;
-            this.btnCoordsClear.Click += new System.EventHandler(this.linkClearCoords_Click);
             // 
             // lblCommunity
             // 
@@ -483,22 +472,11 @@
             this.cboxSampleType.Location = new System.Drawing.Point(0, 0);
             this.cboxSampleType.MaxLength = 255;
             this.cboxSampleType.Name = "cboxSampleType";
-            this.cboxSampleType.Size = new System.Drawing.Size(506, 24);
+            this.cboxSampleType.Size = new System.Drawing.Size(512, 24);
             this.cboxSampleType.Sorted = true;
             this.cboxSampleType.TabIndex = 0;
             this.cboxSampleType.SelectedIndexChanged += new System.EventHandler(this.cboxSampleType_SelectedIndexChanged);
             this.cboxSampleType.Leave += new System.EventHandler(this.cboxSampleType_Leave);
-            // 
-            // btnBrowseSampleType
-            // 
-            this.btnBrowseSampleType.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnBrowseSampleType.Location = new System.Drawing.Point(506, 0);
-            this.btnBrowseSampleType.Name = "btnBrowseSampleType";
-            this.btnBrowseSampleType.Size = new System.Drawing.Size(32, 26);
-            this.btnBrowseSampleType.TabIndex = 1;
-            this.btnBrowseSampleType.Text = "...";
-            this.btnBrowseSampleType.UseVisualStyleBackColor = true;
-            this.btnBrowseSampleType.Click += new System.EventHandler(this.btnBrowseSampleType_Click);
             // 
             // panelUnitGeom
             // 
@@ -839,6 +817,49 @@
             this.tools.TabIndex = 0;
             this.tools.Text = "toolStrip1";
             // 
+            // status
+            // 
+            this.status.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusLabel});
+            this.status.Location = new System.Drawing.Point(0, 545);
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(784, 22);
+            this.status.SizingGrip = false;
+            this.status.TabIndex = 2;
+            this.status.Text = "statusStrip1";
+            // 
+            // statusLabel
+            // 
+            this.statusLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.statusLabel.Font = new System.Drawing.Font("Arial", 9F);
+            this.statusLabel.ForeColor = System.Drawing.Color.Red;
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(86, 17);
+            this.statusLabel.Text = "<statusLabel>";
+            // 
+            // btnCoordsClear
+            // 
+            this.btnCoordsClear.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnCoordsClear.Image = global::lorakon.Properties.Resources.clear_16;
+            this.btnCoordsClear.Location = new System.Drawing.Point(512, 0);
+            this.btnCoordsClear.Name = "btnCoordsClear";
+            this.btnCoordsClear.Size = new System.Drawing.Size(26, 26);
+            this.btnCoordsClear.TabIndex = 3;
+            this.btnCoordsClear.UseVisualStyleBackColor = true;
+            this.btnCoordsClear.Click += new System.EventHandler(this.linkClearCoords_Click);
+            // 
+            // btnBrowseSampleType
+            // 
+            this.btnBrowseSampleType.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnBrowseSampleType.Image = global::lorakon.Properties.Resources.tree_16;
+            this.btnBrowseSampleType.Location = new System.Drawing.Point(512, 0);
+            this.btnBrowseSampleType.Name = "btnBrowseSampleType";
+            this.btnBrowseSampleType.Size = new System.Drawing.Size(26, 26);
+            this.btnBrowseSampleType.TabIndex = 1;
+            this.btnBrowseSampleType.Text = "...";
+            this.btnBrowseSampleType.UseVisualStyleBackColor = true;
+            this.btnBrowseSampleType.Click += new System.EventHandler(this.btnBrowseSampleType_Click);
+            // 
             // btnImport
             // 
             this.btnImport.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -855,26 +876,6 @@
             this.btnImportSampReg.Name = "btnImportSampReg";
             this.btnImportSampReg.Size = new System.Drawing.Size(203, 22);
             this.btnImportSampReg.Text = "Sample registration logg";
-            // 
-            // status
-            // 
-            this.status.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.statusLabel});
-            this.status.Location = new System.Drawing.Point(0, 545);
-            this.status.Name = "status";
-            this.status.Size = new System.Drawing.Size(784, 22);
-            this.status.SizingGrip = false;
-            this.status.TabIndex = 2;
-            this.status.Text = "statusStrip1";
-            // 
-            // statusLabel
-            // 
-            this.statusLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.statusLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.statusLabel.ForeColor = System.Drawing.Color.Red;
-            this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(82, 17);
-            this.statusLabel.Text = "<statusLabel>";
             // 
             // FormSampleInput
             // 

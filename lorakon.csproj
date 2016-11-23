@@ -79,6 +79,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Images\clear-16.png" />
+    <None Include="Images\tree-16.png" />
     <Content Include="Lorakon2016-Enh.TPL">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

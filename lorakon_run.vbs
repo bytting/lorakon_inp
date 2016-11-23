@@ -28,45 +28,166 @@ function Execute(Dsc,Phase)
 	
     ' SKRIV DATA SOURCE VERDIER TIL INPUT FIL
 	set f = fso.OpenTextFile(paramFile, 2, True)
-	f.WriteLine Dsc.Parameter(CAM_T_SSPRSTR1) ' Lab
-	f.WriteLine Dsc.Parameter(CAM_T_SCOLLNAME) ' Prøvetaker
-	f.WriteLine Dsc.Parameter(CAM_T_STITLE) ' Prøvetittel
-	f.WriteLine Dsc.Parameter(CAM_T_SUCSTRING1)	' Prøvetype
-	f.WriteLine Dsc.Parameter(CAM_T_SUCSTRING2)	' Prøve komponent
-	If isDet Then
+	
+	lab = Dsc.Parameter(CAM_T_SSPRSTR1) ' LABORATORIUM
+	If IsNull(lab) or IsEmpty(lab) Then
 		f.WriteLine ""
 	Else
-		f.WriteLine Dsc.Parameter(CAM_T_SIDENT) ' PrøveID
+		f.WriteLine lab
 	End If
-	f.WriteLine Dsc.Parameter(CAM_T_SUCSTRING3) ' Fylke/Kommune	
-	f.WriteLine CStr(Dsc.Parameter(CAM_G_SGPSLATITUDE)) ' Lat
-	f.WriteLine CStr(Dsc.Parameter(CAM_G_SGPSLONGITUD)) ' Lon
-	f.WriteLine CStr(Dsc.Parameter(CAM_G_SGPSALTITUDE)) ' Alt
-	f.WriteLine Dsc.Parameter(CAM_T_SUCSTRING10) ' Lokasjonstype	
-	f.WriteLine Dsc.Parameter(CAM_T_SUCSTRING9) ' Lokasjon
-	If isDet Then
+		
+	pt = Dsc.Parameter(CAM_T_SCOLLNAME) ' OPERATØR
+	If IsNull(pt) or IsEmpty(pt) Then
 		f.WriteLine ""
 	Else
-		f.WriteLine CStr(Dsc.Parameter(CAM_F_SQUANT)) ' Prøvemengde
+		f.WriteLine pt
 	End If
-	If isDet Then
+	
+	title = Dsc.Parameter(CAM_T_STITLE) ' PROSJEKT
+	If IsNull(title) or IsEmpty(title) Then
 		f.WriteLine ""
 	Else
-		f.WriteLine CStr(Dsc.Parameter(CAM_F_SQUANTERR)) ' Prøvemengde error
+		f.WriteLine title
 	End If
-	If isDet Then
+	
+	samptype = Dsc.Parameter(CAM_T_SUCSTRING1) ' PRØVETYPE
+	If IsNull(samptype) or IsEmpty(samptype) Then
 		f.WriteLine ""
 	Else
-		f.WriteLine Dsc.Parameter(CAM_T_SUNITS) ' Prøve Enhet
+		f.WriteLine samptype
 	End If
-	f.WriteLine Dsc.Parameter(CAM_T_SGEOMTRY) ' Geometri
-	f.WriteLine Dsc.Parameter(CAM_X_STIME) ' Referansedato
-	f.WriteLine CStr(Dsc.Parameter(CAM_F_SSYSERR)) ' Syserr
-	f.WriteLine CStr(Dsc.Parameter(CAM_F_SSYSTERR)) ' Systerr	
+		
+	pc = Dsc.Parameter(CAM_T_SUCSTRING2) ' PRØVE KOMPONENT
+	If IsNull(pc) or IsEmpty(pc) Then
+		f.WriteLine ""
+	Else
+		f.WriteLine pc
+	End If
+	
 	If isDet Then
 		f.WriteLine ""
 	Else
-		f.WriteLine Dsc.Parameter(CAM_T_SUCSTRING4) ' Kommentar	
+		id = Dsc.Parameter(CAM_T_SIDENT) ' PRØVE ID
+		If IsNull(id) or IsEmpty(id) Then
+			f.WriteLine ""
+		Else
+			f.WriteLine id
+		End If		
+	End If
+		
+	comm = Dsc.Parameter(CAM_T_SUCSTRING3) ' FYLKE / KOMMUNE
+	If IsNull(comm) or IsEmpty(comm) Then
+		f.WriteLine ""
+	Else
+		f.WriteLine comm
+	End If
+	
+	lat = Dsc.Parameter(CAM_G_SGPSLATITUDE) ' BREDDEGRAD
+	If IsNull(lat) or IsEmpty(lat) Then
+		f.WriteLine ""
+	Else
+		f.WriteLine CStr(lat)
+	End If
+		
+	lon = Dsc.Parameter(CAM_G_SGPSLONGITUD) ' LENGDEGRAD
+	If IsNull(lon) or IsEmpty(lon) Then
+		f.WriteLine ""
+	Else
+		f.WriteLine CStr(lon)
+	End If
+		
+	alt = Dsc.Parameter(CAM_G_SGPSALTITUDE) ' METER OVER HAVET
+	If IsNull(alt) or IsEmpty(alt) Then
+		f.WriteLine ""
+	Else
+		f.WriteLine CStr(alt)
+	End If
+	
+	loctype = Dsc.Parameter(CAM_T_SUCSTRING10) ' LOKASJONSTYPE
+	If IsNull(loctype) or IsEmpty(loctype) Then
+		f.WriteLine ""
+	Else
+		f.WriteLine loctype
+	End If
+	
+	loc = Dsc.Parameter(CAM_T_SUCSTRING9) ' LOKASJON
+	If IsNull(loc) or IsEmpty(loc) Then
+		f.WriteLine ""
+	Else
+		f.WriteLine loc
+	End If
+	
+	If isDet Then
+		f.WriteLine ""
+	Else
+		quant = Dsc.Parameter(CAM_F_SQUANT) ' PRØVEMENGDE
+		If IsNull(quant) or IsEmpty(quant) Then
+			f.WriteLine ""
+		Else
+			f.WriteLine CStr(quant)
+		End If		
+	End If
+	
+	If isDet Then
+		f.WriteLine ""
+	Else		
+		quanterr = Dsc.Parameter(CAM_F_SQUANTERR) ' PRØVEMENGDE ERROR
+		If IsNull(quanterr) or IsEmpty(quanterr) Then
+			f.WriteLine ""
+		Else
+			f.WriteLine CStr(quanterr)
+		End If		
+	End If
+	
+	If isDet Then
+		f.WriteLine ""
+	Else		
+		unit = Dsc.Parameter(CAM_T_SUNITS) ' PRØVE ENHET
+		If IsNull(unit) or IsEmpty(unit) Then
+			f.WriteLine ""
+		Else
+			f.WriteLine unit
+		End If		
+	End If
+		
+	geom = Dsc.Parameter(CAM_T_SGEOMTRY) ' GEOMETRI
+	If IsNull(geom) or IsEmpty(geom) Then
+		f.WriteLine ""
+	Else
+		f.WriteLine geom
+	End If		
+		
+	ref = Dsc.Parameter(CAM_X_STIME) '  REFERENASE DATO
+	If IsNull(ref) or IsEmpty(ref) Then
+		f.WriteLine ""
+	Else
+		f.WriteLine ref
+	End If		
+	
+	sys = Dsc.Parameter(CAM_F_SSYSERR) ' RANDOM ERROR
+	If IsNull(sys) or IsEmpty(sys) Then
+		f.WriteLine ""
+	Else
+		f.WriteLine CStr(sys)
+	End If			
+		
+	syst = Dsc.Parameter(CAM_F_SSYSTERR) ' SYSTEM ERROR
+	If IsNull(syst) or IsEmpty(syst) Then
+		f.WriteLine ""
+	Else
+		f.WriteLine CStr(syst)
+	End If		
+	
+	If isDet Then
+		f.WriteLine ""
+	Else		
+		f.WriteLine Dsc.Parameter(CAM_T_SUCSTRING4) ' KOMMENTAR
+		comment = Dsc.Parameter(CAM_T_SUCSTRING4)
+		If IsNull(comment) or IsEmpty(comment) Then
+			f.WriteLine ""
+		Else
+			f.WriteLine comment
+		End If		
 	End If
 	
 	f.Close
@@ -87,72 +208,72 @@ function Execute(Dsc,Phase)
 		line = f.ReadLine
 		
 		select case idx
-		case 0 ' LABORATORY
-            Dsc.Parameter(CAM_T_SSPRSTR1) = line ' Lab
-		case 1 ' OPERATØR
-            Dsc.Parameter(CAM_T_SCOLLNAME) = line ' Prøvetaker
-		case 2 ' PRØVETITTEL
-            Dsc.Parameter(CAM_T_STITLE) = line ' Prøvetittel
-		case 3 ' PRØVETYPE
-            Dsc.Parameter(CAM_T_SUCSTRING1) = line ' Prøvetype
-		case 4 ' PRØVE KOMPONENT
-            Dsc.Parameter(CAM_T_SUCSTRING2) = line ' Prøve komponent
-		case 5 ' PRØVE ID
-            Dsc.Parameter(CAM_T_SIDENT) = line ' PrøveID
-		case 6 ' KOMMUNE / FYLKE
-            Dsc.Parameter(CAM_T_SUCSTRING3) = line ' Fylke/Kommune					        
-		case 7 ' LATITUDE
+		case 0
+            Dsc.Parameter(CAM_T_SSPRSTR1) = line ' LABORATORIE
+		case 1
+            Dsc.Parameter(CAM_T_SCOLLNAME) = line ' OPERATØR
+		case 2
+            Dsc.Parameter(CAM_T_STITLE) = line ' PROSJEKT
+		case 3
+            Dsc.Parameter(CAM_T_SUCSTRING1) = line ' PRØVETYPE
+		case 4
+            Dsc.Parameter(CAM_T_SUCSTRING2) = line ' PRØVETYPE KOMPONENT
+		case 5
+            Dsc.Parameter(CAM_T_SIDENT) = line ' PRØVE ID
+		case 6
+            Dsc.Parameter(CAM_T_SUCSTRING3) = line ' FYLKE / KOMMUNE
+		case 7
             If line <> "" Then
-                Dsc.Parameter(CAM_G_SGPSLATITUDE) = CDbl(line) ' Lat
+                Dsc.Parameter(CAM_G_SGPSLATITUDE) = CDbl(line) ' BREDDEGRAD
 			Else
 				Dsc.Parameter(CAM_G_SGPSLATITUDE) = 0
             End If
-		case 8 ' LONGITUDE
+		case 8
             If line <> "" Then
-                Dsc.Parameter(CAM_G_SGPSLONGITUD) = CDbl(line) ' Lon
+                Dsc.Parameter(CAM_G_SGPSLONGITUD) = CDbl(line) ' LENGDEGRAD
 			Else
 				Dsc.Parameter(CAM_G_SGPSLONGITUD) = 0
             End If
-		case 9 ' ALTITUDE
+		case 9
             If line <> "" Then
-                Dsc.Parameter(CAM_G_SGPSALTITUDE) = CDbl(line) ' Alt
+                Dsc.Parameter(CAM_G_SGPSALTITUDE) = CDbl(line) ' METER OVER HAVET
 			Else
 				Dsc.Parameter(CAM_G_SGPSALTITUDE) = 0
             End If
-		case 10 ' LOKASJONSTYPE
-            Dsc.Parameter(CAM_T_SUCSTRING10) = line ' Lokasjonstype	
-		case 11 ' LOKASJON
-            Dsc.Parameter(CAM_T_SUCSTRING9) = line ' Lokasjon
-		case 12 ' PRØVEMENGDE
+		case 10
+            Dsc.Parameter(CAM_T_SUCSTRING10) = line ' LOKASJONSTYPE
+		case 11
+            Dsc.Parameter(CAM_T_SUCSTRING9) = line ' LOKASJON
+		case 12
             If line <> "" Then
-                Dsc.Parameter(CAM_F_SQUANT) = CDbl(line) ' Prøvemengde
+                Dsc.Parameter(CAM_F_SQUANT) = CDbl(line) ' PRØVEMENGDE
             End If
-		case 13 ' PRØVEMENGDE ERROR
+		case 13
             If line <> "" Then
-                Dsc.Parameter(CAM_F_SQUANTERR) = CDbl(line) ' Prøvemengde error
+                Dsc.Parameter(CAM_F_SQUANTERR) = CDbl(line) ' PRØVEMENGDE ERROR
             End If
-		case 14 ' PRØVEMENGDE ENHET
-            Dsc.Parameter(CAM_T_SUNITS) = line ' Prøvemengde enhet
-		case 15 ' GEOMETRI
-            Dsc.Parameter(CAM_T_SGEOMTRY) = line ' Geometri
-		case 16 ' REFERANSEDATO
+		case 14
+            Dsc.Parameter(CAM_T_SUNITS) = line ' PRØVEMENGDE ENHET
+		case 15
+            Dsc.Parameter(CAM_T_SGEOMTRY) = line ' GEOMETRI
+		case 16
             If line <> "" Then
-                Dsc.Parameter(CAM_X_STIME) = CDate(line) ' Referansedato
+                Dsc.Parameter(CAM_X_STIME) = CDate(line) ' REFERANSE DATO
             End If
-		case 17	' RANDOM ERROR
+		case 17
             If line <> "" Then
-                Dsc.Parameter(CAM_F_SSYSERR) = CDbl(line) ' Syserr
+                Dsc.Parameter(CAM_F_SSYSERR) = CDbl(line) ' RANDOM ERROR
 			Else
 				Dsc.Parameter(CAM_F_SSYSERR) = 0	
             End If
-		case 18	' SYSTEM ERROR
+		case 18
             If line <> "" Then
-                Dsc.Parameter(CAM_F_SSYSTERR) = CDbl(line) ' Systerr
+                Dsc.Parameter(CAM_F_SSYSTERR) = CDbl(line) ' SYSTEM ERROR
 			Else
 				Dsc.Parameter(CAM_F_SSYSTERR) = 0
             End If
-		case 19 ' KOMMENTAR
-			Dsc.Parameter(CAM_T_SUCSTRING4) = line ' Kommentar
+		case 19
+			Dsc.Parameter(CAM_T_SUCSTRING4) = line ' KOMMENTAR
 		case else
 			exit do
 		end select
@@ -180,4 +301,3 @@ function Setup(Dsc,Phase)
 	Setup = 0
 
 end function
-
