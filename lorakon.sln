@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lorakon", "lorakon.csproj", "{BB2104D5-E024-4CE5-9E29-96BAC6B42C5D}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{D69844BD-DD0C-4735-A1B3-066F306FE9F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,8 @@ Global
 		{BB2104D5-E024-4CE5-9E29-96BAC6B42C5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB2104D5-E024-4CE5-9E29-96BAC6B42C5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB2104D5-E024-4CE5-9E29-96BAC6B42C5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D69844BD-DD0C-4735-A1B3-066F306FE9F0}.Debug|Any CPU.ActiveCfg = Debug
+		{D69844BD-DD0C-4735-A1B3-066F306FE9F0}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

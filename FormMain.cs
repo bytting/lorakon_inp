@@ -71,6 +71,8 @@ namespace lorakon
         ToolTip TipRequired = new ToolTip();
         ToolTip TipOptional = new ToolTip();
 
+        FormAbout about = new FormAbout();
+
         public FormSampleInput()
         {
             InitializeComponent();            
@@ -544,7 +546,12 @@ namespace lorakon
             {
                 MessageBox.Show(ex.Message);
             }
-        }                
+        }
+
+        private void btnAbout_Click(object sender, EventArgs e)
+        {
+            about.ShowDialog();            
+        }
 
         private void btnOk_Click(object sender, EventArgs e)
         {

@@ -93,6 +93,7 @@
             this.btnBrowseSampleType = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.ToolStripDropDownButton();
             this.btnImportSampReg = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAbout = new System.Windows.Forms.ToolStripButton();
             this.panel1.SuspendLayout();
             this.tableLayoutMain.SuspendLayout();
             this.panelSampleQuant.SuspendLayout();
@@ -810,7 +811,8 @@
             // 
             this.tools.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tools.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnImport});
+            this.btnImport,
+            this.btnAbout});
             this.tools.Location = new System.Drawing.Point(0, 0);
             this.tools.Name = "tools";
             this.tools.Size = new System.Drawing.Size(784, 25);
@@ -862,13 +864,14 @@
             // 
             // btnImport
             // 
+            this.btnImport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.btnImport.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnImportSampReg});
             this.btnImport.Enabled = false;
             this.btnImport.Image = ((System.Drawing.Image)(resources.GetObject("btnImport.Image")));
             this.btnImport.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(102, 22);
+            this.btnImport.Size = new System.Drawing.Size(86, 22);
             this.btnImport.Text = "Import fra fil";
             // 
             // btnImportSampReg
@@ -876,6 +879,16 @@
             this.btnImportSampReg.Name = "btnImportSampReg";
             this.btnImportSampReg.Size = new System.Drawing.Size(203, 22);
             this.btnImportSampReg.Text = "Sample registration logg";
+            // 
+            // btnAbout
+            // 
+            this.btnAbout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnAbout.Image = ((System.Drawing.Image)(resources.GetObject("btnAbout.Image")));
+            this.btnAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnAbout.Name = "btnAbout";
+            this.btnAbout.Size = new System.Drawing.Size(40, 22);
+            this.btnAbout.Text = "Om...";
+            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
             // 
             // FormSampleInput
             // 
@@ -999,6 +1012,7 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button btnCoordsClear;
+        private System.Windows.Forms.ToolStripButton btnAbout;
     }
 }
 
