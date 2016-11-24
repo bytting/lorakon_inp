@@ -847,7 +847,7 @@ namespace lorakon
                 return lon;
             }
 
-            regex = new Regex("^(\\d{1,3})\\*?\\s+(\\d{1,2},?\\d{0,6})'?\\s*([EW])$");
+            regex = new Regex("^(\\d{1,3})\\*?\\s+(\\d{1,2}" + NumSep + "?\\d{0,6})'?\\s*([EW])$");
             match = regex.Match(input);
             if (match.Success)
             {
@@ -867,7 +867,7 @@ namespace lorakon
                 return lon;
             }
 
-            regex = new Regex("^(\\d{1,3},?\\d{0,6})\\*?\\s*([EW])$");
+            regex = new Regex("^(\\d{1,3}" + NumSep + "?\\d{0,6})\\*?\\s*([EW])$");
             match = regex.Match(input);
             if (match.Success)
             {
@@ -882,7 +882,7 @@ namespace lorakon
                 return lon;
             }
 
-            regex = new Regex("^(-?\\d{1,3},?\\d{0,6})$");
+            regex = new Regex("^(-?\\d{1,3}" + NumSep + "?\\d{0,6})$");
             match = regex.Match(input);
             if (match.Success)
             {

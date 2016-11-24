@@ -44,6 +44,7 @@
             this.tbAltitude = new System.Windows.Forms.TextBox();
             this.tbLongitude = new System.Windows.Forms.TextBox();
             this.tbLatitude = new System.Windows.Forms.TextBox();
+            this.btnCoordsClear = new System.Windows.Forms.Button();
             this.lblCommunity = new System.Windows.Forms.Label();
             this.cboxCommunity = new System.Windows.Forms.ComboBox();
             this.panelReferenceDate = new System.Windows.Forms.Panel();
@@ -58,6 +59,7 @@
             this.lblSampleComponent = new System.Windows.Forms.Label();
             this.panelSampleType = new System.Windows.Forms.Panel();
             this.cboxSampleType = new System.Windows.Forms.ComboBox();
+            this.btnBrowseSampleType = new System.Windows.Forms.Button();
             this.panelUnitGeom = new System.Windows.Forms.Panel();
             this.cboxSGeomtry = new System.Windows.Forms.ComboBox();
             this.cboxSUnits = new System.Windows.Forms.ComboBox();
@@ -86,14 +88,12 @@
             this.lblProject = new System.Windows.Forms.Label();
             this.lblCoords = new System.Windows.Forms.Label();
             this.tools = new System.Windows.Forms.ToolStrip();
-            this.ofd = new System.Windows.Forms.OpenFileDialog();
-            this.status = new System.Windows.Forms.StatusStrip();
-            this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnCoordsClear = new System.Windows.Forms.Button();
-            this.btnBrowseSampleType = new System.Windows.Forms.Button();
             this.btnImport = new System.Windows.Forms.ToolStripDropDownButton();
             this.btnImportSampReg = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAbout = new System.Windows.Forms.ToolStripButton();
+            this.ofd = new System.Windows.Forms.OpenFileDialog();
+            this.status = new System.Windows.Forms.StatusStrip();
+            this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.panel1.SuspendLayout();
             this.tableLayoutMain.SuspendLayout();
             this.panelSampleQuant.SuspendLayout();
@@ -320,6 +320,17 @@
             this.tbLatitude.Size = new System.Drawing.Size(173, 23);
             this.tbLatitude.TabIndex = 0;
             // 
+            // btnCoordsClear
+            // 
+            this.btnCoordsClear.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnCoordsClear.Image = global::lorakon.Properties.Resources.clear_16;
+            this.btnCoordsClear.Location = new System.Drawing.Point(512, 0);
+            this.btnCoordsClear.Name = "btnCoordsClear";
+            this.btnCoordsClear.Size = new System.Drawing.Size(26, 26);
+            this.btnCoordsClear.TabIndex = 3;
+            this.btnCoordsClear.UseVisualStyleBackColor = true;
+            this.btnCoordsClear.Click += new System.EventHandler(this.linkClearCoords_Click);
+            // 
             // lblCommunity
             // 
             this.lblCommunity.AutoSize = true;
@@ -478,6 +489,18 @@
             this.cboxSampleType.TabIndex = 0;
             this.cboxSampleType.SelectedIndexChanged += new System.EventHandler(this.cboxSampleType_SelectedIndexChanged);
             this.cboxSampleType.Leave += new System.EventHandler(this.cboxSampleType_Leave);
+            // 
+            // btnBrowseSampleType
+            // 
+            this.btnBrowseSampleType.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnBrowseSampleType.Image = global::lorakon.Properties.Resources.tree_16;
+            this.btnBrowseSampleType.Location = new System.Drawing.Point(512, 0);
+            this.btnBrowseSampleType.Name = "btnBrowseSampleType";
+            this.btnBrowseSampleType.Size = new System.Drawing.Size(26, 26);
+            this.btnBrowseSampleType.TabIndex = 1;
+            this.btnBrowseSampleType.Text = "...";
+            this.btnBrowseSampleType.UseVisualStyleBackColor = true;
+            this.btnBrowseSampleType.Click += new System.EventHandler(this.btnBrowseSampleType_Click);
             // 
             // panelUnitGeom
             // 
@@ -819,49 +842,6 @@
             this.tools.TabIndex = 0;
             this.tools.Text = "toolStrip1";
             // 
-            // status
-            // 
-            this.status.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.statusLabel});
-            this.status.Location = new System.Drawing.Point(0, 545);
-            this.status.Name = "status";
-            this.status.Size = new System.Drawing.Size(784, 22);
-            this.status.SizingGrip = false;
-            this.status.TabIndex = 2;
-            this.status.Text = "statusStrip1";
-            // 
-            // statusLabel
-            // 
-            this.statusLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.statusLabel.Font = new System.Drawing.Font("Arial", 9F);
-            this.statusLabel.ForeColor = System.Drawing.Color.Red;
-            this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(86, 17);
-            this.statusLabel.Text = "<statusLabel>";
-            // 
-            // btnCoordsClear
-            // 
-            this.btnCoordsClear.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnCoordsClear.Image = global::lorakon.Properties.Resources.clear_16;
-            this.btnCoordsClear.Location = new System.Drawing.Point(512, 0);
-            this.btnCoordsClear.Name = "btnCoordsClear";
-            this.btnCoordsClear.Size = new System.Drawing.Size(26, 26);
-            this.btnCoordsClear.TabIndex = 3;
-            this.btnCoordsClear.UseVisualStyleBackColor = true;
-            this.btnCoordsClear.Click += new System.EventHandler(this.linkClearCoords_Click);
-            // 
-            // btnBrowseSampleType
-            // 
-            this.btnBrowseSampleType.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btnBrowseSampleType.Image = global::lorakon.Properties.Resources.tree_16;
-            this.btnBrowseSampleType.Location = new System.Drawing.Point(512, 0);
-            this.btnBrowseSampleType.Name = "btnBrowseSampleType";
-            this.btnBrowseSampleType.Size = new System.Drawing.Size(26, 26);
-            this.btnBrowseSampleType.TabIndex = 1;
-            this.btnBrowseSampleType.Text = "...";
-            this.btnBrowseSampleType.UseVisualStyleBackColor = true;
-            this.btnBrowseSampleType.Click += new System.EventHandler(this.btnBrowseSampleType_Click);
-            // 
             // btnImport
             // 
             this.btnImport.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
@@ -889,6 +869,26 @@
             this.btnAbout.Size = new System.Drawing.Size(40, 22);
             this.btnAbout.Text = "Om...";
             this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
+            // 
+            // status
+            // 
+            this.status.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusLabel});
+            this.status.Location = new System.Drawing.Point(0, 545);
+            this.status.Name = "status";
+            this.status.Size = new System.Drawing.Size(784, 22);
+            this.status.SizingGrip = false;
+            this.status.TabIndex = 2;
+            this.status.Text = "statusStrip1";
+            // 
+            // statusLabel
+            // 
+            this.statusLabel.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.statusLabel.Font = new System.Drawing.Font("Arial", 9F);
+            this.statusLabel.ForeColor = System.Drawing.Color.Red;
+            this.statusLabel.Name = "statusLabel";
+            this.statusLabel.Size = new System.Drawing.Size(86, 17);
+            this.statusLabel.Text = "<statusLabel>";
             // 
             // FormSampleInput
             // 
