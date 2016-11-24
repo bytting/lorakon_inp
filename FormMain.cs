@@ -94,6 +94,8 @@ namespace lorakon
             tbSSyserr.TextChanged += CustomEvents.Crop8_TextChanged;
             tbSSysterr.TextChanged += CustomEvents.Crop8_TextChanged;
             tbComment.TextChanged += CustomEvents.Crop255_TextChanged;
+            tbLatitude.TextChanged += CustomEvents.Coordinate_TextChanged;
+            tbLongitude.TextChanged += CustomEvents.Coordinate_TextChanged;
 
             // Force format of fields
             tbSQuant.KeyPress += CustomEvents.UnsignedNumeric_KeyPress;
@@ -102,7 +104,7 @@ namespace lorakon
             tbSSyserr.KeyPress += CustomEvents.UnsignedNumeric_KeyPress;
             tbSSysterr.KeyPress += CustomEvents.UnsignedNumeric_KeyPress;
             tbLatitude.KeyPress += CustomEvents.Latitude_KeyPress;
-            tbLongitude.KeyPress += CustomEvents.Longitude_KeyPress;            
+            tbLongitude.KeyPress += CustomEvents.Longitude_KeyPress;
 
             // Set up tooltips
             Tip.ToolTipTitle = "";            
@@ -537,8 +539,8 @@ namespace lorakon
                 foreach (string st in items)
                 {
                     samplePath += "/sampletype[@name='" + st + "']";
-                    XmlNodeList sampleNodes = xmlDoc.SelectNodes(samplePath + "/component");
-                    foreach (XmlNode sNode in sampleNodes)
+                    XmlNodeList componentNodes = xmlDoc.SelectNodes(samplePath + "/component");
+                    foreach (XmlNode sNode in componentNodes)
                         cboxComponent.Items.Insert(1, sNode.Attributes["name"].InnerText);
                 }
             }
@@ -702,26 +704,26 @@ namespace lorakon
             {
                 DateTime dt = new DateTime(dtpSDate.Value.Year, dtpSDate.Value.Month, dtpSDate.Value.Day, dtpSTime.Value.Hour, dtpSTime.Value.Minute, dtpSTime.Value.Second);
 
-                string c = settings.StoredLaboratoryName + Environment.NewLine +
-                    tbScollName.Text.Trim() + Environment.NewLine +
-                    tbSTitle.Text.Trim() + Environment.NewLine +
-                    GetSampleTypeFromLabel(cboxSampleType.Text) + Environment.NewLine +
-                    cboxComponent.Text.Trim() + Environment.NewLine +
-                    tbSIdent.Text.Trim() + Environment.NewLine +
-                    cboxCommunity.Text.Trim() + Environment.NewLine +
-                    lat.ToString("##0.0#####") + Environment.NewLine +
-                    lon.ToString("##0.0#####") + Environment.NewLine +
-                    alt.ToString() + Environment.NewLine +
-                    cboxLocation.Text.Trim() + Environment.NewLine +
-                    tbSLoctn.Text.Trim() + Environment.NewLine +
-                    tbSQuant.Text.Trim() + Environment.NewLine +
-                    tbSQuantErr.Text.Trim() + Environment.NewLine +
-                    cboxSUnits.Text.Trim() + Environment.NewLine +
-                    cboxSGeomtry.Text.Trim() + Environment.NewLine +
-                    dt.ToString("yyyy-MM-dd hh:mm:ss") + Environment.NewLine +                    
-                    (String.IsNullOrEmpty(tbSSyserr.Text.Trim()) ? "0" : tbSSyserr.Text.Trim()) + Environment.NewLine +
-                    (String.IsNullOrEmpty(tbSSysterr.Text.Trim()) ? "0" : tbSSysterr.Text.Trim()) + Environment.NewLine +
-                    tbComment.Text.Trim() + Environment.NewLine + Environment.NewLine;
+                string c = settings.StoredLaboratoryName + NL +
+                    tbScollName.Text.Trim() + NL +
+                    tbSTitle.Text.Trim() + NL +
+                    GetSampleTypeFromLabel(cboxSampleType.Text) + NL +
+                    cboxComponent.Text.Trim() + NL +
+                    tbSIdent.Text.Trim() + NL +
+                    cboxCommunity.Text.Trim() + NL +
+                    lat.ToString("##0.0#####") + NL +
+                    lon.ToString("##0.0#####") + NL +
+                    alt.ToString() + NL +
+                    cboxLocation.Text.Trim() + NL +
+                    tbSLoctn.Text.Trim() + NL +
+                    tbSQuant.Text.Trim() + NL +
+                    tbSQuantErr.Text.Trim() + NL +
+                    cboxSUnits.Text.Trim() + NL +
+                    cboxSGeomtry.Text.Trim() + NL +
+                    dt.ToString("yyyy-MM-dd hh:mm:ss") + NL +
+                    (String.IsNullOrEmpty(tbSSyserr.Text.Trim()) ? "0" : tbSSyserr.Text.Trim()) + NL +
+                    (String.IsNullOrEmpty(tbSSysterr.Text.Trim()) ? "0" : tbSSysterr.Text.Trim()) + NL +
+                    tbComment.Text.Trim() + NL + NL;
 
                 File.WriteAllText(InputFile, c, enc);
                 SaveSettings();

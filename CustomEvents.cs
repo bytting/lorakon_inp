@@ -275,6 +275,15 @@ namespace lorakon
                 e.Handled = true;
         }
 
+        public static void Coordinate_TextChanged(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if(NumSep == ".")
+                tb.Text = tb.Text.Replace(',', '.');
+            else if (NumSep == ",")
+                tb.Text = tb.Text.Replace('.', ',');
+        }        
+
         public static void Crop8_TextChanged(object sender, EventArgs e)
         {
             TextBox tb = (TextBox)sender;
