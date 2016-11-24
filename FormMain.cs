@@ -461,7 +461,7 @@ namespace lorakon
         private string GetSampleTypeFromLabel(string lbl)
         {
             string[] items = lbl.Split(new string[] { " -> " }, StringSplitOptions.RemoveEmptyEntries);
-            if (items.Length > 0)
+            if (items.Length > 1)
                 return items[1];
             else return String.Empty;
         }
@@ -555,25 +555,48 @@ namespace lorakon
             about.ShowDialog();            
         }
 
+        private void TrimFields()
+        {
+            tbLab.Text = tbLab.Text.Trim();
+            tbScollName.Text = tbScollName.Text.Trim();
+            tbSIdent.Text = tbSIdent.Text.Trim();
+            cboxSampleType.Text = cboxSampleType.Text.Trim();
+            cboxComponent.Text = cboxComponent.Text.Trim();
+            cboxSUnits.Text = cboxSUnits.Text.Trim();
+            cboxSGeomtry.Text = cboxSGeomtry.Text.Trim();
+            cboxCommunity.Text = cboxCommunity.Text.Trim();
+            tbLatitude.Text = tbLatitude.Text.Trim();
+            tbLongitude.Text = tbLongitude.Text.Trim();
+            tbAltitude.Text = tbAltitude.Text.Trim();
+            tbSLoctn.Text = tbSLoctn.Text.Trim();
+            tbSQuant.Text = tbSQuant.Text.Trim();
+            tbSQuantErr.Text = tbSQuantErr.Text.Trim();
+            tbSSyserr.Text = tbSSyserr.Text.Trim();
+            tbSSysterr.Text = tbSSysterr.Text.Trim();
+            tbComment.Text = tbComment.Text.Trim();
+        }
+
         private void btnOk_Click(object sender, EventArgs e)
         {
-            DialogResult = DialogResult.Abort;            
+            DialogResult = DialogResult.Abort;
+
+            TrimFields();
 
             // Sanity checks for input fields
-            if(String.IsNullOrEmpty(tbLab.Text.Trim()) 
-                || String.IsNullOrEmpty(tbScollName.Text.Trim())
-                || String.IsNullOrEmpty(tbSIdent.Text.Trim())
-                || String.IsNullOrEmpty(cboxSampleType.Text.Trim())
-                || String.IsNullOrEmpty(cboxSUnits.Text.Trim())
-                || String.IsNullOrEmpty(cboxSGeomtry.Text.Trim())
-                || String.IsNullOrEmpty(tbSQuant.Text.Trim()) 
-                || String.IsNullOrEmpty(tbSQuantErr.Text.Trim()))
+            if(String.IsNullOrEmpty(tbLab.Text) 
+                || String.IsNullOrEmpty(tbScollName.Text)
+                || String.IsNullOrEmpty(tbSIdent.Text)
+                || String.IsNullOrEmpty(cboxSampleType.Text)
+                || String.IsNullOrEmpty(cboxSUnits.Text)
+                || String.IsNullOrEmpty(cboxSGeomtry.Text)
+                || String.IsNullOrEmpty(tbSQuant.Text) 
+                || String.IsNullOrEmpty(tbSQuantErr.Text))
             {
                 statusLabel.Text = "En eller flere påkrevde felter mangler";
                 return;
             }
 
-            if (!String.IsNullOrEmpty(cboxCommunity.Text.Trim()) && !communities.Contains(cboxCommunity.Text))
+            if (!String.IsNullOrEmpty(cboxCommunity.Text) && !communities.Contains(cboxCommunity.Text))
             {
                 statusLabel.Text = "Du må velge en gyldig kommune";
                 return;
@@ -585,7 +608,7 @@ namespace lorakon
                 return;
             }
 
-            if(cboxLocation.Text.Trim() != String.Empty && tbSLoctn.Text.Trim() == String.Empty)
+            if(cboxLocation.Text != String.Empty && tbSLoctn.Text == String.Empty)
             {
                 statusLabel.Text = "Lokasjon info mangler";
                 return;
@@ -597,7 +620,7 @@ namespace lorakon
                 return;
             }
             
-            double sq = Convert.ToDouble(tbSQuant.Text.Trim());
+            double sq = Convert.ToDouble(tbSQuant.Text);
             if (sq <= 0.0)
             {
                 statusLabel.Text = "Prøvemengde må være større enn 0";
@@ -632,16 +655,16 @@ namespace lorakon
             double lat = 0.0, lon = 0.0, alt = 0.0;
             try
             {
-                if (tbLatitude.Text.Trim() != string.Empty)
+                if (tbLatitude.Text != string.Empty)
                 {
-                    lat = GetLatitude(tbLatitude.Text.Trim());
+                    lat = GetLatitude(tbLatitude.Text);
                     if(lat > 90 || lat < -90)                
                         throw new Exception("Breddegrad er utenfor gyldig område");                    
                 }
 
-                if (tbLongitude.Text.Trim() != string.Empty)
+                if (tbLongitude.Text != string.Empty)
                 {
-                    lon = GetLongitude(tbLongitude.Text.Trim());
+                    lon = GetLongitude(tbLongitude.Text);
                     if (lon > 180 || lon < -180)                    
                         throw new Exception("Lengdegrad er utenfor gyldig område");                    
                 }
@@ -654,9 +677,9 @@ namespace lorakon
             
             try
             {
-                if (tbAltitude.Text.Trim() != string.Empty)
+                if (tbAltitude.Text != string.Empty)
                 {
-                    alt = Convert.ToDouble(tbAltitude.Text.Trim());
+                    alt = Convert.ToDouble(tbAltitude.Text);
                     // 10994: Depth of the Challenger Deep
                     // 480000: Thinkness of the atmosphere
                     if (alt < -10994.0 || alt > 480000)                    
@@ -671,9 +694,9 @@ namespace lorakon
 
             try
             {
-                if (tbSSyserr.Text.Trim() != string.Empty)
+                if (tbSSyserr.Text != string.Empty)
                 {
-                    double syserr = Convert.ToDouble(tbSSyserr.Text.Trim());
+                    double syserr = Convert.ToDouble(tbSSyserr.Text);
                     if (syserr < 0.0 || syserr > 100.0)
                     {
                         statusLabel.Text = "Random Error er ugyldig";
@@ -681,9 +704,9 @@ namespace lorakon
                     }
                 }
 
-                if (tbSSysterr.Text.Trim() != string.Empty)
+                if (tbSSysterr.Text != string.Empty)
                 {
-                    double systerr = Convert.ToDouble(tbSSysterr.Text.Trim());
+                    double systerr = Convert.ToDouble(tbSSysterr.Text);
                     if (systerr < 0.0 || systerr > 100.0)
                     {
                         statusLabel.Text = "System Error er ugyldig";
@@ -697,7 +720,7 @@ namespace lorakon
                 return;
             }
 
-            settings.StoredLaboratoryName = tbLab.Text.Trim();
+            settings.StoredLaboratoryName = tbLab.Text;
 
             // Store params to file
             try
@@ -705,25 +728,25 @@ namespace lorakon
                 DateTime dt = new DateTime(dtpSDate.Value.Year, dtpSDate.Value.Month, dtpSDate.Value.Day, dtpSTime.Value.Hour, dtpSTime.Value.Minute, dtpSTime.Value.Second);
 
                 string c = settings.StoredLaboratoryName + NL +
-                    tbScollName.Text.Trim() + NL +
-                    tbSTitle.Text.Trim() + NL +
+                    tbScollName.Text + NL +
+                    tbSTitle.Text + NL +
                     GetSampleTypeFromLabel(cboxSampleType.Text) + NL +
-                    cboxComponent.Text.Trim() + NL +
-                    tbSIdent.Text.Trim() + NL +
-                    cboxCommunity.Text.Trim() + NL +
+                    cboxComponent.Text + NL +
+                    tbSIdent.Text + NL +
+                    cboxCommunity.Text + NL +
                     lat.ToString("##0.0#####") + NL +
                     lon.ToString("##0.0#####") + NL +
                     alt.ToString() + NL +
-                    cboxLocation.Text.Trim() + NL +
-                    tbSLoctn.Text.Trim() + NL +
-                    tbSQuant.Text.Trim() + NL +
-                    tbSQuantErr.Text.Trim() + NL +
-                    cboxSUnits.Text.Trim() + NL +
-                    cboxSGeomtry.Text.Trim() + NL +
+                    cboxLocation.Text + NL +
+                    tbSLoctn.Text + NL +
+                    tbSQuant.Text + NL +
+                    tbSQuantErr.Text + NL +
+                    cboxSUnits.Text + NL +
+                    cboxSGeomtry.Text + NL +
                     dt.ToString("yyyy-MM-dd hh:mm:ss") + NL +
-                    (String.IsNullOrEmpty(tbSSyserr.Text.Trim()) ? "0" : tbSSyserr.Text.Trim()) + NL +
-                    (String.IsNullOrEmpty(tbSSysterr.Text.Trim()) ? "0" : tbSSysterr.Text.Trim()) + NL +
-                    tbComment.Text.Trim() + NL + NL;
+                    (String.IsNullOrEmpty(tbSSyserr.Text) ? "0" : tbSSyserr.Text) + NL +
+                    (String.IsNullOrEmpty(tbSSysterr.Text) ? "0" : tbSSysterr.Text) + NL +
+                    tbComment.Text + NL + NL;
 
                 File.WriteAllText(InputFile, c, enc);
                 SaveSettings();
@@ -901,7 +924,7 @@ namespace lorakon
 
         private void cboxSampleType_Leave(object sender, EventArgs e)
         {               
-            if(!SampleTypeExists(cboxSampleType.Text))            
+            if(!SampleTypeExists(cboxSampleType.Text.Trim()))            
             {
                 cboxSampleType.Focus();                    
                 statusLabel.Text = "Du må velge en gyldig prøvetype";
@@ -911,12 +934,11 @@ namespace lorakon
 
         private void cboxCommunity_Leave(object sender, EventArgs e)
         {            
-            if (!String.IsNullOrEmpty(cboxCommunity.Text))
+            if (!String.IsNullOrEmpty(cboxCommunity.Text.Trim()))
             {
-                if (!communities.Contains(cboxCommunity.Text))
+                if (!communities.Contains(cboxCommunity.Text.Trim()))
                 {
-                    cboxCommunity.Focus();
-                    //cb.Select(cb.Text.Length, 1);
+                    cboxCommunity.Focus();                    
                     statusLabel.Text = "Du må velge en gyldig kommune";
                 }
                 else statusLabel.Text = String.Empty;

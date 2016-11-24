@@ -118,16 +118,16 @@
             this.panel1.Controls.Add(this.btnCancel);
             this.panel1.Controls.Add(this.btnOk);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 513);
+            this.panel1.Location = new System.Drawing.Point(0, 507);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(784, 32);
+            this.panel1.Size = new System.Drawing.Size(884, 32);
             this.panel1.TabIndex = 0;
             // 
             // btnCancel
             // 
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnCancel.Font = new System.Drawing.Font("Tahoma", 9.5F);
-            this.btnCancel.Location = new System.Drawing.Point(543, 0);
+            this.btnCancel.Location = new System.Drawing.Point(643, 0);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(124, 32);
             this.btnCancel.TabIndex = 19;
@@ -139,7 +139,7 @@
             // 
             this.btnOk.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnOk.Font = new System.Drawing.Font("Tahoma", 9.5F);
-            this.btnOk.Location = new System.Drawing.Point(667, 0);
+            this.btnOk.Location = new System.Drawing.Point(767, 0);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(117, 32);
             this.btnOk.TabIndex = 18;
@@ -199,7 +199,7 @@
             this.tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
             this.tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutMain.Size = new System.Drawing.Size(784, 488);
+            this.tableLayoutMain.Size = new System.Drawing.Size(884, 482);
             this.tableLayoutMain.TabIndex = 1;
             // 
             // tbSIdent
@@ -209,7 +209,7 @@
             this.tbSIdent.Location = new System.Drawing.Point(243, 67);
             this.tbSIdent.MaxLength = 16;
             this.tbSIdent.Name = "tbSIdent";
-            this.tbSIdent.Size = new System.Drawing.Size(538, 23);
+            this.tbSIdent.Size = new System.Drawing.Size(638, 23);
             this.tbSIdent.TabIndex = 3;
             // 
             // tbSTitle
@@ -220,7 +220,7 @@
             this.tbSTitle.Location = new System.Drawing.Point(243, 35);
             this.tbSTitle.MaxLength = 64;
             this.tbSTitle.Name = "tbSTitle";
-            this.tbSTitle.Size = new System.Drawing.Size(538, 23);
+            this.tbSTitle.Size = new System.Drawing.Size(638, 23);
             this.tbSTitle.TabIndex = 2;
             // 
             // panelSampleQuant
@@ -230,7 +230,7 @@
             this.panelSampleQuant.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSampleQuant.Location = new System.Drawing.Point(243, 279);
             this.panelSampleQuant.Name = "panelSampleQuant";
-            this.panelSampleQuant.Size = new System.Drawing.Size(538, 26);
+            this.panelSampleQuant.Size = new System.Drawing.Size(638, 26);
             this.panelSampleQuant.TabIndex = 11;
             this.panelSampleQuant.TabStop = true;
             // 
@@ -239,10 +239,10 @@
             this.tbSQuantErr.BackColor = System.Drawing.SystemColors.Window;
             this.tbSQuantErr.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbSQuantErr.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.tbSQuantErr.Location = new System.Drawing.Point(246, 0);
+            this.tbSQuantErr.Location = new System.Drawing.Point(322, 0);
             this.tbSQuantErr.MaxLength = 16;
             this.tbSQuantErr.Name = "tbSQuantErr";
-            this.tbSQuantErr.Size = new System.Drawing.Size(292, 23);
+            this.tbSQuantErr.Size = new System.Drawing.Size(316, 23);
             this.tbSQuantErr.TabIndex = 1;
             // 
             // tbSQuant
@@ -253,7 +253,7 @@
             this.tbSQuant.Location = new System.Drawing.Point(0, 0);
             this.tbSQuant.MaxLength = 16;
             this.tbSQuant.Name = "tbSQuant";
-            this.tbSQuant.Size = new System.Drawing.Size(246, 23);
+            this.tbSQuant.Size = new System.Drawing.Size(322, 23);
             this.tbSQuant.TabIndex = 0;
             // 
             // cboxLocation
@@ -278,7 +278,7 @@
             this.tbSLoctn.Location = new System.Drawing.Point(243, 227);
             this.tbSLoctn.MaxLength = 78;
             this.tbSLoctn.Name = "tbSLoctn";
-            this.tbSLoctn.Size = new System.Drawing.Size(538, 23);
+            this.tbSLoctn.Size = new System.Drawing.Size(638, 23);
             this.tbSLoctn.TabIndex = 10;
             // 
             // panelCoords
@@ -290,25 +290,25 @@
             this.panelCoords.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCoords.Location = new System.Drawing.Point(243, 195);
             this.panelCoords.Name = "panelCoords";
-            this.panelCoords.Size = new System.Drawing.Size(538, 26);
+            this.panelCoords.Size = new System.Drawing.Size(638, 26);
             this.panelCoords.TabIndex = 8;
             // 
             // tbAltitude
             // 
             this.tbAltitude.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbAltitude.Location = new System.Drawing.Point(346, 0);
+            this.tbAltitude.Location = new System.Drawing.Point(434, 0);
             this.tbAltitude.MaxLength = 16;
             this.tbAltitude.Name = "tbAltitude";
-            this.tbAltitude.Size = new System.Drawing.Size(166, 23);
+            this.tbAltitude.Size = new System.Drawing.Size(178, 23);
             this.tbAltitude.TabIndex = 2;
             // 
             // tbLongitude
             // 
             this.tbLongitude.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tbLongitude.Location = new System.Drawing.Point(173, 0);
+            this.tbLongitude.Location = new System.Drawing.Point(206, 0);
             this.tbLongitude.MaxLength = 16;
             this.tbLongitude.Name = "tbLongitude";
-            this.tbLongitude.Size = new System.Drawing.Size(173, 23);
+            this.tbLongitude.Size = new System.Drawing.Size(228, 23);
             this.tbLongitude.TabIndex = 1;
             // 
             // tbLatitude
@@ -317,14 +317,14 @@
             this.tbLatitude.Location = new System.Drawing.Point(0, 0);
             this.tbLatitude.MaxLength = 16;
             this.tbLatitude.Name = "tbLatitude";
-            this.tbLatitude.Size = new System.Drawing.Size(173, 23);
+            this.tbLatitude.Size = new System.Drawing.Size(206, 23);
             this.tbLatitude.TabIndex = 0;
             // 
             // btnCoordsClear
             // 
             this.btnCoordsClear.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnCoordsClear.Image = global::lorakon.Properties.Resources.clear_16;
-            this.btnCoordsClear.Location = new System.Drawing.Point(512, 0);
+            this.btnCoordsClear.Location = new System.Drawing.Point(612, 0);
             this.btnCoordsClear.Name = "btnCoordsClear";
             this.btnCoordsClear.Size = new System.Drawing.Size(26, 26);
             this.btnCoordsClear.TabIndex = 3;
@@ -352,7 +352,7 @@
             this.cboxCommunity.Location = new System.Drawing.Point(243, 163);
             this.cboxCommunity.MaxLength = 255;
             this.cboxCommunity.Name = "cboxCommunity";
-            this.cboxCommunity.Size = new System.Drawing.Size(538, 24);
+            this.cboxCommunity.Size = new System.Drawing.Size(638, 24);
             this.cboxCommunity.Sorted = true;
             this.cboxCommunity.TabIndex = 6;
             this.cboxCommunity.Leave += new System.EventHandler(this.cboxCommunity_Leave);
@@ -364,7 +364,7 @@
             this.panelReferenceDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelReferenceDate.Location = new System.Drawing.Point(243, 343);
             this.panelReferenceDate.Name = "panelReferenceDate";
-            this.panelReferenceDate.Size = new System.Drawing.Size(538, 26);
+            this.panelReferenceDate.Size = new System.Drawing.Size(638, 26);
             this.panelReferenceDate.TabIndex = 14;
             this.panelReferenceDate.TabStop = true;
             // 
@@ -373,10 +373,10 @@
             this.dtpSTime.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpSTime.Font = new System.Drawing.Font("Tahoma", 9.75F);
             this.dtpSTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpSTime.Location = new System.Drawing.Point(246, 0);
+            this.dtpSTime.Location = new System.Drawing.Point(322, 0);
             this.dtpSTime.Name = "dtpSTime";
             this.dtpSTime.ShowUpDown = true;
-            this.dtpSTime.Size = new System.Drawing.Size(292, 23);
+            this.dtpSTime.Size = new System.Drawing.Size(316, 23);
             this.dtpSTime.TabIndex = 1;
             // 
             // dtpSDate
@@ -386,7 +386,7 @@
             this.dtpSDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpSDate.Location = new System.Drawing.Point(0, 0);
             this.dtpSDate.Name = "dtpSDate";
-            this.dtpSDate.Size = new System.Drawing.Size(246, 23);
+            this.dtpSDate.Size = new System.Drawing.Size(322, 23);
             this.dtpSDate.TabIndex = 0;
             // 
             // panelError
@@ -396,7 +396,7 @@
             this.panelError.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelError.Location = new System.Drawing.Point(243, 395);
             this.panelError.Name = "panelError";
-            this.panelError.Size = new System.Drawing.Size(538, 26);
+            this.panelError.Size = new System.Drawing.Size(638, 26);
             this.panelError.TabIndex = 16;
             this.panelError.TabStop = true;
             // 
@@ -404,10 +404,10 @@
             // 
             this.tbSSysterr.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbSSysterr.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.tbSSysterr.Location = new System.Drawing.Point(246, 0);
+            this.tbSSysterr.Location = new System.Drawing.Point(322, 0);
             this.tbSSysterr.MaxLength = 8;
             this.tbSSysterr.Name = "tbSSysterr";
-            this.tbSSysterr.Size = new System.Drawing.Size(292, 23);
+            this.tbSSysterr.Size = new System.Drawing.Size(316, 23);
             this.tbSSysterr.TabIndex = 1;
             // 
             // tbSSyserr
@@ -417,7 +417,7 @@
             this.tbSSyserr.Location = new System.Drawing.Point(0, 0);
             this.tbSSyserr.MaxLength = 8;
             this.tbSSyserr.Name = "tbSSyserr";
-            this.tbSSyserr.Size = new System.Drawing.Size(246, 23);
+            this.tbSSyserr.Size = new System.Drawing.Size(322, 23);
             this.tbSSyserr.TabIndex = 0;
             // 
             // lblSysErrSystErr
@@ -450,7 +450,7 @@
             this.tbComment.Location = new System.Drawing.Point(243, 427);
             this.tbComment.MaxLength = 78;
             this.tbComment.Name = "tbComment";
-            this.tbComment.Size = new System.Drawing.Size(538, 23);
+            this.tbComment.Size = new System.Drawing.Size(638, 23);
             this.tbComment.TabIndex = 17;
             // 
             // lblSampleComponent
@@ -472,7 +472,7 @@
             this.panelSampleType.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSampleType.Location = new System.Drawing.Point(243, 99);
             this.panelSampleType.Name = "panelSampleType";
-            this.panelSampleType.Size = new System.Drawing.Size(538, 26);
+            this.panelSampleType.Size = new System.Drawing.Size(638, 26);
             this.panelSampleType.TabIndex = 4;
             // 
             // cboxSampleType
@@ -484,7 +484,7 @@
             this.cboxSampleType.Location = new System.Drawing.Point(0, 0);
             this.cboxSampleType.MaxLength = 255;
             this.cboxSampleType.Name = "cboxSampleType";
-            this.cboxSampleType.Size = new System.Drawing.Size(512, 24);
+            this.cboxSampleType.Size = new System.Drawing.Size(612, 24);
             this.cboxSampleType.Sorted = true;
             this.cboxSampleType.TabIndex = 0;
             this.cboxSampleType.SelectedIndexChanged += new System.EventHandler(this.cboxSampleType_SelectedIndexChanged);
@@ -494,7 +494,7 @@
             // 
             this.btnBrowseSampleType.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnBrowseSampleType.Image = global::lorakon.Properties.Resources.tree_16;
-            this.btnBrowseSampleType.Location = new System.Drawing.Point(512, 0);
+            this.btnBrowseSampleType.Location = new System.Drawing.Point(612, 0);
             this.btnBrowseSampleType.Name = "btnBrowseSampleType";
             this.btnBrowseSampleType.Size = new System.Drawing.Size(26, 26);
             this.btnBrowseSampleType.TabIndex = 1;
@@ -509,7 +509,7 @@
             this.panelUnitGeom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelUnitGeom.Location = new System.Drawing.Point(243, 311);
             this.panelUnitGeom.Name = "panelUnitGeom";
-            this.panelUnitGeom.Size = new System.Drawing.Size(538, 26);
+            this.panelUnitGeom.Size = new System.Drawing.Size(638, 26);
             this.panelUnitGeom.TabIndex = 12;
             // 
             // cboxSGeomtry
@@ -517,10 +517,10 @@
             this.cboxSGeomtry.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cboxSGeomtry.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxSGeomtry.FormattingEnabled = true;
-            this.cboxSGeomtry.Location = new System.Drawing.Point(246, 0);
+            this.cboxSGeomtry.Location = new System.Drawing.Point(322, 0);
             this.cboxSGeomtry.MaxLength = 16;
             this.cboxSGeomtry.Name = "cboxSGeomtry";
-            this.cboxSGeomtry.Size = new System.Drawing.Size(292, 24);
+            this.cboxSGeomtry.Size = new System.Drawing.Size(316, 24);
             this.cboxSGeomtry.Sorted = true;
             this.cboxSGeomtry.TabIndex = 1;
             // 
@@ -538,7 +538,7 @@
             this.cboxSUnits.Location = new System.Drawing.Point(0, 0);
             this.cboxSUnits.MaxLength = 16;
             this.cboxSUnits.Name = "cboxSUnits";
-            this.cboxSUnits.Size = new System.Drawing.Size(246, 24);
+            this.cboxSUnits.Size = new System.Drawing.Size(322, 24);
             this.cboxSUnits.TabIndex = 0;
             // 
             // panelLab
@@ -548,7 +548,7 @@
             this.panelLab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelLab.Location = new System.Drawing.Point(243, 3);
             this.panelLab.Name = "panelLab";
-            this.panelLab.Size = new System.Drawing.Size(538, 26);
+            this.panelLab.Size = new System.Drawing.Size(638, 26);
             this.panelLab.TabIndex = 0;
             // 
             // tbScollName
@@ -556,10 +556,10 @@
             this.tbScollName.BackColor = System.Drawing.SystemColors.Window;
             this.tbScollName.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbScollName.Font = new System.Drawing.Font("Tahoma", 9.75F);
-            this.tbScollName.Location = new System.Drawing.Point(246, 0);
+            this.tbScollName.Location = new System.Drawing.Point(322, 0);
             this.tbScollName.MaxLength = 24;
             this.tbScollName.Name = "tbScollName";
-            this.tbScollName.Size = new System.Drawing.Size(292, 23);
+            this.tbScollName.Size = new System.Drawing.Size(316, 23);
             this.tbScollName.TabIndex = 1;
             // 
             // tbLab
@@ -569,7 +569,7 @@
             this.tbLab.Location = new System.Drawing.Point(0, 0);
             this.tbLab.MaxLength = 16;
             this.tbLab.Name = "tbLab";
-            this.tbLab.Size = new System.Drawing.Size(246, 22);
+            this.tbLab.Size = new System.Drawing.Size(322, 22);
             this.tbLab.TabIndex = 0;
             // 
             // cboxComponent
@@ -580,7 +580,7 @@
             this.cboxComponent.Location = new System.Drawing.Point(243, 131);
             this.cboxComponent.MaxLength = 255;
             this.cboxComponent.Name = "cboxComponent";
-            this.cboxComponent.Size = new System.Drawing.Size(538, 24);
+            this.cboxComponent.Size = new System.Drawing.Size(638, 24);
             this.cboxComponent.TabIndex = 5;
             // 
             // panel2
@@ -838,7 +838,7 @@
             this.btnAbout});
             this.tools.Location = new System.Drawing.Point(0, 0);
             this.tools.Name = "tools";
-            this.tools.Size = new System.Drawing.Size(784, 25);
+            this.tools.Size = new System.Drawing.Size(884, 25);
             this.tools.TabIndex = 0;
             this.tools.Text = "toolStrip1";
             // 
@@ -874,9 +874,9 @@
             // 
             this.status.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLabel});
-            this.status.Location = new System.Drawing.Point(0, 545);
+            this.status.Location = new System.Drawing.Point(0, 539);
             this.status.Name = "status";
-            this.status.Size = new System.Drawing.Size(784, 22);
+            this.status.Size = new System.Drawing.Size(884, 22);
             this.status.SizingGrip = false;
             this.status.TabIndex = 2;
             this.status.Text = "statusStrip1";
@@ -894,7 +894,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 567);
+            this.ClientSize = new System.Drawing.Size(884, 561);
             this.Controls.Add(this.tableLayoutMain);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tools);
