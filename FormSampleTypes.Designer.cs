@@ -123,7 +123,7 @@
             this.MinimumSize = new System.Drawing.Size(264, 300);
             this.Name = "FormSampleTypes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Velg prøvetype...";
+            this.Text = "LORAKON - Velg prøvetype...";
             this.Load += new System.EventHandler(this.FormSampleTypes_Load);
             this.panel1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);

@@ -90,7 +90,9 @@
             this.tools = new System.Windows.Forms.ToolStrip();
             this.btnImport = new System.Windows.Forms.ToolStripDropDownButton();
             this.btnImportSampReg = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnAbout = new System.Windows.Forms.ToolStripButton();
+            this.btnHelp = new System.Windows.Forms.ToolStripDropDownButton();
+            this.menuItemManual = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.status = new System.Windows.Forms.StatusStrip();
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
@@ -306,7 +308,7 @@
             // 
             this.tbLongitude.Dock = System.Windows.Forms.DockStyle.Left;
             this.tbLongitude.Location = new System.Drawing.Point(206, 0);
-            this.tbLongitude.MaxLength = 16;
+            this.tbLongitude.MaxLength = 32;
             this.tbLongitude.Name = "tbLongitude";
             this.tbLongitude.Size = new System.Drawing.Size(228, 23);
             this.tbLongitude.TabIndex = 1;
@@ -315,7 +317,7 @@
             // 
             this.tbLatitude.Dock = System.Windows.Forms.DockStyle.Left;
             this.tbLatitude.Location = new System.Drawing.Point(0, 0);
-            this.tbLatitude.MaxLength = 16;
+            this.tbLatitude.MaxLength = 32;
             this.tbLatitude.Name = "tbLatitude";
             this.tbLatitude.Size = new System.Drawing.Size(206, 23);
             this.tbLatitude.TabIndex = 0;
@@ -405,7 +407,7 @@
             this.tbSSysterr.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbSSysterr.Font = new System.Drawing.Font("Tahoma", 9.75F);
             this.tbSSysterr.Location = new System.Drawing.Point(322, 0);
-            this.tbSSysterr.MaxLength = 8;
+            this.tbSSysterr.MaxLength = 16;
             this.tbSSysterr.Name = "tbSSysterr";
             this.tbSSysterr.Size = new System.Drawing.Size(316, 23);
             this.tbSSysterr.TabIndex = 1;
@@ -415,7 +417,7 @@
             this.tbSSyserr.Dock = System.Windows.Forms.DockStyle.Left;
             this.tbSSyserr.Font = new System.Drawing.Font("Tahoma", 9.75F);
             this.tbSSyserr.Location = new System.Drawing.Point(0, 0);
-            this.tbSSyserr.MaxLength = 8;
+            this.tbSSyserr.MaxLength = 16;
             this.tbSSyserr.Name = "tbSSyserr";
             this.tbSSyserr.Size = new System.Drawing.Size(322, 23);
             this.tbSSyserr.TabIndex = 0;
@@ -531,10 +533,6 @@
             this.cboxSUnits.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxSUnits.Font = new System.Drawing.Font("Tahoma", 9.75F);
             this.cboxSUnits.FormattingEnabled = true;
-            this.cboxSUnits.Items.AddRange(new object[] {
-            "Kg",
-            "g",
-            "L"});
             this.cboxSUnits.Location = new System.Drawing.Point(0, 0);
             this.cboxSUnits.MaxLength = 16;
             this.cboxSUnits.Name = "cboxSUnits";
@@ -835,7 +833,7 @@
             this.tools.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.tools.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnImport,
-            this.btnAbout});
+            this.btnHelp});
             this.tools.Location = new System.Drawing.Point(0, 0);
             this.tools.Name = "tools";
             this.tools.Size = new System.Drawing.Size(884, 25);
@@ -860,15 +858,32 @@
             this.btnImportSampReg.Size = new System.Drawing.Size(203, 22);
             this.btnImportSampReg.Text = "Sample registration logg";
             // 
-            // btnAbout
+            // btnHelp
             // 
-            this.btnAbout.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btnAbout.Image = ((System.Drawing.Image)(resources.GetObject("btnAbout.Image")));
-            this.btnAbout.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAbout.Name = "btnAbout";
-            this.btnAbout.Size = new System.Drawing.Size(40, 22);
-            this.btnAbout.Text = "Om...";
-            this.btnAbout.Click += new System.EventHandler(this.btnAbout_Click);
+            this.btnHelp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btnHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemManual,
+            this.menuItemAbout});
+            this.btnHelp.Image = ((System.Drawing.Image)(resources.GetObject("btnHelp.Image")));
+            this.btnHelp.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btnHelp.Name = "btnHelp";
+            this.btnHelp.Size = new System.Drawing.Size(48, 22);
+            this.btnHelp.Text = "Hjelp";
+            // 
+            // menuItemManual
+            // 
+            this.menuItemManual.Enabled = false;
+            this.menuItemManual.Name = "menuItemManual";
+            this.menuItemManual.Size = new System.Drawing.Size(152, 22);
+            this.menuItemManual.Text = "Manual";
+            this.menuItemManual.Click += new System.EventHandler(this.menuItemManual_Click);
+            // 
+            // menuItemAbout
+            // 
+            this.menuItemAbout.Name = "menuItemAbout";
+            this.menuItemAbout.Size = new System.Drawing.Size(152, 22);
+            this.menuItemAbout.Text = "Om...";
+            this.menuItemAbout.Click += new System.EventHandler(this.menuItemAbout_Click);
             // 
             // status
             // 
@@ -907,7 +922,7 @@
             this.Name = "FormSampleInput";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Prøveinformasjon";
+            this.Text = "LORAKON - Prøveinformasjon";
             this.Load += new System.EventHandler(this.FormSampleInput_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormSampleInput_Paint);
             this.Resize += new System.EventHandler(this.FormSampleInput_Resize);
@@ -1012,7 +1027,9 @@
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button btnCoordsClear;
-        private System.Windows.Forms.ToolStripButton btnAbout;
+        private System.Windows.Forms.ToolStripDropDownButton btnHelp;
+        private System.Windows.Forms.ToolStripMenuItem menuItemManual;
+        private System.Windows.Forms.ToolStripMenuItem menuItemAbout;
     }
 }
 

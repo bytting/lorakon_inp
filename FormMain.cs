@@ -25,6 +25,7 @@ using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Serialization;
 using System.Globalization;
+using System.Diagnostics;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
@@ -52,6 +53,9 @@ namespace lorakon
         // Filename for sample types
         const string SampleTypeBase = "sample-types.xml";
 
+        // Filename for quantity units
+        const string QuantUnitBase = "quantity-units.txt";
+
         // Filename for geometry types
         const string GeometryTypeBase = "geometry-types.txt";
 
@@ -63,7 +67,7 @@ namespace lorakon
 
         // Paths for configuration files        
         string GeniePath, LorakonPath, SystemPath;
-        string SettingsFile, SampleTypeFile, GeometryTypeFile, InputFile, CommunitiesFile, LocationTypeFile;
+        string SettingsFile, SampleTypeFile, QuantUnitFile, GeometryTypeFile, InputFile, CommunitiesFile, LocationTypeFile;
         
         AutoCompleteStringCollection communities = new AutoCompleteStringCollection();
 
@@ -89,10 +93,10 @@ namespace lorakon
             tbSIdent.TextChanged += CustomEvents.Crop16_TextChanged;            
             tbAltitude.TextChanged += CustomEvents.Crop16_TextChanged;
             tbSLoctn.TextChanged += CustomEvents.Crop255_TextChanged;
-            tbSQuant.TextChanged += CustomEvents.Crop16_TextChanged;
-            tbSQuantErr.TextChanged += CustomEvents.Crop16_TextChanged;            
-            tbSSyserr.TextChanged += CustomEvents.Crop8_TextChanged;
-            tbSSysterr.TextChanged += CustomEvents.Crop8_TextChanged;
+            tbSQuant.TextChanged += CustomEvents.Decimal_TextChanged;
+            tbSQuantErr.TextChanged += CustomEvents.Decimal_TextChanged;
+            tbSSyserr.TextChanged += CustomEvents.Decimal_TextChanged;
+            tbSSysterr.TextChanged += CustomEvents.Decimal_TextChanged;
             tbComment.TextChanged += CustomEvents.Crop255_TextChanged;
             tbLatitude.TextChanged += CustomEvents.Coordinate_TextChanged;
             tbLongitude.TextChanged += CustomEvents.Coordinate_TextChanged;
@@ -162,6 +166,17 @@ namespace lorakon
 
                     LoadSettings();
 
+                    QuantUnitFile = SystemPath + QuantUnitBase;
+                    if (!File.Exists(QuantUnitFile))
+                    {
+                        if (!File.Exists(InstallDir + "template_quantity-units.txt"))
+                        {
+                            MessageBox.Show("Finner ikke filen " + InstallDir + "template_quantity-units.txt");
+                            Close();
+                        }
+                        File.Copy(InstallDir + "template_quantity-units.txt", QuantUnitFile, true);
+                    }
+
                     GeometryTypeFile = SystemPath + GeometryTypeBase;
                     if (!File.Exists(GeometryTypeFile))
                     {
@@ -211,6 +226,10 @@ namespace lorakon
                     communities.AddRange(communitiesList);
                     cboxCommunity.Items.AddRange(communitiesList);
                     cboxCommunity.AutoCompleteCustomSource = communities;
+
+                    // Load quantity units
+                    string[] quantUnits = File.ReadAllLines(QuantUnitFile, enc);
+                    cboxSUnits.Items.AddRange(quantUnits);                    
 
                     // Load geometry types                    
                     string[] geomTypes = File.ReadAllLines(GeometryTypeFile, enc);
@@ -551,8 +570,7 @@ namespace lorakon
         }
 
         private void btnAbout_Click(object sender, EventArgs e)
-        {
-            about.ShowDialog();            
+        {            
         }
 
         private void TrimFields()
@@ -574,6 +592,27 @@ namespace lorakon
             tbSSyserr.Text = tbSSyserr.Text.Trim();
             tbSSysterr.Text = tbSSysterr.Text.Trim();
             tbComment.Text = tbComment.Text.Trim();
+        }
+
+        private void menuItemAbout_Click(object sender, EventArgs e)
+        {
+            about.ShowDialog();
+        }
+
+        private void menuItemManual_Click(object sender, EventArgs e)
+        {
+            string manualFilename = LorakonPath + "manual.pdf";
+            if(!File.Exists(manualFilename))
+            {
+                MessageBox.Show("Finner ikke manualen (" + manualFilename + ")");
+                return;
+            }
+
+            Process process = new Process();
+            ProcessStartInfo startInfo = new ProcessStartInfo();
+            process.StartInfo = startInfo;
+            startInfo.FileName = manualFilename;
+            process.Start();
         }
 
         private void btnOk_Click(object sender, EventArgs e)

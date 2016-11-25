@@ -123,6 +123,9 @@
     <Content Include="template_location-types.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="template_quantity-units.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="template_sample-types.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

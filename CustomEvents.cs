@@ -20,6 +20,7 @@
 using System;
 using System.Windows.Forms;
 using System.Globalization;
+using System.Media;
 
 namespace lorakon
 {        
@@ -31,7 +32,10 @@ namespace lorakon
         {
             // Only allow numbers
             if (!Char.IsNumber(e.KeyChar) && !Char.IsControl(e.KeyChar))
+            {
                 e.Handled = true;
+                SystemSounds.Beep.Play();
+            }
         }
 
         public static bool ValidateUnsignedInteger(string num)
@@ -56,6 +60,7 @@ namespace lorakon
                 if (tb.SelectionStart == 0)
                 {
                     e.Handled = true;
+                    SystemSounds.Beep.Play();
                     return;
                 }
 
@@ -65,13 +70,17 @@ namespace lorakon
                     if (c == sep)
                     {
                         e.Handled = true;
+                        SystemSounds.Beep.Play();
                         return;
                     }
                 }
             }
 
             if (!Char.IsNumber(e.KeyChar) && !Char.IsControl(e.KeyChar) && e.KeyChar != sep)
+            {                
                 e.Handled = true;
+                SystemSounds.Beep.Play();
+            }                
         }
 
         public static bool ValidateUnsignedNumeric(string num)
@@ -106,6 +115,7 @@ namespace lorakon
                 if(tb.SelectionStart == 0)
                 {
                     e.Handled = true;
+                    SystemSounds.Beep.Play();
                     return;
                 }
 
@@ -115,6 +125,7 @@ namespace lorakon
                     if (c == sep)
                     {
                         e.Handled = true;
+                        SystemSounds.Beep.Play();
                         return;
                     }
                 }
@@ -126,6 +137,7 @@ namespace lorakon
                 if (tb.SelectionStart != 0)
                 {
                     e.Handled = true;
+                    SystemSounds.Beep.Play();
                     return;
                 }
 
@@ -135,13 +147,17 @@ namespace lorakon
                     if (c == '-')
                     {
                         e.Handled = true;
+                        SystemSounds.Beep.Play();
                         return;
                     }
                 }
             }
 
             if (!Char.IsNumber(e.KeyChar) && !Char.IsControl(e.KeyChar) && e.KeyChar != sep && e.KeyChar != '-')
+            {
                 e.Handled = true;
+                SystemSounds.Beep.Play();
+            }
         }
 
         public static bool ValidateSignedNumeric(string num)
@@ -181,6 +197,7 @@ namespace lorakon
                 if (tb.SelectionStart == 0)
                 {
                     e.Handled = true;
+                    SystemSounds.Beep.Play();
                     return;
                 }
 
@@ -190,6 +207,7 @@ namespace lorakon
                     if (c == sep)
                     {
                         e.Handled = true;
+                        SystemSounds.Beep.Play();
                         return;
                     }
                 }
@@ -201,6 +219,7 @@ namespace lorakon
                 if (tb.SelectionStart != 0)
                 {
                     e.Handled = true;
+                    SystemSounds.Beep.Play();
                     return;
                 }
 
@@ -210,6 +229,7 @@ namespace lorakon
                     if (c == '-')
                     {
                         e.Handled = true;
+                        SystemSounds.Beep.Play();
                         return;
                     }
                 }
@@ -219,7 +239,10 @@ namespace lorakon
                 && !Char.IsControl(e.KeyChar)
                 && e.KeyChar != sep
                 && "-*°'\" NS".IndexOf(e.KeyChar) == -1)
+            {
                 e.Handled = true;
+                SystemSounds.Beep.Play();
+            }
         }
 
         public static void Longitude_KeyPress(object sender, KeyPressEventArgs e)
@@ -234,6 +257,7 @@ namespace lorakon
                 if (tb.SelectionStart == 0)
                 {
                     e.Handled = true;
+                    SystemSounds.Beep.Play();
                     return;
                 }
 
@@ -243,6 +267,7 @@ namespace lorakon
                     if (c == sep)
                     {
                         e.Handled = true;
+                        SystemSounds.Beep.Play();
                         return;
                     }
                 }
@@ -254,6 +279,7 @@ namespace lorakon
                 if (tb.SelectionStart != 0)
                 {
                     e.Handled = true;
+                    SystemSounds.Beep.Play();
                     return;
                 }
 
@@ -263,6 +289,7 @@ namespace lorakon
                     if (c == '-')
                     {
                         e.Handled = true;
+                        SystemSounds.Beep.Play();
                         return;
                     }
                 }
@@ -272,7 +299,10 @@ namespace lorakon
                 && !Char.IsControl(e.KeyChar)
                 && e.KeyChar != sep
                 && "-*°'\" EW".IndexOf(e.KeyChar) == -1)
+            {
                 e.Handled = true;
+                SystemSounds.Beep.Play();
+            }
         }
 
         public static void Coordinate_TextChanged(object sender, EventArgs e)
@@ -282,13 +312,16 @@ namespace lorakon
                 tb.Text = tb.Text.Replace(',', '.');
             else if (NumSep == ",")
                 tb.Text = tb.Text.Replace('.', ',');
-        }        
+        }
 
-        public static void Crop8_TextChanged(object sender, EventArgs e)
+        public static void Decimal_TextChanged(object sender, EventArgs e)
         {
             TextBox tb = (TextBox)sender;
-            tb.Text = Crop(tb.Text, 8);
-        }
+            if (NumSep == ".")
+                tb.Text = tb.Text.Replace(',', '.');
+            else if (NumSep == ",")
+                tb.Text = tb.Text.Replace('.', ',');
+        }        
 
         public static void Crop16_TextChanged(object sender, EventArgs e)
         {
@@ -301,13 +334,7 @@ namespace lorakon
             TextBox tb = (TextBox)sender;
             tb.Text = Crop(tb.Text, 24);
         }
-
-        public static void Crop32_TextChanged(object sender, EventArgs e)
-        {
-            TextBox tb = (TextBox)sender;
-            tb.Text = Crop(tb.Text, 32);
-        }
-
+        
         public static void Crop64_TextChanged(object sender, EventArgs e)
         {
             TextBox tb = (TextBox)sender;
