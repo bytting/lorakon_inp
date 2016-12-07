@@ -625,9 +625,7 @@ namespace lorakon
             if(String.IsNullOrEmpty(tbLab.Text) 
                 || String.IsNullOrEmpty(tbScollName.Text)
                 || String.IsNullOrEmpty(tbSIdent.Text)
-                || String.IsNullOrEmpty(cboxSampleType.Text)
-                || String.IsNullOrEmpty(cboxSUnits.Text)
-                || String.IsNullOrEmpty(cboxSGeomtry.Text)
+                || String.IsNullOrEmpty(cboxSampleType.Text)                
                 || String.IsNullOrEmpty(tbSQuant.Text) 
                 || String.IsNullOrEmpty(tbSQuantErr.Text))
             {
@@ -657,13 +655,32 @@ namespace lorakon
             {
                 statusLabel.Text = "Ugyldig prøvemengde";
                 return;
-            }
-            
+            }            
+
             double sq = Convert.ToDouble(tbSQuant.Text);
-            if (sq <= 0.0)
+            if (sq < 0.0)
             {
-                statusLabel.Text = "Prøvemengde må være større enn 0";
+                statusLabel.Text = "Prøvemengde kan ikke være negativ";
                 return;
+            }
+
+            bool hasUnits = !String.IsNullOrEmpty(cboxSUnits.Text);
+
+            if (!hasUnits)
+            {
+                if(sq != 0.0)
+                {
+                    statusLabel.Text = "Du må velge enhet, eller sette mengde til 0";
+                    return;
+                }                
+            }
+            else
+            {
+                if (sq == 0.0)
+                {
+                    statusLabel.Text = "Prøvemengde må være større enn 0";
+                    return;
+                }
             }
 
             if (!CustomEvents.ValidateUnsignedNumeric(tbSQuantErr.Text))

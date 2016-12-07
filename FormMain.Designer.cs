@@ -80,7 +80,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.lblQuantityQuantErr = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.label15 = new System.Windows.Forms.Label();
             this.lblQuantityUnitGeometry = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
@@ -730,26 +729,12 @@
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.label15);
             this.panel6.Controls.Add(this.lblQuantityUnitGeometry);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(3, 311);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(234, 26);
             this.panel6.TabIndex = 46;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label15.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(141, 0);
-            this.label15.Name = "label15";
-            this.label15.Padding = new System.Windows.Forms.Padding(0, 3, 0, 0);
-            this.label15.Size = new System.Drawing.Size(15, 22);
-            this.label15.TabIndex = 16;
-            this.label15.Text = "*";
             // 
             // lblQuantityUnitGeometry
             // 
@@ -874,14 +859,14 @@
             // 
             this.menuItemManual.Enabled = false;
             this.menuItemManual.Name = "menuItemManual";
-            this.menuItemManual.Size = new System.Drawing.Size(152, 22);
+            this.menuItemManual.Size = new System.Drawing.Size(114, 22);
             this.menuItemManual.Text = "Manual";
             this.menuItemManual.Click += new System.EventHandler(this.menuItemManual_Click);
             // 
             // menuItemAbout
             // 
             this.menuItemAbout.Name = "menuItemAbout";
-            this.menuItemAbout.Size = new System.Drawing.Size(152, 22);
+            this.menuItemAbout.Size = new System.Drawing.Size(114, 22);
             this.menuItemAbout.Text = "Om...";
             this.menuItemAbout.Click += new System.EventHandler(this.menuItemAbout_Click);
             // 
@@ -1023,7 +1008,6 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button btnCoordsClear;
