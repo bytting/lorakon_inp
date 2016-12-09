@@ -331,9 +331,7 @@ namespace lorakon
                             tbSSysterr.Text = PrepareStringParam(lines[18], typeof(float), tbSSysterr.MaxLength);
                         if (lines.Length > 19)
                             tbComment.Text = PrepareStringParam(lines[19], typeof(String), tbComment.MaxLength);
-                    }                    
-
-                    FormSampleInput_Resize(sender, e);  
+                    }                                        
 
                     try
                     {
@@ -345,38 +343,22 @@ namespace lorakon
                             linkClearCoords_Click(sender, e);
                     }
                     catch { }
-                    
-                    if(String.IsNullOrEmpty(tbLab.Text.Trim()))
-                    {
-                        if(settings.UseStoredLaboratoryName)
-                        {
-                            if (String.IsNullOrEmpty(settings.StoredLaboratoryName))
-                            {
-                                tbLab.Enabled = true;
-                            }
-                            else
-                            {
-                                tbLab.Text = settings.StoredLaboratoryName;
-                                tbLab.Enabled = false;
-                            }
-                        }
-                        else
-                        {
-                            tbLab.Enabled = true;
-                        }                        
-                    }
+
+                    tbLab.Text = settings.StoredLaboratoryName.Trim();
+
+                    if (String.IsNullOrEmpty(tbLab.Text) || !settings.UseStoredLaboratoryName)                    
+                        tbLab.Enabled = true;                    
                     else
-                    {
-                        tbLab.Enabled = false;
-                    }
+                        tbLab.Enabled = false;                    
 
                     tbScollName.Focus();
+                    FormSampleInput_Resize(sender, e);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
-                }
-            }
+                }                
+            }            
         }
 
         string GetGeniePath()
