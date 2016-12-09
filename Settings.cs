@@ -16,6 +16,7 @@ namespace lorakon
         public Settings()
         {
             UseStoredLaboratoryName = true;
+            StoredLaboratoryName = "";
         }
     }
 }
